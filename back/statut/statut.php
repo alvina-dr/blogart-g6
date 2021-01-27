@@ -15,8 +15,9 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 
     // insertion classe STATUT
 require_once __DIR__ . '/../../CLASS_CRUD/statut.class.php';
-    global $db;
-    $monStatut = new STATUT;
+global $db;
+$monStatut = new STATUT;
+
 
 
 
@@ -24,8 +25,8 @@ require_once __DIR__ . '/../../CLASS_CRUD/statut.class.php';
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <title>Gestion du Statut</title>
-    <meta charset="utf-8" />
+	<title>Gestion du Statut</title>
+	<meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
     <meta name="author" content="" />
@@ -40,14 +41,14 @@ require_once __DIR__ . '/../../CLASS_CRUD/statut.class.php';
     </style>
 </head>
 <body>
-    <h1>BLOGART21 Admin - Gestion du CRUD Statut</h1>
+	<h1>BLOGART21 Admin - Gestion du CRUD Statut</h1>
 
-    <hr /><br />
-    <h2>Nouveau statut :&nbsp;<a href="./createStatut.php"><i>Créer un statut</i></a></h2>
-    <br /><hr />
-    <h2>Tous les statuts</h2>
+	<hr /><br />
+	<h2>Nouveau statut :&nbsp;<a href="./createStatut.php"><i>Créer un statut</i></a></h2>
+	<br /><hr />
+	<h2>Tous les statuts</h2>
 
-    <table border="3" bgcolor="aliceblue">
+	<table border="3" bgcolor="aliceblue">
     <thead>
         <tr>
             <th>&nbsp;Numéro&nbsp;</th>
@@ -57,26 +58,25 @@ require_once __DIR__ . '/../../CLASS_CRUD/statut.class.php';
     </thead>
     <tbody>
 <?
-    //Appel
-    $allStatuts = $monStatut->get_AllStatuts();
-    foreach($allStatuts as $row) {
-    // Appel méthode : tous les statuts en BDD
+ $allStatuts = $monStatut->get_AllStatuts();
+ foreach($allStatuts as $row) {
+	// Appel méthode : tous les statuts en BDD
 
     // Boucle pour afficher
-    //foreach($all as $row) {
+	//foreach($all as $row) {
 ?>
         <tr>
-        <td><h4>&nbsp; <?php echo $row["idStat"]; ?> &nbsp;</h4></td>
+		<td><h4>&nbsp; <?= $row["idStat"]; ?> &nbsp;</h4></td>
 
         <td>&nbsp; <?php echo $row["libStat"]; ?> &nbsp;</td>
 
-        <td>&nbsp;<a href="./updateStatut.php?id=<?=$row["idStat"]; ?>"><i>Modifier</i></a>&nbsp;
-        <br /></td>
-        <td>&nbsp;<a href="./deleteStatut.php?id=<?=$row["idStat"]; ?>"><i>Supprimer</i></a>&nbsp;
-        <br /></td>
+		<td>&nbsp;<a href="./updateStatut.php?id=<?=1 ?>"><i>Modifier</i></a>&nbsp;
+		<br /></td>
+		<td>&nbsp;<a href="./deleteStatut.php?id=<?=1 ?>"><i>Supprimer</i></a>&nbsp;
+		<br /></td>
         </tr>
 <?
-    } //End of foreach
+	}	// End of foreach
 ?>
     </tbody>
     </table>

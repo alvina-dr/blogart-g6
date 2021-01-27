@@ -49,10 +49,7 @@ DEFAULT COLLATE utf8_general_ci ;  --
 
 -- Then we add a user to the database
 
-GRANT ALL PRIVILEGES ON `BLOGART21`.* TO 'blogArt21_user'@'%' IDENTIFIED BY 'blogArt21_password';;
-GRANT ALL PRIVILEGES ON `BLOGART21`.* TO 'blogArt21_user'@'LOCALHOST' IDENTIFIED BY 'blogArt21_password';;
-
-
+GRANT ALL PRIVILEGES ON BLOGART21.* TO 'root'@'localhost';
 -- Flush / Init all privileges
 FLUSH PRIVILEGES;
 

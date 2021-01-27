@@ -9,8 +9,12 @@
 
 // Mode DEV
 require_once __DIR__ . '/../../util/utilErrOn.php';
+require_once __DIR__ . '/../../CLASS_CRUD/langue.class.php';
+$monStatutL = new LANGUE;
+
 
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -27,7 +31,26 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 
     <br><br>
 
-    <h2>En construction :-)</h2>
+<?
+ $allStatuts = $monStatutL->get_AllStatuts();
+ foreach($allStatuts as $row) {
+	// Appel méthode : tous les statuts en BDD
+?>
+        <tr>
+		<td><h4>&nbsp; <?= $row["numLang"]; ?> &nbsp;</h4></td>
+
+        <td>&nbsp; <?php echo $row["lib1Lang"]; ?> &nbsp;</td>
+        <td>&nbsp; <?php echo $row["lib2Lang"]; ?> &nbsp;</td>
+        <td>&nbsp; <?php echo $row["frPays"]; ?> &nbsp;</td>
+
+		<td>&nbsp;<a href="./updateStatut.php?id=<?=1 ?>"><i>Modifier</i></a>&nbsp;
+		<br /></td>
+		<td>&nbsp;<a href="./deleteStatut.php?id=<?=1 ?>"><i>Supprimer</i></a>&nbsp;
+		<br /></td>
+        </tr>
+<?
+	}	// End of foreach
+?>
 
     <br><br>
 

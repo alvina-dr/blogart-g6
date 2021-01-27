@@ -1,4 +1,4 @@
-<?
+<?php
 ///////////////////////////////////////////////////////////////
 //
 //  Gestion des CRUD (PDO) - 23 Janvier 2021
@@ -79,7 +79,7 @@ require_once __DIR__ . '/util/utilErrOn.php';
 	<br>
 	<hr>
 	<h3><i>- - Etudiants - -</i></h3>
-<?
+<?php
 require_once __DIR__ . '/footer.php';
 ?>
 </body>

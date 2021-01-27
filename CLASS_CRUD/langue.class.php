@@ -5,22 +5,30 @@
 
 	class LANGUE{
 		function get_1Langue($numLang){
-
+			global $db;
 
 		}
 
 		function get_1LangueByPays($numLang){
-
+			global $db;
 
 		}
 
 		function get_AllLangues(){
-
+			global $db;
+			$query = 'SELECT * FROM LANGUE;';
+			$result = $db->query($query);
+			$allStatuts = $result->fetchAll();
+			return($allStatuts);
 
 		}
 
 		function get_AllLanguesByPays(){
-
+			global $db;
+			$query = 'SELECT * FROM LANGUE INNER JOIN PAYS ON langue.id = pays.id;';
+			$result = $db->query($query);
+			$allStatuts = $result->fetchAll();
+			return($allStatuts);
 
 		}
 

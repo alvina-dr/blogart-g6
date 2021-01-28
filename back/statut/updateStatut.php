@@ -10,26 +10,56 @@
 // Mode DEV
 require_once __DIR__ . '/../../util/utilErrOn.php';
 
+// insertion classe STATUT
 
-    // controle des saisies du formulaire
+require_once __DIR__ . '/../../CLASS_CRUD/statut.class.php';
+global $db;
+$monStatut = new STATUT;
 
+// controle des saisies du formulaire
 
-    // insertion classe STATUT
-
+require_once __DIR__ . '/../../util/ctrlSaisies.php'; 
 
 
 
     // Gestion du $_SERVER["REQUEST_METHOD"] => En POST
     // modification effective du statut
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
+        // Opérateur ternaire
+        $Submit = isset($_POST['Submit']) ? $_POST['Submit'] : '';
 
+        if ((isset($_POST["Submit"])) AND ($_POST["Submit"] === "Initialiser")) {
 
+            $sameId = $_POST['id'];
+            header("Location: ./updateStatut.php?id=".$sameId);
+        }   // End of if ((isset($_POST["submit"])) ...
 
+        if ((isset($_POST['id']) AND $_POST['id'] > 0)
+            AND (!empty($_POST['Submit']) AND ($Submit === "Valider"))) {
 
+            if (((isset($_POST['libStat'])) AND !empty($_POST['libStat']))) {
+
+                // Saisies valides
+                $erreur = false;
+
+                $libStat = ctrlSaisies(($_POST['libStat']));
+                $idStat = ctrlSaisies(($_POST['id']));
+
+                $monStatut->update($idStat, $libStat);
+
+                header("Location: ./statut.php");
+            }   // Fin if ((isset($_POST['legendImg'])) ...
+            else {
+                $erreur = true;
+                $errSaisies =  "Erreur, la saisie est obligatoire !";
+            }   // Fin else Saisies invalides
+       }   // Fin maj
+    }   // Fin if ($_SERVER["REQUEST_METHOD"] === "POST")
 
 
      // Init variables form
-    include __DIR__ . '/initStatut.php';
+include __DIR__ . '/initStatut.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -47,9 +77,17 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
     <h2>Modification d'un statut</h2>
 <?
     // Modif : récup id à modifier
+    if (isset($_GET['id']) and $_GET['id'] > 0) {
 
+        $id = ctrlSaisies(($_GET['id']));
 
+        $query = (array)$monStatut->get_1Statut($id);
 
+        if ($query) {
+            $libStat = $query['libStat'];
+            $idStat = $query['idStat'];
+        }   // Fin if ($query)
+    }   // Fin if (isset($_GET['id'])...)
 ?>
     <form method="post" action="./updateStatut.php" enctype="multipart/form-data">
 

@@ -15,7 +15,11 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 
 
     // insertion classe STATUT
-
+    require_once __DIR__ . '/../../CLASS_CRUD/statut.class.php';
+    global $db;
+    $monStatut = new STATUT;
+    // controle des saisies du formulaire
+    require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
 
     // Ctrl CIR
@@ -71,6 +75,19 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
     <h2>Suppression d'un statut</h2>
 <?
     // Supp : récup id à supprimer
+    if (isset($_GET['id']) and $_GET['id'] > 0) {
+
+        $id = ctrlSaisies(($_GET['id']));
+
+        $query = (array)$monStatut->get_1Statut($id);
+
+        if ($query) {
+            $libStat = $query['libStat'];
+            $idStat = $query['idStat'];
+        }   // Fin if ($query)
+    }   // Fin if (isset($_GET['id'])...)
+
+?>
 
 
 

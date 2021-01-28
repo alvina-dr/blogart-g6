@@ -15,12 +15,16 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 
 
     // insertion classe STATUT
+require_once __DIR__ . '/../../CLASS_CRUD/statut.class.php';
+global $db;
+$monStatut = new STATUT;
 
 
 
 
     // Gestion du $_SERVER["REQUEST_METHOD"] => En POST
     // ajout effectif du statut
+    
 
 
 
@@ -51,7 +55,7 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
       <fieldset>
         <legend class="legend1">Formulaire Statut...</legend>
 
-        <input type="hidden" id="id" name="id" value="<?= $_GET['id']; ?>" />
+        <input type="submit" id="id" name="id" value="<?= $_GET['id']; ?>" /> -->
 
         <div class="control-group">
             <label class="control-label" for="libStat"><b>Nom du statut :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
@@ -64,8 +68,22 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="submit" value="Initialiser" style="cursor:pointer; padding:5px 20px; background-color:lightsteelblue; border:dotted 2px grey; border-radius:5px;" name="Submit" />
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="submit" value="Valider" style="cursor:pointer; padding:5px 20px; background-color:lightsteelblue; border:dotted 2px grey; border-radius:5px;" name="Submit" />
-                <br>
+                <input type="submit" value="Valider" style="cursor:pointer; padding:5px 20px; background-color:lightsteelblue; border:dotted 2px grey; border-radius:5px;" name="Submit" value="on"/>
+                <br> 
+                <script> 
+                var btn = document.querySelector('input');
+
+btn.addEventListener('click', updateBtn);
+
+function updateBtn() {
+  if (btn.value === 'on') {
+
+    <? $exec=$monStatut->create($idStat, $libStat) ?>
+  } else {
+    
+  }
+}
+</script>       
             </div>
         </div>
       </fieldset>

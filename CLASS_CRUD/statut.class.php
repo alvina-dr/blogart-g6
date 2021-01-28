@@ -23,12 +23,15 @@
 		function create($libStat){
 
 			try {
-          $db->beginTransaction();
-
-
-
+				$db = new PDO('mysql:host=localhost;dbname=BLOGART21', 'root', '');
+		  $db->beginTransaction();
+		  $exec= "INSERT INTO STATUT (idStat, libStat) VALUES (:idStat, :libStat)";
+		  $result = $db->prepare($exec);
+		  $result->bindParam(':idStat', $idStat);
+		  $result->bindParam(':libStat', $libStat);
+		  $result->execute();
 					$db->commit();
-					$request->closeCursor();
+					$result->closeCursor();
 			}
 			catch (PDOException $e) {
 					die('Erreur insert STATUT : ' . $e->getMessage());

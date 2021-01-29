@@ -11,8 +11,6 @@
 require_once __DIR__ . '/../../util/utilErrOn.php';
 
 
-    // controle des saisies du formulaire
-
 
     // insertion classe STATUT
     require_once __DIR__ . '/../../CLASS_CRUD/statut.class.php';
@@ -27,12 +25,37 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 
    // Gestion du $_SERVER["REQUEST_METHOD"] => En POST
    // suppression effective du statut
+   if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
+    // Opérateur ternaire
+    $Submit = isset($_POST['Submit']) ? $_POST['Submit'] : '';
 
+    if ((isset($_POST["Submit"])) AND ($_POST["Submit"] === "Annuler")) {
 
+        $sameId = $_POST['id'];
+        header("Location: ./deleteStatut.php?id=".$sameId);
+    }   // End of if ((isset($_POST["submit"])) ...
 
+    if ((isset($_POST['id']) AND $_POST['id'] > 0)
+        AND (!empty($_POST['Submit']) AND ($Submit === "Valider"))) {
 
+        // if (((isset($_POST['libStat'])) AND !empty($_POST['libStat']))) {
 
+        //     // Saisies valides
+            $erreur = false;
+
+            $idStat = ctrlSaisies(($_POST['id']));
+
+            $monStatut->delete($idStat);
+
+        //     header("Location: ./statut.php");
+        // }   // Fin if ((isset($_POST['legendImg'])) ...
+        // else {
+        //     $erreur = true;
+        //     $errSaisies =  "Erreur, la saisie est obligatoire !";
+        // }   // Fin else Saisies invalides
+   }   // Fin maj
+}   // Fin if ($_SERVER["REQUEST_METHOD"] === "POST")
 
     // Init variables form
     include __DIR__ . '/initStatut.php';
@@ -91,12 +114,12 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 
 
 
-?>    <form method="post" action="./deleteStatut.php" enctype="multipart/form-data">
+      <form method="post" action="./deleteStatut.php" enctype="multipart/form-data">
 
       <fieldset>
         <legend class="legend1">Formulaire Statut...</legend>
 
-        <input type="hidden" id="id" name="id" value="<?= $_GET['id']; ?>" />
+        <input type="hidden" id="id" name="id" value="<?= isset($_GET['id']) ? $_GET['id'] : '' ?>" />
 
         <div class="control-group">
             <label class="control-label" for="libStat"><b>Nom du statut :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>

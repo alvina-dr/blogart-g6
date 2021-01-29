@@ -25,6 +25,7 @@
 		function create($libStat){
 
 			try {
+				$db = new PDO ('mysql:host=localhost;dbname=blogart21;charset=utf8mb4','root','');
 		  $db->beginTransaction();
 		  $exec= "INSERT INTO STATUT (idStat, libStat) VALUES (:idStat, :libStat)";
 		  $result = $db->prepare($exec);
@@ -44,14 +45,17 @@
 		function update($idStat, $libStat){
 			global $db;
       try {
-          $db->beginTransaction();
-			$query='UPDATE STATUT SET libStat=? WHERE idStat=?;';
-			$request=$db->prepare($query);
+		  $db->beginTransaction();
+			$query='UPDATE STATUT SET libStat = :libStat WHERE idStat = :idStat;';
+			$request = $db->prepare($query);
+			$request->bindParam(':idStat', $idStat);
+		  $request->bindParam(':libStat', $libStat);
+			$request->execute();
 					$db->commit();
 					$request->closeCursor();
 			}
 			catch (PDOException $erreur) {
-					die('Erreur update STATUT : ' . $e->getMessage());
+					die('Erreur update STATUT : ' . $erreur->getMessage());
 					$db->rollBack();
 					$request->closeCursor();
 			}
@@ -60,16 +64,18 @@
 		function delete($idStat){
 
       try {
+		$db = new PDO ('mysql:host=localhost;dbname=blogart21;charset=utf8mb4','root','');
           $db->beginTransaction();
-
-
-
+		  $query="DELETE FROM STATUT WHERE idStat = :idStat;";
+		  $request = $db->prepare($query);
+		  $request->bindParam(':idStat', $idStat);
+		  $request->execute();
 					$db->commit();
 					$request->closeCursor();
 
 			}
-			catch (PDOException $e) {
-					die('Erreur delete STATUT : ' . $e->getMessage());
+			catch (PDOException $erreur) {
+					die('Erreur delete STATUT : ' . $erreur->getMessage());
 					$db->rollBack();
 					$request->closeCursor();
 			}

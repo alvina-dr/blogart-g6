@@ -10,12 +10,13 @@
 // Mode DEV
 require_once __DIR__ . '/../../util/utilErrOn.php';
 require_once __DIR__ . '/../../CLASS_CRUD/langue.class.php';
+global $db; 
 $monStatutL = new LANGUE;
 
 
 ?>
 
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="fr">
 <head>
     <meta charset="utf-8" />
@@ -29,10 +30,26 @@ $monStatutL = new LANGUE;
 <body>
     <h1>BLOGART21 Admin - Gestion du CRUD Langue</h1>
 
-    <br><br>
+    <hr /><br />
+	<h2>Nouveau statut :&nbsp;<a href="./createStatut.php"><i>Créer un statut</i></a></h2>
+	<br /><hr />
+	<h2>Tous les statuts</h2>
+
+	<table border="3" bgcolor="aliceblue">
+    <thead>
+        <tr>
+        <th>&nbsp;numLang&nbsp;</th>
+            <th>&nbsp;langue&nbsp;</th>
+            <th>&nbsp;Nom complet&nbsp;</th>
+            <th>&nbsp;numPays&nbsp;</th>
+            <th colspan="2">&nbsp;Action&nbsp;</th>
+            
+        </tr>
+    </thead>
+    <tbody>
 
 <?
- $allStatuts = $monStatutL->get_AllStatuts();
+ $allStatuts = $monStatutL->get_AllLangues();
  foreach($allStatuts as $row) {
 	// Appel méthode : tous les statuts en BDD
 ?>
@@ -41,17 +58,18 @@ $monStatutL = new LANGUE;
 
         <td>&nbsp; <?php echo $row["lib1Lang"]; ?> &nbsp;</td>
         <td>&nbsp; <?php echo $row["lib2Lang"]; ?> &nbsp;</td>
-        <td>&nbsp; <?php echo $row["frPays"]; ?> &nbsp;</td>
+        <td>&nbsp; <?php echo $row["numPays"]; ?> &nbsp;</td>
 
-		<td>&nbsp;<a href="./updateStatut.php?id=<?=1 ?>"><i>Modifier</i></a>&nbsp;
+		<td>&nbsp;<a href="./updateStatut.php?id=<?=$row["numLang"]; ?>"><i>Modifier</i></a>&nbsp;
 		<br /></td>
-		<td>&nbsp;<a href="./deleteStatut.php?id=<?=1 ?>"><i>Supprimer</i></a>&nbsp;
+		<td>&nbsp;<a href="./deleteStatut.php?id=<?=$row["numLang"]; ?>"><i>Supprimer</i></a>&nbsp;
 		<br /></td>
         </tr>
 <?
 	}	// End of foreach
 ?>
-
+    </tbody>
+    </table>
     <br><br>
 
 <?

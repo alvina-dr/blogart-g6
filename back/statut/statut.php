@@ -15,7 +15,7 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 
     // insertion classe STATUT
 require_once __DIR__ . '/../../CLASS_CRUD/statut.class.php';
-global $db;
+global $db; 
 $monStatut = new STATUT;
 
 
@@ -70,9 +70,9 @@ $monStatut = new STATUT;
 
         <td>&nbsp; <?php echo $row["libStat"]; ?> &nbsp;</td>
 
-		<td>&nbsp;<a href="./updateStatut.php?id=<?=1 ?>"><i>Modifier</i></a>&nbsp;
+		<td>&nbsp;<a href="./updateStatut.php?id=<?= $row["idStat"]; ?>"><i>Modifier</i></a>&nbsp;
 		<br /></td>
-		<td>&nbsp;<a href="./deleteStatut.php?id=<?=1 ?>"><i>Supprimer</i></a>&nbsp;
+		<td>&nbsp;<a href="./deleteStatut.php?id=<?= $row["idStat"]; ?>"><i>Supprimer</i></a>&nbsp;
 		<br /></td>
         </tr>
 <?

@@ -25,7 +25,7 @@
 
 		function get_AllLanguesByPays(){
 			global $db;
-			$query = 'SELECT * FROM LANGUE INNER JOIN PAYS ON langue.id = pays.id;';
+			$query = 'SELECT * FROM LANGUE INNER JOIN PAYS ON numPays.id = numPays.id;';
 			$result = $db->query($query);
 			$allStatuts = $result->fetchAll();
 			return($allStatuts);

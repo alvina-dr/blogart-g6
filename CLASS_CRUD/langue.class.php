@@ -6,13 +6,21 @@
 	class LANGUE{
 		function get_1Langue($numLang){
 			global $db;
+			$query = 'SELECT * FROM STATUT WHERE numLang = :numLang;';
+			$result->bindParam(':numLang', $numLang);
+			$result = $db->prepare($query);
+			$result->execute([$numLang]);
+			return($result->fetch());
 
 		}
 
 		function get_1LangueByPays($numLang){
-			global $db;
-
-		}
+            global $db;
+            $query = 'SELECT * FROM LANGUE LA INNER JOIN PAYS PA ON LA.numPays = PA.numPays WHERE numLang = ?;';
+            $result = $db->prepare($query);
+            $result->execute([$numLang]);
+            return($result->fetch());
+        }
 
 		function get_AllLangues(){
 			global $db;
@@ -33,17 +41,22 @@
 		}
 
 		function create($numLang, $lib1Lang, $lib2Lang, $numPays){
-
+			global $db;
 			try {
-          $db->beginTransaction();
-
-
-
+		//   $db = new PDO ('mysql:host=localhost;dbname=blogart21;charset=utf8mb4','root','');
+		  $db->beginTransaction();
+		  $exec= "INSERT INTO LANGUE (numLang, lib1Lang, lib2Lang, numPays) VALUES (:numLang, :lib1Lang, :lib2Lang, :numPays)";
+		  $result = $db->prepare($exec);
+		  $result->bindParam(':numLang', $numLang);
+		  $result->bindParam(':lib1Lang', $lib1Lang);
+		  $result->bindParam(':lib2Lang', $lib2Lang);
+		  $result->bindParam(':numPays', $numPays);
+		  $result->execute();
 					$db->commit();
-					$request->closeCursor();
+					$result->closeCursor();
 			}
-			catch (PDOException $e) {
-					die('Erreur insert LANGUE : ' . $e->getMessage());
+			catch (PDOException $erreur) {
+					die('Erreur insert LANGUE : ' . $erreur->getMessage());
 					$db->rollBack();
 					$request->closeCursor();
 			}

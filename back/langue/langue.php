@@ -31,9 +31,9 @@ $monStatutL = new LANGUE;
     <h1>BLOGART21 Admin - Gestion du CRUD Langue</h1>
 
     <hr /><br />
-	<h2>Nouveau statut :&nbsp;<a href="./createStatut.php"><i>Créer un statut</i></a></h2>
+	<h2>Nouvelle Langue :&nbsp;<a href="./createLangue.php"><i>Créer une Langue</i></a></h2>
 	<br /><hr />
-	<h2>Tous les statuts</h2>
+	<h2>Toute les Langues</h2>
 
 	<table border="3" bgcolor="aliceblue">
     <thead>

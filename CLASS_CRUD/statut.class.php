@@ -6,7 +6,8 @@
 	class STATUT{
 		function get_1Statut($idStat){
 			global $db;
-			$query = 'SELECT * FROM STATUT WHERE idStat = ?;';
+			$query = 'SELECT * FROM STATUT WHERE idStat = :idStat;';
+			$result->bindParam(':idStat', $idStat);
 			$result = $db->prepare($query);
 			$result->execute([$idStat]);
 			return($result->fetch());

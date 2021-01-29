@@ -10,3 +10,7 @@
     $lib1Lang = "";
     // libellé long
     $lib2Lang = "";
+    //NumPays
+    $numPays = "";
+
+

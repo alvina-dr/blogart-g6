@@ -23,12 +23,47 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <h1>BLOGART21 Admin - Gestion du CRUD Angle</h1>
+<body>
+    <h1>BLOGART21 Admin - Gestion du CRUD ANGLE</h1>
 
-    <br><br>
+    <hr /><br />
+	<h2>Nouvelle ANGLE :&nbsp;<a href="./createAngle.php"><i>Créer un angle</i></a></h2>
+	<br /><hr />
+	<h2>Tout les ANGLES</h2>
 
-    <h2>En construction :-)</h2>
+	<table border="3" bgcolor="aliceblue">
+    <thead>
+        <tr>
+        <th>&nbsp;numAngl&nbsp;</th>
+            <th>&nbsp;libAngl&nbsp;</th>
+            <th>&nbsp;numLang&nbsp;</th>
+            <th colspan="2">&nbsp;Action&nbsp;</th>
+            
+        </tr>
+    </thead>
+    <tbody>
 
+<?
+ $allStatuts = $monStatutA->get_AllAngle();
+ foreach($allStatuts as $row) {
+	// Appel méthode : tous les statuts en BDD
+?>
+        <tr>
+		<td><h4>&nbsp; <?= $row["numAngl"]; ?> &nbsp;</h4></td>
+
+        <td>&nbsp; <?php echo $row["libAngl"]; ?> &nbsp;</td>
+        <td>&nbsp; <?php echo $row["libLang"]; ?> &nbsp;</td>
+
+		<td>&nbsp;<a href="./updateAngle.php?id=<?=$row["numAngl"]; ?>"><i>Modifier</i></a>&nbsp;
+		<br /></td>
+		<td>&nbsp;<a href="./deleteAngle.php?id=<?=$row["numAngl"]; ?>"><i>Supprimer</i></a>&nbsp;
+		<br /></td>
+        </tr>
+<?
+	}	// End of foreach
+?>
+    </tbody>
+    </table>
     <br><br>
 
 <?

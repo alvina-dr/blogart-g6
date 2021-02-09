@@ -38,7 +38,7 @@ require_once __DIR__ . '/util/utilErrOn.php';
 	<br /><hr />
 	<div>
 	Gestion du CRUD :
-	<a href="./BACK/angle/angle.php">Angle </a>
+	<a href="./BACK/angle/angle.php">Angle (*)</a>
 	<br /><br />
 	Gestion du CRUD :
 	<a href="./BACK/article/article.php">Article </a>

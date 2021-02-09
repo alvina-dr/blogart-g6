@@ -60,9 +60,9 @@ $monStatutL = new LANGUE;
         <td>&nbsp; <?php echo $row["lib2Lang"]; ?> &nbsp;</td>
         <td>&nbsp; <?php echo $row["numPays"]; ?> &nbsp;</td>
 
-		<td>&nbsp;<a href="./updateStatut.php?id=<?=$row["numLang"]; ?>"><i>Modifier</i></a>&nbsp;
+		<td>&nbsp;<a href="./updateLangue.php?id=<?=$row["numLang"]; ?>"><i>Modifier</i></a>&nbsp;
 		<br /></td>
-		<td>&nbsp;<a href="./deleteStatut.php?id=<?=$row["numLang"]; ?>"><i>Supprimer</i></a>&nbsp;
+		<td>&nbsp;<a href="./deleteLangue.php?id=<?=$row["numLang"]; ?>"><i>Supprimer</i></a>&nbsp;
 		<br /></td>
         </tr>
 <?

@@ -50,7 +50,7 @@
 			$query='UPDATE STATUT SET libStat = :libStat WHERE idStat = :idStat;';
 			$request = $db->prepare($query);
 			$request->bindParam(':idStat', $idStat);
-		  $request->bindParam(':libStat', $libStat);
+		    $request->bindParam(':libStat', $libStat);
 			$request->execute();
 					$db->commit();
 					$request->closeCursor();

@@ -124,8 +124,7 @@ require_once __DIR__ . '/../../CLASS_CRUD/getNextNumLang.php';
 <fieldset>
   <legend class="legend1">Formulaire Langue...</legend>
   <br>
-  <input type="hidden" id="id" name="id" value="<?= $_GET['id']; ?>" />
-
+  <input type="hidden" id="id" name="id" value="<?= isset($_GET['id']) ? $_GET['id'] : '' ?>" />
   <div class="control-group">
       <label class="control-label" for="lib1Lang"><b>Langue (Exemple : Allemand) :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
       <input type="text" name="lib1Lang" id="lib1lang" size="80" maxlength="30" value="<?= $lib1Lang; ?>" autofocus="autofocus" />

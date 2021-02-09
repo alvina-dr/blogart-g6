@@ -95,9 +95,6 @@ class LANGUE
 			$query = "DELETE FROM LANGUE WHERE numLang = :numLang;";
 			$request = $db->prepare($query);
 			$request->bindParam(':numLang', $numLang);
-			$request->bindParam(':lib1Lang', $lib1Lang);
-			$request->bindParam(':lib2Lang', $lib2Lang);
-			$request->bindParam(':numPays', $numPays);
 			$request->execute();
 			$db->commit();
 			$request->closeCursor();

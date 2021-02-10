@@ -96,7 +96,7 @@ include __DIR__ . '/initAngle.php';
     }   // Fin if (isset($_GET['id'])...)
 ?>
 
-    <form method="post" action="./createAngle.php" enctype="multipart/form-data">
+    <form method="post" action="./updateAngle.php" enctype="multipart/form-data">
 
       <fieldset>
         <legend class="legend1">Formulaire Angle...</legend>

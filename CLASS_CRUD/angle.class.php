@@ -84,22 +84,22 @@ class ANGLE
 		}
 	}
 
-// 	// Ctrl FK sur THEMATIQUE, ANGLE, MOTCLE avec del
-// 	function delete($numLang)
-// 	{
-// 		global $db;
-// 		try {
-// 			$db->beginTransaction();
-// 			$query = "DELETE FROM LANGUE WHERE numLang = :numLang;";
-// 			$request = $db->prepare($query);
-// 			$request->bindParam(':numLang', $numLang);
-// 			$request->execute();
-// 			$db->commit();
-// 			$request->closeCursor();
-// 		} catch (PDOException $erreur) {
-// 			die('Erreur delete LANGUE : ' . $erreur->getMessage());
-// 			$db->rollBack();
-// 			$request->closeCursor();
-// 		}
-// 	}
+// Ctrl FK sur THEMATIQUE, ANGLE, MOTCLE avec del
+ 	function delete($numAngle)
+ 	{
+ 		global $db;
+ 		try {
+ 			$db->beginTransaction();
+ 			$query = "DELETE FROM ANGLE WHERE numAngl = :numAngl;";
+ 			$request = $db->prepare($query);
+ 			$request->bindParam(':numAngl', $numAngl);
+ 			$request->execute();
+ 			$db->commit();
+ 			$request->closeCursor();
+ 		} catch (PDOException $erreur) {
+ 			die('Erreur delete ANGLE : ' . $erreur->getMessage());
+ 			$db->rollBack();
+ 			$request->closeCursor();
+ 		}
+ 	}
 }	// End of class

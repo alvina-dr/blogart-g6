@@ -68,7 +68,7 @@ class ANGLE
 		global $db;
 		try {
 			$db->beginTransaction();
-			$exec = "UPDATE ANGLE SET libAngl=:libAngl, numLang=:numLang WHERE :numAngl= ?;";
+			$exec = "UPDATE ANGLE SET libAngl=:libAngl, numLang=:numLang WHERE :numAngl= numAngl;";
             $result = $db->prepare($exec);
             $result->bindParam(':numAngl', $numAngl);
 			$result->bindParam(':libAngl', $libAngl);

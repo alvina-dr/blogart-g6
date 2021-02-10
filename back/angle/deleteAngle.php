@@ -119,6 +119,7 @@ require_once __DIR__ . '/../../CLASS_CRUD/getNextNumAngl.php';
 <fieldset>
   <legend class="legend1">Formulaire Angle...</legend>
   <br>
+  <input type="hidden" id="id" name="id" value="<?= isset($_GET['id']) ? $_GET['id'] : '' ?>" />
   <div class="control-group">
       <label class="control-label" for="libAngl"><b>Angle (Exemple : Insolite) :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
       <input type="text" name="libAngl" id="libAngl" size="80" maxlength="30" value="<?= $libAngl; ?>" autofocus="autofocus" />

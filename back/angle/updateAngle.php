@@ -52,7 +52,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
                 $monAngle->update($numAngl, $libAngl, $numLang);
 
 
-                header("Location: ./langue.php");
+                header("Location: ./angle.php");
             }   // Fin if ((isset($_POST['legendImg'])) ...
             else {
                 $erreur = true;

@@ -85,7 +85,7 @@ class ANGLE
 	}
 
 // Ctrl FK sur THEMATIQUE, ANGLE, MOTCLE avec del
- 	function delete($numAngle)
+ 	function delete($numAngl)
  	{
  		global $db;
  		try {

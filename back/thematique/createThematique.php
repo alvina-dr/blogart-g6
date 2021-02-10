@@ -11,12 +11,12 @@
 require_once __DIR__ . '/../../util/utilErrOn.php';
 
 // Récup dernière PK NumLang
-require_once __DIR__ . '/../../CLASS_CRUD/getNextNumAngl.php';
+require_once __DIR__ . '/../../CLASS_CRUD/getNextNumThem.php';
 
     // insertion classe STATUT
-require_once __DIR__ . '/../../CLASS_CRUD/angle.class.php';
+require_once __DIR__ . '/../../CLASS_CRUD/thematique.class.php';
 global $db;
-$monAngle = new ANGLE;
+$maThematique = new THEMATIQUE;
 // controle des saisies du formulaire
 require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
@@ -30,26 +30,26 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
       if ((isset($_POST["Submit"])) AND ($_POST["Submit"] === "Initialiser")) {
 
-          header("Location: ./createAngle.php");
+          header("Location: ./createThematique.php");
       }   // End of if ((isset($_POST["submit"])) ...
 
       
-      if (((isset($_POST['libAngl'])) AND !empty($_POST['libAngl']))
+      if (((isset($_POST['libThem'])) AND !empty($_POST['libThem']))
             AND ((isset($_POST['numLang'])) AND !empty($_POST['numLang']))
             AND (!empty($_POST['Submit']) AND ($Submit === "Valider"))) {
 
             // Saisies valides
             $erreur = false;
                 
-            $numAngl = 0;
-            $libAngl = ctrlSaisies(($_POST['libAngl']));
+            $numThem = 0;
+            $libThem = ctrlSaisies(($_POST['libThem']));
             $numLang = ctrlSaisies(($_POST['numLang']));
             
 
             // Récup dernière PK numLang
-            $numNextAngl = getNextNumAngl($numLang);
+            $numNextThem = getNextNumThem($numThem);
 
-            $monAngle->create($numNextAngl, $libAngl, $numLang);
+            $maThematique->create($numNextThem, $libThem, $numLang);
 
             //header("Location: ./langue.php");
 
@@ -62,13 +62,13 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
   }   // Fin if ($_SERVER["REQUEST_METHOD"] == "POST")
 
     // Init variables form
-    include __DIR__ . '/initAngle.php';
+    include __DIR__ . '/initThematique.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="utf-8" />
-    <title>Admin - Gestion du CRUD Angle</title>
+    <title>Admin - Gestion du CRUD thematique</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
     <meta name="author" content="" />
@@ -76,17 +76,17 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <h1>BLOGART21 Admin - Gestion du CRUD Angle</h1>
-    <h2>Ajout d'un angle </h2>
+    <h1>BLOGART21 Admin - Gestion du CRUD thematique</h1>
+    <h2>Ajout d'une Thematique</h2>
 
-    <form method="post" action="./createAngle.php" enctype="multipart/form-data">
+    <form method="post" action="./createThematique.php" enctype="multipart/form-data">
 
       <fieldset>
-        <legend class="legend1">Formulaire Angle...</legend>
+        <legend class="legend1">Formulaire Thematique...</legend>
         <br>
         <div class="control-group">
-            <label class="control-label" for="libAngl"><b>Angle (Exemple : Insolite) :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="text" name="libAngl" id="libAngl" size="80" maxlength="30" value="<?= $libAngl; ?>" autofocus="autofocus" />
+            <label class="control-label" for="libThem"><b>Thématique (Exemple : Enquète) :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+            <input type="text" name="libThem" id="libThem" size="80" maxlength="30" value="<?= $libThem; ?>" autofocus="autofocus" />
         </div>
         <br>
         <div class="control-group">
@@ -108,7 +108,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
       </fieldset>
     </form>
 <?
-require_once __DIR__ . '/footerAngle.php';
+require_once __DIR__ . '/footerThematique.php';
 
 require_once __DIR__ . '/footer.php';
 ?>

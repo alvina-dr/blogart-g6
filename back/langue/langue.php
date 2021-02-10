@@ -12,8 +12,6 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 require_once __DIR__ . '/../../CLASS_CRUD/langue.class.php';
 global $db; 
 $monStatutL = new LANGUE;
-
-
 ?>
 
 <!DOCTYPE html> 

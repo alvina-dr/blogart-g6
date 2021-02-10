@@ -9,7 +9,9 @@
 
 // Mode DEV
 require_once __DIR__ . '/../../util/utilErrOn.php';
-
+require_once __DIR__ . '/../../CLASS_CRUD/angle.class.php';
+global $db; 
+$monStatutA = new ANGLE;
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -52,7 +54,7 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 		<td><h4>&nbsp; <?= $row["numAngl"]; ?> &nbsp;</h4></td>
 
         <td>&nbsp; <?php echo $row["libAngl"]; ?> &nbsp;</td>
-        <td>&nbsp; <?php echo $row["libLang"]; ?> &nbsp;</td>
+        <td>&nbsp; <?php echo $row["numLang"]; ?> &nbsp;</td>
 
 		<td>&nbsp;<a href="./updateAngle.php?id=<?=$row["numAngl"]; ?>"><i>Modifier</i></a>&nbsp;
 		<br /></td>

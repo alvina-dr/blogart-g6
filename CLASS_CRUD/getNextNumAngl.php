@@ -9,16 +9,7 @@
 ///////////////////////////////////////////////////////////////
 
 // Mode DEV
-require_once __DIR__ . '/util/utilErrOn.php';
-
-    function get_AllAngle()
-    {
-        global $db;
-        $query = 'SELECT * FROM ANGLE;';
-        $result = $db->query($query);
-        $allStatuts = $result->fetchAll();
-        return ($allStatuts);
-    }
+require_once __DIR__ . '../../util/utilErrOn.php';
 
     function getNextNumAngl($numLang) {
 

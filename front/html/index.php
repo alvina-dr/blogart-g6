@@ -50,16 +50,17 @@
     </div>
     <img class="center btnplus" src="../assets/icons/btnplus.png">
     <div class="acgameboy">
-        <img src="../assets/icons/graduated.svg">
+        <img src="../assets/icons/graduateed_1.png">
         <div>
             <img src="../assets/images/insolite.png">
             <div class="h22">
                 <h2>Les écoles d'e-sport,<br>un miroir de riséd ?</h2>
                 <img class="soulignage2" src="../assets/icons/soulignage.svg">
             </div>
+            <img class="btnplus" src="../assets/icons/btnplus.png">
         </div>
     </div>
-    <img class="btnplus" src="../assets/icons/btnplus.png">
-    
+    <img class="mouse newsletter" src="../assets/icons/newsletter.png">
+
     </body>
 </html>

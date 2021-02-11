@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #0D1019;
+    margin: 0 4%;
+}
+
+h1{
+    font-family: "Gotham ultra";
+    color: #F5F5F5;
+    text-align: center;
+    font-size: 600%;
+}
+
+h2{
+    font-family: "Gotham rounded book";
+    color: #F5F5F5;
+    font-size: 270%;
+}
+
+p{
+    font-family: "Bell MT";
+    color: #F5F5F5;
+    font-size: 130%;
+    line-height: 130%;
+}
+
+
+/*le css de la page insolite*/
+
+.gamer{
+    height: 60vh;
+}
+
+.insolite{
+    width: 50vw;
+}
+
+.soulignage{
+    width: 22vw;
+}
+
+.soulignage2{
+    width: 29vw;
+}
+
+.soulignage3{
+    width: 34vw;
+}
+
+.h22{
+    margin: 3.5% 0;
+}
+
+.graduation{
+    height: 80vh;
+    background-image: url(..//images/graduation.png);
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.money{
+    height: 30vh;
+}
+
+.twitch{
+    width: 45vw;
+    height: 45vh;
+    object-fit: cover;
+    object-position: 0 75%;
+}
+
+.right{
+    text-align: right;
+
+}
+
+.flex{
+    display: flex;
+}
+
+.container{
+    /*display: inline-block;*/
+    position: relative;
+}
+
+.container .text{
+   /*background: rgba(0, 0, 0, 0.8);*/
+    z-index: 1;
+    position: absolute;
+    text-align: right;
+    /*margin: 0 auto;*/
+    left: 35%;
+    right: 0;
+    top: 0;
+    /*width: 70%;*/
+    
+}
+
+.container .text2{
+    /*background: rgba(0, 0, 0, 0.8);*/
+     z-index: 1;
+     position: absolute;
+     text-align: left;
+     /*margin: 0 auto;*/
+     left: 0;
+     right: 30%;
+     top: -10%;
+     /*width: 70%;*/
+     
+ }

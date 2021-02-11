@@ -4,22 +4,22 @@
     <HEAD>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" type="image/ico" href="/icons/logo.ico"/>
+        <link rel="icon" type="image/ico" href="../assets/icons/logo.ico"/>
         <title>B.Game | L'insolite !</title>
 
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <!--linker stylesheet-->
-        <link rel="stylesheet" type="text/css" href="/insolite.css">
-        <link rel="stylesheet" type="text/css" href="/font.css">
+        <link rel="stylesheet" type="text/css" href="../css/font.css">
+        <link rel="stylesheet" type="text/css" href="../css/insolite.css">
     </HEAD>
 
     <body>
         <div>
             <div class="h22 right container">
-                <img class="gamer" src="/images/gamer.png" alt=""Photo de gamer>
+                <img class="gamer" src="../assets/images/gamer.png" alt=""Photo de gamer>
                 <div class="text2">
-                    <img class="insolite" src="/images/insolite.png" alt=""Insolite !>
+                    <img class="insolite" src="../assets/images/insolite.png" alt=""Insolite !>
                     <p>
                         <br>
                         <br>
@@ -36,7 +36,7 @@
         </div>
         <div class="h22">
         <h2>Master ou Mastère ?</h2>
-        <img class="soulignage" src="icons/soulignage.svg">
+        <img class="soulignage" src="../assets/icons/soulignage.svg">
         </div>
         <p>
             On voit l’émergence d’écoles supérieures privées moyennant un financement contre un diplôme promettant une carrière dans l’e-sport. Par exemple l’EGS (Education Gaming School), située à Bordeaux.
@@ -56,10 +56,10 @@
         </p>
         <div class="h22 right">
             <h2>L'argent ne fait pas le skill</h2>
-            <img class="soulignage2" src="/icons/soulignage_r.svg">
+            <img class="soulignage2" src="../assets/icons/soulignage_r.svg">
         </div>
         <div class="flex">
-            <img class="money" src="/icons/money.svg">
+            <img class="money" src="../assets/icons/money.svg">
             <p class="right">
                 Comme dit ci-dessus, les formations équivalentes sont nombreuses et bien plus accessibles financièrement. Ce n’est pas le cas de l’EGS.<br>
                 <br>
@@ -75,10 +75,10 @@
         </p>
         <div>
             <h2>Les débouchés sont bouchées</h2>
-             <img class="soulignage3" src="/icons/soulignage.svg"> 
+             <img class="soulignage3" src="../assets/icons/soulignage.svg"> 
         </div>
         <div class="container h22">
-            <img class="twitch" src="/images/twitch.png">
+            <img class="twitch" src="../assets/images/twitch.png">
             <div class="text">
                 <p>
                     Qu’en est-il des débouchés alors ?<br>

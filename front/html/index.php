@@ -67,8 +67,8 @@
         </div>
     </div>
     <img class="mouse newsletter" src="../assets/icons/newsletter.png">
-    <a><img class="h22" src="../assets/icons/inscription_nl.png"></a><br>
-    <a><img class="h22" src="../assets/icons/connexion_nl.png"></a>
+    <a href="#pageinscription"><img class="h22" src="../assets/icons/inscription_nl.png"></a><br>
+    <a href="#pageconnexion"><img class="h22" src="../assets/icons/connexion_nl.png"></a>
 
     </body>
 </html>

@@ -42,14 +42,13 @@ class MOTCLE
 		return ($allStatuts);
 	}
 
-	function create($numMotCle, $libMotCle, $numLang)
+	function create($libMotCle, $numLang)
 	{
 		global $db;
 		try {
 			$db->beginTransaction();
-			$exec = "INSERT INTO MOTCLE (numMotCle, libMotCle, numLang) VALUES (:numMotCle, :libMotCle, :numLang)";
+			$exec = "INSERT INTO MOTCLE (libMotCle, numLang) VALUES (:libMotCle, :numLang)";
 			$result = $db->prepare($exec);
-			$result->bindParam(':numMotCle', $numMotCle);
 			$result->bindParam(':libMotCle', $libMotCle);
 			$result->bindParam(':numLang', $numLang);
 			$result->execute();

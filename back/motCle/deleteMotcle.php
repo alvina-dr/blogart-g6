@@ -38,7 +38,7 @@ require_once __DIR__ . '/../../CLASS_CRUD/getNextNumMoCle.php';
     }   // End of if ((isset($_POST["submit"])) ...
 
     if (((isset($_POST['libMotCle'])) AND !empty($_POST['libMotCle']))
-            AND ((isset($_POST['numLang'])) AND !empty($_POST['numLang']))
+            AND ((isset($_POST['TypLang'])) AND !empty($_POST['TypLang']))
             AND (!empty($_POST['Submit']) AND ($Submit === "Valider"))) {
 
         // if (((isset($_POST['libStat'])) AND !empty($_POST['libStat']))) {
@@ -116,33 +116,60 @@ require_once __DIR__ . '/../../CLASS_CRUD/getNextNumMoCle.php';
 ?>
  <form method="post" action="./deleteMotcle.php" enctype="multipart/form-data">
 
-<fieldset>
-  <legend class="legend1">Formulaire Mot clé...</legend>
-  <br>
-  <input type="hidden" id="id" name="id" value="<?= isset($_GET['id']) ? $_GET['id'] : '' ?>" />
-  <div class="control-group">
-      <label class="control-label" for="libMotCle"><b>Mot clé (Exemple : Parapluie) :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-      <input type="text" name="libMotCle" id="libMotCle" size="80" maxlength="30" value="<?= $libMotCle; ?>" autofocus="autofocus" />
-  </div>
-  <br>
-  <div class="control-group">
-      <label class="control-label" for="numLang"><b>Langue (Exemple : FRAN01) :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-      <input type="text" name="numLang" id="numLang" size="80" maxlength="30" value="<?= $numLang; ?>" autofocus="autofocus" />
-  </div>
-  <br>
+ <fieldset>
+        <legend class="legend1">Formulaire Mot clé...</legend>
+        <br>
+        <input type="hidden" id="id" name="id" value="<?= isset($_GET['id']) ? $_GET['id'] : '' ?>" />
+        <div class="control-group">
+            <label class="control-label" for="libMotCle"><b>Mot clé (Exemple : Parapluie) :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+            <input type="text" name="libMotCle" id="libMotCle" size="80" maxlength="30" value="<?= $libMotCle; ?>" autofocus="autofocus" />
+        </div>
+        <br>
+    <!-- FK : Langue -->
+    <!-- Listbox langue -->
+    <br>
+        <div class="control-group">
+            <label class="control-label" for="LibTypLang"><b>Quelle langue :&nbsp;&nbsp;&nbsp;</b></label>
+                <input type="hidden" id="idTypLang" name="idTypLang" value="<?= isset($_GET['numLang']) ? $_GET['numLang'] : '' ?>" />
 
-  <div class="control-group">
-      <div class="controls">
-          <br><br>
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <input type="submit" value="Initialiser" style="cursor:pointer; padding:5px 20px; background-color:lightsteelblue; border:dotted 2px grey; border-radius:5px;" name="Submit" />
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <input type="submit" value="Valider" style="cursor:pointer; padding:5px 20px; background-color:lightsteelblue; border:dotted 2px grey; border-radius:5px;" name="Submit" value="on"/>
-          <br>       
-      </div>
-  </div>
-</fieldset>
-</form>
+                <select size="1" name="TypLang" id="TypLang" required class="form-control form-control-create" title="Sélectionnez la langue !" >
+                   <option value="-1">- - - Choisissez une langue - - -</option>
+<?
+            $numLang = "";
+            $lib1Lang = "";
+
+            $queryText = 'SELECT * FROM LANGUE ORDER BY lib1Lang;';
+            $result = $db->query($queryText);
+            if ($result) {
+                while ($tuple = $result->fetch()) {
+                    $ListNumLang = $tuple["numLang"];
+                    $ListLibLang = $tuple["lib1Lang"];
+?>
+                    <option value="<?= $ListNumLang; ?>" >
+                        <?= $ListLibLang; ?>
+                    </option>
+<?
+                } // End of while
+            }   // if ($result)
+?>
+                </select>
+        </div>
+    <!-- FIN Listbox langue -->
+        </div>
+        <br>
+
+        <div class="control-group">
+            <div class="controls">
+                <br><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="submit" value="Initialiser" style="cursor:pointer; padding:5px 20px; background-color:lightsteelblue; border:dotted 2px grey; border-radius:5px;" name="Submit" />
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="submit" value="Valider" style="cursor:pointer; padding:5px 20px; background-color:lightsteelblue; border:dotted 2px grey; border-radius:5px;" name="Submit" value="on"/>
+                <br>       
+            </div>
+        </div>
+      </fieldset>
+    </form>
 <?
 require_once __DIR__ . '/footerMotCle.php';
 

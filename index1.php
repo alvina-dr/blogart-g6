@@ -38,7 +38,7 @@ require_once __DIR__ . '/util/utilErrOn.php';
 	<br /><hr />
 	<div>
 	Gestion du CRUD :
-	<a href="./BACK/angle/angle.php">Angle (*)</a>
+	<a href="./BACK/angle/angle.php"><span>Angle (*)</span></a>
 	<br /><br />
 	Gestion du CRUD :
 	<a href="./BACK/article/article.php">Article </a>
@@ -62,7 +62,7 @@ require_once __DIR__ . '/util/utilErrOn.php';
 	<a href="./BACK/membre/membre.php">Membre </a>
 	<br /><br />
 	Gestion du CRUD :
-	<a href="./BACK/motcle/motcle.php">Mot-clé </a>
+	<a href="./BACK/motcle/motcle.php"><span>Mot-clé (*)</span></a>
 	<br /><br />
 	Gestion du CRUD :
 	<a href="./BACK/motclearticle/motclearticle.php">Mot-clé Article </a>
@@ -71,7 +71,7 @@ require_once __DIR__ . '/util/utilErrOn.php';
 	<a href="./BACK/statut/statut.php"><span>Statut (*)</span></a>
 	<br /><br />
 	Gestion du CRUD :
-	<a href="./BACK/thematique/thematique.php">Thématique </a>
+	<a href="./BACK/thematique/thematique.php">Thématique (*)</a>
 	<br /><br />
 	Gestion du CRUD :
 	<a href="./BACK/user/user.php">User </a>

@@ -14,7 +14,7 @@
 
 <body>
 	<header>
-		<div class="navbar">
+		<div id="navbar">
 			<a class="logo_link" href="./index.php"><img class="logo" src="../assets/icons/logo bg.svg"></a>
 			<ul class="menu_list">
 				<li><a href="index.html">Actu</a></li>
@@ -27,6 +27,6 @@
 			</ul>
 		</div>
 	</header>
+	<script src="../js/header.js"></script> 
 </body>
-
 </html>

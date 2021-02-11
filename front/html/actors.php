@@ -12,8 +12,9 @@
 </head>
 
 <body>
-    <header>
-    </header>
+    <?php
+        require_once __DIR__ . '/header.php';
+    ?>
     <div style="position:absolute;z-index:1;margin-left: 2%;margin-right: 2%;" class="marge">
         <img class="img_acteur" src="../assets/images/acteur.png">
         <div class="marge1">

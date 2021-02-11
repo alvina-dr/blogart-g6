@@ -38,17 +38,17 @@
         <p class="p_actu">
             Un festival de jeux-vidéo à Bordeaux, ça existe. Le Bordeaux Geek Festival ouvrira ses portes pour la septième année consécutive en mai prochain, avec son lot de nouveautés, de divertissement, et de compétitions. Alors que vous soyez néophytes ou habitués du BGF, on vous emmène faire le tour de ce pilier du gaming Bordelais.
         </p>
-        <img class="btnplus" src="../assets/icons/btnplus.png">
+        <a href="#pagehacktu"><img class="btnplus" src="../assets/icons/btnplus.png"></a>
     </div>
     <img class="h22 acteurclef" src="../assets/icons/acteurcleff.png">
-    <h2>3 dimensions du jeu vidéo à Bordeaux</h2>
-    <img class="soulignage1" src="../assets/icons/soulignage.svg">
     <div class="p_landing h22">
         <div>
-            <p class="p_actu">
+            <h2>3 dimensions du jeu vidéo à Bordeaux</h2>
+            <img class="soulignage1" src="../assets/icons/soulignage.svg">
+            <p class="h22 p_actu">
                 La culture du jeu vidéo évolue de manière exponentielle dans le monde entier. Qu’en est-il du jeu vidéo à Bordeaux ? Cette ville est un des principaux acteurs français dans ce domaine regroupant plusieurs entreprises tel que Glitchr, Asobo et Ubisoft. Découvrons les de plus près...
             </p>
-            <img class="btnplus" src="../assets/icons/btnplus.png">
+            <a href="#pageacteurclef"><img class="btnplus" src="../assets/icons/btnplus.png">
         </div>
         <img class="btnplus" src="../assets/icons/immeuble.png">
     </div>
@@ -60,9 +60,12 @@
                 <h2>Les écoles d'e-sport,<br>un miroir de riséd ?</h2>
                 <img class="soulignage2" src="../assets/icons/soulignage.svg">
             </div>
-            <img class="btnplus" src="../assets/icons/btnplus.png">
+            <a href="#pageinsolite"><img class="btnplus" src="../assets/icons/btnplus.png"></a>
         </div>
     </div>
     <img class="mouse newsletter" src="../assets/icons/newsletter.png">
+    <a><img class="h22" src="../assets/icons/inscription_nl.png"></a><br>
+    <a><img class="h22" src="../assets/icons/connexion_nl.png"></a>
+
     </body>
 </html>

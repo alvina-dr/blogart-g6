@@ -19,7 +19,7 @@
 			<ul class="menu_list">
 				<li><a href="index.html">Actu</a></li>
 				<li><a href="./html/dut mmi.html">Acteurs clés</a></li>
-				<li><a href="./html/presentation.html">Insolite</a></li>
+				<li><a href="./insolite.php">Insolite</a></li>
 			</ul>
 			<ul class="log">
 				<li><a href="index.html">Inscription</a></li>

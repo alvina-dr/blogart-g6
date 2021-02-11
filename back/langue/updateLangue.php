@@ -116,7 +116,38 @@ include __DIR__ . '/initLangue.php';
         <br>
         <div class="control-group">
             <label class="control-label" for="numPays"><b>Raccourci Pays (Exemple : ALLE pour l'Allemagne) :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="text" name="numPays" id="numPays" size="10" maxlength="4" value="<?= $numPays; ?>" autofocus="autofocus" />
+            <?
+$arrayPays = array(
+ 
+    'ALLEMAGNE' => 'ALLE',
+    'ANGLETERRE' => 'ANGL',
+    'BULGARIE' => 'BULG',
+    'ESPAGNE' => 'ESPA',
+    'FRANCE' => 'FRAN',
+    'ITALIE' => 'ITAL',
+    'RUSSIE' => 'RUSS',
+    'UKRAINE' => 'UKRA'
+  );
+  // Variable qui ajoutera l'attribut selected de la liste déroulante
+  $selected = '';
+ 
+  // Parcours du tableau
+  echo '<select name="numPays" id="numPays">',"n";
+  foreach($arrayPays as $valeur => $numPays)
+  {
+    // Test du pays
+    if($numPays === 'rouge')
+    {
+      $selected = ' selected="selected"';
+    }
+    // Affichage de la ligne
+    echo "\t",'<option value="', $valeur ,'"', $selected ,'>', $numPays ,'</option>',"\n";
+    // Remise à zéro de $selected
+    $selected='';
+  }
+  echo '</select>',"\n";
+?>
+</input>
         </div>
 
         <div class="control-group">

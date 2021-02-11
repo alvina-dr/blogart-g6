@@ -16,6 +16,9 @@
     </HEAD>
 
     <body>
+    <?php
+        require_once __DIR__ . '/header.php';
+    ?>
         <div>
             <div class="h22 right container">
                 <img class="gamer" src="../assets/images/gamer.png" alt=""Photo de gamer>

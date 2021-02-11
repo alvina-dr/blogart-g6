@@ -4,14 +4,14 @@
 //  Méthodes fournies - 23 Janvier 2021
 //  Récupérer la prochaine PK de la table MOTCLE
 //
-//  Script : getNextNumMoCle.php   -   BLOGART21
+//  Script : getNextNumMotCle.php   -   BLOGART21
 //
 ///////////////////////////////////////////////////////////////
 
 // Mode DEV
-require_once __DIR__ . '/util/utilErrOn.php';
+require_once __DIR__ . '../../util/utilErrOn.php';
 
-    function getNextNumMoCle($numLang) {
+    function getNextNumMotCle($numLang) {
 
       global $db;
 
@@ -27,28 +27,28 @@ require_once __DIR__ . '/util/utilErrOn.php';
           $numLang = $tuple["numLang"];
           if (is_null($numLang)) {    // New lang dans MOTCLE
               // Récup dernière PK utilisée
-              $requete = "SELECT MAX(numMoCle) AS numMoCle FROM MOTCLE;";
+              $requete = "SELECT MAX(numMotCle) AS numMotCle FROM MOTCLE;";
               $result = $db->query($requete);
               $tuple = $result->fetch();
-              $numMoCle = $tuple["numMoCle"];
+              $numMotCle = $tuple["numMotCle"];
 
-              $numMoCleSelect = (int)substr($numMoCle, 4, 2);
+              $numMotCleSelect = (int)substr($numMotCle, 4, 2);
               // No séquence suivant LANGUE
-              $numSeq1MoCle = $numMoCleSelect + 1;
+              $numSeq1MoCle = $numMotCleSelect + 1;
               // Init no séquence MOTCLE pour nouvelle lang
               $numSeq2MoCle = 1;
           }
           else {
               // Récup dernière PK pour FK sélectionnée
-              $requete = "SELECT MAX(numMoCle) AS numMoCle FROM MOTCLE WHERE numLang LIKE '$parmNumLang' ;";
+              $requete = "SELECT MAX(numMotCle) AS numMotCle FROM MOTCLE WHERE numLang LIKE '$parmNumLang' ;";
               $result = $db->query($requete);
               $tuple = $result->fetch();
-              $numMoCle = $tuple["numMoCle"];
+              $numMotCle = $tuple["numMotCle"];
 
               // No séquence actuel LANGUE
-              $numSeq1MoCle = (int)substr($numMoCle, 4, 2);
+              $numSeq1MoCle = (int)substr($numMotCle, 4, 2);
               // No séquence actuel MOTCLE
-              $numSeq2MoCle = (int)substr($numMoCle, 6, 2);
+              $numSeq2MoCle = (int)substr($numMotCle, 6, 2);
               // No séquence suivant MOTCLE
               $numSeq2MoCle++;
           }
@@ -56,18 +56,18 @@ require_once __DIR__ . '/util/utilErrOn.php';
           $libMoCleSelect = "MTCL";
           // PK reconstituée : MTCL + no seq langue
           if ($numSeq1MoCle < 10) {
-              $numMoCle = $libMoCleSelect . "0" . $numSeq1MoCle;
+              $numMotCle = $libMoCleSelect . "0" . $numSeq1MoCle;
           }
           else {
-              $numMoCle = $libMoCleSelect . $numSeq1MoCle;
+              $numMotCle = $libMoCleSelect . $numSeq1MoCle;
           }
           // PK reconstituée : MOCL + no seq langue + no seq mot clé
           if ($numSeq2MoCle < 10) {
-              $numMoCle = $numMoCle . "0" . $numSeq2MoCle;
+              $numMotCle = $numMotCle . "0" . $numSeq2MoCle;
           }
           else {
-              $numMoCle = $numMoCle . $numSeq2MoCle;
+              $numMotCle = $numMotCle . $numSeq2MoCle;
           }
       }   // End of if ($result) / no seq LANGUE
-      return $numMoCle;
+      return $numMotCle;
     } // End of function

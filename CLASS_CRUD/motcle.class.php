@@ -42,62 +42,60 @@ class MOTCLE
 		return ($allStatuts);
 	}
 
-	function create($numAngl, $libAngl, $numLang)
+	function create($libMotCle, $numLang)
 	{
 		global $db;
 		try {
-			//   $db = new PDO ('mysql:host=localhost;dbname=blogart21;charset=utf8mb4','root','');
 			$db->beginTransaction();
-			$exec = "INSERT INTO ANGLE (numAngl, libAngl, numLang) VALUES (:numAngl, :libAngl, :numLang)";
+			$exec = "INSERT INTO MOTCLE (libMotCle, numLang) VALUES (:libMotCle, :numLang)";
 			$result = $db->prepare($exec);
-			$result->bindParam(':numAngl', $numAngl);
-			$result->bindParam(':libAngl', $libAngl);
+			$result->bindParam(':libMotCle', $libMotCle);
 			$result->bindParam(':numLang', $numLang);
 			$result->execute();
 			$db->commit();
 			$result->closeCursor();
 		} catch (PDOException $erreur) {
-			die('Erreur insert ANGLE : ' . $erreur->getMessage());
+			die('Erreur insert MOTCLE : ' . $erreur->getMessage());
 			$db->rollBack();
 			$result->closeCursor();
 		}
 	}
 
-	function update(string $numAngl, string $libAngl, string $numLang)
+	function update(string $numMotCle, string $libMotCle, string $numLang)
 	{
 		global $db;
 		try {
 			$db->beginTransaction();
-			$exec = "UPDATE ANGLE SET libAngl=:libAngl, numLang=:numLang WHERE :numAngl= numAngl;";
+			$exec = "UPDATE MOTCLE SET libMotCle=:libMotCle, numLang=:numLang WHERE :numMotCle= numMotCle;";
             $result = $db->prepare($exec);
-            $result->bindParam(':numAngl', $numAngl);
-			$result->bindParam(':libAngl', $libAngl);
+            $result->bindParam(':numMotCle', $numMotCle);
+			$result->bindParam(':libMotCle', $libMotCle);
 			$result->bindParam(':numLang', $numLang);
 			$result->execute();
 			$db->commit();
 			$result->closeCursor();
 		} catch (PDOException $erreur) {
 			die($erreur);
-			die('Erreur update ANGLE : ' . $erreur->getMessage());
+			die('Erreur update MOTCLE : ' . $erreur->getMessage());
 			$db->rollBack();
 			$result->closeCursor();
 		}
 	}
 
 // Ctrl FK sur THEMATIQUE, ANGLE, MOTCLE avec del
- 	function delete($numAngl)
+ 	function delete($numMotCle)
  	{
  		global $db;
  		try {
  			$db->beginTransaction();
- 			$query = "DELETE FROM ANGLE WHERE numAngl = :numAngl;";
+ 			$query = "DELETE FROM MOTCLE WHERE numMotCle = :numMotCle;";
  			$request = $db->prepare($query);
- 			$request->bindParam(':numAngl', $numAngl);
+ 			$request->bindParam(':numMotCle', $numMotCle);
  			$request->execute();
  			$db->commit();
  			$request->closeCursor();
  		} catch (PDOException $erreur) {
- 			die('Erreur delete ANGLE : ' . $erreur->getMessage());
+ 			die('Erreur delete MOTCLE : ' . $erreur->getMessage());
  			$db->rollBack();
  			$request->closeCursor();
  		}

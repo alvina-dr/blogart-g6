@@ -8,21 +8,23 @@ body {
 	/* Essai :
 	background-color: grey; ou transparent; ou mintcream; ou floralwhite; ou ghostwhite; 
 	ou snow; ou whitesmoke; ou silver; ou aliceblue; ou gainsboro; ou lightgrey; ou oldlace; */
-	background-color: lightgrey;
-	color: steelblue;
+	background-color: lightcyan;
+	color: lightyellow;
 	padding-top: 60px;
 	padding-bottom: 40px;
 }
 
 fieldset {
-	background-color: #FDF5E6;	/* color: oldlace */
+	display: flex;
+	justify-content: center;
+	background-color: lightcyan;	/* color: oldlace */
 	max-width: 600px;			/* largeur maximale cadre */
 	padding: 16px;				/* marge interne / sépare le contenu de la bordure	*/	
 	/* Coins arrondis et couleur du cadre */
-	border: 2px solid grey;
-	-moz-border-radius: 8px;
-	-webkit-border-radius: 8px;
-	border-radius: 8px;
+	border: 2px solid black;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
 }
 
 .legend1 {

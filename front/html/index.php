@@ -18,6 +18,9 @@
     </HEAD>
 
     <body>
+        <?php
+        require_once __DIR__ . '/header.php';
+        ?>
     <div class="title2">
         <div class="title">
             <h1>B.GAME</h1>

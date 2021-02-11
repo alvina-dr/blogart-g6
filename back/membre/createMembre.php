@@ -88,6 +88,14 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
         <legend class="legend1">Formulaire Membre...</legend>
         <br>
         <div class="control-group">
+            <label class="control-label" for="prenomMemb"><b>Prénom (*):&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+            <input type="text" name="prenomMemb" id="prenomMemb" size="70" maxlength="70" value="<?= $prenomMemb; ?>" autofocus="autofocus" />
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="nomMemb"><b>Nom (*):&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+            <input type="text" name="nomMemb" id="nomMemb" size="70" maxlength="70" value="<?= $nomMemb; ?>" autofocus="autofocus" />
+        </div>
+        <div class="control-group">
             <label class="control-label" for="pseudoMemb"><b>Pseudo (*):&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
             <input type="text" name="pseudoMemb" id="pseudoMemb" size="70" maxlength="70" value="<?= $pseudoMemb; ?>" autofocus="autofocus" />
         </div>
@@ -113,13 +121,13 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
         </div>
         <br>
         <div class="control-group">
-            <label class="control-label" for="libAngl"><b>Angle (Exemple : Insolite) :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="text" name="libAngl" id="libAngl" size="80" maxlength="30" value="<?= $libAngl; ?>" autofocus="autofocus" />
+            <label class="control-label" for="souvenirMemb"><b>Se souvenir de moi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+            <input type="checkbox" name="souvenirMemb" id="souvenirMemb" size="80" maxlength="30" value="<?= $souvenirMemb; ?>" autofocus="autofocus" />
         </div>
         <br>
         <div class="control-group">
-            <label class="control-label" for="libAngl"><b>Angle (Exemple : Insolite) :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="text" name="libAngl" id="libAngl" size="80" maxlength="30" value="<?= $libAngl; ?>" autofocus="autofocus" />
+            <label class="control-label" for="accordMemb"><b>Accepter les CGU&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+            <input type="checkbox" name="accordMemb" id="accordMemb" size="80" maxlength="30" value="<?= $accordMemb; ?>" autofocus="autofocus" />
         </div>
         <br>
 

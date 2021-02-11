@@ -15,7 +15,7 @@
 <body>
 	<header>
 		<div class="navbar">
-			<img class="logo" src="../assets/icons/logo bg.svg">
+			<a class="logo_link" href="./index.php"><img class="logo" src="../assets/icons/logo bg.svg"></a>
 			<ul class="menu_list">
 				<li><a href="index.html">Actu</a></li>
 				<li><a href="./html/dut mmi.html">Acteurs clés</a></li>

@@ -40,7 +40,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
         if (((isset($_POST['lib1Lang'])) AND !empty($_POST['lib1Lang']))
         AND ((isset($_POST['lib2Lang'])) AND !empty($_POST['lib2Lang']))
-        AND ((isset($_POST['numPays'])) AND !empty($_POST['numPays']))
+        AND ((isset($_POST['TypPays'])) AND !empty($_POST['TypPays']))
         AND (!empty($_POST['id']) AND !empty($_POST['id']))) {
 
                 // Saisies valides
@@ -49,7 +49,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
                 $numLang = ctrlSaisies(($_POST['id']));;
                 $lib1Lang = ctrlSaisies(($_POST['lib1Lang']));
                 $lib2Lang = ctrlSaisies(($_POST['lib2Lang']));
-                $numPays = ctrlSaisies($_POST["numPays"]);
+                $numPays = ctrlSaisies($_POST["TypPays"]);
 
                 $maLangue->update($numLang, $lib1Lang, $lib2Lang, $numPays);
 
@@ -93,7 +93,7 @@ include __DIR__ . '/initLangue.php';
             $lib1Lang = $query['lib1Lang'];
             $lib2Lang = $query['lib2Lang'];
             $numLang = $query['numLang'];
-            $numPays = $query['numPays'];
+            $numPays = $query['TypPays'];
         }   // Fin if ($query)
     }   // Fin if (isset($_GET['id'])...)
 ?>
@@ -114,41 +114,36 @@ include __DIR__ . '/initLangue.php';
             <input type="text" name="lib2Lang" id="lib2Lang" size="80" maxlength="30" value="<?= $lib2Lang; ?>" autofocus="autofocus" />
         </div>
         <br>
+        <!-- FK : Langue -->
+    <!-- Listbox langue -->
+    <br>
         <div class="control-group">
-            <label class="control-label" for="numPays"><b>Raccourci Pays (Exemple : ALLE pour l'Allemagne) :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <?
-$arrayPays = array(
- 
-    'ALLEMAGNE' => 'ALLE',
-    'ANGLETERRE' => 'ANGL',
-    'BULGARIE' => 'BULG',
-    'ESPAGNE' => 'ESPA',
-    'FRANCE' => 'FRAN',
-    'ITALIE' => 'ITAL',
-    'RUSSIE' => 'RUSS',
-    'UKRAINE' => 'UKRA'
-  );
-  // Variable qui ajoutera l'attribut selected de la liste déroulante
-  $selected = '';
- 
-  // Parcours du tableau
-  echo '<select name="numPays" id="numPays">',"n";
-  foreach($arrayPays as $valeur => $numPays)
-  {
-    // Test du pays
-    if($numPays === 'rouge')
-    {
-      $selected = ' selected="selected"';
-    }
-    // Affichage de la ligne
-    echo "\t",'<option value="', $valeur ,'"', $selected ,'>', $numPays ,'</option>',"\n";
-    // Remise à zéro de $selected
-    $selected='';
-  }
-  echo '</select>',"\n";
+            <label class="control-label" for="LibTypPays"><b>Quelle pays :&nbsp;&nbsp;&nbsp;</b></label>
+                <input type="hidden" id="idTypPays" name="idTypPays" value="<?= isset($_GET['numPays']) ? $_GET['numPays'] : '' ?>" />
+
+                <select size="1" name="TypPays" id="TypPays" required class="form-control form-control-create" title="Sélectionnez le Pays !" >
+                   <option value="-1">- - - Choisissez un Pays - - -</option>
+<?
+            $numPays = "";
+            $lib1Lang = "";
+
+            $queryText = 'SELECT * FROM PAYS ORDER BY frPays;';
+            $result = $db->query($queryText);
+            if ($result) {
+                while ($tuple = $result->fetch()) {
+                    $ListNumPays = $tuple["numPays"];
+                    $ListfrPays = $tuple["frPays"];
 ?>
-</input>
+                    <option value="<?= $ListNumPays; ?>" >
+                        <?= $ListfrPays; ?>
+                    </option>
+<?
+                } // End of while
+            }   // if ($result)
+?>
+                </select>
         </div>
+    <!-- FIN Listbox langue -->
 
         <div class="control-group">
             <div class="controls">

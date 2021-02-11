@@ -39,7 +39,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
             AND (!empty($_POST['Submit']) AND ($Submit === "Valider"))) {
 
         if (((isset($_POST['libAngl'])) AND !empty($_POST['libAngl']))
-        AND ((isset($_POST['numLang'])) AND !empty($_POST['numLang']))
+        AND ((isset($_POST['TypLang'])) AND !empty($_POST['TypLang']))
         AND (!empty($_POST['id']) AND !empty($_POST['id']))) {
 
                 // Saisies valides
@@ -47,7 +47,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
                 $numAngl = ctrlSaisies(($_POST['id']));;
                 $libAngl = ctrlSaisies(($_POST['libAngl']));
-                $numLang = ctrlSaisies(($_POST['numLang']));
+                $numLang = ctrlSaisies(($_POST['TypLang']));
 
                 $monAngle->update($numAngl, $libAngl, $numLang);
 
@@ -91,7 +91,7 @@ include __DIR__ . '/initAngle.php';
         if ($query) {
             $numAngl = $query['numAngl'];
             $libAngl = $query['libAngl'];
-            $numLang = $query['numLang'];
+            $numLang = $query['TypLang'];
         }   // Fin if ($query)
     }   // Fin if (isset($_GET['id'])...)
 ?>
@@ -107,10 +107,36 @@ include __DIR__ . '/initAngle.php';
             <input type="text" name="libAngl" id="libAngl" size="80" maxlength="30" value="<?= $libAngl; ?>" autofocus="autofocus" />
         </div>
         <br>
+        <!-- FK : Langue -->
+    <!-- Listbox langue -->
+    <br>
         <div class="control-group">
-            <label class="control-label" for="numLang"><b>Langue (Exemple : FRAN01) :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="text" name="numLang" id="numLang" size="80" maxlength="30" value="<?= $numLang; ?>" autofocus="autofocus" />
+            <label class="control-label" for="LibTypLang"><b>Quelle langue :&nbsp;&nbsp;&nbsp;</b></label>
+                <input type="hidden" id="idTypLang" name="idTypLang" value="<?= isset($_GET['numLang']) ? $_GET['numLang'] : '' ?>" />
+
+                <select size="1" name="TypLang" id="TypLang" required class="form-control form-control-create" title="Sélectionnez la langue !" >
+                   <option value="-1">- - - Choisissez une langue - - -</option>
+<?
+            $numLang = "";
+            $lib1Lang = "";
+
+            $queryText = 'SELECT * FROM LANGUE ORDER BY lib1Lang;';
+            $result = $db->query($queryText);
+            if ($result) {
+                while ($tuple = $result->fetch()) {
+                    $ListNumLang = $tuple["numLang"];
+                    $ListLibLang = $tuple["lib1Lang"];
+?>
+                    <option value="<?= $ListNumLang; ?>" >
+                        <?= $ListLibLang; ?>
+                    </option>
+<?
+                } // End of while
+            }   // if ($result)
+?>
+                </select>
         </div>
+    <!-- FIN Listbox langue -->
         <br>
 
         <div class="control-group">

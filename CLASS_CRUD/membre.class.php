@@ -42,20 +42,26 @@ class MEMBRE
 	// 	return ($allStatuts);
 	// }
 
-	function create($libMotCle, $numLang)
+	function create($prenomMemb, $nomMemb, $pseudoMemb, $passMemb, $eMailMemb, $dtCreaMemb, $souvenirMemb, $accordMemb)
 	{
 		global $db;
 		try {
 			$db->beginTransaction();
-			$exec = "INSERT INTO MOTCLE (libMotCle, numLang) VALUES (:libMotCle, :numLang)";
+			$exec = "INSERT INTO MEMBRE (prenomMemb, nomMemb, pseudoMemb, passMemb, eMailMemb, dtCreaMemb, souvenirMemb, accordMemb) VALUES (:prenomMemb, :nomMemb, :pseudoMemb, :passMemb, :eMailMemb, :dtCreaMemb, :souvenirMemb, :accordMemb)";
 			$result = $db->prepare($exec);
-			$result->bindParam(':libMotCle', $libMotCle);
-			$result->bindParam(':numLang', $numLang);
+			$result->bindParam(':prenomMemb', $prenomMemb);
+			$result->bindParam(':nomMemb', $nomMemb);
+			$result->bindParam(':pseudoMemb', $pseudoMemb);
+			$result->bindParam(':passMemb', $passMemb);
+			$result->bindParam(':eMailMemb', $eMailMemb);
+			$result->bindParam(':dtCreaMemb', $dtCreaMemb);
+			$result->bindParam(':souvenirMemb', $souvenirMemb);
+			$result->bindParam(':accordMemb', $accordMemb);
 			$result->execute();
 			$db->commit();
 			$result->closeCursor();
 		} catch (PDOException $erreur) {
-			die('Erreur insert MOTCLE : ' . $erreur->getMessage());
+			die('Erreur insert MEMBRE : ' . $erreur->getMessage());
 			$db->rollBack();
 			$result->closeCursor();
 		}

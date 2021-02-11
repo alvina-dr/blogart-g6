@@ -137,7 +137,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
       </fieldset>
     </form>
 <?
-require_once __DIR__ . '/footerAngle.php';
+require_once __DIR__ . '/footermembre.php';
 
 require_once __DIR__ . '/footer.php';
 ?>

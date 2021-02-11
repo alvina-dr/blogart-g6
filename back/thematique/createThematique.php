@@ -20,6 +20,7 @@ $maThematique = new THEMATIQUE;
 // controle des saisies du formulaire
 require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
+
     // Gestion du $_SERVER["REQUEST_METHOD"] => En POST
     // ajout effectif du statut 
 

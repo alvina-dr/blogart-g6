@@ -51,8 +51,30 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
             $passMemb = ctrlSaisies(($_POST['passMemb']));
             $eMailMemb = ctrlSaisies(($_POST['eMailMemb']));
             $dtCreaMemb = ctrlSaisies(($_POST['dtCreaMemb']));
+            $dtCreaMemb = ("Y-m-d-H-i-s");
             $souvenirMemb = ctrlSaisies(($_POST['souvenirMemb']));
             $accordMemb = ctrlSaisies(($_POST['accordMemb']));
+
+            // if pseudo 6> 70 get exist pseudo 
+
+            if ($pseudoMemb > 6 AND $pseudoMemb < 70 )
+            $pseudoMembV == 1 
+            else {
+                $pseudoMembV == 0           
+                $messageErreur1 = "vous devez etre herureux dans la vie"
+            }
+            // =// différent 
+
+            // validité mail 1 et 2 
+
+            // mail égaux 
+
+            // pass égaux 
+
+            // accord RGPD 
+
+            //tout les booleens (tous a 1) -> pasword hash -> create 
+
 
             $monMembre->create($num, $libAngl, $numLang);
 
@@ -90,18 +112,18 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
         <div class="control-group">
             <label class="control-label" for="prenomMemb"><b>Prénom (*):&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
             <input type="text" name="prenomMemb" id="prenomMemb" size="70" maxlength="70" value="<?= $prenomMemb; ?>" autofocus="autofocus" />
-        </div>
+        </div><br>
         <div class="control-group">
-            <label class="control-label" for="nomMemb"><b>Nom (*):&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+            <label class="control-label" for="nomMemb"><b>Nom (*):&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label><br>
             <input type="text" name="nomMemb" id="nomMemb" size="70" maxlength="70" value="<?= $nomMemb; ?>" autofocus="autofocus" />
-        </div>
+        </div><br>
         <div class="control-group">
             <label class="control-label" for="pseudoMemb"><b>Pseudo (*):&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
             <input type="text" name="pseudoMemb" id="pseudoMemb" size="70" maxlength="70" value="<?= $pseudoMemb; ?>" autofocus="autofocus" />
         </div>
         <br>
         <div class="control-group">
-            <label class="control-label" for="eMailMemb"><b>Email (*):&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+            <label class="control-label" for="eMailMemb"><b>Email (*):&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label><br>
             <input type="text" name="eMailMemb" id="eMailMemb" size="70" maxlength="70" value="<?= $eMailMemb; ?>" autofocus="autofocus" />
         </div>
         <br>
@@ -130,8 +152,19 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
             <input type="checkbox" name="accordMemb" id="accordMemb" size="80" maxlength="30" value="<?= $accordMemb; ?>" autofocus="autofocus" />
         </div>
         <br>
+        <script src="https://www.google.com/recaptcha/api.js"></script>
+        <script>
+            function onSubmit(token) {
+            document.getElementById("demo-form").submit();
+            }
+            </script>
+            <button class="g-recaptcha" 
+            data-sitekey="6LdB2lMaAAAAABJI0TSsep65vf-x8oT8g0E6ogcr" 
+            data-callback='onSubmit' 
+            data-action='submit'>Submit</button>
+            <br><br>
 
-
+        <b>Tout les champs contenant (*) sont obligatoires.</b> 
         <div class="control-group">
             <div class="controls">
                 <br><br>

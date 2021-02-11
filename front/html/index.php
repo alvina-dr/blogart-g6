@@ -43,12 +43,14 @@
     <h2>3 dimensions du jeu vidéo à Bordeaux</h2>
     <img class="soulignage1" src="../assets/icons/soulignage.svg">
     <div class="p_landing h22">
-        <p class="p_actu">
-            La culture du jeu vidéo évolue de manière exponentielle dans le monde entier. Qu’en est-il du jeu vidéo à Bordeaux ? Cette ville est un des principaux acteurs français dans ce domaine regroupant plusieurs entreprises tel que Glitchr, Asobo et Ubisoft. Découvrons les de plus près...
-        </p>
+        <div>
+            <p class="p_actu">
+                La culture du jeu vidéo évolue de manière exponentielle dans le monde entier. Qu’en est-il du jeu vidéo à Bordeaux ? Cette ville est un des principaux acteurs français dans ce domaine regroupant plusieurs entreprises tel que Glitchr, Asobo et Ubisoft. Découvrons les de plus près...
+            </p>
+            <img class="btnplus" src="../assets/icons/btnplus.png">
+        </div>
         <img class="btnplus" src="../assets/icons/immeuble.png">
     </div>
-    <img class="center btnplus" src="../assets/icons/btnplus.png">
     <div class="acgameboy">
         <img src="../assets/icons/graduateed_1.png">
         <div>
@@ -61,6 +63,5 @@
         </div>
     </div>
     <img class="mouse newsletter" src="../assets/icons/newsletter.png">
-
     </body>
 </html>

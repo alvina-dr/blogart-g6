@@ -11,7 +11,7 @@ body{
 h1{
     font-family: "Gotham ultra";
     color: #F5F5F5;
-    text-align: center;
+    /* text-align: center; */
     font-size: 600%;
 }
 
@@ -57,7 +57,7 @@ p{
 
 .graduation{
     height: 80vh;
-    background-image: url(..//images/graduation.png);
+    background-image: url(..//assets/images/graduation.png);
     background-attachment: fixed;
     background-size: cover;
 }

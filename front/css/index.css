@@ -1,0 +1,64 @@
+.title{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+
+.title2{
+    padding-top: 15%;
+    display: flex;
+    justify-content: center;
+}
+
+.mouse{
+    padding-top: 15%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 3vw;
+}
+
+.actu{
+    width: 45vw;
+}
+
+.gameboy{
+    width: 23vw;
+}
+
+.acgameboy{
+    padding-top: 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.soulignage4{
+    width: 55vw;
+}
+
+.btnplus{
+    width: 15vw;
+}
+
+.p_actu{
+    width: 60vw;
+}
+
+.p_landing{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+
+.acteurclef{
+    padding-top: 10%;
+    width: 90vw;
+}
+
+.center{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

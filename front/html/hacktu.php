@@ -7,13 +7,17 @@
     <meta name="content" content="description">
     <title>B.Game | Hacktu</title>
 
-    <link rel="stylesheet" href="font.css">
-    <link rel="stylesheet" href="hacktu.css">
+    <link rel="stylesheet" href="../css/font.css">
+    <link rel="stylesheet" href="../css/font.css">
+    <link rel="stylesheet" href="../css/hacktu.css">
 
 
 </head>
 
 <body>
+    <?php
+        require_once __DIR__ . '/header.php';
+    ?>
     <div class="backcolor">
     <!--
         <img src="images/Like_article.png" alt="Liker l'article"/>

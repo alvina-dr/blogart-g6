@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/font.css">
     <link rel="stylesheet" href="../css/hacktu.css">
+    <link rel="stylesheet" type="text/css" href="../css/insolite.css">
+
+
 
 </head>
 
@@ -85,7 +88,9 @@
         <img class="ligne2" src="../assets/images/Ligne_2.svg" alt="Soulignage violet"/>
         </div>
 
-        <img class="image3" src="../assets/images/Cosplay_BGF.png" alt="Cosplay BGF" />
+        <div class="graduation2 h22"></div>
+
+        <!-- <img class="image3" src="../assets/images/Cosplay_BGF.png" alt="Cosplay BGF" /> -->
 
         
         <p>Mais alors, qu’est ce qu’on peut y faire à ce festival?</p> </br>
@@ -121,8 +126,11 @@
             le prochain champion du Bordeaux Geek Festival, voilà ce qui devrait stimuler l’esprit compétitif de la
             paisible
             communauté des gamers!</p>
+
+
+            <div class="graduation3 h22"></div>
         
-        <img class="image4" src="../assets/images/Compétition_BGF.png" alt="Fan compétition BGF" />
+        <!-- <img class="image4" src="../assets/images/Compétition_BGF.png" alt="Fan compétition BGF" /> -->
         <p>Comme à chaque édition, le label BGF Esport fait son retour au sein du festival. Que ce soit Rocket League,
             Overwatch, Hearthstone, ou encore l’iconique League of Legends, il y en aura pour tous les
             goûts. </br> 

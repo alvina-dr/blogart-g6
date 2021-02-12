@@ -57,7 +57,7 @@
             Le problème est que ces diplômes ne sont reconnus ni par l'État Français, ni par aucun autre pays.
            Ainsi, vos 5 ans dans cette école ne vaudront rien légalement.	Par ailleurs, l’EGS se vante d’avoir un parcours “original” avec leurs filières dans le digital, la communication et l’informatique.
         </p>
-        <div class="graduation h22"></div>>
+        <div class="graduation h22"></div>
         <p>
             Cependant, il existe des formations équivalentes, publiques et gratuites. En l’occurrence le DUT MMI (Métiers du Multimédia et de l’Internet), le DUT Information & Communication, ainsi que le DUT Informatique.<br>
             Ces dernières sont publiques et reconnues par l'État : elles garantissent donc un avenir plus stable aux étudiants qui y sont inscrits.<br>

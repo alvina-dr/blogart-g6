@@ -35,19 +35,19 @@
                     <p>Tu veux aller où ?</p>
                     <br>
                     <br>
-                    <a><p>Actu</p></a>
-                    <br>
-                    <p>Acteur clef</p>
-                    <br>
-                    <p>L'insolite !</p>
+                    <a class="footer_hover" href="./hacktu.php">Actu</a>
+                    <p></p><br>
+                    <a class="footer_hover" href="./actors.php">Acteur clef</a>
+                    <p></p><br>
+                    <a class="footer_hover" href="./insolite.php">L'insolite !</a>
                 </div>
                 <div class="center_t">
                     <p>On était obligé</p>
                     <br>
                     <br>
-                    <p>Mentions légales</p>
-                    <br>
-                    <p>C.G.U</p>
+                    <a class="footer_hover" href="./hacktu.php">Mentions légales</a>
+                    <p></p><br>
+                    <a class="footer_hover" href="./hacktu.php">C.G.U</a>
                 </div>
             </div>
         </footer>

@@ -118,7 +118,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
 
             //tout les booleens (tous a 1) -> pasword hash -> create
-            if ($passMembV == 1 AND  $eMailMembV == 1 AND $pseudoMembV == 1 /*AND*/) {
+            if ($passMembV == 1 AND  $eMailMembV == 1 AND $pseudoMembV == 1 AND $emailCheckV == 1 AND $pseudMembCheck == 1 AND $accordMembV == 1) {
 
                 $passMemb = password_hash($_POST['pass1Memb'], PASSWORD_DEFAULT);
 
@@ -126,7 +126,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
             }
             else {
                 // echo ($messageErreur1 . "\n" . $messageErreur2 . "\n" . $messageErreur3 . "\n" . $messageErreur4. "\n" . $messageErreur5 . "\n" .  )
-                echo ($messageErreur1 . "\n" . $messageErreur2 . "\n" . $messageErreur3 . "\n" . $messageErreur4. "\n" . $messageErreur5 . "\n");
+                echo ($messageErreur1 . "\n" . $messageErreur2 . "\n" . $messageErreur3 . "\n" . $messageErreur4. "\n" . $messageErreur5 . "\n" . $messageErreur6);
             }
 
 
@@ -198,12 +198,12 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
             </div>
             <br>
             <div class="control-group">
-                <label class="control-label" for="souvenirMemb"><b>Se souvenir de moi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+                <label class="control-label" for="souvenirMemb"><b>Se souvenir de moi :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
                 <input type="checkbox" name="souvenirMemb" id="souvenirMemb" size="80" maxlength="30" value="<?= $souvenirMemb; ?>" autofocus="autofocus" />
             </div>
             <br>
             <div class="control-group">
-                <label class="control-label" for="accordMemb"><b>Accepter les CGU&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+                <label class="control-label" for="accordMemb"><b>Accepter les CGU (*) :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
                 <input type="checkbox" name="accordMemb" id="accordMemb" size="80" maxlength="30" value="<?= $accordMemb; ?>" autofocus="autofocus" />
             </div>
             <br>

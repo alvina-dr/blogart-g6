@@ -52,35 +52,62 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
             $eMailMemb = ctrlSaisies(($_POST['eMailMemb']));
             $dtCreaMemb = ctrlSaisies(($_POST['dtCreaMemb']));
             $dtCreaMemb = ("Y-m-d-H-i-s");
-            $souvenirMemb = ctrlSaisies(($_POST['souvenirMemb']));
-            $accordMemb = ctrlSaisies(($_POST['accordMemb']));
+            $valSouvenirMemb = ctrlSaisies($_POST['souvenirMemb']);
+            $souvenirMemb = ($valSouvenirMemb == "on") ? 1 : 0;
+            $valAccordMemb = ctrlSaisies($_POST['accordMemb']);
+            $accordMemb = ($valAccordMemb == "on") ? 1 : 0;
 
             // if pseudo 6> 70 get exist pseudo 
             if ($pseudoMemb > 6 AND $pseudoMemb < 70){
                 $pseudoMembV == 1
             } else {
                 $pseudoMembV == 0
-                $messageErreur1 = "Votre pseudo doit comprendre entre 6 et 70 caractères"            }
-            // =// différent 
+                $messageErreur1 = "Votre pseudo doit comprendre entre 6 et 70 caractères"       
+            }
+            
+            // pseudo disponible
+            $reqpseudo = $bdd->prepare("SELECT * FROM MEMBRE WHERE pseudoMemb = ?");
+              $reqpseudo->execute(array($pseudoMemb));
+              $pseudoexist = $reqpseudo->rowcount();
+            if ($reqpseudo == 0 ){
+                $pseudMembCheck == 1
+            } else {
+                $pseudMembCheck == 0
+                $messageErreur2 = "Ce pseudo est déja pris"
+            }
          
             // validité mail 1 et 2 
-
+            if (filter_var($eMailMemb, FILTER_VALIDATE_EMAIL)){
+                $emailCheckV == 1
+            } else {
+                $emailCheckV == 0
+                $messageErreur3 = "Cette adresse mail n'est valable"
+            }
+            
             // mail égaux 
             if ($eMailMemb == $eMailMemb2){
                 $eMailMembV == 1
             } else {
                 $eMailMembV == 0
-                $messageErreur4 = "Les adresses mails doivent être identique"
+                $messageErreur4 = "Les adresses mail saisies doivent être identique"
             }
+           
             // pass égaux 
             if ($passMemb == $passMemb2){
                 $passMembV == 1
             } else {
                 $passMembV == 0
-                $messageErreur5 = "Les mots de passe doivent être identique"
+                $messageErreur5 = "Les mots de passe saisis doivent être identique"
             }
 
             // accord RGPD 
+            if ($accordMemb == 1){
+                $accordMembV == 1
+            } else {
+                $accordMembV == 0
+                $messageErreur6 = "Veuillez accepter les Conditionns Générales d'Utilisation"
+            }
+
 
             //tout les booleens (tous a 1) -> pasword hash -> create 
 

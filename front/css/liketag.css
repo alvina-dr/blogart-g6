@@ -1,0 +1,20 @@
+.tag{
+    font-family: "Gotham rounded book";
+
+}
+
+.ligne_t{
+    width: 6vh;
+}
+
+.flex_t{
+    display: flex;
+}
+
+.padding_t{
+    padding: 0% 2%;
+}
+
+.like_t{
+    height: 8vh;
+}

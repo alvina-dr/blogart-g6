@@ -3,24 +3,24 @@
 
 require_once __DIR__ . '../../CONNECT/database.php';
 
-class ANGLE
+class ARTICLE
 {
-	function get_1Angle($numArt)
+	function get_1Angle($numAngl)
 	{
 		global $db;
-		$query = 'SELECT * FROM ARTICLE WHERE numArt = :numArt;';
+		$query = 'SELECT * FROM ANGLE WHERE numAngl = :numAngl;';
 		$result = $db->prepare($query);
-		$result->bindParam(':numArt', $numArt);
+		$result->bindParam(':numAngl', $numAngl);
 		$result->execute();
 		return ($result->fetch());
 	}
 
-	function get_1AngleByLangue($numArt)
+	function get_1AngleByLangue($numAngl)
 	{
 		global $db;
-		$query = 'SELECT * FROM ANGLE AN INNER JOIN LANGUE LA ON AN.numLang = LA.numLang WHERE numArt = ?;';
+		$query = 'SELECT * FROM ANGLE AN INNER JOIN LANGUE LA ON AN.numLang = LA.numLang WHERE numAngl = ?;';
 		$result = $db->prepare($query);
-		$result->execute([$numArt]);
+		$result->execute([$numAngl]);
 		return ($result->fetch());
 	}
 

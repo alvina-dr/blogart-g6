@@ -26,13 +26,13 @@
                     <p>Qui sommes nous ?</p>
                     <br>
                     <br>
-                    <img class="jp_logo" src="../assets/icons/jp.svg">
+                    <a href="https://maurinecros.github.io/jauneprod.github.io/"><img class="jp_logo" src="../assets/icons/jp.svg"></a>
                 </div>
                 <div class="center_t">
                     <p>Tu veux aller où ?</p>
                     <br>
                     <br>
-                    <p>Actu</p>
+                    <a><p>Actu</p></a>
                     <br>
                     <p>Acteur clef</p>
                     <br>

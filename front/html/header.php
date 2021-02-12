@@ -17,7 +17,7 @@
 		<div id="navbar">
 			<a class="logo_link" href="./index.php"><img class="logo" src="../assets/icons/logo bg.svg"></a>
 			<ul class="menu_list">
-				<li><a href="index.html">Actu</a></li>
+				<li><a href="./hacktu.php">Actu</a></li>
 				<li><a href="./actors.php">Acteurs clés</a></li>
 				<li><a href="./insolite.php">Insolite</a></li>
 			</ul>

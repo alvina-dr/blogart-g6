@@ -45,9 +45,13 @@
                     <p>On était obligé</p>
                     <br>
                     <br>
+<<<<<<< HEAD
+                    <a href="./cgu.php">C.G.U</a>
+=======
                     <a class="footer_hover" href="./hacktu.php">Mentions légales</a>
                     <p></p><br>
                     <a class="footer_hover" href="./hacktu.php">C.G.U</a>
+>>>>>>> 54157197d754c8fc16b4eddc2e39f347521f1f7a
                 </div>
             </div>
         </footer>

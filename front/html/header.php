@@ -26,6 +26,9 @@
 				<li ><a class="connexion" href="index.html"></a></li>
 			</ul>
 		</div>
+		<div class="espace_header">
+			
+		</div>
 	</header>
 	<script src="../js/header.js"></script> 
 </body>

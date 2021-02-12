@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #0D1019;
+    margin: 0 4%;
+}
+
+h1{
+    font-family: "Gotham ultra";
+    color: #F5F5F5;
+    text-align: center;
+    font-size: 600%;
+}
+
+h2{
+    font-family: "Gotham rounded book";
+    color: #F5F5F5;
+    font-size: 270%;
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+p{
+    font-family: "Bell MT";
+    color: #F5F5F5;
+    font-size: 130%;
+    line-height: 130%;
+}
+
+.hacktu{
+    width: 45%;
+  height: auto;
+
+}
+
+.image1{
+    width: 35%;
+  height: auto;
+}
+
+.hautarticle{
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 30px;
+}
+
+.titrearticle{
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.article1{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: flex;
+    align-items:center;
+}
+
+.textarticle1{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    
+}
+
+.image2{
+    width: 100%;
+  height: auto;
+}
+
+
+
+.image3{
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.image4{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    width: 100%;
+    height: auto;
+}
+
+
+
+.finarticle{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: flex;
+    align-items:center;
+}
+
+.textu{ 
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    }
+
+.ligne1{
+  width: 30%;
+  height: auto;
+}
+
+.ligne2{
+    width: 22%;
+    height: auto;
+  }
+
+.intertitre{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    
+}
+
+.ligne3{
+    width: 55%;
+    height: auto;
+  }
+
+  .textefin{
+      padding-left: 60px;
+  }
+
+    

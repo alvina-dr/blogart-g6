@@ -23,18 +23,18 @@
         require_once __DIR__ . '/liketag.php';
     ?>
     <div class="backcolor">
-    <!--
-        <img src="images/Like_article.png" alt="Liker l'article"/>
-        <h2>Tags :</h2>
-        <img class="" src="images/Ligne_tags.svg" alt="Soulignage violet"/>
-        <p>#Hacktu #évènement #festival #BordeauxGeekFestival #Geekfest</p>
-    -->
         <div class="hautarticle">
-        <img class="hacktu" src="../assets/images/Hacktu.svg" alt="Logo Hacktu" />
+        <div class="glitch">
+        <img src="../assets/images/Hacktu.svg" alt="Logo Hacktu" />
+	<div class="glitch__layers">
+		<div class="glitch__layer"></div>
+		<div class="glitch__layer"></div>
+		<div class="glitch__layer"></div>
+	</div>
+</div>
+        <!-- <img class="hacktu" src="../assets/images/Hacktu.svg" alt="Logo Hacktu" /> -->
         <img class="image1" src="../assets/images/Foule_BGF.png" alt="Foule BGF" />
         </div>
-    
-
         <!--Introduction-->
         <h2 class="titrearticle">Geekfest, le festival bordelais à ne pas manquer !</h2>
          <p>Un festival de jeux-vidéo à Bordeaux, ça existe. Le Bordeaux Geek Festival ouvrira ses portes pour la
@@ -165,6 +165,7 @@
     <?php
         require_once __DIR__ . '/footer.php';
     ?>
+<script src="../js/hactu.js"></script>
 </body>
 
 </html>

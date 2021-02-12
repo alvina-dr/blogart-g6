@@ -17,3 +17,13 @@
 .jp_logo{
     height: 5vh;
 }
+.footer_hover {
+    color: #F5F5F5;
+    text-decoration: none;
+    font-family: "Bell MT";
+    font-size: 130%;
+    line-height: 130%;
+}
+.footer_hover:hover {
+    color: #CF6679;
+}

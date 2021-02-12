@@ -19,8 +19,40 @@
     </HEAD>
 
     <body>
-        <div>
+        <div class="flex">
             <img src="../assets/icons/contact.svg">
+            <div>
+                <img class="h22" src="../assets/icons/bvn.png">
+                <div class=h22>
+                    <p>Nom</p>
+                    <img src="../assets/icons/soulignagedroit.svg">
+                </div>
+                <div class=h22>
+                    <p>Prénom</p>
+                    <img src="../assets/icons/soulignagedroit.svg">
+                </div>
+                <div class=h22>
+                    <p>Pseudo</p>
+                    <img src="../assets/icons/soulignagedroit.svg">
+                </div>
+                <div class=h22>
+                    <p>Adresse mail</p>
+                    <img src="../assets/icons/soulignagedroit.svg">
+                </div>
+                <div class=h22>
+                    <p>Confirmation adresse mail</p>
+                    <img src="../assets/icons/soulignagedroit.svg">
+                </div>
+                <div class=h22>
+                    <p>Mot de passe</p>
+                    <img src="../assets/icons/soulignagedroit.svg">
+                </div>
+                <div class=h22>
+                    <p>Confirmation mot de passe</p>
+                    <img src="../assets/icons/soulignagedroit.svg">
+                </div>
+                <a><img class="h22 hwg" src="../assets/icons/hwg.png"></a>
+            </div>
         </div>
     </body>
 </html>

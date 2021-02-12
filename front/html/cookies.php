@@ -32,6 +32,7 @@
     </div>
     <button id="togg1" class="valider_cookies">
         <h2 class="cookie_blanc">Accepter</h2>
-    </div>
+    <button id="togg3" class="refuser_cookies">
+        <h2 class="cookie_blanc2">Refuser</h2>
 </div>
 <script type="text/javascript" src="../js/cookies.js"></script>

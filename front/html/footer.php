@@ -46,7 +46,7 @@
                     <br>
                     <p>Mentions légales</p>
                     <br>
-                    <p>C.G.U</p>
+                    <a href="./cgu.php">C.G.U</a>
                 </div>
             </div>
         </footer>

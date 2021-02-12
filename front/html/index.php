@@ -85,7 +85,7 @@
     <div class="acgameboy">
         <img class="graduate_student" src="../assets/icons/graduateed_1.png"> <!-- ICON GRADUATE STUDENT -->
         <div class="column">
-            <img src="../assets/images/insolite.png"> <!-- TITRE INSOLITE -->
+            <img class="imginsolite" src="../assets/images/insolite.png"> <!-- TITRE INSOLITE -->
             <div class="h22">
                 <h2>Les écoles d'e-sport,<br>un miroir de riséd ?</h2>
                 <img class="soulignage2" src="../assets/icons/soulignage.svg">
@@ -95,7 +95,9 @@
 
     </div>
 
-    <img class="mouse newsletter" src="../assets/icons/newsletter.png">
+    <img class="mouse_newsletter" src="../assets/icons/newsletter.png">
+    <br>
+    <br>
     <a href="#pageinscription"><img class="h22" src="../assets/icons/inscription_nl.png"></a><br>
     <a href="./connexion.php"><img class="h22" src="../assets/icons/connexion_nl.png"></a>
 

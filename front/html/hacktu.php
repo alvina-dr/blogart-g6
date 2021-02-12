@@ -19,6 +19,9 @@
     <?php
         require_once __DIR__ . '/header.php';
     ?>
+    <?php
+        require_once __DIR__ . '/liketag.php';
+    ?>
     <div class="backcolor">
     <!--
         <img src="images/Like_article.png" alt="Liker l'article"/>

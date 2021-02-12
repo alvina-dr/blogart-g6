@@ -19,11 +19,12 @@
 }
 
 .actu{
-    width: 45vw;
+    width: 30vw;
 }
 
 .gameboy{
-    width: 23vw;
+    width: 18vw;
+    padding-top: 3%;
 }
 
 .acgameboy{
@@ -39,7 +40,8 @@
 }
 
 .immeuble {
-    width: 20vw;
+    width: 15vw;
+    margin-left: -45%;
 }
 
 .btnplus {
@@ -72,7 +74,7 @@
 
 .acteurclef{
     padding-top: 10%;
-    width: 90vw;
+    width: 50vw;
 }
 
 .center{
@@ -93,7 +95,18 @@
 }
 
 .graduate_student {
-    height: 350px;
+    height: 250px;
     align-self: center;
     padding-right: 20px;
+}
+
+.imginsolite {
+    height: 80%;
+    width: 80%;
+}
+
+.mouse_newsletter {
+    height:80%;
+    width: 80%;
+    margin-top: 10%;
 }

@@ -21,6 +21,11 @@
     <?php
         require_once __DIR__ . '/header.php';
     ?>
+    <?php
+        require_once __DIR__ . '/liketag.php';
+    ?>
+    <div class="espace_liketag">
+	</div> <!-- div qui permet de faire un espace entre les tags et le reste de l'article-->
         <div>
             <div class="h22 right container">
                 <img class="gamer" src="../assets/images/gamer.png" alt=""Photo de gamer>

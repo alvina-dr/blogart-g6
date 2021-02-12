@@ -57,56 +57,59 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
             $valAccordMemb = ctrlSaisies($_POST['accordMemb']);
             $accordMemb = ($valAccordMemb == "on") ? 1 : 0;
 
+            $reqpseudo = $bdd->prepare("SELECT * FROM MEMBRE WHERE pseudoMemb = ?");
+            $reqpseudo->execute(array($pseudoMemb));
+            $pseudoexist = $reqpseudo->rowcount();
+
             // if pseudo 6> 70 get exist pseudo 
             if ($pseudoMemb > 6 AND $pseudoMemb < 70){
-                $pseudoMembV == 1
+                $pseudoMembV == 1;
             } else {
-                $pseudoMembV == 0
-                $messageErreur1 = "Votre pseudo doit comprendre entre 6 et 70 caractères"       
+                $pseudoMembV == 0;
+                $messageErreur1 = "Votre pseudo doit comprendre entre 6 et 70 caractères";
             }
             
             // pseudo disponible
-            $reqpseudo = $bdd->prepare("SELECT * FROM MEMBRE WHERE pseudoMemb = ?");
-              $reqpseudo->execute(array($pseudoMemb));
-              $pseudoexist = $reqpseudo->rowcount();
-            if ($reqpseudo == 0 ){
-                $pseudMembCheck == 1
+            if ($pseudoexist == 0 ){
+                $pseudMembCheck == 1;
             } else {
-                $pseudMembCheck == 0
-                $messageErreur2 = "Ce pseudo est déja pris"
+                $pseudMembCheck == 0;
+                $messageErreur2 = "Ce pseudo est déja pris";
             }
          
             // validité mail 1 et 2 
             if (filter_var($eMailMemb, FILTER_VALIDATE_EMAIL)){
-                $emailCheckV == 1
+                $emailCheckV == 1;
             } else {
-                $emailCheckV == 0
-                $messageErreur3 = "Cette adresse mail n'est valable"
+                $emailCheckV == 0;
+                $messageErreur3 = "Cette adresse mail n'est valable";
             }
             
             // mail égaux 
             if ($eMailMemb == $eMailMemb2){
-                $eMailMembV == 1
+                $eMailMembV == 1;
             } else {
-                $eMailMembV == 0
-                $messageErreur4 = "Les adresses mail saisies doivent être identique"
+                $eMailMembV == 0;
+                $messageErreur4 = "Les adresses mail saisies doivent être identique";
             }
            
             // pass égaux 
             if ($passMemb == $passMemb2){
-                $passMembV == 1
+                $passMembV == 1;
             } else {
-                $passMembV == 0
-                $messageErreur5 = "Les mots de passe saisis doivent être identique"
+                $passMembV == 0;
+                $messageErreur5 = "Les mots de passe saisis doivent être identique";
             }
 
             // accord RGPD 
             if ($accordMemb == 1){
-                $accordMembV == 1
+                $accordMembV == 1;
             } else {
-                $accordMembV == 0
-                $messageErreur6 = "Veuillez accepter les Conditionns Générales d'Utilisation"
+                $accordMembV == 0;
+                $messageErreur6 = "Veuillez accepter les Conditionns Générales d'Utilisation";
             }
+
+            // Se souvenir de moi
 
 
             //tout les booleens (tous a 1) -> pasword hash -> create 
@@ -119,6 +122,9 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
             else {
                 echo ($messageErreur1 . "\n" . $messageErreur2 . "\n" . $messageErreur3 . "\n" . $messageErreur4. "\n" . $messageErreur5 . "\n" .  )
             }
+
+
+
         }   // Fin if ((isset($_POST['legendImg'])) ...
         else {
             $erreur = true;

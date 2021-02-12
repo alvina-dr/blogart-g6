@@ -157,9 +157,10 @@
         </div>
         </div>
         <!--Article 3-->
-
-        
     </div>
+    <?php
+        require_once __DIR__ . '/footer.php';
+    ?>
 </body>
 
 </html>

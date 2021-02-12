@@ -98,6 +98,9 @@
     <a href="#pageinscription"><img class="h22" src="../assets/icons/inscription_nl.png"></a><br>
     <a href="#pageconnexion"><img class="h22" src="../assets/icons/connexion_nl.png"></a>
 
+    <?php
+        require_once __DIR__ . '/footer.php';
+    ?>
 </body>
 
 </html>

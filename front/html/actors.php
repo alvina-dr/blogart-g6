@@ -176,7 +176,9 @@
                 placée, guidant la France vers dans les leaders de l’univers du jeu vidéo à l’échelle mondiale.</p>
         </div>
     </div>
-
+    <?php
+        require_once __DIR__ . '/footer.php';
+    ?>
 </body>
 
 </html>

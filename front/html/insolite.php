@@ -97,5 +97,8 @@
             Par ailleurs, le site de l’EGS ne fournit pas de chiffres sur le nombre de pro gamers qui réussissent après leur passage dans l’école. Enfin, aucun coach ni professeurs n’a de palmarès bien impressionnant, de même pour les élèves.<br>
             Les équipes de l’EGS sont répertoriées sur un site externe, avec leurs matchs et leurs résultats. 0-1 la plupart du temps, ou bien ils finissent 7ème sur une ligue de 8 équipes. Mais l’école se cache bien de garder cette dernière information.
         </p>
+    <?php
+    require_once __DIR__ . '/footer.php';
+    ?>
     </body>
 </html>

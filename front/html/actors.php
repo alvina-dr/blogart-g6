@@ -5,10 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/ico" href="/images/icons/favicon.ico" />
+
+    <!--linker stylesheet-->
     <link type="text/css" rel="stylesheet" href="../css/actors.css">
     <link type="text/css" rel="stylesheet" href="../css/base.css">
     <link type="text/css" rel="stylesheet" href="../css/font.css">
-    <title></title>
+    
 </head>
 
 <body>

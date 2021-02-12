@@ -4,12 +4,16 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="content" content="Le blog du jeu vidéo bordelais.">
+	<title>Le header</title>
+	
 	<link rel="icon" type="image/ico" href="/images/icons/favicon.ico" />
+
+	<!--linker stylesheet-->
 	<link rel="stylesheet" type="text/css" href="../css/base.css">
 	<link rel="stylesheet" href="../css/font.css">
 	<link rel="stylesheet" href="../css/header.css">
-	<meta name="content" content="Le blog du jeu vidéo bordelais.">
-	<title>Le header</title>
+
 </head>
 
 <body>
@@ -27,7 +31,6 @@
 			</ul>
 		</div>
 		<div class="espace_header">
-			
 		</div>
 	</header>
 	<script src="../js/header.js"></script> 

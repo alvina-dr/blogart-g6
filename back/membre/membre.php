@@ -26,10 +26,11 @@ $monStatutMM = new MEMBRE;
 </head>
 <body>
     <h1>BLOGART21 Admin - Gestion du CRUD Membre</h1>
-    <hr /><br />
+
+    <img class="soulignage2" src="../../front/assets/icons/soulignage.svg"> <!--BARRE--><br />
 	<h2>Nouveau membre :&nbsp;<a href="./createMembre.php"><i>Créer un membre</i></a></h2>
-	<br /><hr />
-	<h2>Tout les MEMBRES</h2>
+    <img class="soulignage2" src="../../front/assets/icons/soulignage.svg"> <!--BARRE--><br />
+	<h2>Tous les MEMBRES</h2>
 
     <br><br>
     <table border="3" bgcolor="aliceblue">

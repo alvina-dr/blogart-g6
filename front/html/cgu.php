@@ -210,3 +210,7 @@ En cas de litige non résolu à l’amiable entre l’Utilisateur et l’Éditeu
 régler le contentieux.</p>
 <br>
 <br>
+<?php
+    require_once __DIR__ . '/footer.php';
+    ?>
+</body>

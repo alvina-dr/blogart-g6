@@ -50,7 +50,7 @@
     align-self: flex-start;
     justify-self: flex-start;
 }
-.btnplus :hover{
+.btnplus:hover{
     background:url(../assets/icons/btnplushover.png) no-repeat;
     background-size: 100%;
     width: 15vw;

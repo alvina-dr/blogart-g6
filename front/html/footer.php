@@ -19,7 +19,11 @@
 
     </HEAD>
 
+
     <body>
+    <?php
+    require_once __DIR__ . '/header.php';
+    ?>
     <div class="espace_header">
 		</div>
         <footer class="h22">
@@ -51,7 +55,7 @@
                     <br>
                     <br>
                     <br>
-                    <a class="footer_hover" href="./hacktu.php">Mentions légales</a>
+                    <a class="footer_hover" href="./mentionslégales.php">Mentions légales</a>
                     <p></p><br>
                     <a class="footer_hover" href="./cgu.php">C.G.U</a>
                 </div>

@@ -12,6 +12,9 @@
     
     </head>
     <body>
+        <?php
+        require_once __DIR__ . '/header.php';
+        ?>
         <img src="..//assets/icons/mentionslégales.svg" class="mentions" alt="mentions légales"/>
 
         <div class="vigueur">
@@ -64,10 +67,12 @@
 
         <h2 class="intertitrementions">ARTICLE 6 : Propriété intellectuelle</h2>
 
-        <p>Toute utilisation, reproduction, diffusion, commercialisation, modification de toute ou partie du site
+        <p class="finmentions">Toute utilisation, reproduction, diffusion, commercialisation, modification de toute ou partie du site
             bgames.netlify.app, sans autorisation de l’Editeur est prohibée et pourra entraînée des actions et poursuites
             judiciaires telles que notamment prévues par le Code de la propriété intellectuelle et le Code civil.</p>
 
-
+    <?php
+    require_once __DIR__ . '/footer.php';
+    ?>
     </body>
 </html>

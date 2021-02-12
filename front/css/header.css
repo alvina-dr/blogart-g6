@@ -75,3 +75,8 @@
     width: 100%;
     height: 100px;
 }
+
+.flex_s{
+    display: flex;
+    background-color: #CF6679;
+}

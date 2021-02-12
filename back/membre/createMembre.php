@@ -60,10 +60,12 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
                 $pseudoMembV == 1
             } else {
                 $pseudoMembV == 0
-                $messageErreur1 = "Votre pseudo doit comprendre entre 6 et 70 caractères"            }
+                $messageErreur1 = "Votre pseudo doit comprendre entre 6 et 70 caractères"    
+            }
             // =// différent 
-         
+            
             // validité mail 1 et 2 
+                filter_var($eMailMemb, FILTER_VALIDATE_EMAIL)
 
             // mail égaux 
             if ($eMailMemb == $eMailMemb2){
@@ -83,10 +85,15 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
             // accord RGPD 
 
             //tout les booleens (tous a 1) -> pasword hash -> create 
+            if ($passMembV == 1 AND  $eMailMembV == 1 AND $pseudoMembV == 1 AND) {
 
+                $passMemb = password_hash($_POST['pass1Memb'], PASSWORD_DEFAULT);
 
-            $monMembre->create($num, $libAngl, $numLang);
-
+                $monMembre->create($prenomMemb, $nomMemb, $pseudoMemb, $passMemb, $eMailMemb, $dtCreaMemb, $souvenirMemb, $accordMemb);
+            }
+            else {
+                echo ($messageErreur1 . "\n" . $messageErreur2 . "\n" . $messageErreur3 . "\n" . $messageErreur4. "\n" . $messageErreur5 . "\n" .  )
+            }
         }   // Fin if ((isset($_POST['legendImg'])) ...
         else {
             $erreur = true;

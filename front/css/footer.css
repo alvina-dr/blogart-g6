@@ -27,3 +27,20 @@
 .footer_hover:hover {
     color: #CF6679;
 }
+
+a{
+    text-decoration: none;
+    color: #F5F5F5;
+}
+
+.f_ligne{
+    width: 8.5vw;
+}
+
+.f_ligne2{
+    width: 8vw;
+}
+
+.f_ligne3{
+    width: 7vw;
+}

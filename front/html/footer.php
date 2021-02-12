@@ -27,12 +27,16 @@
             <div class="flex h22">
                 <div class="center_t">
                     <p>Qui sommes nous ?</p>
+                    <img class="f_ligne" src="../assets/icons/soulignage_f.svg">
+                    <br>
                     <br>
                     <br>
                     <a href="https://maurinecros.github.io/jauneprod.github.io/"><img class="jp_logo" src="../assets/icons/jp.svg"></a>
                 </div>
                 <div class="center_t">
                     <p>Tu veux aller où ?</p>
+                    <img class="f_ligne2" src="../assets/icons/soulignage_f.svg">
+                    <br>
                     <br>
                     <br>
                     <a class="footer_hover" href="./hacktu.php">Actu</a>
@@ -43,6 +47,8 @@
                 </div>
                 <div class="center_t">
                     <p>On était obligé</p>
+                    <img class="f_ligne3" src="../assets/icons/soulignage_f.svg">
+                    <br>
                     <br>
                     <br>
                     <a class="footer_hover" href="./hacktu.php">Mentions légales</a>

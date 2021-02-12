@@ -1,0 +1,71 @@
+h4{
+    font-family: "Gotham rounded book";
+    color: #0D1019;
+    font-size: 150%;
+}
+
+.bordure_cookies {
+    background-color: #FFFFFE;
+    position: fixed;
+    justify-content: left;
+    width: 784px;
+    height: 333px;
+    bottom: 0;
+    margin-bottom: 1%;
+    opacity: 90%;
+}
+
+.bordure2_cookies {
+    text-align: center;
+    justify-content: left;
+    display: flex;
+    padding-top: 7%;
+    padding-left: 5%;
+}
+
+.pcookies {
+    color: #0D1019;
+    font-size: 120%;
+    padding-right: 50%;
+    padding-left: 5%;
+    padding-top: 2%;
+}
+
+.img_cookies {
+    display: flex;
+    padding-left: 70%;
+    margin-top: -26%;
+}
+
+.croix_cookies {
+    display: flex;
+    padding-left: 92.5%;
+    margin-top: -20%;
+}
+.croix_cookies:hover {
+    display: flex;
+    opacity: 80%;
+    padding-left: 92.5%;
+    margin-top: -20%;
+}
+
+.valider_cookies{
+    display: block;
+    background-color: #9887BF;
+    border-radius: 20px;
+    width: 164px;
+    height: 40px;
+    margin-left: 67%;
+    margin-top: 20%;
+    justify-content: center;
+    text-align: center;
+}
+.valider_cookies:hover {
+    display: block;
+    opacity: 80%;
+}
+
+.cookie_blanc {
+    color: #FFFFFE;
+    font-size: 22px;
+}

@@ -27,10 +27,10 @@ $monStatutMC = new MOTCLE;
 <body>
 <h1>BLOGART21 Admin - Gestion du CRUD MOTCLÉ</h1>
 
-<hr /><br />
+<img class="soulignage2" src="../../front/assets/icons/soulignage.svg"> <!--BARRE--><br />
 <h2>Nouveau mot clé :&nbsp;<a href="./createMotCle.php"><i>Créer un mot clé</i></a></h2>
-<br /><hr />
-<h2>Tout les MOTS CLÉ</h2>
+<img class="soulignage2" src="../../front/assets/icons/soulignage.svg"> <!--BARRE--><br />
+<h2>Tous les MOTS CLÉS</h2>
 
 <table border="3" bgcolor="aliceblue">
 <thead>

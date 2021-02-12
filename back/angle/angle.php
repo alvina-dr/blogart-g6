@@ -28,10 +28,10 @@ $monStatutA = new ANGLE;
 <body>
     <h1>BLOGART21 Admin - Gestion du CRUD ANGLE</h1>
 
-    <hr /><br />
-	<h2>Nouvelle ANGLE :&nbsp;<a href="./createAngle.php"><i>Créer un angle</i></a></h2>
-	<br /><hr />
-	<h2>Tout les ANGLES</h2>
+    <img class="soulignage2" src="../../front/assets/icons/soulignage.svg"> <!--BARRE--><br />
+	<h2>Nouvel ANGLE :&nbsp;<a href="./createAngle.php"><i>Créer un angle</i></a></h2>
+    <img class="soulignage2" src="../../front/assets/icons/soulignage.svg"> <!--BARRE--><br />
+	<h2>Tous les ANGLES</h2>
 
 	<table border="3" bgcolor="aliceblue">
     <thead>

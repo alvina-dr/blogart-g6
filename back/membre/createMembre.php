@@ -18,7 +18,7 @@ $monMembre = new MEMBRE;
 require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
     // Gestion du $_SERVER["REQUEST_METHOD"] => En POST
-    // ajout effectif du statut 
+    // ajout effectif du statut
 
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
@@ -30,7 +30,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
           header("Location: ./createMembre.php");
       }   // End of if ((isset($_POST["submit"])) ...
 
-      
+
       if (((isset($_POST['prenomMemb'])) AND !empty($_POST['prenomMemb']))
             AND ((isset($_POST['nomMemb'])) AND !empty($_POST['nomMemb']))
             AND ((isset($_POST['pseudoMemb'])) AND !empty($_POST['pseudoMemb']))
@@ -43,7 +43,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
             // Saisies valides
             $erreur = false;
-                
+
             $numMemb = 0;
             $prenomMemb = ctrlSaisies(($_POST['prenomMemb']));
             $nomMemb = ctrlSaisies(($_POST['nomMemb']));
@@ -51,24 +51,29 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
             $passMemb = ctrlSaisies(($_POST['passMemb']));
             $eMailMemb = ctrlSaisies(($_POST['eMailMemb']));
             $dtCreaMemb = ctrlSaisies(($_POST['dtCreaMemb']));
-            $dtCreaMemb = ("Y-m-d-H-i-s");
+            $dtCreaMemb = date("Y-m-d-H-i-s");
             $valSouvenirMemb = ctrlSaisies($_POST['souvenirMemb']);
             $souvenirMemb = ($valSouvenirMemb == "on") ? 1 : 0;
             $valAccordMemb = ctrlSaisies($_POST['accordMemb']);
             $accordMemb = ($valAccordMemb == "on") ? 1 : 0;
 
-            $reqpseudo = $bdd->prepare("SELECT * FROM MEMBRE WHERE pseudoMemb = ?");
-            $reqpseudo->execute(array($pseudoMemb));
-            $pseudoexist = $reqpseudo->rowcount();
+//             $reqpseudo = $bdd->prepare('SELECT * FROM MEMBRE WHERE pseudoMemb = ?');
+//             $reqpseudo->execute(array($pseudoMemb));
+//             $pseudoexist = $reqpseudo->rowcount();
 
-            // if pseudo 6> 70 get exist pseudo 
+                $query = 'SELECT * FROM MEMBRE WHERE pseudoMemb = ?;';
+                $result = $bdd->prepare($query);
+                $result->execute(array($pseudoMemb));
+                $pseudoexist = ($result->rowCount());
+
+            // if pseudo 6> 70 get exist pseudo
             if ($pseudoMemb > 6 AND $pseudoMemb < 70){
                 $pseudoMembV == 1;
             } else {
                 $pseudoMembV == 0;
                 $messageErreur1 = "Votre pseudo doit comprendre entre 6 et 70 caractères";
             }
-            
+
             // pseudo disponible
             if ($pseudoexist == 0 ){
                 $pseudMembCheck == 1;
@@ -76,24 +81,24 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
                 $pseudMembCheck == 0;
                 $messageErreur2 = "Ce pseudo est déja pris";
             }
-         
-            // validité mail 1 et 2 
+
+            // validité mail 1 et 2
             if (filter_var($eMailMemb, FILTER_VALIDATE_EMAIL)){
                 $emailCheckV == 1;
             } else {
                 $emailCheckV == 0;
                 $messageErreur3 = "Cette adresse mail n'est valable";
             }
-            
-            // mail égaux 
+
+            // mail égaux
             if ($eMailMemb == $eMailMemb2){
                 $eMailMembV == 1;
             } else {
                 $eMailMembV == 0;
                 $messageErreur4 = "Les adresses mail saisies doivent être identique";
             }
-           
-            // pass égaux 
+
+            // pass égaux
             if ($passMemb == $passMemb2){
                 $passMembV == 1;
             } else {
@@ -101,7 +106,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
                 $messageErreur5 = "Les mots de passe saisis doivent être identique";
             }
 
-            // accord RGPD 
+            // accord RGPD
             if ($accordMemb == 1){
                 $accordMembV == 1;
             } else {
@@ -112,15 +117,16 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
             // Se souvenir de moi
 
 
-            //tout les booleens (tous a 1) -> pasword hash -> create 
-            if ($passMembV == 1 AND  $eMailMembV == 1 AND $pseudoMembV == 1 AND $pseudMembCheck == 1 AND $emailCheckV == 1 AND $eMailMembV == 1 AND $accordMembV == 1) {
+            //tout les booleens (tous a 1) -> pasword hash -> create
+            if ($passMembV == 1 AND  $eMailMembV == 1 AND $pseudoMembV == 1 AND $emailCheckV == 1 AND $pseudMembCheck == 1 AND $accordMembV == 1) {
 
                 $passMemb = password_hash($_POST['pass1Memb'], PASSWORD_DEFAULT);
 
                 $monMembre->create($prenomMemb, $nomMemb, $pseudoMemb, $passMemb, $eMailMemb, $dtCreaMemb, $souvenirMemb, $accordMemb);
             }
             else {
-                echo ($messageErreur1 . "\n" . $messageErreur2 . "\n" . $messageErreur3 . "\n" . $messageErreur4. "\n" . $messageErreur5 . "\n" .  $messageErreur6)
+                // echo ($messageErreur1 . "\n" . $messageErreur2 . "\n" . $messageErreur3 . "\n" . $messageErreur4. "\n" . $messageErreur5 . "\n" .  )
+                echo ($messageErreur1 . "\n" . $messageErreur2 . "\n" . $messageErreur3 . "\n" . $messageErreur4. "\n" . $messageErreur5 . "\n" . $messageErreur6);
             }
 
 

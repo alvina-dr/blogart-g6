@@ -28,10 +28,10 @@ $monStatutArt = new ARTICLE;
 <body>
 <h1>BLOGART21 Admin - Gestion du CRUD ARTICLE</h1>
 
-<hr /><br />
+<img class="soulignage2" src="../../front/assets/icons/soulignage.svg"> <!--BARRE--><br />
 <h2>Nouvel ARTICLE :&nbsp;<a href="./createAngle.php"><i>Créer un ARTICLE</i></a></h2>
-<br /><hr />
-<h2>Tout les ARTICLES</h2>
+<img class="soulignage2" src="../../front/assets/icons/soulignage.svg"> <!--BARRE--><br />
+<h2>Tous les ARTICLES</h2>
 
 <table border="3" bgcolor="aliceblue">
 <thead>

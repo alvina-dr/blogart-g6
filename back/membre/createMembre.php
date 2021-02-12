@@ -62,7 +62,6 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
                 $pseudoMembV == 1
             } else {
                 $pseudoMembV == 0
-<<<<<<< HEAD
                 $messageErreur1 = "Votre pseudo doit comprendre entre 6 et 70 caractères"       
             }
             
@@ -85,15 +84,6 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
                 $messageErreur3 = "Cette adresse mail n'est valable"
             }
             
-=======
-                $messageErreur1 = "Votre pseudo doit comprendre entre 6 et 70 caractères"    
-            }
-            // =// différent 
-            
-            // validité mail 1 et 2 
-                filter_var($eMailMemb, FILTER_VALIDATE_EMAIL)
-
->>>>>>> 8db3490d363116af3c60f7745d6432692c50350d
             // mail égaux 
             if ($eMailMemb == $eMailMemb2){
                 $eMailMembV == 1

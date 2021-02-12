@@ -42,7 +42,7 @@
                     <p>L'insolite !</p>
                 </div>
                 <div class="center_t">
-                    <p>On était obligés</p>
+                    <p>On était obligé</p>
                     <br>
                     <br>
                     <p>Mentions légales</p>

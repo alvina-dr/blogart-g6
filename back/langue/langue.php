@@ -28,10 +28,10 @@ $monStatutL = new LANGUE;
 <body>
     <h1>BLOGART21 Admin - Gestion du CRUD Langue</h1>
 
-    <hr /><br />
+    <img class="soulignage2" src="../../front/assets/icons/soulignage.svg"> <!--BARRE--><br />
 	<h2>Nouvelle Langue :&nbsp;<a href="./createLangue.php"><i>Créer une Langue</i></a></h2>
-	<br /><hr />
-	<h2>Toute les Langues</h2>
+    <img class="soulignage2" src="../../front/assets/icons/soulignage.svg"> <!--BARRE--><br />
+	<h2>Toutes les Langues</h2>
 
 	<table border="3" bgcolor="aliceblue">
     <thead>

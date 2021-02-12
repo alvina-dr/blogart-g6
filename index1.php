@@ -19,7 +19,7 @@ require_once __DIR__ . '/util/utilErrOn.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <link rel="stylesheet" href="/back/css/style.css">
+    <link rel="stylesheet" href="./back/css/style.css">
     <style type="text/css">
 				div {
 					padding-top: 60px;
@@ -35,8 +35,11 @@ require_once __DIR__ . '/util/utilErrOn.php';
 <body>
 	<br />
 	<h1>Panneau d'Admin : Gestion des CRUD - BLOGART21</h1>
+
 	<small><span><i>CRUD fini et valide (reste à tester et à intégrer)</i></span></small>
-	<br /><hr />
+	<br /> <!--saut à la ligne-->
+	<br /> <!--saut à la ligne-->
+	<img class="soulignage2" src="../../front/assets/icons/soulignage.svg"> <!--BARRE-->
 	<div>
 	Gestion du CRUD :
 	<a href="./BACK/angle/angle.php"><span>Angle (*)</span></a>

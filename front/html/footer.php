@@ -18,7 +18,7 @@
         <link rel="stylesheet" type="text/css" href="../css/footer.css">
 
     </HEAD>
-    
+
     <body>
     <div class="espace_header">
 		</div>
@@ -42,7 +42,7 @@
                     <p>L'insolite !</p>
                 </div>
                 <div class="center_t">
-                    <p>On étais obligés</p>
+                    <p>On était obligés</p>
                     <br>
                     <br>
                     <p>Mentions légales</p>

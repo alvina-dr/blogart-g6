@@ -19,12 +19,19 @@
 <body>
 	<header>
 		<div id="navbar">
+			<div class="column">
 			<a class="logo_link" href="./index.php"><img class="logo" src="../assets/icons/logo bg.svg"></a>
+				<div class="recherche">
+             	  	<img src="../assets/icons/search.svg">
+              	  	<p>Rechercher...</p>
+				</div>
+			</div>
 			<ul class="menu_list">
 				<li><a href="./hacktu.php">Actu</a></li>
 				<li><a href="./actors.php">Acteurs clés</a></li>
 				<li><a href="./insolite.php">Insolite</a></li>
 			</ul>
+
 			<ul class="log">
 				<li><a href="index.html">Inscription</a></li>
 				<li ><a class="connexion" href="./connexion.php"></a></li>

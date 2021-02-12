@@ -39,7 +39,7 @@ require_once __DIR__ . '/util/utilErrOn.php';
 	<small><span><i>CRUD fini et valide (reste à tester et à intégrer)</i></span></small>
 	<br /> <!--saut à la ligne-->
 	<br /> <!--saut à la ligne-->
-	<img class="soulignage2" src="../../front/assets/icons/soulignage.svg"> <!--BARRE-->
+	<img class="soulignage2" src="/front/assets/icons/soulignage.svg"> <!--BARRE--><br />
 	<div>
 	Gestion du CRUD :
 	<a href="./BACK/angle/angle.php"><span>Angle (*)</span></a>

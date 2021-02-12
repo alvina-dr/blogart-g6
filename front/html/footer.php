@@ -4,11 +4,12 @@
     <HEAD>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" type="image/ico" href="../assets/icons/logo.ico"/>
         <title>footer</title>
 
+        <link rel="icon" type="image/ico" href="../assets/icons/logo.ico"/>
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         <link rel="preconnect" href="https://fonts.gstatic.com">
+
         <!--linker stylesheet-->
         <link rel="stylesheet" type="text/css" href="../css/base.css">
         <link rel="stylesheet" type="text/css" href="../css/font.css">
@@ -16,9 +17,11 @@
         <link rel="stylesheet" type="text/css" href="../css/index.css">
         <link rel="stylesheet" type="text/css" href="../css/footer.css">
 
-        
     </HEAD>
+
     <body>
+    <div class="espace_header">
+		</div>
         <footer class="h22">
             <img class="arrow" src="../assets/icons/arrow.svg">
             <div class="flex h22">
@@ -39,7 +42,7 @@
                     <p>L'insolite !</p>
                 </div>
                 <div class="center_t">
-                    <p>On étais obligés</p>
+                    <p>On était obligé</p>
                     <br>
                     <br>
                     <p>Mentions légales</p>

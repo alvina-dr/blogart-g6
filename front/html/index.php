@@ -9,6 +9,7 @@
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    
     <!--linker stylesheet-->
     <link rel="stylesheet" type="text/css" href="../css/base.css">
     <link rel="stylesheet" type="text/css" href="../css/font.css">
@@ -49,7 +50,7 @@
             compétitions. Alors que vous soyez néophytes ou habitués du BGF, on vous emmène faire le tour de ce pilier
             du gaming Bordelais.
         </p>
-        <a class="btnplus" href="index.html"></a> <!-- BOUTON EN SAVOIR PLUS -->
+        <a class="btnplus" href="./hacktu.php"></a> <!-- BOUTON EN SAVOIR PLUS -->
     </div>
 
 
@@ -68,7 +69,7 @@
                     plusieurs entreprises tel que Glitchr, Asobo et Ubisoft. Découvrons les de plus près...
                 </p>
             </div>
-            <a class="btnplus" href="index.html"></a> <!-- BOUTON EN SAVOIR PLUS -->
+            <a class="btnplus" href="./actors.php"></a> <!-- BOUTON EN SAVOIR PLUS -->
         </div>
         <div class="column">
             <img class="immeuble" src="../assets/icons/immeuble.png">
@@ -89,7 +90,7 @@
                 <h2>Les écoles d'e-sport,<br>un miroir de riséd ?</h2>
                 <img class="soulignage2" src="../assets/icons/soulignage.svg">
             </div>
-            <a class="btnplus" href="index.html"></a> <!-- BOUTON EN SAVOIR PLUS -->
+            <a class="btnplus" href="./insolite.php"></a> <!-- BOUTON EN SAVOIR PLUS -->
         </div>
 
     </div>
@@ -98,6 +99,9 @@
     <a href="#pageinscription"><img class="h22" src="../assets/icons/inscription_nl.png"></a><br>
     <a href="#pageconnexion"><img class="h22" src="../assets/icons/connexion_nl.png"></a>
 
+    <?php
+        require_once __DIR__ . '/footer.php';
+    ?>
 </body>
 
 </html>

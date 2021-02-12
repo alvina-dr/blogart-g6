@@ -71,3 +71,7 @@
     height: 24px;
     background-size: 104.75px 24px;
   }
+.espace_header {
+    width: 100%;
+    height: 100px;
+}

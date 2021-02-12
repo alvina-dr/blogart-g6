@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/ico" href="//" />
     <meta name="content" content="description">
     <title>B.Game | Hacktu</title>
 
-    <link rel="stylesheet" href="../css/font.css">
+    <link rel="icon" type="image/ico" href="//" />
+
+    <!--linker stylesheet-->
+    <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/font.css">
     <link rel="stylesheet" href="../css/hacktu.css">
-
 
 </head>
 
@@ -26,8 +27,8 @@
         <p>#Hacktu #évènement #festival #BordeauxGeekFestival #Geekfest</p>
     -->
         <div class="hautarticle">
-        <img class="hacktu" src="images/Hacktu.svg" alt="Logo Hacktu" />
-        <img class="image1" src="images/Foule_BGF.png" alt="Foule BGF" />
+        <img class="hacktu" src="../assets/images/Hacktu.svg" alt="Logo Hacktu" />
+        <img class="image1" src="../assets/images/Foule_BGF.png" alt="Foule BGF" />
         </div>
     
 
@@ -45,7 +46,7 @@
         <!--Article 1-->
         <div class="intertitre">
         <h2>Plongez dans l'aventure</h2>
-        <img class="ligne1" src="images/Ligne_1.svg" alt="Soulignage violet"/>
+        <img class="ligne1" src="../assets/images/Ligne_1.svg" alt="Soulignage violet"/>
         </div>
 
         <p>Chaque année en mai, les rues de Bordeaux se remplissent d’une marée de cosplay. Impossible de marcher en
@@ -65,7 +66,7 @@
             En 2017,environ 35 000 personnes se sont rendus à l’évènement.</p>
         </div>
             
-            <img class="image2" src="images/Champi_Mario_BGF.png" alt="Champignon Mario BGF" />
+            <img class="image2" src="../assets/images/Champi_Mario_BGF.png" alt="Champignon Mario BGF" />
         </div>
         
         <p>Le Bordeaux Geek Festival est l’héritage d’un autre évènement de pop culture : Animasia. Le premier Animasia
@@ -78,10 +79,10 @@
         <!--Article 2-->
         <div class="intertitre">
         <h2>Il y a tant à faire.</h2>
-        <img class="ligne2" src="images/Ligne_2.svg" alt="Soulignage violet"/>
+        <img class="ligne2" src="../assets/images/Ligne_2.svg" alt="Soulignage violet"/>
         </div>
 
-        <img class="image3" src="images/Cosplay_BGF.png" alt="Cosplay BGF" />
+        <img class="image3" src="../assets/images/Cosplay_BGF.png" alt="Cosplay BGF" />
 
         
         <p>Mais alors, qu’est ce qu’on peut y faire à ce festival?</p> </br>
@@ -108,7 +109,7 @@
         <!--Article 3-->
         <div class="intertitre">
         <h2> Prouver sa valeur devant un public en folie? </h2>
-        <img class="ligne3" src="images/Ligne_3.svg" alt="Soulignage violet"/>
+        <img class="ligne3" src="../assets/images/Ligne_3.svg" alt="Soulignage violet"/>
         </div>
         <p><a href="https://bordeauxgeekfest.com/bgf-esport/" style="color: #F5F5F5" target="_blank">C’est possible avec le label BGF Esport.</a> </br> </br>
         
@@ -118,7 +119,7 @@
             paisible
             communauté des gamers!</p>
         
-        <img class="image4" src="images/Compétition_BGF.png" alt="Fan compétition BGF" />
+        <img class="image4" src="../assets/images/Compétition_BGF.png" alt="Fan compétition BGF" />
         <p>Comme à chaque édition, le label BGF Esport fait son retour au sein du festival. Que ce soit Rocket League,
             Overwatch, Hearthstone, ou encore l’iconique League of Legends, il y en aura pour tous les
             goûts. </br> 
@@ -141,7 +142,7 @@
             performance, ainsi qu’une coupe si vous gagnez!</p>
 
         <div class="article1">
-        <img src="images/Parc_des_expo_BGF.png" alt="Parc des expos BGF" />
+        <img src="../assets/images/Parc_des_expo_BGF.png" alt="Parc des expos BGF" />
         <div class="textarticle">
             <div class="textefin">
         <p>Et voilà, vous avez maintenant une histoire à raconter à vos
@@ -157,9 +158,10 @@
         </div>
         </div>
         <!--Article 3-->
-
-        
     </div>
+    <?php
+        require_once __DIR__ . '/footer.php';
+    ?>
 </body>
 
 </html>

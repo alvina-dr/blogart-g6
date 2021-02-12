@@ -5,10 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/ico" href="/images/icons/favicon.ico" />
+
+    <!--linker stylesheet-->
     <link type="text/css" rel="stylesheet" href="../css/actors.css">
     <link type="text/css" rel="stylesheet" href="../css/base.css">
     <link type="text/css" rel="stylesheet" href="../css/font.css">
-    <title></title>
+    
 </head>
 
 <body>
@@ -176,7 +178,9 @@
                 placée, guidant la France vers dans les leaders de l’univers du jeu vidéo à l’échelle mondiale.</p>
         </div>
     </div>
-
+    <?php
+        require_once __DIR__ . '/footer.php';
+    ?>
 </body>
 
 </html>

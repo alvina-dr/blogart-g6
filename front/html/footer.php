@@ -53,7 +53,7 @@
                     <br>
                     <a class="footer_hover" href="./hacktu.php">Mentions légales</a>
                     <p></p><br>
-                    <a class="footer_hover" href="./hacktu.php">C.G.U</a>
+                    <a class="footer_hover" href="./cgu.php">C.G.U</a>
                 </div>
             </div>
         </footer>

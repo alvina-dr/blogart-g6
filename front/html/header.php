@@ -27,7 +27,7 @@
 			</ul>
 			<ul class="log">
 				<li><a href="index.html">Inscription</a></li>
-				<li ><a class="connexion" href="index.html"></a></li>
+				<li ><a class="connexion" href="./connexion.php"></a></li>
 			</ul>
 		</div>
 		<div class="espace_header">

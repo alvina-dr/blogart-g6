@@ -9,7 +9,7 @@
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    
+
     <!--linker stylesheet-->
     <link rel="stylesheet" type="text/css" href="../css/base.css">
     <link rel="stylesheet" type="text/css" href="../css/font.css">
@@ -97,7 +97,7 @@
 
     <img class="mouse newsletter" src="../assets/icons/newsletter.png">
     <a href="#pageinscription"><img class="h22" src="../assets/icons/inscription_nl.png"></a><br>
-    <a href="#pageconnexion"><img class="h22" src="../assets/icons/connexion_nl.png"></a>
+    <a href="./connexion.php"><img class="h22" src="../assets/icons/connexion_nl.png"></a>
 
     <?php
         require_once __DIR__ . '/footer.php';

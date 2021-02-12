@@ -35,8 +35,11 @@ require_once __DIR__ . '/util/utilErrOn.php';
 <body>
 	<br />
 	<h1>Panneau d'Admin : Gestion des CRUD - BLOGART21</h1>
+
 	<small><span><i>CRUD fini et valide (reste à tester et à intégrer)</i></span></small>
-	<br /><hr />
+	<br /> <!--saut à la ligne-->
+	<br /> <!--saut à la ligne-->
+	<img class="soulignage2" src="../../front/assets/icons/soulignage.svg"> <!--BARRE-->
 	<div>
 	Gestion du CRUD :
 	<a href="./BACK/angle/angle.php"><span>Angle (*)</span></a>

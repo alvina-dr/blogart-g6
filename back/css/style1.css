@@ -7,7 +7,7 @@
 /*  https://a-pellegrini.developpez.com/tutoriels/css/formulaire/    */
 /*  Effet input blanc sur le focus des champs   */
         *:focus {
-          background-color:white;
+          background-color:#0D1019;
          }
         body {
           font: 1em sans-serif;
@@ -22,7 +22,7 @@
         }
 
 fieldset {
-    background-color: white;  /* color: oldlace */
+    background-color: #0D1019;  /* color: oldlace */
     max-width: 800px;           /* largeur maximale cadre */
     padding: 16px;              /* marge interne / sépare le contenu de la bordure  */  
     /* Coins arrondis et couleur du cadre */
@@ -38,10 +38,10 @@ input {
     display: flex;
     justify-content: center;
     border:2px solid black;
-    background-color:#A6BEDE;
+    background-color:#0D1019;
 
     /* Coins arrondis et couleur du cadre */
-    border: 2px solid grey;
+    border: 2px solid #0D1019;
     -moz-border-radius: 6px;
     -webkit-border-radius: 6px;
     border-radius: 6px;
@@ -112,7 +112,7 @@ input[type=submit] {
 
 textarea {
     border:2px solid black;
-    background-color: lightyellow;
+    background-color: #0D1019;
 
     /* Coins arrondis et couleur du cadre */
     border: 2px solid grey;
@@ -166,5 +166,6 @@ select, option {
 
 /* ------------------------------------------------------------------------- */
 /* ------------------------------------------------------------------------- */
+
 
 

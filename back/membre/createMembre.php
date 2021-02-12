@@ -18,7 +18,7 @@ $monMembre = new MEMBRE;
 require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
     // Gestion du $_SERVER["REQUEST_METHOD"] => En POST
-    // ajout effectif du statut 
+    // ajout effectif du statut
 
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
@@ -30,7 +30,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
           header("Location: ./createMembre.php");
       }   // End of if ((isset($_POST["submit"])) ...
 
-      
+
       if (((isset($_POST['prenomMemb'])) AND !empty($_POST['prenomMemb']))
             AND ((isset($_POST['nomMemb'])) AND !empty($_POST['nomMemb']))
             AND ((isset($_POST['pseudoMemb'])) AND !empty($_POST['pseudoMemb']))
@@ -43,7 +43,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
             // Saisies valides
             $erreur = false;
-                
+
             $numMemb = 0;
             $prenomMemb = ctrlSaisies(($_POST['prenomMemb']));
             $nomMemb = ctrlSaisies(($_POST['nomMemb']));
@@ -51,32 +51,85 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
             $passMemb = ctrlSaisies(($_POST['passMemb']));
             $eMailMemb = ctrlSaisies(($_POST['eMailMemb']));
             $dtCreaMemb = ctrlSaisies(($_POST['dtCreaMemb']));
-            $dtCreaMemb = ("Y-m-d-H-i-s");
-            $souvenirMemb = ctrlSaisies(($_POST['souvenirMemb']));
-            $accordMemb = ctrlSaisies(($_POST['accordMemb']));
+            $dtCreaMemb = date("Y-m-d-H-i-s");
+            $valSouvenirMemb = ctrlSaisies($_POST['souvenirMemb']);
+            $souvenirMemb = ($valSouvenirMemb == "on") ? 1 : 0;
+            $valAccordMemb = ctrlSaisies($_POST['accordMemb']);
+            $accordMemb = ($valAccordMemb == "on") ? 1 : 0;
 
-            // if pseudo 6> 70 get exist pseudo 
+//             $reqpseudo = $bdd->prepare('SELECT * FROM MEMBRE WHERE pseudoMemb = ?');
+//             $reqpseudo->execute(array($pseudoMemb));
+//             $pseudoexist = $reqpseudo->rowcount();
 
-            if ($pseudoMemb > 6 AND $pseudoMemb < 70 )
-            $pseudoMembV == 1 
-            else {
-                $pseudoMembV == 0           
-                $messageErreur1 = "vous devez etre herureux dans la vie"
+                $query = 'SELECT * FROM MEMBRE WHERE pseudoMemb = ?;';
+                $result = $bdd->prepare($query);
+                $result->execute(array($pseudoMemb));
+                $pseudoexist = ($result->rowCount());
+
+            // if pseudo 6> 70 get exist pseudo
+            if ($pseudoMemb > 6 AND $pseudoMemb < 70){
+                $pseudoMembV == 1;
+            } else {
+                $pseudoMembV == 0;
+                $messageErreur1 = "Votre pseudo doit comprendre entre 6 et 70 caractères";
             }
-            // =// différent 
 
-            // validité mail 1 et 2 
+            // pseudo disponible
+            if ($pseudoexist == 0 ){
+                $pseudMembCheck == 1;
+            } else {
+                $pseudMembCheck == 0;
+                $messageErreur2 = "Ce pseudo est déja pris";
+            }
 
-            // mail égaux 
+            // validité mail 1 et 2
+            if (filter_var($eMailMemb, FILTER_VALIDATE_EMAIL)){
+                $emailCheckV == 1;
+            } else {
+                $emailCheckV == 0;
+                $messageErreur3 = "Cette adresse mail n'est valable";
+            }
 
-            // pass égaux 
+            // mail égaux
+            if ($eMailMemb == $eMailMemb2){
+                $eMailMembV == 1;
+            } else {
+                $eMailMembV == 0;
+                $messageErreur4 = "Les adresses mail saisies doivent être identique";
+            }
 
-            // accord RGPD 
+            // pass égaux
+            if ($passMemb == $passMemb2){
+                $passMembV == 1;
+            } else {
+                $passMembV == 0;
+                $messageErreur5 = "Les mots de passe saisis doivent être identique";
+            }
 
-            //tout les booleens (tous a 1) -> pasword hash -> create 
+            // accord RGPD
+            if ($accordMemb == 1){
+                $accordMembV == 1;
+            } else {
+                $accordMembV == 0;
+                $messageErreur6 = "Veuillez accepter les Conditionns Générales d'Utilisation";
+            }
+
+            // Se souvenir de moi
 
 
-            $monMembre->create($num, $libAngl, $numLang);
+            //tout les booleens (tous a 1) -> pasword hash -> create
+            if ($passMembV == 1 AND  $eMailMembV == 1 AND $pseudoMembV == 1 AND $emailCheckV == 1 AND $pseudMembCheck == 1 AND $accordMembV == 1) {
+
+                $passMemb = password_hash($_POST['pass1Memb'], PASSWORD_DEFAULT);
+
+                $monMembre->create($prenomMemb, $nomMemb, $pseudoMemb, $passMemb, $eMailMemb, $dtCreaMemb, $souvenirMemb, $accordMemb);
+            }
+            else {
+                // echo ($messageErreur1 . "\n" . $messageErreur2 . "\n" . $messageErreur3 . "\n" . $messageErreur4. "\n" . $messageErreur5 . "\n" .  )
+                echo ($messageErreur1 . "\n" . $messageErreur2 . "\n" . $messageErreur3 . "\n" . $messageErreur4. "\n" . $messageErreur5 . "\n" . $messageErreur6);
+            }
+
+
 
         }   // Fin if ((isset($_POST['legendImg'])) ...
         else {
@@ -91,6 +144,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="utf-8" />
     <title>Admin - Gestion du CRUD Angle</title>
@@ -100,87 +154,86 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
 </head>
+
 <body>
     <h1>BLOGART21 Admin - Gestion du CRUD Membre</h1>
     <h2>Ajout d'un Membre </h2>
 
     <form method="post" action="./createMembre.php" enctype="multipart/form-data">
 
-      <fieldset>
-        <legend class="legend1">Formulaire Membre...</legend>
-        <br>
-        <div class="control-group">
-            <label class="control-label" for="prenomMemb"><b>Prénom (*):&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="text" name="prenomMemb" id="prenomMemb" size="70" maxlength="70" value="<?= $prenomMemb; ?>" autofocus="autofocus" />
-        </div><br>
-        <div class="control-group">
-            <label class="control-label" for="nomMemb"><b>Nom (*):&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label><br>
-            <input type="text" name="nomMemb" id="nomMemb" size="70" maxlength="70" value="<?= $nomMemb; ?>" autofocus="autofocus" />
-        </div><br>
-        <div class="control-group">
-            <label class="control-label" for="pseudoMemb"><b>Pseudo (*):&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="text" name="pseudoMemb" id="pseudoMemb" size="70" maxlength="70" value="<?= $pseudoMemb; ?>" autofocus="autofocus" />
-        </div>
-        <br>
-        <div class="control-group">
-            <label class="control-label" for="eMailMemb"><b>Email (*):&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label><br>
-            <input type="text" name="eMailMemb" id="eMailMemb" size="70" maxlength="70" value="<?= $eMailMemb; ?>" autofocus="autofocus" />
-        </div>
-        <br>
-        <div class="control-group">
-            <label class="control-label" for="eMailMemb2"><b>Confirmer l'Email (*):&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="text" name="eMailMemb2" id="eMailMemb2" size="70" maxlength="70" value="<?= $eMailMemb2; ?>" autofocus="autofocus" />
-        </div>
-        <br>
-        <div class="control-group">
-            <label class="control-label" for="passMemb"><b>Mot de passe (*):&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="text" name="passMemb" id="passMemb" size="70" maxlength="70" value="<?= $passMemb; ?>" autofocus="autofocus" />
-        </div>
-        <br>
-        <div class="control-group">
-        <label class="control-label" for="passMemb2"><b>Confirmer le mot de passe (*):&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="text" name="passMemb2" id="passMemb2" size="70" maxlength="70" value="<?= $passMemb; ?>" autofocus="autofocus" />
-        </div>
-        <br>
-        <div class="control-group">
-            <label class="control-label" for="souvenirMemb"><b>Se souvenir de moi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="checkbox" name="souvenirMemb" id="souvenirMemb" size="80" maxlength="30" value="<?= $souvenirMemb; ?>" autofocus="autofocus" />
-        </div>
-        <br>
-        <div class="control-group">
-            <label class="control-label" for="accordMemb"><b>Accepter les CGU&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="checkbox" name="accordMemb" id="accordMemb" size="80" maxlength="30" value="<?= $accordMemb; ?>" autofocus="autofocus" />
-        </div>
-        <br>
-        <script src="https://www.google.com/recaptcha/api.js"></script>
-        <script>
-            function onSubmit(token) {
-            document.getElementById("demo-form").submit();
-            }
+        <fieldset>
+            <legend class="legend1">Formulaire Membre...</legend>
+            <br>
+            <div class="control-group">
+                <label class="control-label" for="prenomMemb"><b>Prénom (*):&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+                <input type="text" name="prenomMemb" id="prenomMemb" size="70" maxlength="70" value="<?= $prenomMemb; ?>" autofocus="autofocus" />
+            </div><br>
+            <div class="control-group">
+                <label class="control-label" for="nomMemb"><b>Nom (*):&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label><br>
+                <input type="text" name="nomMemb" id="nomMemb" size="70" maxlength="70" value="<?= $nomMemb; ?>" autofocus="autofocus" />
+            </div><br>
+            <div class="control-group">
+                <label class="control-label" for="pseudoMemb"><b>Pseudo (*):&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+                <input type="text" name="pseudoMemb" id="pseudoMemb" size="70" maxlength="70" value="<?= $pseudoMemb; ?>" autofocus="autofocus" />
+            </div>
+            <br>
+            <div class="control-group">
+                <label class="control-label" for="eMailMemb"><b>Email (*):&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label><br>
+                <input type="text" name="eMailMemb" id="eMailMemb" size="70" maxlength="70" value="<?= $eMailMemb; ?>" autofocus="autofocus" />
+            </div>
+            <br>
+            <div class="control-group">
+                <label class="control-label" for="eMailMemb2"><b>Confirmer l'Email (*):&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+                <input type="text" name="eMailMemb2" id="eMailMemb2" size="70" maxlength="70" value="<?= $eMailMemb2; ?>" autofocus="autofocus" />
+            </div>
+            <br>
+            <div class="control-group">
+                <label class="control-label" for="passMemb"><b>Mot de passe (*):&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+                <input type="text" name="passMemb" id="passMemb" size="70" maxlength="70" value="<?= $passMemb; ?>" autofocus="autofocus" />
+            </div>
+            <br>
+            <div class="control-group">
+                <label class="control-label" for="passMemb2"><b>Confirmer le mot de passe (*):&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+                <input type="text" name="passMemb2" id="passMemb2" size="70" maxlength="70" value="<?= $passMemb; ?>" autofocus="autofocus" />
+            </div>
+            <br>
+            <div class="control-group">
+                <label class="control-label" for="souvenirMemb"><b>Se souvenir de moi :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+                <input type="checkbox" name="souvenirMemb" id="souvenirMemb" size="80" maxlength="30" value="<?= $souvenirMemb; ?>" autofocus="autofocus" />
+            </div>
+            <br>
+            <div class="control-group">
+                <label class="control-label" for="accordMemb"><b>Accepter les CGU (*) :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+                <input type="checkbox" name="accordMemb" id="accordMemb" size="80" maxlength="30" value="<?= $accordMemb; ?>" autofocus="autofocus" />
+            </div>
+            <br>
+            <script src="https://www.google.com/recaptcha/api.js"></script>
+            <script>
+                function onSubmit(token) {
+                    document.getElementById("demo-form").submit();
+                }
             </script>
-            <button class="g-recaptcha" 
-            data-sitekey="6LdB2lMaAAAAABJI0TSsep65vf-x8oT8g0E6ogcr" 
-            data-callback='onSubmit' 
-            data-action='submit'>Submit</button>
+            <button class="g-recaptcha" data-sitekey="6LdB2lMaAAAAABJI0TSsep65vf-x8oT8g0E6ogcr" data-callback='onSubmit' data-action='submit'>Submit</button>
             <br><br>
 
-        <b>Tout les champs contenant (*) sont obligatoires.</b> 
-        <div class="control-group">
-            <div class="controls">
-                <br><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="submit" value="Initialiser" style="cursor:pointer; padding:5px 20px; background-color:lightsteelblue; border:dotted 2px grey; border-radius:5px;" name="Submit" />
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="submit" value="Valider" style="cursor:pointer; padding:5px 20px; background-color:lightsteelblue; border:dotted 2px grey; border-radius:5px;" name="Submit" value="on"/>
-                <br>       
+            <b>Tout les champs contenant (*) sont obligatoires.</b>
+            <div class="control-group">
+                <div class="controls">
+                    <br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="submit" value="Initialiser" style="cursor:pointer; padding:5px 20px; background-color:lightsteelblue; border:dotted 2px grey; border-radius:5px;" name="Submit" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="submit" value="Valider" style="cursor:pointer; padding:5px 20px; background-color:lightsteelblue; border:dotted 2px grey; border-radius:5px;" name="Submit" value="on" />
+                    <br>
+                </div>
             </div>
-        </div>
-      </fieldset>
+        </fieldset>
     </form>
-<?
+    <?
 require_once __DIR__ . '/footermembre.php';
 
 require_once __DIR__ . '/footer.php';
 ?>
 </body>
+
 </html>

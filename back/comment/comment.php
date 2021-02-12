@@ -20,7 +20,7 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <link href="../css/style.css" rel="stylesheet" type="text/css" />
+    <link href="../../back/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <h1>BLOGART21 Admin - Gestion du CRUD Commentaire</h1>

@@ -72,7 +72,7 @@ require_once __DIR__ . '/../../CLASS_CRUD/getNextNumLang.php';
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <link href="../css/style.css" rel="stylesheet" type="text/css" />
+    <link href="../../back/css/style.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
         #p1 {
             max-width: 600px;
@@ -143,7 +143,7 @@ require_once __DIR__ . '/../../CLASS_CRUD/getNextNumLang.php';
                 <input type="hidden" id="idTypPays" name="idTypPays" value="<?= isset($_GET['numPays']) ? $_GET['numPays'] : '' ?>" />
 
                 <select size="1" name="TypPays" id="TypPays" required class="form-control form-control-create" title="Sélectionnez le Pays !" >
-                   <option value="-1">- - - Choisissez un Pays - - -</option>
+                   <option value="-1">Choisissez un Pays </option>
 <?
             $numPays = "";
             $lib1Lang = "";
@@ -169,9 +169,9 @@ require_once __DIR__ . '/../../CLASS_CRUD/getNextNumLang.php';
       <div class="controls">
           <br><br>
           &nbsp;&nbsp;&nbsp;&nbsp;
-          <input type="submit" value="Initialiser" style="cursor:pointer; padding:5px 20px; background-color:lightsteelblue; border:dotted 2px grey; border-radius:5px;" name="Submit" />
+          <input type="submit" value="Initialiser" class="imputFields" name="Submit" />
           &nbsp;&nbsp;&nbsp;&nbsp;
-          <input type="submit" value="Valider" style="cursor:pointer; padding:5px 20px; background-color:lightsteelblue; border:dotted 2px grey; border-radius:5px;" name="Submit" value="on"/>
+          <input type="submit" value="Valider" class="imputFields" name="Submit" value="on"/>
           <br>       
       </div>
   </div>

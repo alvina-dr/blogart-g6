@@ -12,6 +12,6 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 ?>
 
 <footer>
-    <br /><br /><hr />
+    <br /><br />    <img class="soulignage2" src="../../front/assets/icons/soulignage.svg"> <!--BARRE-->
     <h2>Retour à la gestion des Statuts : <a href="./statut.php">CRUD Statut</a></h2>
 </footer>

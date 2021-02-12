@@ -10,9 +10,6 @@
 // Mode DEV
 require_once __DIR__ . '/../../util/utilErrOn.php';
 
-// Récup dernière PK NumLang
-require_once __DIR__ . '/../../CLASS_CRUD/getNextNumThem.php';
-
     // insertion classe STATUT
 require_once __DIR__ . '/../../CLASS_CRUD/thematique.class.php';
 global $db;
@@ -36,7 +33,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
       
       if (((isset($_POST['libThem'])) AND !empty($_POST['libThem']))
-            AND ((isset($_POST['numLang'])) AND !empty($_POST['numLang']))
+            AND ((isset($_POST['TypLang'])) AND !empty($_POST['TypLang']))
             AND (!empty($_POST['Submit']) AND ($Submit === "Valider"))) {
 
             // Saisies valides
@@ -44,15 +41,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
                 
             $numThem = 0;
             $libThem = ctrlSaisies(($_POST['libThem']));
-            $numLang = ctrlSaisies(($_POST['numLang']));
-            
-
-            // Récup dernière PK numLang
-            $numNextThem = getNextNumThem($numThem);
-
-            $maThematique->create($numNextThem, $libThem, $numLang);
-
-            //header("Location: ./langue.php");
+            $numLang = ctrlSaisies(($_POST['TypLang']));
 
         }   // Fin if ((isset($_POST['legendImg'])) ...
         else {
@@ -74,7 +63,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <link href="../css/style.css" rel="stylesheet" type="text/css" />
+    <link href="../../back/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <h1>BLOGART21 Admin - Gestion du CRUD thematique</h1>
@@ -90,19 +79,45 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
             <input type="text" name="libThem" id="libThem" size="80" maxlength="30" value="<?= $libThem; ?>" autofocus="autofocus" />
         </div>
         <br>
+        <!-- FK : Langue -->
+    <!-- Listbox langue -->
+    <br>
         <div class="control-group">
-            <label class="control-label" for="numLang"><b>Langue (Exemple : FRAN01) :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="text" name="numLang" id="numLang" size="80" maxlength="30" value="<?= $numLang; ?>" autofocus="autofocus" />
+            <label class="control-label" for="LibTypLang"><b>Quelle langue :&nbsp;&nbsp;&nbsp;</b></label>
+                <input type="hidden" id="idTypLang" name="idTypLang" value="<?= isset($_GET['numLang']) ? $_GET['numLang'] : '' ?>" />
+
+                <select size="1" name="TypLang" id="TypLang" required class="form-control form-control-create" title="Sélectionnez la langue !" >
+                   <option value="-1">Choisissez une langue </option>
+<?
+            $numLang = "";
+            $lib1Lang = "";
+
+            $queryText = 'SELECT * FROM LANGUE ORDER BY lib1Lang;';
+            $result = $db->query($queryText);
+            if ($result) {
+                while ($tuple = $result->fetch()) {
+                    $ListNumLang = $tuple["numLang"];
+                    $ListLibLang = $tuple["lib1Lang"];
+?>
+                    <option value="<?= $ListNumLang; ?>" >
+                        <?= $ListLibLang; ?>
+                    </option>
+<?
+                } // End of while
+            }   // if ($result)
+?>
+                </select>
+        </div>
+    <!-- FIN Listbox langue -->
         </div>
         <br>
-
         <div class="control-group">
             <div class="controls">
                 <br><br>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="submit" value="Initialiser" style="cursor:pointer; padding:5px 20px; background-color:lightsteelblue; border:dotted 2px grey; border-radius:5px;" name="Submit" />
+                <input type="submit" value="Initialiser" class="imputFields" name="Submit" />
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="submit" value="Valider" style="cursor:pointer; padding:5px 20px; background-color:lightsteelblue; border:dotted 2px grey; border-radius:5px;" name="Submit" value="on"/>
+                <input type="submit" value="Valider" class="imputFields" name="Submit" value="on"/>
                 <br>       
             </div>
         </div>

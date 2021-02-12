@@ -67,7 +67,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <link href="../css/style.css" rel="stylesheet" type="text/css" />
+    <link href="../../back/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <h1>BLOGART21 Admin - Gestion du CRUD Statut</h1>
@@ -86,9 +86,9 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
             <div class="controls">
                 <br><br>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="submit" value="Initialiser" style="cursor:pointer; padding:5px 20px; background-color:lightsteelblue; border:dotted 2px grey; border-radius:5px;" name="Submit" />
+                <input type="submit" value="Initialiser" class="imputFields" name="Submit" />
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="submit" value="Valider" style="cursor:pointer; padding:5px 20px; background-color:lightsteelblue; border:dotted 2px grey; border-radius:5px;" name="Submit" value="on"/>
+                <input type="submit" value="Valider" class="imputFields" name="Submit" value="on"/>
                 <br>       
             </div>
         </div>

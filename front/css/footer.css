@@ -1,0 +1,19 @@
+.arrow{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.center_t{
+    text-align: center;
+}
+
+.flex{
+    display: flex;
+    justify-content: space-between;
+}
+
+.jp_logo{
+    height: 5vh;
+}

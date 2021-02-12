@@ -33,6 +33,20 @@
     background-size: cover;
 }
 
+.graduation2{
+    height: 80vh;
+    background-image: url(..//assets/images/Cosplay_BGF.png);
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.graduation3{
+    height: 80vh;
+    background-image: url(..//assets/images/Compétition_BGF.png);
+    background-attachment: fixed;
+    background-size: cover;
+}
+
 .money{
     height: 30vh;
 }

@@ -19,6 +19,7 @@ require_once __DIR__ . '/util/utilErrOn.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
     <meta name="author" content="" />
+    <link rel="stylesheet" href="/back/css/style.css">
     <style type="text/css">
 				div {
 					padding-top: 60px;
@@ -26,8 +27,8 @@ require_once __DIR__ . '/util/utilErrOn.php';
 					margin-bottom: 0px;
 					margin-left: 60px;
 				}
-        span {
-            background-color: yellow;
+        span { /*Couleur du surlignage*/
+            background-color: black;
         }
     </style>
 </head>
@@ -77,8 +78,6 @@ require_once __DIR__ . '/util/utilErrOn.php';
 	<a href="./BACK/user/user.php">User </a>
 	</div>
 	<br>
-	<hr>
-	<h3><i>- - Etudiants - -</i></h3>
 <?php
 require_once __DIR__ . '/footer.php';
 ?>

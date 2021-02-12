@@ -5,15 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/ico" href="/images/icons/favicon.ico" />
+
+    <!--linker stylesheet-->
     <link type="text/css" rel="stylesheet" href="../css/actors.css">
     <link type="text/css" rel="stylesheet" href="../css/base.css">
     <link type="text/css" rel="stylesheet" href="../css/font.css">
-    <title></title>
+    
 </head>
 
 <body>
     <?php
         require_once __DIR__ . '/header.php';
+    ?>
+    <?php
+        require_once __DIR__ . '/liketag.php';
     ?>
     <div style="position:absolute;z-index:1;margin-left: 2%;margin-right: 2%;" class="marge">
         <img class="img_acteur" src="../assets/images/acteur.png">
@@ -176,7 +181,9 @@
                 placée, guidant la France vers dans les leaders de l’univers du jeu vidéo à l’échelle mondiale.</p>
         </div>
     </div>
-
+    <?php
+        require_once __DIR__ . '/footer.php';
+    ?>
 </body>
 
 </html>

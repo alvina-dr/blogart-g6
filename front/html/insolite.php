@@ -4,21 +4,28 @@
     <HEAD>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" type="image/ico" href="../assets/icons/logo.ico"/>
         <title>B.Game | L'insolite !</title>
 
+        <link rel="icon" type="image/ico" href="../assets/icons/logo.ico"/>
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         <link rel="preconnect" href="https://fonts.gstatic.com">
+
         <!--linker stylesheet-->
         <link rel="stylesheet" type="text/css" href="../css/base.css">
         <link rel="stylesheet" type="text/css" href="../css/font.css">
         <link rel="stylesheet" type="text/css" href="../css/insolite.css">
+
     </HEAD>
 
     <body>
     <?php
         require_once __DIR__ . '/header.php';
     ?>
+    <?php
+        require_once __DIR__ . '/liketag.php';
+    ?>
+    <div class="espace_liketag">
+	</div> <!-- div qui permet de faire un espace entre les tags et le reste de l'article-->
         <div>
             <div class="h22 right container">
                 <img class="gamer" src="../assets/images/gamer.png" alt=""Photo de gamer>
@@ -97,5 +104,8 @@
             Par ailleurs, le site de l’EGS ne fournit pas de chiffres sur le nombre de pro gamers qui réussissent après leur passage dans l’école. Enfin, aucun coach ni professeurs n’a de palmarès bien impressionnant, de même pour les élèves.<br>
             Les équipes de l’EGS sont répertoriées sur un site externe, avec leurs matchs et leurs résultats. 0-1 la plupart du temps, ou bien ils finissent 7ème sur une ligue de 8 équipes. Mais l’école se cache bien de garder cette dernière information.
         </p>
+    <?php
+    require_once __DIR__ . '/footer.php';
+    ?>
     </body>
 </html>

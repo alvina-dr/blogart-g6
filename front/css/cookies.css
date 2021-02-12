@@ -34,29 +34,29 @@ h4{
 .img_cookies {
     display: flex;
     padding-left: 70%;
-    margin-top: -26%;
+    margin-top: -30%;
 }
 
 .croix_cookies {
     display: flex;
     padding-left: 92.5%;
-    margin-top: -20%;
+    margin-top: -15%;
 }
 .croix_cookies:hover {
     display: flex;
     opacity: 80%;
     padding-left: 92.5%;
-    margin-top: -20%;
 }
 
 .valider_cookies{
     display: block;
     background-color: #9887BF;
+    border-width: 1px;
     border-radius: 20px;
     width: 164px;
     height: 40px;
     margin-left: 67%;
-    margin-top: 20%;
+    margin-top: 15%;
     justify-content: center;
     text-align: center;
 }
@@ -65,7 +65,29 @@ h4{
     opacity: 80%;
 }
 
+.refuser_cookies{
+    display: block;
+    background-color: #FFFFFE;
+    border-width: 1px;
+    border-radius: 20px;
+    width: 164px;
+    height: 40px;
+    margin-left: 67%;
+    margin-top: 2%;
+    justify-content: center;
+    text-align: center;
+}
+.refuser_cookies:hover {
+    display: block;
+    opacity: 80%;
+}
+
 .cookie_blanc {
     color: #FFFFFE;
+    font-size: 22px;
+}
+
+.cookie_blanc2 {
+    color: #9887BF;
     font-size: 22px;
 }

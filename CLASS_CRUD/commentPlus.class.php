@@ -3,45 +3,44 @@
 
 require_once __DIR__ . '../../CONNECT/database.php';
 
-class COMMENT
+class COMMENTPLUS
 {
-	function get_1Com($numSeqCom)
+	function get_1ComPlus($numSeqCom)
 	{
 		global $db;
-		$query = 'SELECT * FROM COMMENT WHERE numSeqCom = :numSeqCom;';
+		$query = 'SELECT * FROM COMMENTPLUS WHERE numSeqCom = :numSeqCom;';
 		$result = $db->prepare($query);
 		$result->bindParam(':numSeqCom', $numSeqCom);
 		$result->execute();
 		return ($result->fetch());
 	}
 
-    function get_AllCom()
+    function get_AllComPlus()
     {
         global $db;
-        $query = 'SELECT * FROM COMMENT';
+        $query = 'SELECT * FROM COMMENTPLUS';
         $result = $db->query($query);
         $allStatuts = $result->fetchAll();
         return ($allStatuts);
     }
 }
 
-    function create($numArt, $numSeqCom, $dtCreCom, $libCom){
+	function create($numSeqCom, $numArt, $numSeqComR, $numArtR){
 	
  		global $db;
  		try {
  			//   $db = new PDO ('mysql:host=localhost;dbname=blogart21;charset=utf8mb4','root','');
  			$db->beginTransaction();
- 			$exec = "INSERT INTO COMMENT (numArt, numSeqCom, dtCreCom, libCom) VALUES (:numArt, :numSeqCom, :dtCreCom, :libCom)";
+ 			$exec = "INSERT INTO COMMENTPLUS (numArt, numSeqCom, numArtR, numSeqComR) VALUES (:numArt, :numSeqCom, :numArtR, :numSeqComR)";
  			$result = $db->prepare($exec);
-			$result->bindParam(':numArt', $numArt);
  			$result->bindParam(':numSeqCom', $numSeqCom);
-			$result->bindParam(':dtCreCom', $dtCreCom);
- 			$result->bindParam(':libCom', $libCom);
+			$result->bindParam(':numArtR', $numArtR);
+ 			$result->bindParam(':numSeqComR', $numSeqComR);
  			$result->execute();
  			$db->commit();
  			$result->closeCursor();
  		} catch (PDOException $erreur) {
- 			die('Erreur insert COMMENT : ' . $erreur->getMessage());
+ 			die('Erreur insert COMMENTPLUS : ' . $erreur->getMessage());
 			$db->rollBack();
  			$result->closeCursor();
  		}

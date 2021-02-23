@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html lang="fr">
-
     <HEAD>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>B.Game | L'insolite !</title>
-
+        <link rel="stylesheet" type="text/css" href="../css/insolite.css">
         <link rel="icon" type="image/ico" href="../assets/icons/logo.ico"/>
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         <link rel="preconnect" href="https://fonts.gstatic.com">
 
         <!--linker stylesheet-->
+        <link rel="stylesheet" type="text/css" href="../css/insolite.css">
         <link rel="stylesheet" type="text/css" href="../css/base.css">
         <link rel="stylesheet" type="text/css" href="../css/font.css">
-        <link rel="stylesheet" type="text/css" href="../css/insolite.css">
-
     </HEAD>
 
     <body>
@@ -24,6 +22,11 @@
     <?php
         require_once __DIR__ . '/liketag.php';
     ?>
+
+    <!-- <div class="collage_container">
+        <p>test</p>
+    </div> -->
+
     <div class="espace_liketag">
 	</div> <!-- div qui permet de faire un espace entre les tags et le reste de l'article-->
         <div>

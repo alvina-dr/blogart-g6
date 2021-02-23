@@ -12,3 +12,5 @@
     $numSeqComR = "";
     // FK PK CommentPlus
     $numArtR = "";
+
+    $libComPlus = "";

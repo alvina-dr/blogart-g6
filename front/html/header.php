@@ -13,11 +13,14 @@
 	<link rel="stylesheet" type="text/css" href="../css/base.css">
 	<link rel="stylesheet" href="../css/font.css">
 	<link rel="stylesheet" href="../css/header.css">
+	<link rel="stylesheet" href="../css/footer.css">
+
 
 </head>
 
 <body>
 	<header>
+		<balise id="hautdepage"></balise>
 		<div id="navbar">
 			<div class="column">
 			<a class="logo_link" href="./index.php"><img class="logo" src="../assets/icons/logo bg.svg"></a>
@@ -33,7 +36,7 @@
 				<li><a href="./insolite.php">Insolite</a></li>
 			</ul>
 			<ul class="log">
-				<li><a href="index.html">Inscription</a></li>
+				<li><a href="./inscription.php">Inscription</a></li>
 				<li ><a class="connexion" href="./connexion.php"></a></li>
 			</ul>
 			</div>

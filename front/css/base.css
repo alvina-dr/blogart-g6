@@ -3,6 +3,11 @@
     padding: 0;
 }
 
+html{
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}
+
 body{
     background-color: #0D1019;
     margin: 0 4%;

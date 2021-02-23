@@ -1,0 +1,15 @@
+@font-face {
+    font-family: "Bell MT";
+	src: url('../assets/font/BELL.TTF');
+}
+
+@font-face {
+	font-family: "Gotham rounded book";
+	src: url('../assets/font/GOTHAM-ROUNDED-BOOK.OTF');
+}
+
+
+@font-face {
+	font-family: "Gotham ultra";
+	src: url('../assets/font/GOTHAM-ULTRA.OTF');
+}

@@ -176,3 +176,8 @@ tbody tr:nth-child(odd) { /*couleur fond lignes impaires des tableaux*/
   th {
 	border-color: #171c2b00;
   }
+
+.form-control {
+	border-radius: 10px;
+	font-family: Gotham Rounded;
+}

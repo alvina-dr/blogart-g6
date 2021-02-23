@@ -31,7 +31,7 @@ class COMMENT
  		try {
  			//   $db = new PDO ('mysql:host=localhost;dbname=blogart21;charset=utf8mb4','root','');
  			$db->beginTransaction();
- 			$exec = "INSERT INTO COMMENT (numSeqCom, dtCreCom, libCom, attModOK, affComOK, notifComKOAff) VALUES (:numSeqCom, :dtCreCom, :libCom, :attModOK, :affComOK, :notifComKOAff)";
+ 			$exec = "INSERT INTO COMMENT (numArt, numSeqCom, dtCreCom, libCom, attModOK, affComOK, notifComKOAff) VALUES (:numArt, :numSeqCom, :dtCreCom, :libCom, :attModOK, :affComOK, :notifComKOAff)";
  			$result = $db->prepare($exec);
  			$result->bindParam(':numSeqCom', $numSeqCom);
 			$result->bindParam(':dtCreCom', $dtCreCom);

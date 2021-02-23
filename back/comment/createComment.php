@@ -10,8 +10,8 @@
 // Mode DEV
 require_once __DIR__ . '/../../util/utilErrOn.php';
 
-
-
+// Récup dernière PK NumLang
+require_once __DIR__ . '/../../CLASS_CRUD/getNextNumCom.php';
     
 // insertion classe STATUT
 require_once __DIR__ . '/../../CLASS_CRUD/comment.class.php';
@@ -47,15 +47,15 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
                 
             //$numLang = 0;
             $numArt = ctrlSaisies(($_POST['numArt']));
-            $dtCreCom = ctrlSaisies(($_POST['dtCreCom']));
+            $dtCreCom = date("Y-m-d-H-i-s");
             $libCom = ctrlSaisies($_POST["libCom"]);
             $attModOK = ctrlSaisies(($_POST['attModOK']));
             $affComOK = ctrlSaisies(($_POST['affComOK']));
             $notifComKOAff = ctrlSaisies($_POST["notifComKOAff"]);
 
+            $numNextCom = getNextNumCom($numArt, $numSeqCom);
 
-
-            $monStatutCom->create($numSeqCom, $numSeqCom, $dtCreCom, $libCom, $attModOK, $affComOK, $notifComKOAff);
+            $monStatutCom->create($numNextCom, $dtCreCom, $libCom, $attModOK, $affComOK, $notifComKOAff);
 
             //header("Location: ./langue.php");
 
@@ -89,11 +89,6 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
       <fieldset>
         <legend class="legend1">Formulaire Commentaire...</legend>
-        <br>
-        <div class="control-group">
-            <label class="control-label" for="numSeqCom"><b>Numéro du commentaire :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="text" name="numSeqCom" id="numSeqCom" size="350" maxlength="300" value="<?= $numSeqCom; ?>" autofocus="autofocus" />
-        </div>
 
         <br>
         <br>
@@ -124,11 +119,6 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
                 </select>
         </div>
     <!-- FIN Listbox article -->
-        <br>
-        <div class="control-group">
-            <label class="control-label" for="dtCreCom"><b>Date de création du commentaire :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="text" name="dtCreCom" id="dtCreCom" size="350" maxlength="300" value="<?= $dtCreCom; ?>" autofocus="autofocus" />
-        </div>
 
         <br>
         <div class="control-group">

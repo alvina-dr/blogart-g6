@@ -46,9 +46,9 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
             $numMemb = ctrlSaisies(($_POST['numMemb']));
             $numArt = ctrlSaisies(($_POST['numArt']));
             $dtCreCom = date("Y-m-d-H-i-s");
-            $libCom = ctrlSaisies($_POST["libCom"]);
+            $libCom = ctrlSaisies(($_POST["libCom"]));
 
-            $numNextCom = getNextNumCom($numArt, $numSeqCom);
+            $numNextCom = getNextNumCom($numArt);
 
             $monStatutCom->create($numNextCom, $dtCreCom, $libCom);
 

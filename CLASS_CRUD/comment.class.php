@@ -25,7 +25,7 @@ class COMMENT
     }
 }
 
-    function create($numSeqCom, $dtCreCom, $libCom){
+    function create($numArt, $numSeqCom, $dtCreCom, $libCom){
 	
  		global $db;
  		try {

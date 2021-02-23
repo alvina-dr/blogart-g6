@@ -10,8 +10,6 @@
 // Mode DEV
 require_once __DIR__ . '/../../util/utilErrOn.php';
 
-// Récup dernière PK NumLang
-require_once __DIR__ . '/../../CLASS_CRUD/getNextNumArt.php';
 
     // insertion classe STATUT
 require_once __DIR__ . '/../../CLASS_CRUD/article.class.php';
@@ -65,8 +63,6 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
             $urlPhotArt = ctrlSaisies(($_POST['urlPhotArt']));
             $numAngl = ctrlSaisies(($_POST['TypAngl']));
             $numThem = ctrlSaisies(($_POST['numThem']));
-
-            $numNextArt = getNextNumArt($numArt);
 
             $monArticle->create($numArt, $libTitrArt, $libChapoArt, $libAccrochArt, $parag1Art, $libSsTitr1Art, $parag2Art, $libSsTitr2Art, $parag3Art, $urlPhotArt, $TypAngl, $numThem);
 

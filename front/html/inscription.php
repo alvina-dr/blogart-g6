@@ -19,6 +19,9 @@
     </HEAD>
 
     <body>
+    <?php
+        require_once __DIR__ . '/header.php';
+        ?>
         <div class="flex">
             <img src="../assets/icons/contact.svg">
             <div>
@@ -54,5 +57,8 @@
                 <a><img class="h22 hwg" src="../assets/icons/hwg.png"></a>
             </div>
         </div>
+        <?php
+        require_once __DIR__ . '/footer.php';
+    ?>
     </body>
 </html>

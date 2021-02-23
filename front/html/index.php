@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/ico" href="../assets/icons/logo.ico" />
-    <title>B.Game | Landing Page</title>
+    <title>B.Game | Beat the game</title>
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -103,10 +103,10 @@
     <br>
     <a href="#pageinscription"><img class="h22" src="../assets/icons/inscription_nl.png"></a><br>
     <a href="./connexion.php"><img class="h22" src="../assets/icons/connexion_nl.png"></a>
-
     <?php
         require_once __DIR__ . '/footer.php';
     ?>
+	<script src="../js/typewriter.js"></script>
 </body>
 
 </html>

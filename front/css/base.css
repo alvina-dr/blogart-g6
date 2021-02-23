@@ -3,6 +3,11 @@
     padding: 0;
 }
 
+html{
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}
+
 body{
     background-color: #0D1019;
     margin: 0 4%;
@@ -13,6 +18,7 @@ h1{
     color: #F5F5F5;
     /* text-align: center; */
     font-size: 600%;
+    text-transform: uppercase;
 }
 
 h2{

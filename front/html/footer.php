@@ -16,6 +16,7 @@
         <link rel="stylesheet" type="text/css" href="../css/insolite.css">
         <link rel="stylesheet" type="text/css" href="../css/index.css">
         <link rel="stylesheet" type="text/css" href="../css/footer.css">
+        <link rel="stylesheet" type="text/css" href="../css/header.css">
 
     </HEAD>
 
@@ -24,7 +25,7 @@
     <div class="espace_header">
 		</div>
         <footer class="h22">
-            <img class="arrow" src="../assets/icons/arrow.svg">
+            <a href="#hautdepage"><img class="arrow" src="../assets/icons/arrow.svg"></a>
             <div class="flex h22">
                 <div class="center_t">
                     <p>Qui sommes nous ?</p>
@@ -32,7 +33,7 @@
                     <br>
                     <br>
                     <br>
-                    <a href="https://maurinecros.github.io/jauneprod.github.io/"><img class="jp_logo" src="../assets/icons/jp.svg"></a>
+                    <a href="https://jauneprod.netlify.app/secondindex" target="_blank"><img class="jp_logo" src="../assets/icons/jp.svg"></a>
                 </div>
                 <div class="center_t">
                     <p>Tu veux aller où ?</p>

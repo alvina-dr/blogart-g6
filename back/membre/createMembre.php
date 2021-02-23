@@ -122,7 +122,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
             //tout les booleens (tous a 1) -> pasword hash -> create
             if ($passMembV == 1 AND  $eMailMembV == 1 AND $pseudoMembV == 1 AND $emailCheckV == 1 AND $pseudMembCheck == 1 AND $accordMembV == 1) {
 
-                $passMemb = password_hash($_POST['pass1Memb'], PASSWORD_DEFAULT);
+                $passMemb = password_hash($_POST['passMemb'], PASSWORD_DEFAULT);
 
                 $monMembre->create($prenomMemb, $nomMemb, $pseudoMemb, $passMemb, $eMailMemb, $dtCreaMemb, $souvenirMemb, $accordMemb);
             }
@@ -196,7 +196,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
             <br>
             <div class="control-group">
                 <label class="control-label" for="passMemb2"><b>Confirmer le mot de passe (*):&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-                <input type="text" name="passMemb2" id="passMemb2" size="70" maxlength="70" value="<?= $passMemb; ?>" autofocus="autofocus" />
+                <input type="text" name="passMemb2" id="passMemb2" size="70" maxlength="70" value="<?= $passMemb2; ?>" autofocus="autofocus" />
             </div>
             <br>
             <div class="control-group">
@@ -209,14 +209,14 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
                 <input type="checkbox" name="accordMemb" id="accordMemb" size="80" maxlength="30" value="<?= $accordMemb; ?>" autofocus="autofocus" />
             </div>
             <br>
-            <script src="https://www.google.com/recaptcha/api.js"></script>
+            <!-- <script src="https://www.google.com/recaptcha/api.js"></script>
             <script>
                 function onSubmit(token) {
                     document.getElementById("demo-form").submit();
                 }
             </script>
-            <!-- <button class="g-recaptcha" data-sitekey="6LdB2lMaAAAAABJI0TSsep65vf-x8oT8g0E6ogcr" data-callback='onSubmit' data-action='submit'>Submit</button> -->
-            <br><br>
+            <button class="g-recaptcha" data-sitekey="6LdB2lMaAAAAABJI0TSsep65vf-x8oT8g0E6ogcr" data-callback='onSubmit' data-action='submit'>Submit</button> -->
+            <br><br> -->
 
             <b>Tout les champs contenant (*) sont obligatoires.</b>
             <div class="control-group">

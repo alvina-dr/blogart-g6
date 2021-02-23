@@ -105,7 +105,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 ?>
                 </select>
         </div>
-    <!-- FIN Listbox langue -->
+    <!-- FIN Listbox article -->
         <br>
         <div class="control-group">
             <label class="control-label" for="likeA"><b>Like de l'article ou non (Exemple : 1 ou 0) :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>

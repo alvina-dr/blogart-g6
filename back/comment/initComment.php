@@ -12,3 +12,9 @@
     $dtCreCom = "";
     // libellé
     $libCom = "";
+
+    $attModOK="";
+
+    $affComOK="";
+
+    $notifComKOAff="";

@@ -24,17 +24,25 @@ class ARTICLE
         return ($allStatuts);
     }
 
-	function create($numArt, $libAngl, $numLang)
+	function create($numArt, $libTitrArt, $libChapoArt, $libAccrochArt, $parag1Art, $libSsTitr1Art, $parag2Art, $libSsTitr2Art, $parag3Art, $urlPhotArt, $TypAngl, $numThem)
 	{
 		global $db;
 		try {
-			//   $db = new PDO ('mysql:host=localhost;dbname=blogart21;charset=utf8mb4','root','');
 			$db->beginTransaction();
-			$exec = "INSERT INTO ARTICLE (numArt, libAngl, numLang) VALUES (:numArt, :libAngl, :numLang)";
+			$exec = "INSERT INTO ARTICLE (numArt, libTitrArt, libChapoArt, libAccrochArt, parag1Art, libSsTitr1Art, parag2Art, libSsTitr2Art, parag3Art, urlPhotArt, TypAngl, numThem) VALUES (:numArt, :libTitrArt, :libChapoArt, :libAccrochArt, :parag1Art, :libSsTitr1Art, :parag2Art, :libSsTitr2Art, :parag3Art, :urlPhotArt, :TypAngl, :numThem)";
 			$result = $db->prepare($exec);
 			$result->bindParam(':numArt', $numArt);
-			$result->bindParam(':libAngl', $libAngl);
-			$result->bindParam(':numLang', $numLang);
+			$result->bindParam(':libTitrArt', $libTitrArt);
+			$result->bindParam(':libChapoArt', $libChapoArt);
+			$result->bindParam(':libAccrochArt', $libAccrochArt);
+			$result->bindParam(':parag1Art', $parag1Art);
+			$result->bindParam(':libSsTitr1Art', $libSsTitr1Art);
+			$result->bindParam(':parag2Art', $parag2Art);
+			$result->bindParam(':libSsTitr2Art', $libSsTitr2Art);
+			$result->bindParam(':parag3Art', $parag3Art);
+			$result->bindParam(':urlPhotArt', $urlPhotArt);
+			$result->bindParam(':TypAngl', $TypAngl);
+			$result->bindParam(':numThem', $numThem);
 			$result->execute();
 			$db->commit();
 			$result->closeCursor();

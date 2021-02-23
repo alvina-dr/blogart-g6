@@ -11,7 +11,7 @@
 require_once __DIR__ . '/../../util/utilErrOn.php';
 
 // Récup dernière PK NumLang
-require_once __DIR__ . '/../../CLASS_CRUD/getNextNumAngl.php';
+require_once __DIR__ . '/../../CLASS_CRUD/getNextNumArt.php';
 
     // insertion classe STATUT
 require_once __DIR__ . '/../../CLASS_CRUD/article.class.php';
@@ -45,12 +45,11 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
             AND ((isset($_POST['libConclArt'])) AND !empty($_POST['libConclArt']))
             AND ((isset($_POST['urlPhotArt'])) AND !empty($_POST['urlPhotArt']))
             AND ((isset($_POST['TypAngl'])) AND !empty($_POST['TypAngl']))
-            AND ((isset($_POST['numThem'])) AND !empty($_POST['numThem'])){
+            AND ((isset($_POST['numThem'])) AND !empty($_POST['numThem']))){
 
             // Saisies valides
             $erreur = false;
                 
-            $numArt = 0;
             $libTitrArt = ctrlSaisies(($_POST['libTitrArt']));
             $libChapoArt = ctrlSaisies(($_POST['libChapoArt']));
             $libAccrochArt = ctrlSaisies(($_POST['libAccrochArt']));
@@ -62,6 +61,10 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
             $urlPhotArt = ctrlSaisies(($_POST['urlPhotArt']));
             $numAngl = ctrlSaisies(($_POST['TypAngl']));
             $numThem = ctrlSaisies(($_POST['numThem']));
+
+            $numNextArt = getNextNumArt($numArt);
+
+            $monArticle->create($numArt, $libTitrArt, $libChapoArt, $libAccrochArt, $parag1Art, $libSsTitr1Art, $parag2Art, $libSsTitr2Art, $parag3Art, $urlPhotArt, $TypAngl, $numThem);
 
 
         }   // Fin if ((isset($_POST['legendImg'])) ...
@@ -98,61 +101,61 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
         <!-- Titre -->
         <div class="control-group">
             <label class="control-label" for="libTitrArt"><b>Titre Article (Exemple : Pourquoi les canards aiment le pain ?) :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="text" name="libTitrArt" id="libTitrArt" size="150" maxlength="150" value="<?= $libTitrArt; ?>" autofocus="autofocus" />
+            <textarea type="text" name="libTitrArt" id="libTitrArt" maxlength="150" value="<?= $libTitrArt; ?>" autofocus="autofocus" style="margin: 0px; width: 500px; height: 25px;"></textarea>
         </div>
         <br>
         <!-- Chapeau -->
         <div class="control-group">
             <label class="control-label" for="libChapoArt"><b>Chapeau introductif :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="text" name="libChapoArt" id="libChapoArt" size="200" maxlength="200" value="<?= $libChapoArt; ?>" autofocus="autofocus" />
+            <textarea type="text" name="libChapoArt" id="libChapoArt" size="200" maxlength="200" value="<?= $libChapoArt; ?>" autofocus="autofocus" style="margin: 0px; width: 500px; height: 25px;"></textarea>
         </div>
         <br>
         <!-- Accroche -->
         <div class="control-group">
             <label class="control-label" for="libAccrochArt"><b>Accroche :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="text" name="libAccrochArt" id="libAccrochArt" size="200" maxlength="200" value="<?= $libAccrochArt; ?>" autofocus="autofocus" />
+            <textarea type="text" name="libAccrochArt" id="libAccrochArt" size="200" maxlength="200" value="<?= $libAccrochArt; ?>" autofocus="autofocus" style="margin: 0px; width: 500px; height: 50px;"></textarea>
         </div>
         <br>
         <!-- Paragraphe 1 -->
         <div class="control-group">
             <label class="control-label" for="parag1Art"><b>Paragraphe 1 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="text" name="parag1Art" id="parag1Art" size="2000" maxlength="2000" value="<?= $parag1Art; ?>" autofocus="autofocus" />
+            <textarea type="text" name="parag1Art" id="parag1Art" size="2000" maxlength="2000" value="<?= $parag1Art; ?>" autofocus="autofocus" style="margin: 0px; width: 500px; height: 150px;"></textarea>
         </div>
         <br>
         <!-- Sous titre 1 -->
         <div class="control-group">
             <label class="control-label" for="libSsTitr1Art"><b>Premier Sous Titre :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="text" name="libSsTitr1Art" id="libSsTitr1Art" size="150" maxlength="150" value="<?= $libSsTitr1Art; ?>" autofocus="autofocus" />
+            <textarea type="text" name="libSsTitr1Art" id="libSsTitr1Art" size="150" maxlength="150" value="<?= $libSsTitr1Art; ?>" autofocus="autofocus" style="margin: 0px; width: 500px; height: 25px;"></textarea>
         </div>
         <br>
         <!-- Paragraphe 2 -->
         <div class="control-group">
             <label class="control-label" for="parag2Art"><b>Paragraphe 2 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="text" name="parag2Art" id="parag2Art" size="2000" maxlength="2000" value="<?= $parag2Art; ?>" autofocus="autofocus" />
+            <textarea type="text" name="parag2Art" id="parag2Art" size="2000" maxlength="2000" value="<?= $parag2Art; ?>" autofocus="autofocus" style="margin: 0px; width: 500px; height: 150px;"></textarea>
         </div>
         <br>
         <!-- Sous titre 2 -->
         <div class="control-group">
-            <label class="control-label" for="libSsTitr2Art"><b>Second Sous Titre ::&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="text" name="libSsTitr2Art" id="libSsTitr2Art" size="150" maxlength="150" value="<?= $libSsTitr2Art; ?>" autofocus="autofocus" />
+            <label class="control-label" for="libSsTitr2Art"><b>Second Sous Titre :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+            <textarea type="text" name="libSsTitr2Art" id="libSsTitr2Art" size="150" maxlength="150" value="<?= $libSsTitr2Art; ?>" autofocus="autofocus" style="margin: 0px; width: 500px; height: 25px;"></textarea>
         </div>
         <br>
         <!-- Paragraphe 3 -->
         <div class="control-group">
             <label class="control-label" for="parag3Art"><b>Paragraphe 3 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="text" name="parag3Art" id="parag3Art" size="2000" maxlength="2000" value="<?= $parag3Art; ?>" autofocus="autofocus" />
+            <textarea type="text" name="parag3Art" id="parag3Art" size="2000" maxlength="2000" value="<?= $parag3Art; ?>" autofocus="autofocus" style="margin: 0px; width: 500px; height: 150px;"></textarea>
         </div>
         <br>
         <!-- Conclusion -->
         <div class="control-group">
             <label class="control-label" for="libConclArt"><b>Conclusion :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="text" name="libConclArt" id="libConclArt" size="800" maxlength="800" value="<?= $libSsTitr2Art; ?>" autofocus="autofocus" />
+            <textarea type="text" name="libConclArt" id="libConclArt" size="800" maxlength="800" value="<?= $libSsTitr2Art; ?>" autofocus="autofocus" style="margin: 0px; width: 500px; height: 25px;"></textarea>
         </div>
         <br>
         <!-- Url Photo -->
         <div class="control-group">
             <label class="control-label" for="urlPhotArt"><b>Photo :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="text" name="urlPhotArt" id="urlPhotArt" size="2000" maxlength="2000" value="<?= $urlPhotArt; ?>" autofocus="autofocus" />
+            <input type="file" name="urlPhotArt"  accept="image/png, image/jpeg" id="urlPhotArt" size="2000" maxlength="2000" value="<?= $urlPhotArt; ?>" autofocus="autofocus" style="margin: 0px; width: 500px; height: 25px;" />
         </div>
         <br>
         <!-- FK : Angl -->
@@ -232,7 +235,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
       </fieldset>
     </form>
 <?
-require_once __DIR__ . '/footerAngle.php';
+require_once __DIR__ . '/footerArticle.php';
 
 require_once __DIR__ . '/footer.php';
 ?>

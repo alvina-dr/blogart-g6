@@ -22,11 +22,13 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
+        echo "pourpre";
       // Opérateur ternaire
       $Submit = isset($_POST['Submit']) ? $_POST['Submit'] : '';
 
       if ((isset($_POST["Submit"])) AND ($_POST["Submit"] === "Initialiser")) {
 
+        echo "jaune";
           header("Location: ./createMembre.php");
       }   // End of if ((isset($_POST["submit"])) ...
 
@@ -43,8 +45,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
             // Saisies valides
             $erreur = false;
-
-            $numMemb = 0;
+            
             $prenomMemb = ctrlSaisies(($_POST['prenomMemb']));
             $nomMemb = ctrlSaisies(($_POST['nomMemb']));
             $pseudoMemb = ctrlSaisies(($_POST['pseudoMemb']));
@@ -56,6 +57,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
             $souvenirMemb = ($valSouvenirMemb == "on") ? 1 : 0;
             $valAccordMemb = ctrlSaisies($_POST['accordMemb']);
             $accordMemb = ($valAccordMemb == "on") ? 1 : 0;
+            echo "orange";
 
 //             $reqpseudo = $bdd->prepare('SELECT * FROM MEMBRE WHERE pseudoMemb = ?');
 //             $reqpseudo->execute(array($pseudoMemb));

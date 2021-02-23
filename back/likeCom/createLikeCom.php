@@ -88,10 +88,35 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
             <input type="text" name="numSeqCom" id="numSeqCom" size="80" maxlength="30" value="<?= $numSeqCom; ?>" autofocus="autofocus" />
         </div>
         <br>
+            <!-- Listbox Articles -->
+    <br>
         <div class="control-group">
-            <label class="control-label" for="numArt"><b>Numéro de l'article :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="text" name="numArt" id="numArt" size="80" maxlength="30" value="<?= $numArt; ?>" autofocus="autofocus" />
+            <label class="control-label" for="LibNumArt"><b>Quel article :&nbsp;&nbsp;&nbsp;</b></label>
+                <input type="hidden" id="idNumArt" name="idNumArt" value="<?= isset($_GET['numArt']) ? $_GET['numArt'] : '' ?>" />
+
+                <select size="1" name="TypLikeArt" id="TypLikeArt" required class="form-control form-control-create" title="Sélectionnez le nom de l'article !" >
+                   <option value="-1">Choisissez un article </option>
+<?
+            $numArt = "";
+            $libTitrArt = "";
+
+            $queryText = 'SELECT * FROM ARTICLE ORDER BY numArt;';
+            $result = $db->query($queryText);
+            if ($result) {
+                while ($tuple = $result->fetch()) {
+                    $LibNumArt = $tuple["numArt"];
+                    $LibTitrArt = $tuple["libTitrArt"];
+?>
+                    <option value="<?= $LibNumArt; ?>" >
+                        <?= $LibTitrArt; ?>
+                    </option>
+<?
+                } // End of while
+            }   // if ($result)
+?>
+                </select>
         </div>
+    <!-- FIN Listbox article -->
         <br>
         <div class="control-group">
                 <label class="control-label" for="likeC"><b>Liker le commentaire :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>

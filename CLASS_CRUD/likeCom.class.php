@@ -24,37 +24,29 @@ class LIKECOM
         return ($allStatuts);
     }
 }
-/*
-	function get_AllAnglesByLangue()
-	{
-		global $db;
-		$query = 'SELECT * FROM ANGLE INNER JOIN LANGUE ON numLang.id = numLang.id;';
-		$result = $db->query($query);
-		$allStatuts = $result->fetchAll();
-		return ($allStatuts);
-	}
 
-	function create($numAngl, $libAngl, $numLang)
+	function create($numMemb, $numSeqCom, $numArt, $likeC)
 	{
 		global $db;
 		try {
 			//   $db = new PDO ('mysql:host=localhost;dbname=blogart21;charset=utf8mb4','root','');
 			$db->beginTransaction();
-			$exec = "INSERT INTO ANGLE (numAngl, libAngl, numLang) VALUES (:numAngl, :libAngl, :numLang)";
+			$exec = "INSERT INTO LIKECOM (numMemb, numSeqCom, numArt, likeC) VALUES (:numMemb, :numSeqCom, :numArt, :likeC)";
 			$result = $db->prepare($exec);
-			$result->bindParam(':numAngl', $numAngl);
-			$result->bindParam(':libAngl', $libAngl);
-			$result->bindParam(':numLang', $numLang);
+			$result->bindParam(':numMemb', $numMemb);
+			$result->bindParam(':numSeqCom', $numSeqCom);
+			$result->bindParam(':numArt', $numArt);
+            $result->bindParam(':likeC', $likeC);
 			$result->execute();
 			$db->commit();
 			$result->closeCursor();
 		} catch (PDOException $erreur) {
-			die('Erreur insert ANGLE : ' . $erreur->getMessage());
+			die('Erreur insert LIKECOM : ' . $erreur->getMessage());
 			$db->rollBack();
 			$result->closeCursor();
 		}
 	}
-
+/*
 	function update(string $numAngl, string $libAngl, string $numLang)
 	{
 		global $db;

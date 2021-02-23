@@ -3,37 +3,27 @@
 
 require_once __DIR__ . '../../CONNECT/database.php';
 
-class ANGLE
+class LIKECOM
 {
-	function get_1Angle($numArt)
+	function get_1LikeCom($numArt)
 	{
 		global $db;
-		$query = 'SELECT * FROM ARTICLE WHERE numArt = :numArt;';
+		$query = 'SELECT * FROM LIKECOM WHERE numMemb = :numMemb;';
 		$result = $db->prepare($query);
-		$result->bindParam(':numArt', $numArt);
+		$result->bindParam(':numMemb', $numMemb);
 		$result->execute();
 		return ($result->fetch());
 	}
 
-	function get_1AngleByLangue($numArt)
-	{
-		global $db;
-		$query = 'SELECT * FROM ANGLE AN INNER JOIN LANGUE LA ON AN.numLang = LA.numLang WHERE numArt = ?;';
-		$result = $db->prepare($query);
-		$result->execute([$numArt]);
-		return ($result->fetch());
-	}
-
-    function get_AllAngle()
+    function get_AllLikeCom()
     {
         global $db;
-        $query = 'SELECT * FROM ANGLE;';
+        $query = 'SELECT * FROM LIKECOM;';
         $result = $db->query($query);
         $allStatuts = $result->fetchAll();
         return ($allStatuts);
     }
 }
-
 /*
 	function get_AllAnglesByLangue()
 	{
@@ -105,5 +95,4 @@ class ANGLE
  		}
  	}
 }	// End of class
-//
 */

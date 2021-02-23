@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded',function(event){
     // array with texts to type in typewriter
-    var dataText = [ "Bite Game", "Be a game", "Merde", "B.GAME"];
+    var dataText = [ "BORDEAUX", "GAMING", "B.GAME"];
     
     // type one text in the typwriter
     // keeps calling itself until the text is finished

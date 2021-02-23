@@ -1,0 +1,46 @@
+.arrow{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.center_t{
+    text-align: center;
+}
+
+.flex{
+    display: flex;
+    justify-content: space-between;
+}
+
+.jp_logo{
+    height: 5vh;
+}
+.footer_hover {
+    color: #F5F5F5;
+    text-decoration: none;
+    font-family: "Bell MT";
+    font-size: 130%;
+    line-height: 130%;
+}
+.footer_hover:hover {
+    color: #CF6679;
+}
+
+a{
+    text-decoration: none;
+    color: #F5F5F5;
+}
+
+.f_ligne{
+    width: 8.5vw;
+}
+
+.f_ligne2{
+    width: 8vw;
+}
+
+.f_ligne3{
+    width: 7vw;
+}

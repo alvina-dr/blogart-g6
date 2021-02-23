@@ -21,7 +21,7 @@
     <br>
     <div class="texte_cookies">
         <p class="pcookies">Nous utilisons des cookies pour vous offrir la meilleure expérience possible. 
-            Cliquez sur accepter pour continuer à magaziner ou pour en savoir plus sur notre politique
+            Cliquez sur accepter pour continuer à naviguer ou pour en savoir plus sur notre politique
              en matière de cookies ici.</p>
     </div>
     <div class="img_cookies">
@@ -36,3 +36,5 @@
         <h2 class="cookie_blanc2">Refuser</h2>
 </div>
 <script type="text/javascript" src="../js/cookies.js"></script>
+</body>
+</html>

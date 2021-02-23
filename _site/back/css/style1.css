@@ -1,0 +1,171 @@
+/**
+ * Description of script style1.css
+ *
+ * @author Martine Bornerie
+ */
+
+/*  https://a-pellegrini.developpez.com/tutoriels/css/formulaire/    */
+/*  Effet input blanc sur le focus des champs   */
+        *:focus {
+          background-color:#0D1019;
+         }
+        body {
+          font: 1em sans-serif;
+          padding: 0;
+          margin : 0;
+        }
+        form {
+          font: 16px sans-serif;
+          max-width: 900px;
+          margin: 60;
+          padding: 0 5px;
+        }
+
+fieldset {
+    background-color: #0D1019;  /* color: oldlace */
+    max-width: 800px;           /* largeur maximale cadre */
+    padding: 16px;              /* marge interne / sépare le contenu de la bordure  */  
+    /* Coins arrondis et couleur du cadre */
+    border: 2px solid grey;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+}
+        p > label {
+          display: block;
+        }
+input {
+    display: flex;
+    justify-content: center;
+    border:2px solid black;
+    background-color:#0D1019;
+
+    /* Coins arrondis et couleur du cadre */
+    border: 2px solid #0D1019;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+ }
+        input[type=text],
+        input[type=email],
+        /*textarea,*/
+        fieldset {
+        /* requis pour composer de manière appropriée les éléments
+           de formulaire sur les navigateurs fondés sur WebKit */
+          -webkit-appearance: none;
+          
+          width : 100%;
+          border: 1px solid #333;
+          margin: 0;
+          
+          font-family: inherit;
+          font-size: 100%;
+          
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+        }
+ 
+input[type=radio] {
+    margin-right:3px;
+    background-color:transparent;
+    border:none;
+
+    /* Coins arrondis et couleur du cadre */
+    border: 2px solid grey;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+ }
+        input[type=number],
+        input[type=date] {
+        /* requis pour composer de manière appropriée les éléments
+           de formulaire sur les navigateurs fondés sur WebKit */
+          -webkit-appearance: none;
+          
+          width : 30%;
+          border: 1px solid #333;
+          margin: 0;
+          
+          font-family: inherit;
+          font-size: 100%;
+          
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+        }
+
+input[type=submit] {
+    font-family: inherit;
+    font-size: 100%;
+}
+
+/*  Bordure rouge sur les input : champs obligatoires    
+    Apparemment ne fonctionne pas : à vérifier ?
+*/
+/*
+        input:invalid {
+          box-shadow: 0 0 5px 1px red;
+        }
+        input:focus:invalid {
+          outline: none;
+        }
+*/
+
+textarea {
+    border:2px solid black;
+    background-color: #0D1019;
+
+    /* Coins arrondis et couleur du cadre */
+    border: 2px solid grey;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+ }
+
+/*        select, option {
+*/
+        /* requis pour composer de manière appropriée les éléments
+           de formulaire sur les navigateurs fondés sur WebKit */
+/*          -webkit-appearance: none;
+          
+          width : 50%;
+          border: 1px solid #333;
+          margin: 0;
+          
+          font-family: inherit;
+          font-size: 100%;
+          
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+        }
+*/
+
+select, option {
+    background-color:#A6BEDE;
+          font-family: inherit;
+          font-size: 100%;
+
+    /* Coins arrondis et couleur du cadre */
+    border: 2px solid grey;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+ }
+
+        .error {
+            padding: 2px; 
+            border: solid 0px black; 
+            color: red; 
+            font-style: italic; 
+            border-radius: 5px;
+        }
+        .style_input {
+          height: 80px;
+          width: 300px;
+          font-size: 14px;
+        }
+
+/* ------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------- */
+
+
+

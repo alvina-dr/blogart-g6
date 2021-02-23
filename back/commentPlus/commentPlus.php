@@ -9,13 +9,16 @@
 
 // Mode DEV
 require_once __DIR__ . '/../../util/utilErrOn.php';
+require_once __DIR__ . '/../../CLASS_CRUD/commentPlus.class.php';
+global $db; 
+$monComPlus = new COMMENTPLUS;
 
 ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="utf-8" />
-    <title>Admin - Gestion du CRUD Commentaire sur commentaire</title>
+    <title>Admin - Gestion du CRUD Réponse au Commentaire</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
     <meta name="author" content="" />
@@ -23,13 +26,50 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
     <link href="../../back/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <h1>BLOGART21 Admin - Gestion du CRUD Commentaire sur commentaire</h1>
+    <h1>BLOGART21 Admin - Gestion du CRUD Réponse au Commentaire</h1>
 
-    <br><br>
+    <h2>Nouvelle RÉPONSE AU COMMENTAIRE :&nbsp;<a href="./createCommentPlus.php"><i>Créer une RÉPONSE AU COMMENTAIRE</i></a></h2>
+<img class="soulignage2" src="../../front/assets/icons/soulignage.svg"> <!--BARRE--><br />
+<h2>Toutes les RÉPONSES AUX COMMENTAIRES</h2>
 
-    <h2>En construction :-)</h2>
+<table border="3" bgcolor="aliceblue">
+<thead>
+    <tr>
+        <th>&nbsp;numSeqCom&nbsp;</th>
+        <th>&nbsp;numArt&nbsp;</th>
+        <th>&nbsp;numSeqComR&nbsp;</th>
+        <th>&nbsp;numArtR&nbsp;</th>
 
-    <br><br>
+        <th colspan="2">&nbsp;Action&nbsp;</th>
+        
+    </tr>
+</thead>
+<tbody>
+
+<?
+$allStatuts = $monComPlus->get_AllComPlus();
+foreach($allStatuts as $row) {
+// Appel méthode : tous les statuts en BDD
+?>
+    <tr>
+    <td><h4>&nbsp; <?= $row["numSeqCom"]; ?> &nbsp;</h4></td>
+    <td>&nbsp; <?php echo $row["numArt"]; ?> &nbsp;</td>
+    <td>&nbsp; <?php echo $row["numSeqComR"]; ?> &nbsp;</td>
+    <td>&nbsp; <?php echo $row["numArtR"]; ?> &nbsp;</td>
+
+
+    <td>&nbsp;<a href="./updateCommentPlus.php?id=<?=$row["numSeqCom"]; ?>"><i>Modifier</i></a>&nbsp;
+    <br /></td>
+    <td>&nbsp;<a href="./deleteCommentPlus.php?id=<?=$row["numSeqCom"]; ?>"><i>Supprimer</i></a>&nbsp;
+    <br /></td>
+    </tr>
+<?
+}	// End of foreach
+?>
+</tbody>
+</table>
+<br><br>
+
 
 <?
 require_once __DIR__ . '/footer.php';

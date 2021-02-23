@@ -89,24 +89,24 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
         <br>
         <br>
         <div class="control-group">
-            <label class="control-label" for="LibNumArt"><b>Quel article :&nbsp;&nbsp;&nbsp;</b></label>
+            <label class="control-label" for="LibNumArt"><b>Quel commentaire :&nbsp;&nbsp;&nbsp;</b></label>
                 <input type="hidden" id="idNumArt" name="idNumArt" value="<?= isset($_GET['numArt']) ? $_GET['numArt'] : '' ?>" />
 
                 <select size="1" name="TypLikeArt" id="TypLikeArt" required class="form-control form-control-create" title="Sélectionnez le nom de l'article !" >
-                   <option value="-1">Choisissez un article </option>
+                   <option value="-1">Choisissez un commentaire </option>
 <?
             $numArt = "";
-            $libTitrArt = "";
+            $libCom = "";
 
-            $queryText = 'SELECT * FROM ARTICLE ORDER BY numArt;'; //Permet de choisir les articles par leurs noms
+            $queryText = 'SELECT * FROM COMMENT ORDER BY numSeqCom;'; //Permet de choisir les commentaires par leur numéros
             $result = $db->query($queryText);
             if ($result) {
                 while ($tuple = $result->fetch()) {
                     $LibNumArt = $tuple["numArt"];
-                    $LibTitrArt = $tuple["libTitrArt"];
+                    $libCom = $tuple["libCom"];
 ?>
                     <option value="<?= $LibNumArt; ?>" >
-                        <?= $LibTitrArt; ?>
+                        <?= $libCom; ?>
                     </option>
 <?
                 } // End of while

@@ -34,8 +34,10 @@ require_once __DIR__ . '/util/utilErrOn.php';
 </head>
 <body>
 	<br />
-	<h1>Panneau d'Admin : Gestion des CRUD - BLOGART21</h1>
-
+	<div class="title_blogart">
+		<h1>Panneau d'Admin : Gestion des CRUD - BLOGART21</h1> 
+		<img class="logo_manette"width="5%" class="soulignage2" src="./FRONT/assets/icons/gameboy.svg"> <!--BARRE--><br />
+	</div>
 	<small><span><i>CRUD fini et valide (reste à tester et à intégrer)</i></span></small><br>
 	<small><i>(*) : CRUD en cours de construction</i></small>
 	<br /> <!--saut à la ligne-->

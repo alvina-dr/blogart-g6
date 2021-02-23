@@ -9,7 +9,7 @@
 ///////////////////////////////////////////////////////////////
 
 // Mode DEV
-require_once __DIR__ . '/util/utilErrOn.php';
+require_once __DIR__ . '/../util/utilErrOn.php';
 
 // Fonction : recupérer next numéro séquence de article recherché (PK COMMENT)
 // Commentaire suivant sur un article

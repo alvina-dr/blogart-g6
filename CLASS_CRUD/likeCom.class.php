@@ -3,68 +3,50 @@
 
 require_once __DIR__ . '../../CONNECT/database.php';
 
-class ANGLE
+class LIKECOM
 {
-	function get_1Angle($numArt)
+	function get_1LikeCom($numArt)
 	{
 		global $db;
-		$query = 'SELECT * FROM ARTICLE WHERE numArt = :numArt;';
+		$query = 'SELECT * FROM LIKECOM WHERE numMemb = :numMemb;';
 		$result = $db->prepare($query);
-		$result->bindParam(':numArt', $numArt);
+		$result->bindParam(':numMemb', $numMemb);
 		$result->execute();
 		return ($result->fetch());
 	}
 
-	function get_1AngleByLangue($numArt)
-	{
-		global $db;
-		$query = 'SELECT * FROM ANGLE AN INNER JOIN LANGUE LA ON AN.numLang = LA.numLang WHERE numArt = ?;';
-		$result = $db->prepare($query);
-		$result->execute([$numArt]);
-		return ($result->fetch());
-	}
-
-    function get_AllAngle()
+    function get_AllLikeCom()
     {
         global $db;
-        $query = 'SELECT * FROM ANGLE;';
+        $query = 'SELECT * FROM LIKECOM;';
         $result = $db->query($query);
         $allStatuts = $result->fetchAll();
         return ($allStatuts);
     }
 }
 
-/*
-	function get_AllAnglesByLangue()
-	{
-		global $db;
-		$query = 'SELECT * FROM ANGLE INNER JOIN LANGUE ON numLang.id = numLang.id;';
-		$result = $db->query($query);
-		$allStatuts = $result->fetchAll();
-		return ($allStatuts);
-	}
-
-	function create($numAngl, $libAngl, $numLang)
+	function create($numMemb, $numSeqCom, $numArt, $likeC)
 	{
 		global $db;
 		try {
 			//   $db = new PDO ('mysql:host=localhost;dbname=blogart21;charset=utf8mb4','root','');
 			$db->beginTransaction();
-			$exec = "INSERT INTO ANGLE (numAngl, libAngl, numLang) VALUES (:numAngl, :libAngl, :numLang)";
+			$exec = "INSERT INTO LIKECOM (numMemb, numSeqCom, numArt, likeC) VALUES (:numMemb, :numSeqCom, :numArt, :likeC)";
 			$result = $db->prepare($exec);
-			$result->bindParam(':numAngl', $numAngl);
-			$result->bindParam(':libAngl', $libAngl);
-			$result->bindParam(':numLang', $numLang);
+			$result->bindParam(':numMemb', $numMemb);
+			$result->bindParam(':numSeqCom', $numSeqCom);
+			$result->bindParam(':numArt', $numArt);
+            $result->bindParam(':likeC', $likeC);
 			$result->execute();
 			$db->commit();
 			$result->closeCursor();
 		} catch (PDOException $erreur) {
-			die('Erreur insert ANGLE : ' . $erreur->getMessage());
+			die('Erreur insert LIKECOM : ' . $erreur->getMessage());
 			$db->rollBack();
 			$result->closeCursor();
 		}
 	}
-
+/*
 	function update(string $numAngl, string $libAngl, string $numLang)
 	{
 		global $db;
@@ -105,5 +87,4 @@ class ANGLE
  		}
  	}
 }	// End of class
-//
 */

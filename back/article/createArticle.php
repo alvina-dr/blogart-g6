@@ -27,9 +27,11 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
       // Opérateur ternaire
       $Submit = isset($_POST['Submit']) ? $_POST['Submit'] : '';
+      echo "test 1";
 
       if ((isset($_POST["Submit"])) AND ($_POST["Submit"] === "Initialiser")) {
 
+            echo "test 2";
           header("Location: ./createArticle.php");
       }   // End of if ((isset($_POST["submit"])) ...
 
@@ -49,6 +51,8 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
             // Saisies valides
             $erreur = false;
+
+            echo "test 3";
                 
             $libTitrArt = ctrlSaisies(($_POST['libTitrArt']));
             $libChapoArt = ctrlSaisies(($_POST['libChapoArt']));

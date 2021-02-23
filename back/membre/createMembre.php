@@ -215,7 +215,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
                     document.getElementById("demo-form").submit();
                 }
             </script>
-            <button class="g-recaptcha" data-sitekey="6LdB2lMaAAAAABJI0TSsep65vf-x8oT8g0E6ogcr" data-callback='onSubmit' data-action='submit'>Submit</button>
+            <!-- <button class="g-recaptcha" data-sitekey="6LdB2lMaAAAAABJI0TSsep65vf-x8oT8g0E6ogcr" data-callback='onSubmit' data-action='submit'>Submit</button> -->
             <br><br>
 
             <b>Tout les champs contenant (*) sont obligatoires.</b>

@@ -36,16 +36,17 @@ require_once __DIR__ . '/util/utilErrOn.php';
 	<br />
 	<h1>Panneau d'Admin : Gestion des CRUD - BLOGART21</h1>
 
-	<small><span><i>CRUD fini et valide (reste à tester et à intégrer)</i></span></small>
+	<small><span><i>CRUD fini et valide (reste à tester et à intégrer)</i></span></small><br>
+	<small><i>(*) : CRUD en cours de construction</i></small>
 	<br /> <!--saut à la ligne-->
 	<br /> <!--saut à la ligne-->
-	<img class="soulignage2" src="../../front/assets/icons/soulignage.svg"> <!--BARRE-->
+	<img class="soulignage2" src="./FRONT/assets/icons/soulignage.svg"> <!--BARRE--><br />
 	<div>
 	Gestion du CRUD :
-	<a href="./BACK/angle/angle.php"><span>Angle (*)</span></a>
+	<a href="./BACK/angle/angle.php"><span>Angle</span></a>
 	<br /><br />
 	Gestion du CRUD :
-	<a href="./BACK/article/article.php">Article </a>
+	<a href="./BACK/article/article.php">Article (*)</a>
 	<br /><br />
 	Gestion du CRUD :
 	<a href="./BACK/comment/comment.php">Commentaire </a>
@@ -54,7 +55,7 @@ require_once __DIR__ . '/util/utilErrOn.php';
 	<a href="./BACK/commentplus/commentplus.php">Réponse sur Commentaire </a>
 	<br /><br />
 	Gestion du CRUD :
-	<a href="./BACK/langue/langue.php"><span>Langue (*)</span></a>
+	<a href="./BACK/langue/langue.php"><span>Langue</span></a>
 	<br /><br />
 	Gestion du CRUD :
 	<a href="./BACK/likeart/likeart.php">Like Article </a>
@@ -63,16 +64,16 @@ require_once __DIR__ . '/util/utilErrOn.php';
 	<a href="./BACK/likecom/likecom.php">Like Commentaire </a>
 	<br /><br />
 	Gestion du CRUD :
-	<a href="./BACK/membre/membre.php">Membre </a>
+	<a href="./BACK/membre/membre.php">Membre (*)</a>
 	<br /><br />
 	Gestion du CRUD :
-	<a href="./BACK/motcle/motcle.php"><span>Mot-clé (*)</span></a>
+	<a href="./BACK/motcle/motcle.php"><span>Mot-clé</span></a>
 	<br /><br />
 	Gestion du CRUD :
 	<a href="./BACK/motclearticle/motclearticle.php">Mot-clé Article </a>
 	<br /><br />
 	Gestion du CRUD :
-	<a href="./BACK/statut/statut.php"><span>Statut (*)</span></a>
+	<a href="./BACK/statut/statut.php"><span>Statut</span></a>
 	<br /><br />
 	Gestion du CRUD :
 	<a href="./BACK/thematique/thematique.php">Thématique (*)</a>

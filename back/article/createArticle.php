@@ -44,7 +44,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
             AND ((isset($_POST['parag3Art'])) AND !empty($_POST['parag3Art']))
             AND ((isset($_POST['libConclArt'])) AND !empty($_POST['libConclArt']))
             AND ((isset($_POST['urlPhotArt'])) AND !empty($_POST['urlPhotArt']))
-            AND ((isset($_POST['numAngl'])) AND !empty($_POST['numAngl']))
+            AND ((isset($_POST['TypAngl'])) AND !empty($_POST['TypAngl']))
             AND ((isset($_POST['numThem'])) AND !empty($_POST['numThem'])){
 
             // Saisies valides
@@ -60,7 +60,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
             $libSsTitr2Art = ctrlSaisies(($_POST['libSsTitr2Art']));
             $parag3Art = ctrlSaisies(($_POST['parag3Art']));
             $urlPhotArt = ctrlSaisies(($_POST['urlPhotArt']));
-            $numAngl = ctrlSaisies(($_POST['numAngl']));
+            $numAngl = ctrlSaisies(($_POST['TypAngl']));
             $numThem = ctrlSaisies(($_POST['numThem']));
 
 
@@ -84,7 +84,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <link href="../css/style.css" rel="stylesheet" type="text/css" />
+    <link href="../../back/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <h1>BLOGART21 Admin - Gestion du CRUD Article</h1>
@@ -159,24 +159,24 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
     <!-- Listbox Angl -->
     <br>
         <div class="control-group">
-            <label class="control-label" for="LibTypLang"><b>Quelle langue :&nbsp;&nbsp;&nbsp;</b></label>
-                <input type="hidden" id="idTypLang" name="idTypLang" value="<?= isset($_GET['numLang']) ? $_GET['numLang'] : '' ?>" />
+            <label class="control-label" for="LibTypAngl"><b>Quelle Angle :&nbsp;&nbsp;&nbsp;</b></label>
+                <input type="hidden" id="idTypAngl" name="idTypAngl" value="<?= isset($_GET['numAngl']) ? $_GET['numAngl'] : '' ?>" />
 
-                <select size="1" name="TypLang" id="TypLang" required class="form-control form-control-create" title="Sélectionnez la langue !" >
-                   <option value="-1">- - - Choisissez une langue - - -</option>
+                <select size="1" name="TypAngl" id="TypAngl" required class="form-control form-control-create" title="Sélectionnez l'Angle !" >
+                   <option value="-1">Choisissez un Angle </option>
 <?
-            $numLang = "";
-            $lib1Lang = "";
+            $numAngl = "";
+            $libAngl = "";
 
-            $queryText = 'SELECT * FROM LANGUE ORDER BY lib1Lang;';
+            $queryText = 'SELECT * FROM ANGLE ORDER BY numAngl;';
             $result = $db->query($queryText);
             if ($result) {
                 while ($tuple = $result->fetch()) {
-                    $ListNumLang = $tuple["numLang"];
-                    $ListLibLang = $tuple["lib1Lang"];
+                    $ListNumAngl = $tuple["numAngl"];
+                    $ListLibAngl = $tuple["libAngl"];
 ?>
-                    <option value="<?= $ListNumLang; ?>" >
-                        <?= $ListLibLang; ?>
+                    <option value="<?= $ListNumAngl; ?>" >
+                        <?= $ListLibAngl; ?>
                     </option>
 <?
                 } // End of while
@@ -184,17 +184,48 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 ?>
                 </select>
         </div>
-    <!-- FIN Listbox langue -->
+    <!-- FIN Angle -->
         </div>
         <br>
+<!-- FK : Them -->
+    <!-- Listbox Them -->
+    <br>
+        <div class="control-group">
+            <label class="control-label" for="LibTypThem"><b>Quelle Thématique :&nbsp;&nbsp;&nbsp;</b></label>
+                <input type="hidden" id="idTypThem" name="idTypThem" value="<?= isset($_GET['numThem']) ? $_GET['numThem'] : '' ?>" />
 
+                <select size="1" name="TypThem" id="TypThem" required class="form-control form-control-create" title="Sélectionnez le Them !" >
+                   <option value="-1">Choisissez un Thème </option>
+<?
+            $numThem = "";
+            $libthem = "";
+
+            $queryText = 'SELECT * FROM THEMATIQUE ORDER BY numThem;';
+            $result = $db->query($queryText);
+            if ($result) {
+                while ($tuple = $result->fetch()) {
+                    $ListNumThem = $tuple["numThem"];
+                    $ListfrThem = $tuple["libThem"];
+?>
+                    <option value="<?= $ListNumThem; ?>" >
+                        <?= $ListfrThem; ?>
+                    </option>
+<?
+                } // End of while
+            }   // if ($result)
+?>
+                </select>
+        </div>
+    <!-- FIN Listbox Pays -->
+        </div>
+        <br>
         <div class="control-group">
             <div class="controls">
                 <br><br>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="submit" value="Initialiser" style="cursor:pointer; padding:5px 20px; background-color:lightsteelblue; border:dotted 2px grey; border-radius:5px;" name="Submit" />
+                <input type="submit" value="Initialiser" class="imputFields" name="Submit" />
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="submit" value="Valider" style="cursor:pointer; padding:5px 20px; background-color:lightsteelblue; border:dotted 2px grey; border-radius:5px;" name="Submit" value="on"/>
+                <input type="submit" value="Valider" class="imputFields" name="Submit" value="on"/>
                 <br>       
             </div>
         </div>

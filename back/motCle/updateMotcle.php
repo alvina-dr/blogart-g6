@@ -74,7 +74,7 @@ include __DIR__ . '/initMotCle.php';
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <link href="../css/style.css" rel="stylesheet" type="text/css" />
+    <link href="../../back/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <h1>BLOGART21 Admin - Gestion du CRUD MOT CLE</h1>
@@ -115,7 +115,7 @@ include __DIR__ . '/initMotCle.php';
                 <input type="hidden" id="idTypLang" name="idTypLang" value="<?= isset($_GET['numLang']) ? $_GET['numLang'] : '' ?>" />
 
                 <select size="1" name="TypLang" id="TypLang" required class="form-control form-control-create" title="Sélectionnez la langue !" >
-                   <option value="-1">- - - Choisissez une langue - - -</option>
+                   <option value="-1">Choisissez une langue </option>
 <?
             $numLang = "";
             $lib1Lang = "";
@@ -144,9 +144,9 @@ include __DIR__ . '/initMotCle.php';
             <div class="controls">
                 <br><br>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="submit" value="Initialiser" style="cursor:pointer; padding:5px 20px; background-color:lightsteelblue; border:dotted 2px grey; border-radius:5px;" name="Submit" />
+                <input type="submit" value="Initialiser" class="imputFields" name="Submit" />
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="submit" value="Valider" style="cursor:pointer; padding:5px 20px; background-color:lightsteelblue; border:dotted 2px grey; border-radius:5px;" name="Submit" value="on"/>
+                <input type="submit" value="Valider" class="imputFields" name="Submit" value="on"/>
                 <br>       
             </div>
         </div>

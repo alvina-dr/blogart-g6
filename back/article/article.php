@@ -23,13 +23,13 @@ $monStatutArt = new ARTICLE;
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <link href="../css/style.css" rel="stylesheet" type="text/css" />
+    <link href="../../back/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <h1>BLOGART21 Admin - Gestion du CRUD ARTICLE</h1>
 
 <img class="soulignage2" src="../../front/assets/icons/soulignage.svg"> <!--BARRE--><br />
-<h2>Nouvel ARTICLE :&nbsp;<a href="./createAngle.php"><i>Créer un ARTICLE</i></a></h2>
+<h2>Nouvel ARTICLE :&nbsp;<a href="./createArticle.php"><i>Créer un ARTICLE</i></a></h2>
 <img class="soulignage2" src="../../front/assets/icons/soulignage.svg"> <!--BARRE--><br />
 <h2>Tous les ARTICLES</h2>
 

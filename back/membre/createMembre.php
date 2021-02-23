@@ -31,7 +31,10 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
         echo "jaune";
           header("Location: ./createMembre.php");
       }   // End of if ((isset($_POST["submit"])) ...
-
+     
+      else {
+        $errSaisies =  "c'est jaune là";
+    }
 
       if (((isset($_POST['prenomMemb'])) AND !empty($_POST['prenomMemb']))
             AND ((isset($_POST['nomMemb'])) AND !empty($_POST['nomMemb']))
@@ -117,7 +120,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
             }
 
             // Se souvenir de moi
-
+            
 
             //tout les booleens (tous a 1) -> pasword hash -> create
             if ($passMembV == 1 AND  $eMailMembV == 1 AND $pseudoMembV == 1 AND $emailCheckV == 1 AND $pseudMembCheck == 1 AND $accordMembV == 1) {

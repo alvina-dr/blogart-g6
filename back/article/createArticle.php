@@ -63,14 +63,17 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
             $urlPhotArt = ctrlSaisies(($_POST['urlPhotArt']));
             $numAngl = ctrlSaisies(($_POST['TypAngl']));
             $numThem = ctrlSaisies(($_POST['numThem']));
+            $libConclArt = ctrlSaisies(($_POST['libConclArt']));
 
-            $monArticle->create($numArt, $libTitrArt, $libChapoArt, $libAccrochArt, $parag1Art, $libSsTitr1Art, $parag2Art, $libSsTitr2Art, $parag3Art, $urlPhotArt, $TypAngl, $numThem);
+            $monArticle->create($numArt, $libTitrArt, $libChapoArt, $libAccrochArt, $parag1Art, $libSsTitr1Art, $parag2Art, $libSsTitr2Art, $parag3Art, $urlPhotArt, $TypAngl, $numThem, $libConclArt);
 
 
         }   // Fin if ((isset($_POST['legendImg'])) ...
         else {
             $erreur = true;
-            $errSaisies =  "Erreur, la saisie est obligatoire !";
+            $errSaisies =  "La saisie est obligatoire !";
+            echo "test 4";
+
         }   // Fin else erreur saisies
 
   }   // Fin if ($_SERVER["REQUEST_METHOD"] == "POST")
@@ -149,7 +152,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
         <!-- Conclusion -->
         <div class="control-group">
             <label class="control-label" for="libConclArt"><b>Conclusion :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <textarea type="text" name="libConclArt" id="libConclArt" size="800" maxlength="800" value="<?= $libSsTitr2Art; ?>" autofocus="autofocus" style="margin: 0px; width: 500px; height: 25px;"></textarea>
+            <textarea type="text" name="libConclArt" id="libConclArt" size="800" maxlength="800" value="<?= $libConclArt; ?>" autofocus="autofocus" style="margin: 0px; width: 500px; height: 25px;"></textarea>
         </div>
         <br>
         <!-- Url Photo -->
@@ -222,6 +225,20 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
     <!-- FIN Listbox Pays -->
         </div>
         <br>
+        
+        <div class="control-group">
+            <div class="error">
+<?
+            if ($erreur) {
+                echo ($errSaisies);
+            } else {
+                $errSaisies = "";
+                echo ($errSaisies);
+            }
+?>
+            </div>
+        </div>
+        
         <div class="control-group">
             <div class="controls">
                 <br><br>

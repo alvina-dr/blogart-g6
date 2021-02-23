@@ -13,5 +13,5 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 
 <footer>
     <br /><br />    <img class="soulignage2" src="../../front/assets/icons/soulignage.svg"> <!--BARRE-->
-    <h2>Retour à la gestion des commentaires sur commentaire : <a href="./commentplus.php">CRUD Commentaire sur Commentaire</a></h2>
+    <h2>Retour à la gestion des réponses aux commentaire : <a href="./commentplus.php">CRUD Réponse au Commentaire</a></h2>
 </footer>

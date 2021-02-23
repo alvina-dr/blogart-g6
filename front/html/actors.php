@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/ico" href="/images/icons/favicon.ico" />
-
+    <link rel="icon" type="image/ico" href="../assets/icons/logo.ico" />
+    <title>B.Game | Acteur clef</title>
     <!--linker stylesheet-->
     <link type="text/css" rel="stylesheet" href="../css/actors.css">
     <link type="text/css" rel="stylesheet" href="../css/base.css">
@@ -20,11 +20,14 @@
     <?php
         require_once __DIR__ . '/liketag.php';
     ?>
+
+
+
+
     <div style="position:absolute;z-index:1;margin-left: 2%;margin-right: 2%;" class="marge">
         <img class="img_acteur" src="../assets/images/acteur.png">
         <div class="marge1">
-            <h2>3 dimensions du jeu vidéo à Bordeaux
-            </h2>
+            <h2>3 dimensions du jeu vidéo à Bordeaux</h2>
             <img class="padding_soulignage" src="../assets/images/barre_soulignage.png">
         </div>
         <div class="marge1">
@@ -35,8 +38,44 @@
         </div>
     </div>
     <div>
-        <img class="img_acteur2" src="../assets/images/image_acteur.png">
+        <!-- <img class="img_acteur2" src="../assets/images/image_acteur.png"> -->
+<!----------------------------------------------- début de l'effet ---------------------------------------------------->
 
+<main>
+	</main>
+
+	<!-- vertex shader -->
+	<script id="vertex-shader" type="x-shader/x-vertex">
+	attribute vec2 a_position;
+	attribute vec2 a_texCoord;
+	varying vec2 v_texCoord;
+	uniform vec2 u_resolution;
+	varying vec2 v_resolution;
+
+	void main() {
+	   vec2 clipSpace = (a_position / u_resolution) * 2.0 - 1.0; // convert the rectangle from pixels to clipspace
+	   gl_Position = vec4(clipSpace * vec2(1, -1), 0, 1);
+	   v_texCoord = a_texCoord; // pass the texCoord to the fragment shader
+	   v_resolution = u_resolution;
+	}
+	</script>
+
+	<!-- fragment shader -->
+	<script id="fragment-shader" type="x-shader/x-fragment">
+	precision mediump float;
+	uniform sampler2D u_image;
+	uniform vec2 u_mouse;
+	varying vec2 v_resolution;
+	varying vec2 v_texCoord;
+
+	void main() {
+		vec2 res = gl_FragCoord.xy / v_resolution;
+		vec4 color = texture2D(u_image, v_texCoord);
+	  gl_FragColor = color * vec4(u_mouse.y,res.y,u_mouse.x,1) ;
+	}
+	</script>
+
+<!----------------------------------------- fin de l'effet --------------------------------------------------->
     </div>
     <div>
         <div class="marge">
@@ -184,6 +223,7 @@
     <?php
         require_once __DIR__ . '/footer.php';
     ?>
+	<script src="../js/acteurclef.js"></script>
 </body>
 
 </html>

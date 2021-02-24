@@ -57,6 +57,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
             // Saisies valides
             $erreur = false;
 
+            $numArt = ctrlSaisies($_POST['id']);
             $libTitrArt = ctrlSaisies(($_POST['libTitrArt']));
             $libChapoArt = ctrlSaisies(($_POST['libChapoArt']));
             $libAccrochArt = ctrlSaisies(($_POST['libAccrochArt']));

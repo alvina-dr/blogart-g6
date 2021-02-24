@@ -14,9 +14,9 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 require_once __DIR__ . '/../../CLASS_CRUD/getNextNumCom.php';
     
 // insertion classe STATUT
-require_once __DIR__ . '/../../CLASS_CRUD/comment.class.php';
+require_once __DIR__ . '/../../CLASS_CRUD/commentPlus.class.php';
 global $db;
-$monStatutCom = new COMMENT;
+$monComPlus = new COMMENTPLUS;
 // controle des saisies du formulaire
 require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
@@ -30,28 +30,26 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
       if ((isset($_POST["Submit"])) AND ($_POST["Submit"] === "Initialiser")) {
 
-          header("Location: ./createComment.php");
+          header("Location: ./createCommentPlus.php");
       }   // End of if ((isset($_POST["submit"])) ...
 
       
       if (((isset($_POST['numArt'])) AND !empty($_POST['numArt']))
-            AND ((isset($_POST['dtCreCom'])) AND !empty($_POST['dtCreCom']))
-            AND ((isset($_POST['TypNumMemb'])) AND !empty($_POST['TypNumMemb']))
-            AND ((isset($_POST['libCom'])) AND !empty($_POST['libCom']))
+            AND ((isset($_POST['numSeqComR'])) AND !empty($_POST['numSeqCom']))
+            AND ((isset($_POST['numArtR'])) AND !empty($_POST['numArtR']))
             AND (!empty($_POST['Submit']) AND ($Submit === "Valider"))) {
 
             // Saisies valides
             $erreur = false;
                 
-            $numMemb = ctrlSaisies(($_POST['numMemb']));
             $numArt = ctrlSaisies(($_POST['numArt']));
-            $dtCreCom = date("Y-m-d-H-i-s");
-            $libCom = ctrlSaisies(($_POST["libCom"]));
+            $numSeqComR = ctrlSaisies(($_POST['numSeqComR']));
+            $numArtR = ctrlSaisies(($_POST["numArtR"]));
 
-            $numNextCom = getNextNumCom($numArt);
+            $numNextCom = getNextNumCom($numArt, $numSeqCom);
 
-            $monStatutCom->create($numSeqCom, $dtCreCom, $libCom, $attModOK, $affComOK, $notifComKOAff);
-            
+            //$monComPlus->create($numNextCom, $dtCreCom, $libCom);
+            $monComPlus->create($numArt, $numSeqComR, $numArtR); //Je sais pas trop ce qu'il faut modifier ici, la ligne d'origine est au-dessus en commentaire.
 
             //header("Location: ./langue.php");
 
@@ -64,51 +62,51 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
   }   // Fin if ($_SERVER["REQUEST_METHOD"] == "POST")
 
     // Init variables form
-    include __DIR__ . '/initComment.php';
+    include __DIR__ . '/initCommentPlus.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="utf-8" />
-    <title>Admin - Gestion du CRUD Commentaire</title>
+    <title>Admin - Gestion du CRUD Réponse aux Commentaires</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
     <meta name="author" content="" />
 
     <link href="../../back/css/style.css" rel="stylesheet" type="text/css" />
 </head>
+
 <body>
-    <h1>BLOGART21 Admin - Gestion du CRUD Commentaire</h1>
-    <h2>Ajout d'un Commentaire</h2>
+    <h1>BLOGART21 Admin - Gestion du CRUD Réponse aux Commentaires</h1>
+    <h2>Ajout d'une Réponse au Commentaire</h2>
 
-    <form method="post" action="./createComment.php" enctype="multipart/form-data">
+    <form method="post" action="./createCommentPlus.php" enctype="multipart/form-data">
       <fieldset>
+    
 
-
-          <!-- DÉBUT Listbox COMMENT CHOISIR L'ARTICLE -->
-        <legend class="legend1">Formulaire Commentaire...</legend>
-
+    <!-- DÉBUT Listbox COMMENTPLUS CHOISIR L'ARTICLE -->
+        <legend class="legend1">Formulaire Réponse au Commentaire...</legend>
         <br>
         <br>
         <div class="control-group">
-            <label class="control-label" for="LibNumArt"><b>Quel article :&nbsp;&nbsp;&nbsp;</b></label>
+            <label class="control-label" for="LibNumArt"><b>Quel commentaire :&nbsp;&nbsp;&nbsp;</b></label>
                 <input type="hidden" id="idNumArt" name="idNumArt" value="<?= isset($_GET['numArt']) ? $_GET['numArt'] : '' ?>" />
 
                 <select size="1" name="TypLikeArt" id="TypLikeArt" required class="form-control form-control-create" title="Sélectionnez le nom de l'article !" >
-                   <option value="-1">Choisissez un article </option>
+                   <option value="-1">Choisissez un commentaire </option>
 <?
             $numArt = "";
-            $libTitrArt = "";
+            $libCom = "";
 
-            $queryText = 'SELECT * FROM ARTICLE ORDER BY numArt;';
+            $queryText = 'SELECT * FROM COMMENT ORDER BY numSeqCom;'; //Permet de choisir les commentaires par leur numéros
             $result = $db->query($queryText);
             if ($result) {
                 while ($tuple = $result->fetch()) {
                     $LibNumArt = $tuple["numArt"];
-                    $LibTitrArt = $tuple["libTitrArt"];
+                    $libCom = $tuple["libCom"];
 ?>
                     <option value="<?= $LibNumArt; ?>" >
-                        <?= $LibTitrArt; ?>
+                        <?= $libCom; ?>
                     </option>
 <?
                 } // End of while
@@ -116,9 +114,9 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 ?>
                 </select>
         </div>
-    <!-- FIN Listbox COMMENT CHOISIR L'ARTICLE -->
+    <!-- FIN Listbox COMMENTPLUS CHOISIR L'ARTICLE -->
     <br>
-    <!-- DÉBUT Listbox COMMENT CHOISIR LE MEMBRE -->
+    <!-- DÉBUT Listbox COMMENTPLUS CHOISIR LE MEMBRE -->
         <div class="control-group">
             <label class="control-label" for="LibNumMemb"><b>Quel membre :&nbsp;&nbsp;&nbsp;</b></label>
                 <input type="hidden" id="idNumMemb" name="idNumMemb" value="<?= isset($_GET['numMemb']) ? $_GET['numMemb'] : '' ?>" />
@@ -145,12 +143,12 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 ?>
                 </select>
         </div>
-    <!-- FIN Listbox COMMENT CHOISIR LE MEMBRE -->
+    <!-- FIN Listbox COMMENTPLUS CHOISIR LE MEMBRE -->
     <br> 
-    <!-- DÉBUT Listbox COMMENT ÉCRIRE LE COMMENTAIRE -->
+    <!-- DÉBUT Listbox COMMENTPLUS ÉCRIRE LE COMMENTAIRE -->
     <div class="control-group">
-            <label class="control-label" for="libCom"><b>Inscrivez votre commentaire ici :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <textarea type="text" name="libCom" id="libCom" size="2000" maxlength="2000" value="<?= $libCom; ?>" autofocus="autofocus" style="margin: 0px; width: 500px; height: 150px;"></textarea>
+            <label class="control-label" for="libComPlus"><b>Inscrivez votre commentaire ici :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+            <textarea type="text" name="libComPlus" id="libComPlus" size="2000" maxlength="2000" value="<?= $libComPlus; ?>" autofocus="autofocus" style="margin: 0px; width: 500px; height: 150px;"></textarea>
         </div>
         <br>
 
@@ -167,13 +165,13 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
                 <br>       
             </div>
         </div>
-    <!-- DÉBUT Listbox COMMENT ÉCRIRE LE COMMENTAIRE -->
+    <!-- DÉBUT Listbox COMMENTPLUS ÉCRIRE LE COMMENTAIRE -->
 
 
       </fieldset>
     </form>
 <?
-require_once __DIR__ . '/footerComment.php';
+require_once __DIR__ . '/footerCommentPlus.php';
 
 require_once __DIR__ . '/footer.php';
 ?>

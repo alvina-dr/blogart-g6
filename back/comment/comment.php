@@ -28,7 +28,7 @@ $monStatutCom = new COMMENT;
 <body>
     <h1>BLOGART21 Admin - Gestion du CRUD Commentaire</h1>
 
-    <h2>Nouveau COMMENTAIRE :&nbsp;<a href="./createCommentaire.php"><i>Créer un COMMENTAIRE</i></a></h2>
+    <h2>Nouveau COMMENTAIRE :&nbsp;<a href="./createComment.php"><i>Créer un COMMENTAIRE</i></a></h2>
 <img class="soulignage2" src="../../front/assets/icons/soulignage.svg"> <!--BARRE--><br />
 <h2>Tous les COMMENTAIRES</h2>
 

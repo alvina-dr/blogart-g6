@@ -55,7 +55,8 @@ $monLikeCom = new LIKECOM;
 
         <td>&nbsp; <?php echo $row["numSeqCom"]; ?> &nbsp;</td>
         <td>&nbsp; <?php echo $row["numArt"]; ?> &nbsp;</td>
-        <td>&nbsp; <?php echo $row["likeC"]; ?> &nbsp;</td>
+        <td>&nbsp; <?= ($row["likeC"] == 1) ? "Oui" : "Non" ?> &nbsp;</td>
+
 
 		<td>&nbsp;<a href="./updateLikeCom.php?id=<?=$row["numMemb"]; ?>"><i>Modifier</i></a>&nbsp;
 		<br /></td>

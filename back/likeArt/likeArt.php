@@ -55,7 +55,8 @@ $monLikeArt = new LIKEART;
 		<td><h4>&nbsp; <?= $row["numMemb"]; ?> &nbsp;</h4></td>
 
         <td>&nbsp; <?php echo $row["numArt"]; ?> &nbsp;</td>
-        <td>&nbsp; <?php echo $row["likeA"]; ?> &nbsp;</td>
+        <td>&nbsp; <?= ($row["likeA"] == 1) ? "Oui" : "Non" ?> &nbsp;</td>
+
 
 		<td>&nbsp;<a href="./updateLikeArt.php?id=<?=$row["numMemb"]; ?>"><i>Modifier</i></a>&nbsp;
 		<br /></td>

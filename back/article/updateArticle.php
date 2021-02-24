@@ -142,43 +142,43 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
         <!-- Titre -->
         <div class="control-group">
             <label class="control-label" for="libTitrArt"><b>Titre Article (Exemple : Pourquoi les canards aiment le pain ?) :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <textarea type="text" name="libTitrArt" id="libTitrArt" maxlength="150" value="<?= $libTitrArt; ?>" autofocus="autofocus" style="margin: 0px; width: 500px; height: 25px;"></textarea>
+            <textarea type="text" name="libTitrArt" id="libTitrArt" maxlength="150" autofocus="autofocus" style="margin: 0px; width: 500px; height: 25px;"><?= $libTitrArt; ?></textarea>
         </div>
         <br>
         <!-- Chapeau -->
         <div class="control-group">
             <label class="control-label" for="libChapoArt"><b>Chapeau introductif :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <textarea type="text" name="libChapoArt" id="libChapoArt" size="200" maxlength="200" value="<?= $libChapoArt; ?>" autofocus="autofocus" style="margin: 0px; width: 500px; height: 25px;"></textarea>
+            <textarea type="text" name="libChapoArt" id="libChapoArt" size="200" maxlength="200"  autofocus="autofocus" style="margin: 0px; width: 500px; height: 25px;"><?= $libChapoArt; ?></textarea>
         </div>
         <br>
         <!-- Accroche -->
         <div class="control-group">
             <label class="control-label" for="libAccrochArt"><b>Accroche :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <textarea type="text" name="libAccrochArt" id="libAccrochArt" size="200" maxlength="200" value="<?= $libAccrochArt; ?>" autofocus="autofocus" style="margin: 0px; width: 500px; height: 50px;"></textarea>
+            <textarea type="text" name="libAccrochArt" id="libAccrochArt" size="200" maxlength="200" autofocus="autofocus" style="margin: 0px; width: 500px; height: 50px;"><?= $libAccrochArt; ?></textarea>
         </div>
         <br>
         <!-- Paragraphe 1 -->
         <div class="control-group">
             <label class="control-label" for="parag1Art"><b>Paragraphe 1 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <textarea type="text" name="parag1Art" id="parag1Art" size="2000" maxlength="2000" value="<?= $parag1Art; ?>" autofocus="autofocus" style="margin: 0px; width: 500px; height: 150px;"></textarea>
+            <textarea type="text" name="parag1Art" id="parag1Art" size="2000" maxlength="2000" autofocus="autofocus" style="margin: 0px; width: 500px; height: 150px;"><?= $parag1Art; ?></textarea>
         </div>
         <br>
         <!-- Sous titre 1 -->
         <div class="control-group">
             <label class="control-label" for="libSsTitr1Art"><b>Premier Sous Titre :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <textarea type="text" name="libSsTitr1Art" id="libSsTitr1Art" size="150" maxlength="150" value="<?= $libSsTitr1Art; ?>" autofocus="autofocus" style="margin: 0px; width: 500px; height: 25px;"></textarea>
+            <textarea type="text" name="libSsTitr1Art" id="libSsTitr1Art" size="150" maxlength="150"  autofocus="autofocus" style="margin: 0px; width: 500px; height: 25px;"><?= $libSsTitr1Art; ?></textarea>
         </div>
         <br>
         <!-- Paragraphe 2 -->
         <div class="control-group">
             <label class="control-label" for="parag2Art"><b>Paragraphe 2 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <textarea type="text" name="parag2Art" id="parag2Art" size="2000" maxlength="2000" value="<?= $parag2Art; ?>" autofocus="autofocus" style="margin: 0px; width: 500px; height: 150px;"></textarea>
+            <textarea type="text" name="parag2Art" id="parag2Art" size="2000" maxlength="2000" autofocus="autofocus" style="margin: 0px; width: 500px; height: 150px;"><?= $parag2Art; ?></textarea>
         </div>
         <br>
         <!-- Sous titre 2 -->
         <div class="control-group">
             <label class="control-label" for="libSsTitr2Art"><b>Second Sous Titre :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <textarea type="text" name="libSsTitr2Art" id="libSsTitr2Art" size="150" maxlength="150" value="<?= $libSsTitr2Art; ?>" autofocus="autofocus" style="margin: 0px; width: 500px; height: 25px;"></textarea>
+            <textarea type="text" name="libSsTitr2Art" id="libSsTitr2Art" size="150" maxlength="150" autofocus="autofocus" style="margin: 0px; width: 500px; height: 25px;"><?= $libSsTitr2Art; ?></textarea>
         </div>
         <br>
         <!-- Paragraphe 3 -->
@@ -190,7 +190,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
         <!-- Conclusion -->
         <div class="control-group">
             <label class="control-label" for="libConclArt"><b>Conclusion :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <textarea type="text" name="libConclArt" id="libConclArt" size="800" maxlength="800" value="<?= $libConclArt; ?>" autofocus="autofocus" style="margin: 0px; width: 500px; height: 25px;"></textarea>
+            <textarea type="text" name="libConclArt" id="libConclArt" size="800" maxlength="800" autofocus="autofocus" style="margin: 0px; width: 500px; height: 25px;"><?= $libConclArt; ?></textarea>
         </div>
         <br>
         <!-- Url Photo -->

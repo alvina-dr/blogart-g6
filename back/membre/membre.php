@@ -36,15 +36,14 @@ $monStatutMM = new MEMBRE;
     <table border="3" bgcolor="aliceblue">
     <thead>
         <tr>
-        <th>&nbsp;numMemb&nbsp;</th>
-            <th>&nbsp;prenomMemb&nbsp;</th>
-            <th>&nbsp;nomMemb&nbsp;</th>
-            <th>&nbsp;pseudoMemb&nbsp;</th>
-            <th>&nbsp;passMemb&nbsp;</th>
-            <th>&nbsp;eMailMemb&nbsp;</th>
-            <th>&nbsp;dtCreaMemb&nbsp;</th>
-            <th>&nbsp;souvenirMemb&nbsp;</th>
-            <th>&nbsp;accordMemb&nbsp;</th>
+        <th>&nbsp;Code utilisateur&nbsp;</th>
+            <th>&nbsp;Prénom&nbsp;</th>
+            <th>&nbsp;Nom&nbsp;</th>
+            <th>&nbsp;Pseudo&nbsp;</th>
+            <th>&nbsp;Email&nbsp;</th>
+            <th>&nbsp;Date de creation&nbsp;</th>
+            <th>&nbsp;Se souvenir de moi&nbsp;</th>
+            <th>&nbsp;Accord CGU&nbsp;</th>
             <th colspan="2">&nbsp;Action&nbsp;</th>
             
         </tr>

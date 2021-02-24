@@ -56,7 +56,7 @@ $monStatutL = new LANGUE;
 
         <td>&nbsp; <?php echo $row["lib1Lang"]; ?> &nbsp;</td>
         <td>&nbsp; <?php echo $row["lib2Lang"]; ?> &nbsp;</td>
-        <td>&nbsp; <?php echo $row["numPays"]; ?> &nbsp;</td>
+        <td>&nbsp; <?php echo $row["frPays"]; ?> &nbsp;</td>
 
 		<td>&nbsp;<a href="./updateLangue.php?id=<?=$row["numLang"]; ?>"><i>Modifier</i></a>&nbsp;
 		<br /></td>

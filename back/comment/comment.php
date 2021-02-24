@@ -60,8 +60,8 @@ foreach($allStatuts as $row) {
     <td>&nbsp; <?php echo $row["numArt"]; ?> &nbsp;</td>
     <td>&nbsp; <?php echo $row["dtCreCom"]; ?> &nbsp;</td>
     <td>&nbsp; <?php echo $row["libCom"]; ?> &nbsp;</td>
-    <td>&nbsp; <?php echo $row["attModOK"]; ?> &nbsp;</td>
-    <td>&nbsp; <?php echo $row["affComOK"]; ?> &nbsp;</td>
+    <td>&nbsp; <?= ($row["attModOK"] == 1) ? "Oui" : "Non" ?> &nbsp;</td>
+    <td>&nbsp; <?= ($row["affComOK"] == 1) ? "Oui" : "Non" ?> &nbsp;</td>
     <td>&nbsp; <?php echo $row["notifComKOAff"]; ?> &nbsp;</td>
 
 

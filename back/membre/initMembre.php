@@ -16,3 +16,7 @@
     $souvenirMemb = "";
     $accordMemb = "";
     $idMemb = "";
+    $eMailOk = "";
+    $errMail1 = "";
+    $errMail2 = "";
+    $errPass = "";

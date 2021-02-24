@@ -42,12 +42,12 @@ class MEMBRE
 	// 	return ($allStatuts);
 	// }
 
-	function create($prenomMemb, $nomMemb, $pseudoMemb, $passMemb, $eMailMemb, $dtCreaMemb, $souvenirMemb, $accordMemb)
+	function create($prenomMemb, $nomMemb, $pseudoMemb, $passMemb, $eMailMemb, $dtCreaMemb, $souvenirMemb, $accordMemb,  $idStat)
 	{
 		global $db;
 		try {
 			$db->beginTransaction();
-			$exec = "INSERT INTO MEMBRE (prenomMemb, nomMemb, pseudoMemb, passMemb, eMailMemb, dtCreaMemb, souvenirMemb, accordMemb) VALUES (:prenomMemb, :nomMemb, :pseudoMemb, :passMemb, :eMailMemb, :dtCreaMemb, :souvenirMemb, :accordMemb)";
+			$exec = "INSERT INTO MEMBRE (prenomMemb, nomMemb, pseudoMemb, passMemb, eMailMemb, dtCreaMemb, souvenirMemb, accordMemb,  idStat) VALUES (:prenomMemb, :nomMemb, :pseudoMemb, :passMemb, :eMailMemb, :dtCreaMemb, :souvenirMemb, :accordMemb, :idStat)";
 			$result = $db->prepare($exec);
 			$result->bindParam(':prenomMemb', $prenomMemb);
 			$result->bindParam(':nomMemb', $nomMemb);
@@ -57,6 +57,7 @@ class MEMBRE
 			$result->bindParam(':dtCreaMemb', $dtCreaMemb);
 			$result->bindParam(':souvenirMemb', $souvenirMemb);
 			$result->bindParam(':accordMemb', $accordMemb);
+			$result->bindParam(':idStat', $idStat);
 			$result->execute();
 			$db->commit();
 			$result->closeCursor();
@@ -67,16 +68,22 @@ class MEMBRE
 		}
 	}
 
-	function update(string $numMotCle, string $libMotCle, string $numLang)
+	function update(string $prenomMemb, string $nomMemb, string $pseudoMemb, string $passMemb, string $eMailMemb, string $dtCreaMemb, string $souvenirMemb, string $accordMemb, string $idStat)
 	{
 		global $db;
 		try {
 			$db->beginTransaction();
-			$exec = "UPDATE MOTCLE SET libMotCle=:libMotCle, numLang=:numLang WHERE :numMotCle= numMotCle;";
+			$exec = "UPDATE MEMBRE SET prenomMemb=:prenomMemb, nomMemb=:nomMemb, pseudoMemb=:pseudoMemb, passMemb=:passMemb, eMailMemb=:eMailMemb, dtCreaMemb=:dtCreaMemb, souvenirMemb=:souvenirMemb, accordMemb=:accordMemb, idStat=:idStat WHERE numMemb= :numMemb;";
             $result = $db->prepare($exec);
-            $result->bindParam(':numMotCle', $numMotCle);
-			$result->bindParam(':libMotCle', $libMotCle);
-			$result->bindParam(':numLang', $numLang);
+            $result->bindParam(':prenomMemb', $prenomMemb);
+			$result->bindParam(':nomMemb', $nomMemb);
+			$result->bindParam(':pseudoMemb', $pseudoMemb);
+			$result->bindParam(':passMemb', $passMemb);
+			$result->bindParam(':eMailMemb', $eMailMemb);
+			$result->bindParam(':dtCreaMemb', $dtCreaMemb);
+			$result->bindParam(':souvenirMemb', $souvenirMemb);
+			$result->bindParam(':accordMemb', $accordMemb);
+			$result->bindParam(':idStat', $idStat);
 			$result->execute();
 			$db->commit();
 			$result->closeCursor();

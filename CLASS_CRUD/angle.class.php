@@ -34,7 +34,7 @@ class ANGLE
     }
 }
 
-/*
+
 	function get_AllAnglesByLangue()
 	{
 		global $db;
@@ -106,4 +106,4 @@ class ANGLE
  	}
 }	// End of class
 //
-*/
+

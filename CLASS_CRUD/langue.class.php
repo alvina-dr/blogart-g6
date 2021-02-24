@@ -27,7 +27,7 @@ class LANGUE
 	function get_AllLangues()
 	{
 		global $db;
-		$query = 'SELECT * FROM LANGUE;';
+		$query = 'SELECT * FROM LANGUE INNER JOIN PAYS;';
 		$result = $db->query($query);
 		$allStatuts = $result->fetchAll();
 		return ($allStatuts);

@@ -13,3 +13,8 @@
 	font-family: "Gotham ultra";
 	src: url('../assets/font/GOTHAM-ULTRA.OTF');
 }
+
+@font-face {
+	font-family: "Helvetica";
+	src: url('../assets/font/HELVETICA.TTF');
+}

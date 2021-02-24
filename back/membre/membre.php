@@ -64,7 +64,7 @@ $monStatutMM = new MEMBRE;
         <td>&nbsp; <?php echo $row["pseudoMemb"]; ?> &nbsp;</td>
         <td>&nbsp; <?php echo $row["eMailMemb"]; ?> &nbsp;</td>
         <td>&nbsp; <?php echo $row["dtCreaMemb"]; ?> &nbsp;</td>
-        <td>&nbsp; <?php echo $row["souvenirMemb"]; ?> &nbsp;</td>
+        <td>&nbsp; <?php echo substr_replace ($row["souvenirMemb"],'oui', 1); ?> &nbsp;</td>
         <td>&nbsp; <?php echo $row["accordMemb"]; ?> &nbsp;</td>
     
 		<td>&nbsp;<a href="./updateMembre.php?id=<?=$row["numMemb"]; ?>"><i>Modifier</i></a>&nbsp;
@@ -74,7 +74,10 @@ $monStatutMM = new MEMBRE;
         </tr>
 <?
 	}	// End of foreach
+
 ?>
+
+
     </tbody>
     </table>
     <br><br>

@@ -32,3 +32,5 @@
     $numAngl = "";
     // FK thématique
     $numThem = "";
+
+    $TypAngl = "";

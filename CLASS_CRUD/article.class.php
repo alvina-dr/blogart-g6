@@ -24,14 +24,13 @@ class ARTICLE
         return ($allStatuts);
     }
 
-	function create($numArt, $libTitrArt, $libChapoArt, $libAccrochArt, $parag1Art, $libSsTitr1Art, $parag2Art, $libSsTitr2Art, $parag3Art, $urlPhotArt, $TypAngl, $numThem)
+	function create($libTitrArt, $libChapoArt, $libAccrochArt, $parag1Art, $libSsTitr1Art, $parag2Art, $libSsTitr2Art, $parag3Art, $numAngl, $numThem)
 	{
 		global $db;
 		try {
 			$db->beginTransaction();
-			$exec = "INSERT INTO ARTICLE (numArt, libTitrArt, libChapoArt, libAccrochArt, parag1Art, libSsTitr1Art, parag2Art, libSsTitr2Art, parag3Art, urlPhotArt, TypAngl, numThem) VALUES (:numArt, :libTitrArt, :libChapoArt, :libAccrochArt, :parag1Art, :libSsTitr1Art, :parag2Art, :libSsTitr2Art, :parag3Art, :urlPhotArt, :TypAngl, :numThem)";
+			$exec = "INSERT INTO ARTICLE ( libTitrArt, libChapoArt, libAccrochArt, parag1Art, libSsTitr1Art, parag2Art, libSsTitr2Art, parag3Art, numAngl, numThem) VALUES (:libTitrArt, :libChapoArt, :libAccrochArt, :parag1Art, :libSsTitr1Art, :parag2Art, :libSsTitr2Art, :parag3Art, :numAngl, :numThem)";
 			$result = $db->prepare($exec);
-			$result->bindParam(':numArt', $numArt);
 			$result->bindParam(':libTitrArt', $libTitrArt);
 			$result->bindParam(':libChapoArt', $libChapoArt);
 			$result->bindParam(':libAccrochArt', $libAccrochArt);
@@ -40,8 +39,8 @@ class ARTICLE
 			$result->bindParam(':parag2Art', $parag2Art);
 			$result->bindParam(':libSsTitr2Art', $libSsTitr2Art);
 			$result->bindParam(':parag3Art', $parag3Art);
-			$result->bindParam(':urlPhotArt', $urlPhotArt);
-			$result->bindParam(':TypAngl', $TypAngl);
+			// $result->bindParam(':urlPhotArt', $urlPhotArt);
+			$result->bindParam(':numAngl', $numAngl);
 			$result->bindParam(':numThem', $numThem);
 			$result->execute();
 			$db->commit();

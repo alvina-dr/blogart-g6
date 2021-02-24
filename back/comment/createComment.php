@@ -55,7 +55,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
 
 
-            $monStatutCom->create($numSeqCom, $numSeqCom, $dtCreCom, $libCom, $attModOK, $affComOK, $notifComKOAff);
+            $monStatutCom->create($numSeqCom, $dtCreCom, $libCom, $attModOK, $affComOK, $notifComKOAff);
 
             //header("Location: ./langue.php");
 

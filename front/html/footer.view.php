@@ -17,7 +17,7 @@
 <?php if($showcookie) { ?>
     <div id="d1" class="bordure_cookies" >
     <div class="bordure2_cookies">
-        <h4>Ce site web utilise<br> des cookies</h4>
+        <h4>Ce site web utilise des cookies</h4>
     </div>
     <br>
     <div class="texte_cookies">
@@ -33,8 +33,8 @@
     </div>
     <button class="valider_cookies">
         <h2 class="cookie_blanc"><a href="accept_cookie.php">Accepter</a></h2>
-    <button class="refuser_cookies">
-        <h2 class="cookie_blanc2"><a href="accept_cookie.php">Refuser</a></h2>
+    <button id="togg3" class="refuser_cookies">
+        <h2 class="cookie_blanc2">Refuser</a></h2>
 </div>
 <script type="text/javascript" src="../js/cookies.js"></script>
 <?php } ?>

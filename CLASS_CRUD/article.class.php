@@ -55,7 +55,7 @@ class ARTICLE{
         global $db;
         try {
             $db->beginTransaction();
-            $exec = "UPDATE ARTICLE SET libTitrArt=:libTitrArt, libChapoArt=:libChapoArt, libAccrochArt=:libAccrochArt, parag1art=:parag1art, libSsTitr1art=:libSsTitr1art, parag2Art=:parag2Art, LibSsTitr2Art=:LibSsTitr2Art, parag3Art=:parag3Art, libConclArt=:libConclArt, numAngl=:numAngl, numThem=:numThem WHERE :numArt= numArt;";
+            $exec = "UPDATE ARTICLE SET libTitrArt=:libTitrArt, libChapoArt=:libChapoArt, libAccrochArt=:libAccrochArt, parag1Art=:parag1Art, libSsTitr1Art=:libSsTitr1Art, parag2Art=:parag2Art, LibSsTitr2Art=:LibSsTitr2Art, parag3Art=:parag3Art, libConclArt=:libConclArt, numAngl=:numAngl, numThem=:numThem WHERE numArt= :numArt;";
             $result = $db->prepare($exec);
             $result->bindParam(':libTitrArt', $libTitrArt);
             $result->bindParam(':libChapoArt', $libChapoArt);
@@ -69,7 +69,6 @@ class ARTICLE{
             $result->bindParam(':numAngl', $numAngl);
             $result->bindParam(':numThem', $numThem);
 			$result->bindParam(':numArt', $numArt);
-
             $result->execute();
             $db->commit();
             $result->closeCursor();

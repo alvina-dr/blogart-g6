@@ -74,14 +74,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
             $numAngl = ctrlSaisies(($_POST['TypAngl']));
             $numThem = ctrlSaisies(($_POST['TypThem']));
 
-//
-// erreur id => auto-incrément
-//
-            // $monArticle->create($numArt, $libTitrArt, $libChapoArt, $libAccrochArt, $parag1Art, $libSsTitr1Art, $parag2Art, $libSsTitr2Art, $parag3Art, $urlPhotArt, $TypAngl, $numThem);
-
-            $monArticle->update($numArt, $libTitrArt, $libChapoArt, $libAccrochArt, $parag1Art, $libSsTitr1Art, $parag2Art, $libSsTitr2Art, $parag3Art, $numAngl, $numThem);
-
-
+            $monArticle->update($numArt, $libTitrArt, $libChapoArt, $libAccrochArt, $parag1Art, $libSsTitr1Art, $parag2Art, $libSsTitr2Art, $parag3Art, $libConclArt, $numAngl, $numThem);
         }   // Fin if ((isset($_POST['legendImg'])) ...
         else {
             $erreur = true;
@@ -126,8 +119,8 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
             $libSsTitr2Art = $query['libSsTitr2Art'];
             $parag3Art = $query['parag3Art'];
             $libConclArt = $query['libConclArt'];
-            $numAngl = $query['numAngl'];
-            $numThem = $query['numThem'];
+            $idAngl = $query['numAngl'];
+            $idThem = $query['numThem'];
 
         }   // Fin if ($query)
     }   // Fin if (isset($_GET['id'])...)
@@ -138,7 +131,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
       <fieldset>
         <legend class="legend1">Formulaire Article...</legend>
-        <input type="hidden" id="id" name="id" value="<?= $_GET['id']; ?>" />
+        <input type="hidden" id="id" name="id" value="<?= isset($_GET['id']) ? $_GET['id'] : '' ?>" />
         <br>
         <!-- Titre -->
         <div class="control-group">
@@ -200,36 +193,38 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
             <input type="file" name="urlPhotArt"  accept="image/png, image/jpeg" id="urlPhotArt" size="2000" maxlength="2000" value="<?= $urlPhotArt; ?>" autofocus="autofocus" style="margin: 0px; width: 500px; height: 25px;" />
         </div>
         <br>
-        <!-- FK : Angl -->
-    <!-- Listbox Angl -->
-    <br>
         <div class="control-group">
-            <label class="control-label" for="LibTypAngl"><b>Quel Angle :&nbsp;&nbsp;&nbsp;</b></label>
-                <input type="hidden" id="idTypAngl" name="idTypAngl" value="<?= isset($_GET['numAngl']) ? $_GET['numAngl'] : '' ?>" />
-
-                <select size="1" name="TypAngl" id="TypAngl" required class="form-control form-control-create" title="Sélectionnez l'Angle !" >
-                   <option value="-1">Choisissez un Angle </option>
+            <div class="controls">
+            <label class="control-label" for="LibTypAngl">
+                <b>Quel angle :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
+            </label>
+            <input type="hidden" id="idTypAngl" name="idTypAngl" value="<?= $idAngl; ?>" />
+            <select size="1" name="TypAngl" id="TypAngl"  class="form-control form-control-create" title="Sélectionnez l'angle !" disabled >
+                <option value="-1"> Choisissez un angle </option>
 <?
-            $numAngl = "";
-            $libAngl = "";
+                $listNumAngl = "";
+                $listLibAngl = "";
 
-            $queryText = 'SELECT * FROM ANGLE ORDER BY numAngl;';
-            $result = $db->query($queryText);
-            if ($result) {
-                while ($tuple = $result->fetch()) {
-                    $ListNumAngl = $tuple["numAngl"];
-                    $ListLibAngl = $tuple["libAngl"];
+                $queryText = 'SELECT * FROM ANGLE AN INNER JOIN LANGUE LA ON AN.numLang = LA.numLang ORDER BY lib1Lang, libAngl;';
+                $result = $db->query($queryText);
+                if ($result) {
+                    while ($tuple = $result->fetch()) {
+                        $listNumAngl = $tuple["numAngl"];
+                        $listLibAngl = $tuple["libAngl"] . " - (" .
+                        $tuple["lib2Lang"] . ")";
 ?>
-                    <option value="<?= $ListNumAngl; ?>" >
-                        <?= $ListLibAngl; ?>
+                    <option value="<?= ($listNumAngl); ?>" <?= ((isset($idAngl) && $idAngl == $listNumAngl) ? 'selected="selected"' : null); ?> >
+                        <?= $listLibAngl; ?>
                     </option>
 <?
-                } // End of while
-            }   // if ($result)
+                    } // End of while
+                }   // if ($result)
+                //$result->closeCursor();
 ?>
                 </select>
+            </div>
         </div>
-    <!-- FIN Angle -->
+    <!-- FIN Listbox Angle -->
         </div>
         <br>
 <!-- FK : Them -->
@@ -239,7 +234,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
             <label class="control-label" for="LibTypThem"><b>Quelle Thématique :&nbsp;&nbsp;&nbsp;</b></label>
                 <input type="hidden" id="idTypThem" name="idTypThem" value="<?= isset($_GET['numThem']) ? $_GET['numThem'] : '' ?>" />
 
-                <select size="1" name="TypThem" id="TypThem" required class="form-control form-control-create" title="Sélectionnez le Them !" >
+                <select readOnly size="1" name="TypThem" id="TypThem" required class="form-control form-control-create" title="Sélectionnez le Them !" >
                    <option value="-1">Choisissez un Thème </option>
 <?
             $numThem = "";

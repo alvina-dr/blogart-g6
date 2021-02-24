@@ -45,7 +45,7 @@
             année consécutive en mai prochain, avec son lot de nouveautés, de divertissement, et de compétitions. Alors
             que
             vous soyez néophytes ou habitués du BGF, on vous emmène faire le tour de ce pilier du gaming Bordelais.</br></br>
-        <b><a href="https://bordeauxgeekfest.com/" style="color: #F5F5F5" target="_blank">Visitez le site officiel du Bordeaux Geek Festival en cliquant ici.</a></p></b>
+        <b><a href="https://bordeauxgeekfest.com/" style="color: #9887BF" target="_blank">Visitez le site officiel du Bordeaux Geek Festival en cliquant ici.</a></p></b>
         <p></br>Sortez vos plus beaux costumes, affutez vos techniques de jeux ou venez juste passer un bon moment entre amis. Que le festival commence !</p>
         <!--Introduction-->
 
@@ -81,7 +81,7 @@
             autour du
             domaine des jeux vidéo. Cette année se tient la septième édition, du 22 au 24 mai.</p>
 
-        <b><a href="https://bordeauxgeekfest.com/billetterie/" style="color: #F5F5F5" target="_blank">Vous pouvez directement réserver vos places en ligne ! En cliquant ici </a></p></b>
+        <b><a href="https://bordeauxgeekfest.com/billetterie/" style="color: #9887BF" target="_blank">Vous pouvez directement réserver vos places en ligne ! En cliquant ici </a></p></b>
         <!--Article 1-->
 
         <!--Article 2-->
@@ -112,7 +112,7 @@
             personnes rencontrées font du BGF un vrai lieu d’échange pour les geeks. En sortant du festival vous
             penserez
             sûrement au vieil adage : les jeux-vidéo rassemblent… </br></br>
-            <a href="https://bordeauxgeekfest.com/programmation/" style="color: #F5F5F5" target="_blank">Retrouvez toutes les activités du festival en cliquant ici</a></p>
+            <a href="https://bordeauxgeekfest.com/programmation/" style="color: #9887BF" target="_blank">Retrouvez toutes les activités du festival en cliquant ici</a></p>
 
         <!--Article 2-->
 
@@ -121,7 +121,7 @@
         <h2> Prouver sa valeur devant un public en folie? </h2>
         <img class="ligne3" src="../assets/images/Ligne_3.svg" alt="Soulignage violet"/>
         </div>
-        <p><a href="https://bordeauxgeekfest.com/bgf-esport/" style="color: #F5F5F5" target="_blank">C’est possible avec le label BGF Esport. Pour en savoir plus cliquez ici !</a> </br> </br>
+        <p><a href="https://bordeauxgeekfest.com/bgf-esport/" style="color: #9887BF" target="_blank">C’est possible avec le label BGF Esport. Pour en savoir plus cliquez ici !</a> </br> </br>
         
             Les jeux-vidéo rassemblent... Mais ils peuvent aussi diviser : une compétition sans merci pour déterminer qui
             sera

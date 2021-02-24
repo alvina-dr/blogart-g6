@@ -78,7 +78,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 //
             // $monArticle->create($numArt, $libTitrArt, $libChapoArt, $libAccrochArt, $parag1Art, $libSsTitr1Art, $parag2Art, $libSsTitr2Art, $parag3Art, $urlPhotArt, $TypAngl, $numThem);
 
-            $monArticle->create($numArt, $libTitrArt, $libChapoArt, $libAccrochArt, $parag1Art, $libSsTitr1Art, $parag2Art, $libSsTitr2Art, $parag3Art, $numAngl, $numThem);
+            $monArticle->update($numArt, $libTitrArt, $libChapoArt, $libAccrochArt, $parag1Art, $libSsTitr1Art, $parag2Art, $libSsTitr2Art, $parag3Art, $numAngl, $numThem);
 
 
         }   // Fin if ((isset($_POST['legendImg'])) ...
@@ -105,18 +105,18 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 </head>
 <body>
     <h1>BLOGART21 Admin - Gestion du CRUD Article</h1>
-    <h2>Ajout d'un Article </h2>
+    <h2>Modif d'un Article </h2>
 
     <?
     // Modif : récup id à modifier
-    if (isset($_GET['id']) and $_GET['id']) {
+    if (isset($_GET['id']) and $_GET['id'] > 0) {
 
         $numArt = ctrlSaisies(($_GET['id']));
 
         $query = (array)$monArticle->get_1Art($numArt);
 
         if ($query) {
-            $libTitrArt = $query['$libTitrArt'];
+            $libTitrArt = $query['libTitrArt'];
             $libChapoArt = $query['libChapoArt'];
             $libAccrochArt = $query['libAccrochArt'];
             $parag1Art = $query['parag1Art'];
@@ -184,7 +184,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
         <!-- Paragraphe 3 -->
         <div class="control-group">
             <label class="control-label" for="parag3Art"><b>Paragraphe 3 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <textarea type="text" name="parag3Art" id="parag3Art" size="2000" maxlength="2000" value="<?= $parag3Art; ?>" autofocus="autofocus" style="margin: 0px; width: 500px; height: 150px;"></textarea>
+            <textarea type="text" name="parag3Art" id="parag3Art" size="2000" maxlength="2000"  autofocus="autofocus" style="margin: 0px; width: 500px; height: 150px;"><?= $parag3Art; ?></textarea>
         </div>
         <br>
         <!-- Conclusion -->

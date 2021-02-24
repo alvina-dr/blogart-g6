@@ -27,7 +27,7 @@ class MOTCLE
     function get_AllMotCle()
     {
         global $db;
-        $query = 'SELECT * FROM MOTCLE;';
+        $query = 'SELECT numMotCle,libMotCle,lib2Lang FROM motcle,langue WHERE motcle.numLang=langue.numLang ORDER BY numMotCle ASC ;';
         $result = $db->query($query);
         $allStatuts = $result->fetchAll();
         return ($allStatuts);

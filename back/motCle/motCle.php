@@ -53,7 +53,7 @@ foreach($allStatuts as $row) {
     <td><h4>&nbsp; <?= $row["numMotCle"]; ?> &nbsp;</h4></td>
 
     <td>&nbsp; <?php echo $row["libMotCle"]; ?> &nbsp;</td>
-    <td>&nbsp; <?php echo $row["numLang"]; ?> &nbsp;</td>
+    <td>&nbsp; <?php echo $row["lib2Lang"]; ?> &nbsp;</td>
 
     <td>&nbsp;<a href="./updateMotCle.php?id=<?=$row["numMotCle"]; ?>"><i>Modifier</i></a>&nbsp;
     <br /></td>

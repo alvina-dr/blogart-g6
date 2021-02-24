@@ -30,7 +30,7 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 
         if ((isset($_POST["Submit"])) AND ($_POST["Submit"] === "Initialiser")) {
 
-            header("Location: ./createMembre.php");
+            header("Location: ./updateMembre.php");
         }   // End of if ((isset($_POST["submit"])) ...
 
         // Mode création
@@ -92,7 +92,7 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
             }
             if(($prenomMemb !="") AND ($nomMemb!="") AND ($pseudoMemb!="") AND ($idStat!="") AND ($dtCreaMemb!="") AND ($souvenirMemb!="") AND ($accordMemb!="") AND ($eMailOk == 1) AND ($passwordOk == 1)){
                 
-                $monStatutMM->create($prenomMemb, $nomMemb,$pseudoMemb,$passMemb,$eMailMemb,$dtCreaMemb, $souvenirMemb,$accordMemb, $idStat);
+                $monStatutMM->update($prenomMemb, $nomMemb,$pseudoMemb,$passMemb,$eMailMemb,$dtCreaMemb, $souvenirMemb,$accordMemb, $idStat);
                 header("Location: ./membre.php");
             }
             else{
@@ -104,7 +104,7 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
         else {
             $erreur = true;
             $errSaisies =  "Erreur, la saisie est obligatoire et vous devez obligatoirement accepter la sauvegarde de vos données!";
-            header("Location: ./createMembre.php?id=".$errSaisies);
+            header("Location: ./updateMembre.php?id=".$errSaisies);
         }   // End of else erreur saisies
         
     
@@ -127,6 +127,27 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 <body>
     <h1>BLOGART21 Admin - Gestion du CRUD Membre</h1>
     <h2>Ajout d'un membre</h2>
+    <?
+    // Modif : récup id à modifier
+    if (isset($_GET['id']) and $_GET['id']) {
+
+        $numMemb = ctrlSaisies(($_GET['id']));
+
+        $query = (array)$monStatutMM->get_1Membre($numMemb);
+
+        if ($query) {
+            $prenomMemb = $query['prenomMemb'];
+            $nomMemb = $query['nomMemb'];
+            $pseudoMemb = $query['pseudoMemb'];
+            $passMemb = $query['passMemb'];
+            $eMailMemb = $query['eMailMemb'];
+            $dtCreaMemb = $query['dtCreaMemb'];
+            $souvenirMemb = $query['souvenirMemb'];
+            $accordMemb = $query['accordMemb'];
+            $idStat = $query['idStat'];
+        }   // Fin if ($query)
+    }   // Fin if (isset($_GET['id'])...)
+?>
 
     <form method="post" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" enctype="multipart/form-data">
 
@@ -147,11 +168,11 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
         </div>
         <div class="control-group">
             <label class="control-label" for="passMemb"><b>Mot de passe&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="password" name="passMemb" id="passMemb" size="80" maxlength="80" value="<?= $passMemb; ?>"  />
+            <input type="password" name="passMemb" id="passMemb" size="80" maxlength="80" value="<?= $passMemb; ?>" disabled="true" />
         </div>
         <div class="control-group">
             <label class="control-label" for="passMemb2"><b>Confirmation mot de passe&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="password" name="passMemb2" id="passMemb2" size="80" maxlength="80" value="<?= $passMemb2; ?>"  />
+            <input type="password" name="passMemb2" id="passMemb2" size="80" maxlength="80" value="<?= $passMemb; ?>" disabled="true" />
         </div>
         <div class="control-group">
             <label class="control-label" for="eMailMemb"><b>e-Mail&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
@@ -159,7 +180,7 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
         </div>
         <div class="control-group">
             <label class="control-label" for="eMailMemb2"><b>Confirmation e-Mail&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="text" name="eMailMemb2" id="eMailMemb2" size="80" maxlength="80" value="<?= $eMailMemb2; ?>" />
+            <input type="text" name="eMailMemb2" id="eMailMemb2" size="80" maxlength="80" value="<?= $eMailMemb; ?>" />
         </div>
         <br>
         <div class="control-group">

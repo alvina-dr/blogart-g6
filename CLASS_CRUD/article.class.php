@@ -3,14 +3,12 @@
 
 require_once __DIR__ . '../../CONNECT/database.php';
 
-class ARTICLE
-{
-	function get_1Art($numArt)
-	{
+class ARTICLE{
+	function get_1Art($numArt){
 		global $db;
-		$query = 'SELECT * FROM ARTICLE WHERE numArt = :numAngl;';
+		$query = 'SELECT * FROM ARTICLE WHERE numArt = :numArt;';
 		$result = $db->prepare($query);
-		$result->bindParam(':numArt', $numAngl);
+		$result->bindParam(':numArt', $numArt);
 		$result->execute();
 		return ($result->fetch());
 	}
@@ -52,7 +50,7 @@ class ARTICLE
 		}
 	}
 
-	function update(string $numAngl, string $libAngl, string $numLang)
+	function update($numArt, string $libTitrArt, string $libChapoArt, string $libAccrochArt, string $parag1Art, string $libSsTitr1Art, string $parag2Art, string $LibSsTitr2Art, string $parag3Art, string $libConclArt, string $numAngl, string $numThem)
     {
         global $db;
         try {
@@ -70,6 +68,8 @@ class ARTICLE
             $result->bindParam(':libConclArt', $libConclArt);
             $result->bindParam(':numAngl', $numAngl);
             $result->bindParam(':numThem', $numThem);
+			$result->bindParam(':numArt', $numArt);
+
             $result->execute();
             $db->commit();
             $result->closeCursor();

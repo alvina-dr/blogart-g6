@@ -27,13 +27,13 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
       $Submit = isset($_POST['Submit']) ? $_POST['Submit'] : '';
 
       if ((isset($_POST['Submit'])) AND ($Submit === 'Initialiser')) {
-        header("Location: ./createArticle.php");
+        header("Location: ./updateArticle.php");
         exit();
       }   // End of if ((isset($_POST["submit"])) ...
 
 
-      if (((isset($_POST['libTitrArt'])) AND !empty($_POST['libTitrArt']))
-            AND (isset($_POST['id'])) AND !empty($_POST['id'])
+      if ((isset($_POST['id'])) AND !empty($_POST['id'])
+            AND ((isset($_POST['libTitrArt'])) AND !empty($_POST['libTitrArt']))
             AND ((isset($_POST['libChapoArt'])) AND !empty($_POST['libChapoArt']))
             AND ((isset($_POST['libAccrochArt'])) AND !empty($_POST['libAccrochArt']))
             AND ((isset($_POST['parag1Art'])) AND !empty($_POST['parag1Art']))
@@ -65,9 +65,10 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
             $parag2Art = ctrlSaisies(($_POST['parag2Art']));
             $libSsTitr2Art = ctrlSaisies(($_POST['libSsTitr2Art']));
             $parag3Art = ctrlSaisies(($_POST['parag3Art']));
+            $libConclArt = ctrlSaisies(($_POST['libConclArt']));
+
 
             //$urlPhotArt = ctrlSaisies(($_POST['urlPhotArt']));
-            $urlPhotArt = -1;
 
             $numAngl = ctrlSaisies(($_POST['TypAngl']));
             $numThem = ctrlSaisies(($_POST['TypThem']));
@@ -77,7 +78,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 //
             // $monArticle->create($numArt, $libTitrArt, $libChapoArt, $libAccrochArt, $parag1Art, $libSsTitr1Art, $parag2Art, $libSsTitr2Art, $parag3Art, $urlPhotArt, $TypAngl, $numThem);
 
-            $monArticle->create($libTitrArt, $libChapoArt, $libAccrochArt, $parag1Art, $libSsTitr1Art, $parag2Art, $libSsTitr2Art, $parag3Art, $numAngl, $numThem);
+            $monArticle->create($numArt, $libTitrArt, $libChapoArt, $libAccrochArt, $parag1Art, $libSsTitr1Art, $parag2Art, $libSsTitr2Art, $parag3Art, $numAngl, $numThem);
 
 
         }   // Fin if ((isset($_POST['legendImg'])) ...
@@ -115,7 +116,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
         $query = (array)$monArticle->get_1Art($numArt);
 
         if ($query) {
-            $libTitrArt = $query['libT$libTitrArt'];
+            $libTitrArt = $query['$libTitrArt'];
             $libChapoArt = $query['libChapoArt'];
             $libAccrochArt = $query['libAccrochArt'];
             $parag1Art = $query['parag1Art'];
@@ -123,6 +124,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
             $parag2Art = $query['parag2Art'];
             $libSsTitr2Art = $query['libSsTitr2Art'];
             $parag3Art = $query['parag3Art'];
+            $libConclArt = $query['libConclArt'];
             $numAngl = $query['numAngl'];
             $numThem = $query['numThem'];
 

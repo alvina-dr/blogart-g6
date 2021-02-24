@@ -95,3 +95,11 @@ h4{
     color: #9887BF;
     font-size: 15px;
 }
+
+.ici {
+    color: black;
+    font-weight: bold;
+}
+.ici:hover {
+    text-decoration: underline;
+}

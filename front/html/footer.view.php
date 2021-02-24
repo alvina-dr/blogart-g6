@@ -23,7 +23,7 @@
     <div class="texte_cookies">
         <p class="pcookies">Nous utilisons des cookies pour vous offrir la meilleure expérience possible. 
             Cliquez sur accepter pour continuer à naviguer ou pour en savoir plus sur notre politique
-             en matière de cookies <a class="ici" href="mentionslégales.php">ici.</a>  </p>
+             en matière de cookies <a class="ici" href="mentionslégales.php">ici</a>.  </p>
     </div>
     <div class="img_cookies">
         <img src="../assets/images/cookies.png">
@@ -34,7 +34,7 @@
     <button class="valider_cookies">
         <h2 class="cookie_blanc"><a href="accept_cookie.php">Accepter</a></h2>
     <button id="togg3" class="refuser_cookies">
-        <h2 class="cookie_blanc2"><a href="refuse_cookie.php" class="cookie_blanc2">Refuser</a></h2>
+        <h2 class="cookie_blanc2">Refuser</h2>
 </div>
 <script type="text/javascript" src="../js/cookies.js"></script>
 <?php } ?>

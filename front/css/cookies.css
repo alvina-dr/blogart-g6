@@ -45,6 +45,7 @@ h4{
     height: 7%;
     padding-left: 91%;
     margin-top: -41%;
+    cursor: pointer;
 }
 .croix_cookies:hover {
     display: flex;
@@ -63,6 +64,7 @@ h4{
     margin-top: 41%;
     justify-content: center;
     text-align: center;
+    cursor: pointer;
 }
 .valider_cookies:hover {
     display: block;
@@ -80,6 +82,7 @@ h4{
     margin-top: 4%;
     justify-content: center;
     text-align: center;
+    cursor:pointer;
 }
 .refuser_cookies:hover {
     display: block;

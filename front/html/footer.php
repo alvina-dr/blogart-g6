@@ -41,11 +41,11 @@
                     <br>
                     <br>
                     <br>
-                    <a class="footer_hover" href="./hacktu.php">Actu</a>
+                    <p><a class="footer_hover" href="./hacktu.php">Actu</a></p>
                     <p></p><br>
-                    <a class="footer_hover" href="./actors.php">Acteur clef</a>
+                    <p><a class="footer_hover" href="./actors.php">Acteur clef</a></p>
                     <p></p><br>
-                    <a class="footer_hover" href="./insolite.php">L'insolite !</a>
+                    <p><a class="footer_hover" href="./insolite.php">L'insolite !</a></p>
                 </div>
                 <div class="center_t">
                     <p>On était obligé</p>
@@ -53,9 +53,9 @@
                     <br>
                     <br>
                     <br>
-                    <a class="footer_hover" href="./mentionslégales.php">Mentions légales</a>
+                    <p><a class="footer_hover" href="./mentionslégales.php">Mentions légales</a></p>
                     <p></p><br>
-                    <a class="footer_hover" href="./cgu.php">C.G.U</a>
+                    <p><a class="footer_hover" href="./cgu.php">C.G.U</a></p>
                 </div>
             </div>
         </footer>

@@ -32,7 +32,7 @@ class ANGLE
         $allStatuts = $result->fetchAll();
         return ($allStatuts);
     }
-}
+
 
 
 	function get_AllAnglesByLangue()

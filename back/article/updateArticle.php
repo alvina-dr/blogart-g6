@@ -33,6 +33,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
 
       if (((isset($_POST['libTitrArt'])) AND !empty($_POST['libTitrArt']))
+            AND (isset($_POST['id'])) AND !empty($_POST['id'])
             AND ((isset($_POST['libChapoArt'])) AND !empty($_POST['libChapoArt']))
             AND ((isset($_POST['libAccrochArt'])) AND !empty($_POST['libAccrochArt']))
             AND ((isset($_POST['parag1Art'])) AND !empty($_POST['parag1Art']))
@@ -129,10 +130,12 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
     }   // Fin if (isset($_GET['id'])...)
 ?>
 
-    <form method="post" action="./createArticle.php" enctype="multipart/form-data">
+<form method="post" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" enctype="multipart/form-data">
+
 
       <fieldset>
         <legend class="legend1">Formulaire Article...</legend>
+        <input type="hidden" id="id" name="id" value="<?= $_GET['id']; ?>" />
         <br>
         <!-- Titre -->
         <div class="control-group">

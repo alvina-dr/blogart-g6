@@ -89,3 +89,5 @@ require_once __DIR__ . '/footer.php';
 ?>
 </body>
 </html>
+
+<!-- maurinette tente le php -->

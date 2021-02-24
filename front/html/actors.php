@@ -22,7 +22,7 @@
     ?>
 
 
-<div class="placeholder"></div>
+<!-- <div class="placeholder"></div> -->
 
     <div style="position:absolute;z-index:1;margin-left: 2%;margin-right: 2%;" class="marge">
         <img class="img_acteur" src="../assets/images/acteur.png">

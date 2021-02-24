@@ -79,7 +79,8 @@ class ARTICLE
             $db->rollBack();
             $result->closeCursor();
         }
-    }}
+    }
+}
 
 // Ctrl FK sur THEMATIQUE, ARTICLE, MOTCLE avec del
  	function delete($numAngl)
@@ -99,4 +100,4 @@ class ARTICLE
  			$request->closeCursor();
  		}
  	}
-}	// End of class
+// End of class

@@ -19,7 +19,7 @@ $monArticle = new ARTICLE;
 require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
     // Gestion du $_SERVER["REQUEST_METHOD"] => En POST
-    // ajout effectif du statut 
+    // ajout effectif du statut
 
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
@@ -27,13 +27,13 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
       $Submit = isset($_POST['Submit']) ? $_POST['Submit'] : '';
       echo "test 1";
 
-      if ((isset($_POST["Submit"])) AND ($_POST["Submit"] === "Initialiser")) {
-
-            echo "test 2";
-          header("Location: ./createArticle.php");
+      if ((isset($_POST['Submit'])) AND ($Submit === 'Initialiser')) {
+        echo "test 2";
+        header("Location: ./createArticle.php");
+        exit();
       }   // End of if ((isset($_POST["submit"])) ...
 
-      
+
       if (((isset($_POST['libTitrArt'])) AND !empty($_POST['libTitrArt']))
             AND ((isset($_POST['libChapoArt'])) AND !empty($_POST['libChapoArt']))
             AND ((isset($_POST['libAccrochArt'])) AND !empty($_POST['libAccrochArt']))
@@ -43,15 +43,23 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
             AND ((isset($_POST['libSsTitr2Art'])) AND !empty($_POST['libSsTitr2Art']))
             AND ((isset($_POST['parag3Art'])) AND !empty($_POST['parag3Art']))
             AND ((isset($_POST['libConclArt'])) AND !empty($_POST['libConclArt']))
-            AND ((isset($_POST['urlPhotArt'])) AND !empty($_POST['urlPhotArt']))
+            // AND ((isset($_POST['urlPhotArt'])) AND !empty($_POST['urlPhotArt']))
             AND ((isset($_POST['TypAngl'])) AND !empty($_POST['TypAngl']))
-            AND ((isset($_POST['numThem'])) AND !empty($_POST['numThem']))){
+//
+// Erreur nom var numThem => TypThem
+//
+            AND ((isset($_POST['TypThem'])) AND !empty($_POST['TypThem']))
+//
+// Erreur : Ajout Submit => "valider"
+//
+
+        AND (!empty($_POST['Submit']) AND ($Submit == "Valider"))) {
 
             // Saisies valides
             $erreur = false;
 
             echo "test 3";
-                
+
             $libTitrArt = ctrlSaisies(($_POST['libTitrArt']));
             $libChapoArt = ctrlSaisies(($_POST['libChapoArt']));
             $libAccrochArt = ctrlSaisies(($_POST['libAccrochArt']));
@@ -60,20 +68,25 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
             $parag2Art = ctrlSaisies(($_POST['parag2Art']));
             $libSsTitr2Art = ctrlSaisies(($_POST['libSsTitr2Art']));
             $parag3Art = ctrlSaisies(($_POST['parag3Art']));
-            $urlPhotArt = ctrlSaisies(($_POST['urlPhotArt']));
-            $numAngl = ctrlSaisies(($_POST['TypAngl']));
-            $numThem = ctrlSaisies(($_POST['numThem']));
-            $libConclArt = ctrlSaisies(($_POST['libConclArt']));
 
-            $monArticle->create($numArt, $libTitrArt, $libChapoArt, $libAccrochArt, $parag1Art, $libSsTitr1Art, $parag2Art, $libSsTitr2Art, $parag3Art, $urlPhotArt, $TypAngl, $numThem, $libConclArt);
+            //$urlPhotArt = ctrlSaisies(($_POST['urlPhotArt']));
+            $urlPhotArt = -1;
+
+            $numAngl = ctrlSaisies(($_POST['TypAngl']));
+            $numThem = ctrlSaisies(($_POST['TypThem']));
+
+//
+// erreur id => auto-incrément
+//
+            // $monArticle->create($numArt, $libTitrArt, $libChapoArt, $libAccrochArt, $parag1Art, $libSsTitr1Art, $parag2Art, $libSsTitr2Art, $parag3Art, $urlPhotArt, $TypAngl, $numThem);
+
+            $monArticle->create($libTitrArt, $libChapoArt, $libAccrochArt, $parag1Art, $libSsTitr1Art, $parag2Art, $libSsTitr2Art, $parag3Art, $numAngl, $numThem);
 
 
         }   // Fin if ((isset($_POST['legendImg'])) ...
         else {
             $erreur = true;
-            $errSaisies =  "La saisie est obligatoire !";
-            echo "test 4";
-
+            $errSaisies =  "Erreur, la saisie est obligatoire !";
         }   // Fin else erreur saisies
 
   }   // Fin if ($_SERVER["REQUEST_METHOD"] == "POST")
@@ -165,7 +178,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
     <!-- Listbox Angl -->
     <br>
         <div class="control-group">
-            <label class="control-label" for="LibTypAngl"><b>Quelle Angle :&nbsp;&nbsp;&nbsp;</b></label>
+            <label class="control-label" for="LibTypAngl"><b>Quel Angle :&nbsp;&nbsp;&nbsp;</b></label>
                 <input type="hidden" id="idTypAngl" name="idTypAngl" value="<?= isset($_GET['numAngl']) ? $_GET['numAngl'] : '' ?>" />
 
                 <select size="1" name="TypAngl" id="TypAngl" required class="form-control form-control-create" title="Sélectionnez l'Angle !" >
@@ -225,28 +238,17 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
     <!-- FIN Listbox Pays -->
         </div>
         <br>
-        
-        <div class="control-group">
-            <div class="error">
-<?
-            if ($erreur) {
-                echo ($errSaisies);
-            } else {
-                $errSaisies = "";
-                echo ($errSaisies);
-            }
-?>
-            </div>
-        </div>
-        
         <div class="control-group">
             <div class="controls">
                 <br><br>
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="submit" value="Initialiser" class="imputFields" name="Submit" />
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="submit" value="Valider" class="imputFields" name="Submit" value="on"/>
-                <br>       
+<!-- ------------------------------------- -->
+<!--  Erreur 2 VALUE dans input "VALIDER"  -->
+<!-- ------------------------------------- -->
+                <input type="submit" value="Valider" class="imputFields" name="Submit" />
+                <br>
             </div>
         </div>
       </fieldset>

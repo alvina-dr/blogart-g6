@@ -53,9 +53,12 @@ $monStatutMM = new MEMBRE;
 
     <?
  $allStatuts = $monStatutMM->get_AllMembre();
- foreach($allStatuts as $row) {
+ foreach($allStatuts as $row)
+ {
 	// Appel méthode : tous les statuts en BDD
 ?>
+        
+        
         <tr>
 		<td><h4>&nbsp; <?= $row["numMemb"]; ?> &nbsp;</h4></td>
 
@@ -64,8 +67,8 @@ $monStatutMM = new MEMBRE;
         <td>&nbsp; <?php echo $row["pseudoMemb"]; ?> &nbsp;</td>
         <td>&nbsp; <?php echo $row["eMailMemb"]; ?> &nbsp;</td>
         <td>&nbsp; <?php echo $row["dtCreaMemb"]; ?> &nbsp;</td>
-        <td>&nbsp; <?php echo substr_replace ($row["souvenirMemb"],'oui', 1); ?> &nbsp;</td>
-        <td>&nbsp; <?php echo $row["accordMemb"]; ?> &nbsp;</td>
+        <td>&nbsp; <?= ($row["souvenirMemb"] == 1) ? "Oui" : "Non" ?> &nbsp;</td>
+        <td>&nbsp; <?= ($row["accordMemb"] == 1) ? "Oui" : "Non" ?> &nbsp;</td>
     
 		<td>&nbsp;<a href="./updateMembre.php?id=<?=$row["numMemb"]; ?>"><i>Modifier</i></a>&nbsp;
 		<br /></td>

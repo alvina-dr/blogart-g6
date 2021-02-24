@@ -105,6 +105,30 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
     <h1>BLOGART21 Admin - Gestion du CRUD Article</h1>
     <h2>Ajout d'un Article </h2>
 
+    <?
+    // Modif : récup id à modifier
+    if (isset($_GET['id']) and $_GET['id']) {
+
+        $numArt = ctrlSaisies(($_GET['id']));
+
+        $query = (array)$monArticle->get_1Art($numArt);
+
+        if ($query) {
+            $libTitrArt = $query['libT$libTitrArt'];
+            $libChapoArt = $query['libChapoArt'];
+            $libAccrochArt = $query['libAccrochArt'];
+            $parag1Art = $query['parag1Art'];
+            $libSsTitr1Art = $query['libSsTitr1Art'];
+            $parag2Art = $query['parag2Art'];
+            $libSsTitr2Art = $query['libSsTitr2Art'];
+            $parag3Art = $query['parag3Art'];
+            $numAngl = $query['numAngl'];
+            $numThem = $query['numThem'];
+
+        }   // Fin if ($query)
+    }   // Fin if (isset($_GET['id'])...)
+?>
+
     <form method="post" action="./createArticle.php" enctype="multipart/form-data">
 
       <fieldset>

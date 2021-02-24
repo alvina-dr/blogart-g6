@@ -53,25 +53,34 @@ class ARTICLE
 	}
 
 	function update(string $numAngl, string $libAngl, string $numLang)
-	{
-		global $db;
-		try {
-			$db->beginTransaction();
-			$exec = "UPDATE ARTICLE SET libAngl=:libAngl, numLang=:numLang WHERE :numAngl= numAngl;";
+    {
+        global $db;
+        try {
+            $db->beginTransaction();
+            $exec = "UPDATE ARTICLE SET libTitrArt=:libTitrArt, libChapoArt=:libChapoArt, libAccrochArt=:libAccrochArt, parag1art=:parag1art, libSsTitr1art=:libSsTitr1art, parag2Art=:parag2Art, LibSsTitr2Art=:LibSsTitr2Art, parag3Art=:parag3Art, libConclArt=:libConclArt, numAngl=:numAngl, numThem=:numThem WHERE :numArt= numArt;";
             $result = $db->prepare($exec);
+            $result->bindParam(':libTitrArt', $libTitrArt);
+            $result->bindParam(':libChapoArt', $libChapoArt);
+            $result->bindParam(':libAccrochArt', $libAccrochArt);
+            $result->bindParam(':parag1Art', $parag1Art);
+            $result->bindParam(':libSsTitr1Art', $libSsTitr1Art);
+            $result->bindParam(':parag2Art', $parag2Art);
+            $result->bindParam(':LibSsTitr2Art', $libSsTitr2Art);
+            $result->bindParam(':parag3Art', $parag3Art);
+            $result->bindParam(':libConclArt', $libConclArt);
             $result->bindParam(':numAngl', $numAngl);
-			$result->bindParam(':libAngl', $libAngl);
-			$result->bindParam(':numLang', $numLang);
-			$result->execute();
-			$db->commit();
-			$result->closeCursor();
-		} catch (PDOException $erreur) {
-			die($erreur);
-			die('Erreur update ARTICLE : ' . $erreur->getMessage());
-			$db->rollBack();
-			$result->closeCursor();
-		}
-	}
+            $result->bindParam(':numThem', $numThem);
+            $result->execute();
+            $db->commit();
+            $result->closeCursor();
+        } catch (PDOException $erreur) {
+            die($erreur);
+            die('Erreur update ARTICLE : ' . $erreur->getMessage());
+            $db->rollBack();
+            $result->closeCursor();
+        }
+    }
+}
 
 // Ctrl FK sur THEMATIQUE, ARTICLE, MOTCLE avec del
  	function delete($numAngl)
@@ -91,4 +100,4 @@ class ARTICLE
  			$request->closeCursor();
  		}
  	}
-}	// End of class
+// End of class

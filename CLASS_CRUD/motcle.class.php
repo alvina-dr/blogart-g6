@@ -66,7 +66,7 @@ class MOTCLE
 		global $db;
 		try {
 			$db->beginTransaction();
-			$exec = "UPDATE MOTCLE SET libMotCle=:libMotCle, numLang=:numLang WHERE :numMotCle= numMotCle;";
+			$exec = "UPDATE MOTCLE SET libMotCle=:libMotCle, numLang=:numLang WHERE numMotCle= :numMotCle;";
             $result = $db->prepare($exec);
             $result->bindParam(':numMotCle', $numMotCle);
 			$result->bindParam(':libMotCle', $libMotCle);

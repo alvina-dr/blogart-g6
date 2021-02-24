@@ -26,7 +26,7 @@
 		function create($libStat){
 
 			try {
-				// $db = new PDO ('mysql:host=localhost;dbname=blogart21;charset=utf8mb4','root','');
+				 $db = new PDO ('mysql:host=localhost;dbname=blogart21;charset=utf8mb4','root','');
 		  $db->beginTransaction();
 		  $exec= "INSERT INTO STATUT (idStat, libStat) VALUES (:idStat, :libStat)";
 		  $result = $db->prepare($exec);

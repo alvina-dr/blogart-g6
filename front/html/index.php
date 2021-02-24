@@ -24,7 +24,7 @@
         require_once __DIR__ . '/header.php';
         ?>
     <?php
-        require_once __DIR__ . '/cookies.php';
+        require_once __DIR__ . '/showcookie.php';
         ?>
     <div class="title2">
         <div class="title">

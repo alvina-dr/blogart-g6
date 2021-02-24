@@ -79,9 +79,9 @@ include __DIR__ . '/initStatut.php';
     // Modif : récup id à modifier
     if (isset($_GET['id']) and $_GET['id'] > 0) {
 
-        $id = ctrlSaisies(($_GET['id']));
+        $idStat = ctrlSaisies(($_GET['id']));
 
-        $query = (array)$monStatut->get_1Statut($id);
+        $query = (array)$monStatut->get_1Statut($idStat);
 
         if ($query) {
             $libStat = $query['libStat'];

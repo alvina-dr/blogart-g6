@@ -62,7 +62,6 @@ $monStatutMM = new MEMBRE;
         <td>&nbsp; <?php echo $row["prenomMemb"]; ?> &nbsp;</td>
         <td>&nbsp; <?php echo $row["nomMemb"]; ?> &nbsp;</td>
         <td>&nbsp; <?php echo $row["pseudoMemb"]; ?> &nbsp;</td>
-        <td>&nbsp; <?php echo $row["passMemb"]; ?> &nbsp;</td>
         <td>&nbsp; <?php echo $row["eMailMemb"]; ?> &nbsp;</td>
         <td>&nbsp; <?php echo $row["dtCreaMemb"]; ?> &nbsp;</td>
         <td>&nbsp; <?php echo $row["souvenirMemb"]; ?> &nbsp;</td>

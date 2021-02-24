@@ -35,6 +35,7 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 
         // Mode création
         if ((!empty($_POST['Submit'])) AND ($Submit === "Valider")
+        AND (isset($_POST['id'])) AND !empty($_POST['id'])
         AND (isset($_POST['prenomMemb'])) AND !empty($_POST['prenomMemb'])
         AND (isset($_POST['nomMemb'])) AND !empty($_POST['nomMemb'])
         AND (isset($_POST['pseudoMemb'])) AND !empty($_POST['pseudoMemb'])
@@ -48,6 +49,7 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 
             $erreur = false;
             
+            $numMemb = ctrlSaisies($_POST['id']);
             $prenomMemb = ctrlSaisies($_POST['prenomMemb']);
             $nomMemb = ctrlSaisies($_POST['nomMemb']);
             $pseudoMemb = ctrlSaisies($_POST['pseudoMemb']);
@@ -92,7 +94,7 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
             }
             if(($prenomMemb !="") AND ($nomMemb!="") AND ($pseudoMemb!="") AND ($idStat!="") AND ($dtCreaMemb!="") AND ($souvenirMemb!="") AND ($accordMemb!="") AND ($eMailOk == 1) AND ($passwordOk == 1)){
                 
-                $monStatutMM->update($prenomMemb, $nomMemb,$pseudoMemb,$passMemb,$eMailMemb,$dtCreaMemb, $souvenirMemb,$accordMemb, $idStat);
+                $monStatutMM->update($numMemb, $prenomMemb, $nomMemb,$pseudoMemb,$passMemb,$eMailMemb,$dtCreaMemb, $souvenirMemb,$accordMemb, $idStat);
                 header("Location: ./membre.php");
             }
             else{
@@ -154,6 +156,8 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
       <fieldset>
         <legend class="legend1">Formulaire Membre...</legend>
 
+        <input type="hidden" id="id" name="id" value="<?= $_GET['id']; ?>" />
+
         <div class="control-group">
             <label class="control-label" for="prenomMemb"><b>Prénom&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
             <input type="text" name="prenomMemb" id="prenomMemb" size="80" maxlength="80" value="<?= $prenomMemb; ?>" autofocus="autofocus" />
@@ -168,11 +172,11 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
         </div>
         <div class="control-group">
             <label class="control-label" for="passMemb"><b>Mot de passe&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="password" name="passMemb" id="passMemb" size="80" maxlength="80" value="<?= $passMemb; ?>" disabled="true" />
+            <input type="password" name="passMemb" id="passMemb" size="80" maxlength="80" value="<?= $passMemb; ?>" readOnly />
         </div>
         <div class="control-group">
             <label class="control-label" for="passMemb2"><b>Confirmation mot de passe&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="password" name="passMemb2" id="passMemb2" size="80" maxlength="80" value="<?= $passMemb; ?>" disabled="true" />
+            <input type="password" name="passMemb2" id="passMemb2" size="80" maxlength="80" value="<?= $passMemb; ?>"  />
         </div>
         <div class="control-group">
             <label class="control-label" for="eMailMemb"><b>e-Mail&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
@@ -186,30 +190,39 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
         <div class="control-group">
             <label class="control-label" for="souvenirMemb"><b>Se souvenir de moi :</b></label>
             <div class="controls">
-               <fieldset>
-                  <input type="radio" name="souvenirMemb"
-                  <?= ($souvenirMemb == "on") ? 'checked="checked"' : ''
-                  ?> value="on" />&nbsp;&nbsp;Oui&nbsp;&nbsp;&nbsp;&nbsp;
-                  <input type="radio" name="souvenirMemb"
-                  <?= ($souvenirMemb == "off") ? 'checked="checked"' : ''
-                  ?> value="off" checked="checked" />&nbsp;&nbsp;Non
-               </fieldset>
+                <fieldset>
+                    <input type="radio" name="souvenirMemb"
+                    <? if ($souvenirMemb == 1) echo 'checked="checked" ';?>
+                    value = 'on'/>
+                    &nbsp;&nbsp;Oui&nbsp;&nbsp;&nbsp;&nbsp;
+
+                    <input type="radio" name="souvenirMemb"
+                    <? if ($souvenirMemb == 0) echo 'checked="checked" ';?>
+                    value = 'off'/>
+                    &nbsp;&nbsp;Non&nbsp;&nbsp;&nbsp;&nbsp;
+
+                </fieldset>
             </div>
         </div>
-      <br>
+
         <div class="control-group">
             <label class="control-label" for="accordMemb"><b>J'accepte que mes données soient conservées :</b></label>
             <div class="controls">
                <fieldset>
-                  <input type="radio" name="accordMemb"
-                  <?= ($accordMemb == "on") ? 'checked="checked"' : ''
-                  ?> value="on" />&nbsp;&nbsp;Oui&nbsp;&nbsp;&nbsp;&nbsp;
-                  <input type="radio" name="accordMemb"
-                  <?= ($accordMemb == "off") ? 'checked="checked"' : ''
-                  ?> value="off" checked="checked" />&nbsp;&nbsp;Non
+               <input type="radio" name="accordMembe"
+                    <?if ($accordMemb == 1) echo 'checked="checked" ';?>
+                    value = 'on' readOnly/>
+                    &nbsp;&nbsp;Oui&nbsp;&nbsp;&nbsp;&nbsp;
+
+                    <input type="radio" name="accordMemb"
+                    <?if ($accordMemb == 0) echo 'checked="checked" ';?> 
+                    value = 'off' disabled/>
+                    &nbsp;&nbsp;Non&nbsp;&nbsp;&nbsp;&nbsp;
+
                </fieldset>
             </div>
         </div>
+
         <br>
         <div class="control-group">
             <div class="controls">

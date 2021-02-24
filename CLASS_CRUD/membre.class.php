@@ -68,13 +68,14 @@ class MEMBRE
 		}
 	}
 
-	function update(string $prenomMemb, string $nomMemb, string $pseudoMemb, string $passMemb, string $eMailMemb, string $dtCreaMemb, string $souvenirMemb, string $accordMemb, string $idStat)
+	function update($numMemb, string $prenomMemb, string $nomMemb, string $pseudoMemb, string $passMemb, string $eMailMemb, string $dtCreaMemb, string $souvenirMemb, string $accordMemb, string $idStat)
 	{
 		global $db;
 		try {
 			$db->beginTransaction();
 			$exec = "UPDATE MEMBRE SET prenomMemb=:prenomMemb, nomMemb=:nomMemb, pseudoMemb=:pseudoMemb, passMemb=:passMemb, eMailMemb=:eMailMemb, dtCreaMemb=:dtCreaMemb, souvenirMemb=:souvenirMemb, accordMemb=:accordMemb, idStat=:idStat WHERE numMemb= :numMemb;";
             $result = $db->prepare($exec);
+			
             $result->bindParam(':prenomMemb', $prenomMemb);
 			$result->bindParam(':nomMemb', $nomMemb);
 			$result->bindParam(':pseudoMemb', $pseudoMemb);
@@ -84,6 +85,7 @@ class MEMBRE
 			$result->bindParam(':souvenirMemb', $souvenirMemb);
 			$result->bindParam(':accordMemb', $accordMemb);
 			$result->bindParam(':idStat', $idStat);
+			$result->bindParam(':numMemb', $numMemb);
 			$result->execute();
 			$db->commit();
 			$result->closeCursor();

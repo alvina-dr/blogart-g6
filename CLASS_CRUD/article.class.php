@@ -80,7 +80,6 @@ class ARTICLE
             $result->closeCursor();
         }
     }
-}
 
 // Ctrl FK sur THEMATIQUE, ARTICLE, MOTCLE avec del
  	function delete($numAngl)

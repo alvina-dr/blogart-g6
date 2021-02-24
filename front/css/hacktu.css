@@ -255,7 +255,7 @@ p{
 	
 }
 
-.interaction :hover {
+.interaction:hover {
 	color:#F5F5F5;
 	transition: 0.3s;
 }

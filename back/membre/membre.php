@@ -36,14 +36,15 @@ $monStatutMM = new MEMBRE;
     <table border="3" bgcolor="aliceblue">
     <thead>
         <tr>
-        <th>&nbsp;Code utilisateur&nbsp;</th>
-            <th>&nbsp;Prénom&nbsp;</th>
-            <th>&nbsp;Nom&nbsp;</th>
-            <th>&nbsp;Pseudo&nbsp;</th>
-            <th>&nbsp;Email&nbsp;</th>
-            <th>&nbsp;Date de creation&nbsp;</th>
-            <th>&nbsp;Se souvenir de moi&nbsp;</th>
-            <th>&nbsp;Accord CGU&nbsp;</th>
+        <th>&nbsp;numMemb&nbsp;</th>
+            <th>&nbsp;prenomMemb&nbsp;</th>
+            <th>&nbsp;nomMemb&nbsp;</th>
+            <th>&nbsp;pseudoMemb&nbsp;</th>
+            <th>&nbsp;passMemb&nbsp;</th>
+            <th>&nbsp;eMailMemb&nbsp;</th>
+            <th>&nbsp;dtCreaMemb&nbsp;</th>
+            <th>&nbsp;souvenirMemb&nbsp;</th>
+            <th>&nbsp;accordMemb&nbsp;</th>
             <th colspan="2">&nbsp;Action&nbsp;</th>
             
         </tr>
@@ -52,9 +53,12 @@ $monStatutMM = new MEMBRE;
 
     <?
  $allStatuts = $monStatutMM->get_AllMembre();
- foreach($allStatuts as $row) {
+ foreach($allStatuts as $row)
+ {
 	// Appel méthode : tous les statuts en BDD
 ?>
+        
+        
         <tr>
 		<td><h4>&nbsp; <?= $row["numMemb"]; ?> &nbsp;</h4></td>
 
@@ -63,8 +67,8 @@ $monStatutMM = new MEMBRE;
         <td>&nbsp; <?php echo $row["pseudoMemb"]; ?> &nbsp;</td>
         <td>&nbsp; <?php echo $row["eMailMemb"]; ?> &nbsp;</td>
         <td>&nbsp; <?php echo $row["dtCreaMemb"]; ?> &nbsp;</td>
-        <td>&nbsp; <?php echo $row["souvenirMemb"]; ?> &nbsp;</td>
-        <td>&nbsp; <?php echo $row["accordMemb"]; ?> &nbsp;</td>
+        <td>&nbsp; <?= ($row["souvenirMemb"] == 1) ? "Oui" : "Non" ?> &nbsp;</td>
+        <td>&nbsp; <?= ($row["accordMemb"] == 1) ? "Oui" : "Non" ?> &nbsp;</td>
     
 		<td>&nbsp;<a href="./updateMembre.php?id=<?=$row["numMemb"]; ?>"><i>Modifier</i></a>&nbsp;
 		<br /></td>
@@ -73,7 +77,10 @@ $monStatutMM = new MEMBRE;
         </tr>
 <?
 	}	// End of foreach
+
 ?>
+
+
     </tbody>
     </table>
     <br><br>
@@ -86,4 +93,4 @@ require_once __DIR__ . '/footer.php';
 </body>
 </html>
 
-<!-- maurinette tente le php -->
+<!-- maurinette et paulinette tente le php -->

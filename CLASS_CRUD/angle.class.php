@@ -27,10 +27,10 @@ class ANGLE
     function get_AllAngle()
     {
         global $db;
-        $query = 'SELECT * FROM ANGLE;';
+        $query = 'SELECT * FROM ANGLE INNER JOIN LANGUE;';
         $result = $db->query($query);
-        $allStatuts = $result->fetchAll();
-        return ($allStatuts);
+        $allAngle = $result->fetchAll();
+        return ($allAngle);
     }
 
 

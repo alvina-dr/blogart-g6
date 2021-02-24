@@ -58,7 +58,10 @@
 
 
     <!-- SECTION ACTEURS CLÉS -->
-
+<br>
+<br>
+<br>
+<br>
     <img class="h22 acteurclef" src="../assets/icons/acteurcleff.png">
     <div class="column">
     <div class="p_landing h22">
@@ -78,13 +81,17 @@
             <img class="immeuble" src="../assets/icons/immeuble.png">
         </div>
     </div>
-
     </div>
 
 
-
     <!-- SECTION INSOLITE ÉCOLE D'E-SPORT -->
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
     <div class="acgameboy">
         <img class="graduate_student" src="../assets/icons/graduateed_1.png"> <!-- ICON GRADUATE STUDENT -->
         <div class="column">
@@ -97,6 +104,14 @@
         </div>
 
     </div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
     <img class="mouse_newsletter" src="../assets/icons/newsletter.png">
     <br>

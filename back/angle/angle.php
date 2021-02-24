@@ -54,7 +54,7 @@ $monStatutA = new ANGLE;
 		<td><h4>&nbsp; <?= $row["numAngl"]; ?> &nbsp;</h4></td>
 
         <td>&nbsp; <?php echo $row["libAngl"]; ?> &nbsp;</td>
-        <td>&nbsp; <?php echo $row["numLang"]; ?> &nbsp;</td>
+        <td>&nbsp; <?php echo $row["lib1Lang"]; ?> &nbsp;</td>
 
 		<td>&nbsp;<a href="./updateAngle.php?id=<?=$row["numAngl"]; ?>"><i>Modifier</i></a>&nbsp;
 		<br /></td>

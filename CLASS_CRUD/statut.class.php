@@ -7,9 +7,9 @@
 		function get_1Statut($idStat){
 			global $db;
 			$query = 'SELECT * FROM STATUT WHERE idStat = :idStat;';
-			$result->bindParam(':idStat', $idStat);
 			$result = $db->prepare($query);
-			$result->execute([$idStat]);
+			$result->bindParam(':idStat', $idStat);
+			$result->execute();
 			return($result->fetch());
 
 		}
@@ -26,7 +26,7 @@
 		function create($libStat){
 
 			try {
-				$db = new PDO ('mysql:host=localhost;dbname=blogart21;charset=utf8mb4','root','');
+				// $db = new PDO ('mysql:host=localhost;dbname=blogart21;charset=utf8mb4','root','');
 		  $db->beginTransaction();
 		  $exec= "INSERT INTO STATUT (idStat, libStat) VALUES (:idStat, :libStat)";
 		  $result = $db->prepare($exec);
@@ -49,8 +49,8 @@
 		  $db->beginTransaction();
 			$query='UPDATE STATUT SET libStat = :libStat WHERE idStat = :idStat;';
 			$request = $db->prepare($query);
+			$request->bindParam(':libStat', $libStat);
 			$request->bindParam(':idStat', $idStat);
-		    $request->bindParam(':libStat', $libStat);
 			$request->execute();
 					$db->commit();
 					$request->closeCursor();

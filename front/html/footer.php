@@ -33,7 +33,7 @@
                     <br>
                     <br>
                     <br>
-                    <a href="https://jauneprod.netlify.app/secondindex" target="_blank"><img class="jp_logo" src="../assets/icons/jp.svg"></a>
+                    <a href="https://jauneprod.netlify.app/index" target="_blank"><img class="jp_logo" src="../assets/icons/jp.svg"></a>
                 </div>
                 <div class="center_t">
                     <p>Tu veux aller où ?</p>

@@ -22,7 +22,7 @@
     ?>
 
 
-
+<div class="placeholder"></div>
 
     <div style="position:absolute;z-index:1;margin-left: 2%;margin-right: 2%;" class="marge">
         <img class="img_acteur" src="../assets/images/acteur.png">
@@ -38,13 +38,14 @@
         </div>
     </div>
     <div>
-        <!-- <img class="img_acteur2" src="../assets/images/image_acteur.png"> -->
+        <img class="img_acteur2" src="../assets/images/image_acteur.png">
+
 <!----------------------------------------------- début de l'effet ---------------------------------------------------->
 
-<main>
+<!-- <main>
 	</main>
 
-	<!-- vertex shader -->
+	vertex shader
 	<script id="vertex-shader" type="x-shader/x-vertex">
 	attribute vec2 a_position;
 	attribute vec2 a_texCoord;
@@ -60,7 +61,7 @@
 	}
 	</script>
 
-	<!-- fragment shader -->
+	 fragment shader
 	<script id="fragment-shader" type="x-shader/x-fragment">
 	precision mediump float;
 	uniform sampler2D u_image;
@@ -73,7 +74,7 @@
 		vec4 color = texture2D(u_image, v_texCoord);
 	  gl_FragColor = color * vec4(u_mouse.y,res.y,u_mouse.x,1) ;
 	}
-	</script>
+	</script> -->
 
 <!----------------------------------------- fin de l'effet --------------------------------------------------->
     </div>

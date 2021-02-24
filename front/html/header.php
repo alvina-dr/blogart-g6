@@ -34,7 +34,7 @@
 			</div>
 			<ul class="menu_list">
 				<li><a href="./hacktu.php">Actu</a></li>
-				<li><a href="./actors.php">Acteurs clés</a></li>
+				<li><a href="./actors.php">Acteur clef</a></li>
 				<li><a href="./insolite.php">Insolite</a></li>
 			</ul>
 			<ul class="log">

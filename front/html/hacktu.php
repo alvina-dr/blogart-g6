@@ -114,7 +114,7 @@
             personnes rencontrées font du BGF un vrai lieu d’échange pour les geeks. En sortant du festival vous
             penserez
             sûrement au vieil adage : les jeux-vidéo rassemblent… </br></br>
-            <a href="https://bordeauxgeekfest.com/programmation/" class="interaction" target="_blank">Retrouvez toutes les activités du festival en cliquant ici</a></p>
+            <b> <a href="https://bordeauxgeekfest.com/programmation/" class="interaction" target="_blank">Retrouvez toutes les activités du festival en cliquant ici</a></p></b>
 
         <!--Article 2-->
 
@@ -123,7 +123,7 @@
         <h2> Prouver sa valeur devant un public en folie? </h2>
         <img class="ligne3" src="../assets/images/Ligne_3.svg" alt="Soulignage violet"/>
         </div>
-        <p><a href="https://bordeauxgeekfest.com/bgf-esport/" class="interaction" target="_blank">C’est possible avec le label BGF Esport. Pour en savoir plus cliquez ici !</a> </br> </br>
+        <b><p><a href="https://bordeauxgeekfest.com/bgf-esport/" class="interaction" target="_blank">C’est possible avec le label BGF Esport. Pour en savoir plus cliquez ici !</a></b> </br> </br>
         
             Les jeux-vidéo rassemblent... Mais ils peuvent aussi diviser : une compétition sans merci pour déterminer qui
             sera

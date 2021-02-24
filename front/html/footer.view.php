@@ -13,8 +13,9 @@
     
 </head>
 
-<body>
-<div id="d1" class="bordure_cookies" >
+
+<?php if($showcookie) { ?>
+    <div id="d1" class="bordure_cookies" >
     <div class="bordure2_cookies">
         <h4>Ce site web utilise<br> des cookies</h4>
     </div>
@@ -30,11 +31,10 @@
     <div id="togg2" class="croix_cookies">
         <img src="../assets/images/croix.png">
     </div>
-    <button id="togg1" class="valider_cookies">
-        <h2 class="cookie_blanc">Accepter</h2>
-    <button id="togg3" class="refuser_cookies">
-        <h2 class="cookie_blanc2">Refuser</h2>
+    <button class="valider_cookies">
+        <h2 class="cookie_blanc"><a href="accept_cookie.php">Accepter</a></h2>
+    <button class="refuser_cookies">
+        <h2 class="cookie_blanc2"><a href="accept_cookie.php">Refuser</a></h2>
 </div>
 <script type="text/javascript" src="../js/cookies.js"></script>
-</body>
-</html>
+<?php } ?>

@@ -23,7 +23,7 @@
     <div class="texte_cookies">
         <p class="pcookies">Nous utilisons des cookies pour vous offrir la meilleure expérience possible. 
             Cliquez sur accepter pour continuer à naviguer ou pour en savoir plus sur notre politique
-             en matière de cookies ici.</p>
+             en matière de cookies <a class="ici" href="mentionslégales.php">ici.</a>  </p>
     </div>
     <div class="img_cookies">
         <img src="../assets/images/cookies.png">

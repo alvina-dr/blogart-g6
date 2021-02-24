@@ -34,7 +34,7 @@
     <button class="valider_cookies">
         <h2 class="cookie_blanc"><a href="accept_cookie.php">Accepter</a></h2>
     <button id="togg3" class="refuser_cookies">
-        <h2 class="cookie_blanc2">Refuser</a></h2>
+        <h2 class="cookie_blanc2"><a href="refuse_cookie.php" class="cookie_blanc2">Refuser</a></h2>
 </div>
 <script type="text/javascript" src="../js/cookies.js"></script>
 <?php } ?>

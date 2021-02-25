@@ -15,6 +15,7 @@
         <link rel="stylesheet" type="text/css" href="../css/insolite.css">
         <link rel="stylesheet" type="text/css" href="../css/index.css">
         <link rel="stylesheet" type="text/css" href="../css/footer.css">
+        <link rel="stylesheet" type="text/css" href="../../../back/css/style.css">
         <!--link rel="stylesheet" type="text/css" href="../css/inscription.css"-->
     </HEAD>
 

@@ -198,8 +198,8 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
             <label class="control-label" for="LibTypAngl">
                 <b>Quel angle :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
             </label>
-            <input type="hidden" id="idTypAngl" name="idTypAngl" value="<?= $idAngl; ?>" />
-            <select size="1" name="TypAngl" id="TypAngl"  class="form-control form-control-create" title="Sélectionnez l'angle !" disabled >
+            <input type="hidden" id="idTypAngl" name="idTypAngl" value="<?= isset($_GET['id']) ? $_GET['id'] : '' ?>" />
+            <select size="1" name="TypAngl" id="TypAngl"  class="form-control form-control-create" title="Sélectionnez l'angle !" >
                 <option value="-1"> Choisissez un angle </option>
 <?
                 $listNumAngl = "";

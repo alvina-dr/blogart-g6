@@ -33,8 +33,11 @@
             <img class="soulignage padding_soulignage" src="/front/assets/icons/soulignage.svg">
         </div>
     </div>
-    <div class="mouse">
-    <a href="#section2"><img src="/front/assets/icons/mouse.svg"></a>
+
+    <div class="move_mouse">
+    <a><section id="section10" class="demo">
+    <a href="#section2"><span></span></a></a>
+    </section>
     </div>
 
 

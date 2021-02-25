@@ -25,16 +25,16 @@ class COMMENT
     }
 }
 
-    function create($numArt, $numSeqCom, $dtCreCom, $libCom){
+    function create($numSeqCom, $numMemb, $dtCreCom, $libCom){
 	
  		global $db;
  		try {
  			//   $db = new PDO ('mysql:host=localhost;dbname=blogart21;charset=utf8mb4','root','');
  			$db->beginTransaction();
- 			$exec = "INSERT INTO COMMENT (numArt, numSeqCom, dtCreCom, libCom) VALUES (:numArt, :numSeqCom, :dtCreCom, :libCom)";
+ 			$exec = "INSERT INTO COMMENT (numSeqCom, numMemb, dtCreCom, libCom) VALUES (:numSeqCom, :numMemb, :dtCreCom, :libCom)";
  			$result = $db->prepare($exec);
-			$result->bindParam(':numArt', $numArt);
- 			$result->bindParam(':numSeqCom', $numSeqCom);
+			$result->bindParam(':numSeqCom', $numSeqCom);
+ 			$result->bindParam(':numMemb', $numMemb);
 			$result->bindParam(':dtCreCom', $dtCreCom);
  			$result->bindParam(':libCom', $libCom);
  			$result->execute();

@@ -117,6 +117,7 @@
             </p>
         </div>
     </div>
+    <b><p><a href="https://www.glitchr-studio.com/fr/" class="interaction3" target="_blank">Pour en savoir plus sur Glitchr, cliquez ici !</a></b> </br> </br>
     <div>
         <div class="marge">
             <h2>Le studio bordelais (Asobo)</h2>
@@ -166,6 +167,9 @@
                 bordelaise. </p>
         </div>
     </div>
+    <br>
+    <br>
+    <b><p><a href="https://www.asobostudio.com/fr" class="interaction3" target="_blank">Pour en savoir plus sur Asobo, cliquez ici !</a></b> </br> </br>
     <div>
         <div class="marge">
             <h2>Les studios internationaux (Ubisoft)</h2>
@@ -221,6 +225,10 @@
                 placée, guidant la France vers dans les leaders de l’univers du jeu vidéo à l’échelle mondiale.</p>
         </div> </br> </br> </br>
     </div>
+    <br>
+    <br>
+    <b><p><a href="https://www.ubisoft.com/fr-FR/studio/bordeaux.aspx" class="interaction3" target="_blank">Pour en savoir plus sur Ubisoft, cliquez ici !</a></b> </br> </br>
+
     <?php
         require_once __DIR__ . '../../../back/comment/createCommentSite.php';
         require_once __DIR__ . '../../../back/comment/viewCommentSite2.php';

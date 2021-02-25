@@ -69,6 +69,7 @@ include __DIR__ . '/initLangue.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="utf-8" />
     <title>Admin - Gestion du CRUD Langue</title>
@@ -78,10 +79,11 @@ include __DIR__ . '/initLangue.php';
 
     <link href="../../back/css/style.css" rel="stylesheet" type="text/css" />
 </head>
+
 <body>
     <h1>BLOGART21 Admin - Gestion du CRUD Langue</h1>
     <h2>Modification d'un Langue</h2>
-<?
+    <?
     // Modif : récup id à modifier
     if (isset($_GET['id']) and $_GET['id']) {
 
@@ -99,34 +101,34 @@ include __DIR__ . '/initLangue.php';
 ?>
     <form method="POST" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" enctype="multipart/form-data" accept-charset="UTF-8">
 
-      <fieldset>
-      <legend class="legend1">Formulaire Langue...</legend>
-        <br>
-        <input type="hidden" id="id" name="id" value="<?= isset($_GET['id']) ? $_GET['id'] : '' ?>" />
-
-        <div class="control-group">
-            <label class="control-label" for="lib1Lang"><b>Langue (Exemple : Allemand) :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="text" name="lib1Lang" id="lib1Lang" size="80" maxlength="30" value="<?= $lib1Lang; ?>" autofocus="autofocus" />
-        </div>
-        <br>
-        <div class="control-group">
-            <label class="control-label" for="lib2Lang"><b>Langue au féminin (Exemple : Langue Allemande) :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="text" name="lib2Lang" id="lib2Lang" size="80" maxlength="30" value="<?= $lib2Lang; ?>" autofocus="autofocus" />
-        </div>
-        <br>
-        <!-- FK : Langue -->
-
-<!-- ListBox Cyril -->
-
-<div class="control-group">
-            <div class="controls">
-            <label class="control-label" for="LibTypPays">
-                <b>Quel Pays :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
-            </label>
+        <fieldset>
+            <legend class="legend1">Formulaire Langue...</legend>
+            <br>
             <input type="hidden" id="id" name="id" value="<?= isset($_GET['id']) ? $_GET['id'] : '' ?>" />
-            <select size="1" name="TypPays" id="TypPays"  class="form-control form-control-create" title="Sélectionnez le pays !">
-                <option value="-1"> Choisissez un pays </option>
-<?
+
+            <div class="control-group">
+                <label class="control-label" for="lib1Lang"><b>Langue (Exemple : Allemand) :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+                <input type="text" name="lib1Lang" id="lib1Lang" size="80" maxlength="30" value="<?= $lib1Lang; ?>" autofocus="autofocus" />
+            </div>
+            <br>
+            <div class="control-group">
+                <label class="control-label" for="lib2Lang"><b>Langue au féminin (Exemple : Langue Allemande) :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+                <input type="text" name="lib2Lang" id="lib2Lang" size="80" maxlength="30" value="<?= $lib2Lang; ?>" autofocus="autofocus" />
+            </div>
+            <br>
+            <!-- FK : Langue -->
+
+            <!-- ListBox Cyril -->
+
+            <div class="control-group">
+                <div class="controls">
+                    <label class="control-label" for="LibTypPays">
+                        <b>Quel Pays :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
+                    </label>
+                    <input type="hidden" id="id" name="id" value="<?= isset($_GET['id']) ? $_GET['id'] : '' ?>" />
+                    <select size="1" name="TypPays" id="TypPays" class="form-control form-control-create" title="Sélectionnez le pays !">
+                        <option value="-1"> Choisissez un pays </option>
+                        <?
                 $listNumPays = "";
                 $listLibPays = "";
 
@@ -137,35 +139,36 @@ include __DIR__ . '/initLangue.php';
                         $listNumPays = $tuple["numPays"];
                         $listLibPays = $tuple["libPays"];
 ?>
-                    <option value="<?= ($listNumPays); ?>" <?= ((isset($idPays) && $idPays == $listNumPays) ? 'selected="selected"' : null); ?> >
-                        <?= $listLibPays; ?>
-                    </option>
-<?
+                        <option value="<?= ($listNumPays); ?>" <?= ((isset($idPays) && $idPays == $listNumPays) ? 'selected="selected"' : null); ?>>
+                            <?= $listLibPays; ?>
+                        </option>
+                        <?
                     } // End of while
                 }   // if ($result)
                 //$result->closeCursor();
 ?>
-                </select>
+                    </select>
+                </div>
             </div>
-        </div>
-<!-- FIN Listbox Cyril -->
+            <!-- FIN Listbox Cyril -->
 
-        <div class="control-group">
-            <div class="controls">
-                <br><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="submit" value="Initialiser" class="imputFields" name="Submit" />
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="submit" value="Valider" class="imputFields" name="Submit" value="on"/>
-                <br>
+            <div class="control-group">
+                <div class="controls">
+                    <br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="submit" value="Initialiser" class="imputFields" name="Submit" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="submit" value="Valider" class="imputFields" name="Submit" value="on" />
+                    <br>
+                </div>
             </div>
-        </div>
-      </fieldset>
+        </fieldset>
     </form>
-<?
+    <?
 require_once __DIR__ . '/footerLangue.php';
 
 require_once __DIR__ . '/footer.php';
 ?>
 </body>
+
 </html>

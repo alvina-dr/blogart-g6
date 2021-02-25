@@ -19,7 +19,6 @@
     <link rel="stylesheet" type="text/css" href="/front/css/footer.css">
 
 </HEAD>
-
 <body>
     <?php
         require_once __DIR__ . '/front/html/header.php';
@@ -34,11 +33,13 @@
             <img class="soulignage padding_soulignage" src="/front/assets/icons/soulignage.svg">
         </div>
     </div>
-    <img class="mouse" src="/front/assets/icons/mouse.svg">
+    <div class="mouse">
+    <a href="#section2"><img src="/front/assets/icons/mouse.svg"></a>
+    </div>
 
 
     <!-- SECTION HACKTU - BGF -->
-
+    <a id="section2"></a>
     <div class="acgameboy">
         <img class="actu" src="/front/assets/icons/hacktu.png">
         <img class="gameboy" src="/front/assets/icons/gameboy.svg">

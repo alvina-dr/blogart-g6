@@ -34,23 +34,20 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
       }   // End of if ((isset($_POST["submit"])) ...
 
       
-      if (((isset($_POST['numArt'])) AND !empty($_POST['numArt']))
-            AND ((isset($_POST['dtCreCom'])) AND !empty($_POST['dtCreCom']))
-            AND ((isset($_POST['TypNumMemb'])) AND !empty($_POST['TypNumMemb']))
-            AND ((isset($_POST['libCom'])) AND !empty($_POST['libCom']))
+      if (((isset($_POST['libCom'])) AND !empty($_POST['libCom']))
             AND (!empty($_POST['Submit']) AND ($Submit === "Valider"))) {
 
             // Saisies valides
             $erreur = false;
                 
-            $numMemb = ctrlSaisies(($_POST['numMemb']));
-            $numArt = 1;
+
+            $numMemb = 2;//ctrlSaisies(($_POST['TypNumMemb']));
+            $numArt = 1/*ctrlSaisies(($_POST['TypArt']))*/;
             $dtCreCom = date("Y-m-d-H-i-s");
+            $numSeqCom = getNextNumCom($numArt);
             $libCom = ctrlSaisies(($_POST["libCom"]));
 
-            $numNextCom = getNextNumCom($numArt);
-
-            $monStatutCom->create($numSeqCom, $dtCreCom, $libCom, $attModOK, $affComOK, $notifComKOAff);
+            $monStatutCom->create($numSeqCom, $numArt, $dtCreCom, $libCom, $numMemb);
             
 
             //header("Location: ./langue.php");
@@ -80,14 +77,17 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 </head>
 
 <body>
-    <form method="post" action="#" enctype="multipart/form-data">
+
+
+
+    <form method="post" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" enctype="multipart/form-data">
         <fieldset>
 
 
             <!-- DÉBUT Listbox COMMENT CHOISIR L'ARTICLE -->
-            <legend class="legend1">Laissez un commentaire!</legend>
+            <legend class="legend1">| Laissez un commentaire ! |</legend>
 
-    
+
             <!-- FIN Listbox COMMENT CHOISIR L'ARTICLE -->
             <br>
             <!-- DÉBUT Listbox COMMENT CHOISIR LE MEMBRE -->
@@ -96,8 +96,10 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
             <br>
             <!-- DÉBUT Listbox COMMENT ÉCRIRE LE COMMENTAIRE -->
             <div class="control-group">
-                <label class="control-label" for="libCom"><b>Rédigez votre commentaire ici :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-                <textarea type="text" name="libCom" id="libCom" size="2000" maxlength="2000" value="<?= $libCom; ?>" autofocus="autofocus" style="margin: 0px; width: 500px; height: 150px;"></textarea>
+                <label class="control-label" for="libCom"><b>Rédigez votre commentaire ici
+                        :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+                <textarea type="text" name="libCom" id="libCom" size="2000" maxlength="2000" value="<?= $libCom; ?>"
+                    autofocus="autofocus" style="margin: 0px; width: 500px; height: 150px;"></textarea>
             </div>
 
             <br>
@@ -107,7 +109,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
                 <div class="controls">
                     <br>
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="submit" value="Valider" class="imputFields" name="Submit" value="on" />
+                    <input type="submit" value="Valider" class="imputFields" name="Submit" />
                     <br>
                 </div>
             </div>

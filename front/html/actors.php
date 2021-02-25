@@ -223,6 +223,7 @@
     </div>
     <?php
         require_once __DIR__ . '../../../back/comment/createCommentSite.php';
+        require_once __DIR__ . '../../../back/comment/viewCommentSite2.php';
         require_once __DIR__ . '/footer.php';
     ?>
 	<script src="../js/acteurclef.js"></script>

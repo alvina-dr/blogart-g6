@@ -16,8 +16,6 @@
 	<link rel="stylesheet" href="../css/footer.css">
 	<link rel="stylesheet" href="../css/insolite.css">
 
-
-
 </head>
 
 <body>
@@ -25,12 +23,7 @@
 		<balise id="hautdepage"></balise>
 		<div id="navbar">
 			<div class="column">
-			<a class="logo_link" href="./index.php"><img class="logo" src="../assets/icons/logo bg.svg"></a>
-				<div class="recherche">
-             	  	<img src="../assets/icons/search.svg">
-              	  	<p>Rechercher...</p>
-				</div>
-				<img class="ligne_r" src="../assets/icons/ligne_r.svg">
+			<a class="logo_link" href="./index.php"><img class="logo" src="/front/assets/icons/logo bg.svg"></a>
 			</div>
 			<ul class="menu_list">
 				<li><a href="./hacktu.php">Actu</a></li>
@@ -43,9 +36,6 @@
 				<li ><a class="connexion" href="./connexion.php"></a></li>
 			</ul>
 			</div>
-		<div class="espace_header">
-		</div>
 	</header>
-	<script src="../js/header.js"></script>
 </body>
 </html>

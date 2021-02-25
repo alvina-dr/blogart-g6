@@ -108,6 +108,9 @@
 <br>
 <br>
 <br>
+<?php
+        require_once __DIR__ . '/choose_article.php';
+    ?>
 <br>
 <br>
 <br>

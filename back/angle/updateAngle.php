@@ -134,6 +134,8 @@ include __DIR__ . '/initAngle.php';
 ?>
                 </select>
         </div>
+    <!-- FIN Listbox langue -->
+    
 
     <!-- FIN Listbox Angle -->
         <br>

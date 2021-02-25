@@ -23,6 +23,36 @@ class COMMENT
         $allStatuts = $result->fetchAll();
         return ($allStatuts);
     }
+	function get_SomeCom1() //fonction qui appelle tous les commentaires sans avertissement et étant sur l'article 1
+    {
+        global $db;
+		$query = 'SELECT * FROM COMMENT WHERE affComOk = "1" AND numArt = "1"';
+		//$query = 'SELECT * FROM COMMENT WHERE numArt = "1"';
+
+        $result = $db->query($query);
+        $allStatuts = $result->fetchAll();
+        return ($allStatuts);
+    }
+	function get_SomeCom2() //fonction qui appelle tous les commentaires sans avertissement et étant sur l'article 1
+    {
+        global $db;
+		$query = 'SELECT * FROM COMMENT WHERE affComOk = "1" AND numArt = "2"';
+		//$query = 'SELECT * FROM COMMENT WHERE numArt = "1"';
+
+        $result = $db->query($query);
+        $allStatuts = $result->fetchAll();
+        return ($allStatuts);
+    }
+	function get_SomeCom3() //fonction qui appelle tous les commentaires sans avertissement et étant sur l'article 1
+    {
+        global $db;
+		$query = 'SELECT * FROM COMMENT WHERE affComOk = "1" AND numArt = "3"';
+		//$query = 'SELECT * FROM COMMENT WHERE numArt = "1"';
+
+        $result = $db->query($query);
+        $allStatuts = $result->fetchAll();
+        return ($allStatuts);
+    }
 
 	function create($numSeqCom, $numArt, $dtCreCom, $libCom, $numMemb){
 		global $db;

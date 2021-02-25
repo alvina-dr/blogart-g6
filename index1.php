@@ -30,10 +30,23 @@ require_once __DIR__ . '/util/utilErrOn.php';
         span { /*Couleur du surlignage*/
             background-color: black;
         }
+		#navbar{
+			margin:0;
+			padding:0;
+		}
+		#navbar .column{
+			margin:0;
+			padding:0;
+		}
     </style>
+	    <link rel="stylesheet" href="./front/css/style.css">
+		<link rel="stylesheet" href="./front/css/header.css">
+		<link rel="stylesheet" href="/front/css/insolite.css">
 </head>
 <body>
-	<br />
+	<?php
+	require_once __DIR__ . '/front/html/header_admin.php';
+	?>
 	<div class="title_blogart">
 		<h1>Panneau d'Admin : Gestion des CRUD - BLOGART21</h1> 
 		<img class="logo_manette"width="5%" class="soulignage2" src="./FRONT/assets/icons/gameboy.svg"> <!--BARRE--><br />

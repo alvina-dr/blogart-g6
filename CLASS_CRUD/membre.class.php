@@ -14,6 +14,15 @@ class MEMBRE
 		$result->execute();
 		return ($result->fetch());
 	}
+	function get_1Pseudo($numMemb)
+	{
+		global $db;
+		$query = 'SELECT * FROM MEMBRE WHERE pseudoMemb = :pseudoMemb;';
+		$result = $db->prepare($query);
+		$result->bindParam(':pseudoMemb', $pseudoMemb);
+		$result->execute();
+		return ($result->fetch());
+	}
 
 	// function get_1MotCleByLangue($numMemb)
 	// {

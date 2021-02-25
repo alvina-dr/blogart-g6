@@ -44,44 +44,44 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
             
 
             $pseudoMemb = ctrlSaisies($_POST['pseudoMemb']);
+            $pseudoMembBase = 3;  
             $passMemb = ctrlSaisies($_POST['passMemb']);
-            $souvenirMemb = ctrlSaisies($_POST['souvenirMemb']);
-            $idStat = 1;
+            $passMembBase = 3;
+
+            //$souvenirMemb = ctrlSaisies($_POST['souvenirMemb']);
+            //$idStat = 1;
            
-            if ($souvenirMemb == 'off'){
+           /* if ($souvenirMemb == 'off'){ //Se souvenir du membre
                 $souvenirMemb = 0;
             }
             else{
                 $souvenirMemb = 1;
-            }
-            $accordMemb = ctrlSaisies($_POST['accordMemb']);
-            if ($accordMemb == 'on'){
-                $accordMemb = 1;
-            }
-            if (filter_var($eMailMemb, FILTER_VALIDATE_EMAIL) AND filter_var($eMailMemb2, FILTER_VALIDATE_EMAIL)) {
-                if ($eMailMemb == $eMailMemb2){
-                    $eMailOk = 1;
-                }
-                else{
-                    $eMailOk = 0;
-                    $errMail2 = "Les adresses mails entrées ne correspondent pas.";
-                }
+            }*/
+
+// VÉRIFICATIONS MOT DE PASSE ET PSEUDO CORRECTS
+
+            if($pseudoMemb == $pseudoMembBase) { //Est-ce que le pseudo existe ?
+                $pseudoExist = 1; //Le pseudo existe
             }
             else {
-                $errMail1 = "L'adresse mail entrée n'est pas valide"; 
+                $pseudoExist = 0; //Le pseudo n'existe pas
+                $errPass = "Ce pseudo n'existe pas.";
             }
 
-            if($passMemb == $passMemb2){
-                $passwordOk = 1;
+
+            if($passMemb == $passMembBase){ //Est-ce que le mot de passe est le bon ?
+                $passwordCorrect = 1; //Mot de passe correct
                 $passMemb = password_hash($_POST['passMemb'], PASSWORD_DEFAULT);
             }
             else{
-                $passwordOk = 0;
-                $errPass = "Le mot de passe et la confirmation de mot de passe ne sont pas identiques";
+                $passwordCorrect = 0; //Mot de passe incorrect
+                $errPass = "Le mot de passe est incorrect.";
             }
-            if(($prenomMemb !="") AND ($nomMemb!="") AND ($pseudoMemb!="") AND ($idStat!="") AND ($dtCreaMemb!="") AND ($souvenirMemb!="") AND ($accordMemb!="") AND ($eMailOk == 1) AND ($passwordOk == 1)){
+
+
+            if(($pseudoMemb!="") AND ($passMemb!="")/*AND ($souvenirMemb!="")*/ AND ($pseudoExist == 1) AND ($passwordCorrect == 1)){
                 
-                $monStatutMM->update($numMemb, $prenomMemb, $nomMemb,$pseudoMemb,$passMemb,$eMailMemb,$dtCreaMemb, $souvenirMemb,$accordMemb, $idStat);
+                $monStatutMM->update($pseudoMemb,$passMemb);
                 header("Location: ./membre.php");
             }
             else{
@@ -124,15 +124,9 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
         $query = (array)$monStatutMM->get_1Membre($numMemb);
 
         if ($query) {
-            $prenomMemb = $query['prenomMemb'];
-            $nomMemb = $query['nomMemb'];
+            echo"test si c'est égal";
             $pseudoMemb = $query['pseudoMemb'];
             $passMemb = $query['passMemb'];
-            $eMailMemb = $query['eMailMemb'];
-            $dtCreaMemb = $query['dtCreaMemb'];
-            $souvenirMemb = $query['souvenirMemb'];
-            $accordMemb = $query['accordMemb'];
-            $idStat = $query['idStat'];
         }   // Fin if ($query)
     }   // Fin if (isset($_GET['id'])...)
 ?>
@@ -158,7 +152,7 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
                 <div class="control-group">
                     <label class="control-label" for="passMemb"></label>
                     <input type="password" placeholder="Mot de passe" name="passMemb" id="passMemb" size="80"
-                        maxlength="80" value="<?= $passMemb; ?>" readOnly />
+                        maxlength="80" value="<?= $passMemb; ?>" />
                 </div>
             </div>
             <br>

@@ -34,24 +34,23 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
       }   // End of if ((isset($_POST["submit"])) ...
 
       
-      if (((isset($_POST['dtCreCom'])) AND !empty($_POST['dtCreCom']))
-            AND ((isset($_POST['TypNumMemb'])) AND !empty($_POST['TypNumMemb']))
-            ((isset($_POST['TypArt'])) AND !empty($_POST['TypArt']))
-            AND ((isset($_POST['dtCreCom'])) AND !empty($_POST['dtCreCom']))
+      if (((isset($_POST['TypNumMemb'])) AND !empty($_POST['TypNumMemb']))
+            AND ((isset($_POST['TypArt'])) AND !empty($_POST['TypArt']))
             AND ((isset($_POST['libCom'])) AND !empty($_POST['libCom']))
             AND (!empty($_POST['Submit']) AND ($Submit === "Valider"))) {
 
             // Saisies valides
             $erreur = false;
-                
+            
+            
             $numMemb = ctrlSaisies(($_POST['TypNumMemb']));
             $numArt = ctrlSaisies(($_POST['TypArt']));
             $dtCreCom = date("Y-m-d-H-i-s");
+            $numSeqCom = getNextNumCom($numArt);
             $libCom = ctrlSaisies(($_POST["libCom"]));
 
-            $numNextCom = getNextNumCom($numArt);
 
-            $monStatutCom->create($numNextCom, $numMemb, $numArt, $dtCreCom, $libCom);
+            $monStatutCom->create($numSeqCom, $numArt, $dtCreCom, $libCom, $numMemb);
             
 
             //header("Location: ./langue.php");

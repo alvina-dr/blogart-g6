@@ -130,7 +130,7 @@ include __DIR__ . '/initLangue.php';
                 $listNumPays = "";
                 $listLibPays = "";
 
-                $queryText = 'SELECT * FROM LANGUE LA INNER JOIN PAYS PA ON LA.numPays = PA.numPays ORDER BY frPays;';
+                $queryText = 'SELECT * FROM PAYS PA INNER JOIN LANGUE LA ON LA.numPays = PA.numPays ORDER BY frPays;';
                 $result = $db->query($queryText);
                 if ($result) {
                     while ($tuple = $result->fetch()) {

@@ -140,27 +140,14 @@ include __DIR__ . '/initLangue.php';
                         $ListnumPays = $tuple["numPays"];
                         $ListfrPays = $tuple["frPays"];
 ?>
-<<<<<<< HEAD
-                        <option value="<?= ($listNumPays); ?>" <?= ((isset($idPays) && $idPays == $listNumPays) ? 'selected="selected"' : null); ?>>
-                            <?= $listLibPays; ?>
-                        </option>
-                        <?
-                    } // End of while
-=======
                 <option value="<?= ($ListnumPays); ?>" <?= ((isset($idPays) && $idPays == $ListnumPays) ?  : null); ?> >
                     <?= $ListfrPays; ?>
                 </option>
 <?
                     } // End of while ()
->>>>>>> ac9ca85663c1a38f8f95fc090af7e9948e20f85e
                 }   // if ($result)
 ?>
-<<<<<<< HEAD
-                    </select>
-                </div>
-=======
               </select>
->>>>>>> ac9ca85663c1a38f8f95fc090af7e9948e20f85e
             </div>
             <!-- FIN Listbox Cyril -->
 

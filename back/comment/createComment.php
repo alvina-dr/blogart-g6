@@ -49,7 +49,6 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
             $numSeqCom = getNextNumCom($numArt);
             $libCom = ctrlSaisies(($_POST["libCom"]));
 
-
             $monStatutCom->create($numSeqCom, $numArt, $dtCreCom, $libCom, $numMemb);
             
 
@@ -68,6 +67,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="utf-8" />
     <title>Admin - Gestion du CRUD Commentaire</title>
@@ -77,26 +77,29 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
     <link href="../../back/css/style.css" rel="stylesheet" type="text/css" />
 </head>
+
 <body>
     <h1>BLOGART21 Admin - Gestion du CRUD Commentaire</h1>
     <h2>Ajout d'un Commentaire</h2>
 
     <form method="post" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" enctype="multipart/form-data">
-      <fieldset>
+        <fieldset>
 
 
-          <!-- DÉBUT Listbox COMMENT CHOISIR L'ARTICLE -->
-        <legend class="legend1">Formulaire Commentaire...</legend>
+            <!-- DÉBUT Listbox COMMENT CHOISIR L'ARTICLE -->
+            <legend class="legend1">Formulaire Commentaire...</legend>
 
-        <br>
-        <br>
-        <div class="control-group">
-            <label class="control-label" for="LibNumArt"><b>Quel article :&nbsp;&nbsp;&nbsp;</b></label>
-                <input type="hidden" id="idNumArt" name="idNumArt" value="<?= isset($_GET['numArt']) ? $_GET['numArt'] : '' ?>" />
+            <br>
+            <br>
+            <div class="control-group">
+                <label class="control-label" for="LibNumArt"><b>Quel article :&nbsp;&nbsp;&nbsp;</b></label>
+                <input type="hidden" id="idNumArt" name="idNumArt"
+                    value="<?= isset($_GET['numArt']) ? $_GET['numArt'] : '' ?>" />
 
-                <select size="1" name="TypArt" id="TypsArt" required class="form-control form-control-create" title="Sélectionnez le nom de l'article !" >
-                   <option value="-1">Choisissez un article </option>
-<?
+                <select size="1" name="TypArt" id="TypsArt" required class="form-control form-control-create"
+                    title="Sélectionnez le nom de l'article !">
+                    <option value="-1">Choisissez un article </option>
+                    <?
             $numArt = "";
             $libTitrArt = "";
 
@@ -107,25 +110,27 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
                     $LibNumArt = $tuple["numArt"];
                     $LibTitrArt = $tuple["libTitrArt"];
 ?>
-                    <option value="<?= $LibNumArt; ?>" >
+                    <option value="<?= $LibNumArt; ?>">
                         <?= $LibTitrArt; ?>
                     </option>
-<?
+                    <?
                 } // End of while
             }   // if ($result)
 ?>
                 </select>
-        </div>
-    <!-- FIN Listbox COMMENT CHOISIR L'ARTICLE -->
-    <br>
-    <!-- DÉBUT Listbox COMMENT CHOISIR LE MEMBRE -->
-        <div class="control-group">
-            <label class="control-label" for="LibNumMemb"><b>Quel membre :&nbsp;&nbsp;&nbsp;</b></label>
-                <input type="hidden" id="idNumMemb" name="idNumMemb" value="<?= isset($_GET['numMemb']) ? $_GET['numMemb'] : '' ?>" />
+            </div>
+            <!-- FIN Listbox COMMENT CHOISIR L'ARTICLE -->
+            <br>
+            <!-- DÉBUT Listbox COMMENT CHOISIR LE MEMBRE -->
+            <div class="control-group">
+                <label class="control-label" for="LibNumMemb"><b>Quel membre :&nbsp;&nbsp;&nbsp;</b></label>
+                <input type="hidden" id="idNumMemb" name="idNumMemb"
+                    value="<?= isset($_GET['numMemb']) ? $_GET['numMemb'] : '' ?>" />
 
-                <select size="1" name="TypNumMemb" id="TypNumMemb" required class="form-control form-control-create" title="Sélectionnez le membre !" >
-                   <option value="-1">Choisissez un membre </option>
-<?
+                <select size="1" name="TypNumMemb" id="TypNumMemb" required class="form-control form-control-create"
+                    title="Sélectionnez le membre !">
+                    <option value="-1">Choisissez un membre </option>
+                    <?
             $numMemb = "";
             $pseudoMemb = "";
 
@@ -136,46 +141,49 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
                     $LibNumMemb = $tuple["numMemb"];
                     $LibPseudoMemb = $tuple["pseudoMemb"];
 ?>
-                    <option value="<?= $LibNumMemb; ?>" >
+                    <option value="<?= $LibNumMemb; ?>">
                         <?= $LibPseudoMemb; ?>
                     </option>
-<?
+                    <?
                 } // End of while
             }   // if ($result)
 ?>
                 </select>
-        </div>
-    <!-- FIN Listbox COMMENT CHOISIR LE MEMBRE -->
-    <br> 
-    <!-- DÉBUT Listbox COMMENT ÉCRIRE LE COMMENTAIRE -->
-    <div class="control-group">
-            <label class="control-label" for="libCom"><b>Inscrivez votre commentaire ici :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <textarea type="text" name="libCom" id="libCom" size="2000" maxlength="2000" value="<?= $libCom; ?>" autofocus="autofocus" style="margin: 0px; width: 500px; height: 150px;"></textarea>
-        </div>
-        <br>
-
-        <br>
-        </div>
-
-        <div class="control-group">
-            <div class="controls">
-                <br><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="submit" value="Initialiser" class="imputFields" name="Submit" />
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="submit" value="Valider" class="imputFields" name="Submit" />
-                <br>       
             </div>
-        </div>
-    <!-- DÉBUT Listbox COMMENT ÉCRIRE LE COMMENTAIRE -->
+            <!-- FIN Listbox COMMENT CHOISIR LE MEMBRE -->
+            <br>
+            <!-- DÉBUT Listbox COMMENT ÉCRIRE LE COMMENTAIRE -->
+            <div class="control-group">
+                <label class="control-label" for="libCom"><b>Inscrivez votre commentaire ici
+                        :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+                <textarea type="text" name="libCom" id="libCom" size="2000" maxlength="2000" value="<?= $libCom; ?>"
+                    autofocus="autofocus" style="margin: 0px; width: 500px; height: 150px;"></textarea>
+            </div>
+            <br>
+
+            <br>
+            </div>
+
+            <div class="control-group">
+                <div class="controls">
+                    <br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="submit" value="Initialiser" class="imputFields" name="Submit" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="submit" value="Valider" class="imputFields" name="Submit" />
+                    <br>
+                </div>
+            </div>
+            <!-- DÉBUT Listbox COMMENT ÉCRIRE LE COMMENTAIRE -->
 
 
-      </fieldset>
+        </fieldset>
     </form>
-<?
+    <?
 require_once __DIR__ . '/footerComment.php';
 
 require_once __DIR__ . '/footer.php';
 ?>
 </body>
+
 </html>

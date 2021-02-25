@@ -42,10 +42,6 @@
 				<li ><a class="connexion" href="./connexion.php"></a></li>
 			</ul>
 			</div>
-			<div class="flex_s">
-				<img src="../assets/icons/search.svg">
-				<p>Rechercher...<p>
-		</div>
 		<div class="espace_header">
 		</div>
 	</header>

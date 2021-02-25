@@ -30,6 +30,8 @@
     <div class="espace_liketag">
 	</div> <!-- div qui permet de faire un espace entre les tags et le reste de l'article-->
         <div>
+        <p><b><a href="https://www.egs.school/" class="interaction" target="_blank">Pour en savoir plus sur l'EGS cliquez ici </a></p></b>
+        <p><b><a href="https://www.digital-gaming-school.fr/" class="interaction" target="_blank">Pour en savoir plus sur la Digital Gaming School cliquez ici </a></p></b>
             <div class="h22 right container">
                 <img class="gamer" src="../assets/images/gamer.png" alt=""Photo de gamer>
                 <div class="text2">

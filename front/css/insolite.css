@@ -137,13 +137,13 @@
   text-decoration:none;
 } */
 
-.interaction{
+.interaction2{
 	color: #cf6679;
 
 	
 }
 
-.interaction:hover {
+.interaction2:hover {
 	color:#F5F5F5;
 	transition: 0.3s;
 }

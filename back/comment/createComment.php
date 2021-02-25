@@ -34,23 +34,23 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
       }   // End of if ((isset($_POST["submit"])) ...
 
       
-      if (((isset($_POST['numArt'])) AND !empty($_POST['numArt']))
-            AND ((isset($_POST['dtCreCom'])) AND !empty($_POST['dtCreCom']))
-            AND ((isset($_POST['TypNumMemb'])) AND !empty($_POST['TypNumMemb']))
+      if (((isset($_POST['TypNumMemb'])) AND !empty($_POST['TypNumMemb']))
+            AND ((isset($_POST['TypArt'])) AND !empty($_POST['TypArt']))
             AND ((isset($_POST['libCom'])) AND !empty($_POST['libCom']))
             AND (!empty($_POST['Submit']) AND ($Submit === "Valider"))) {
 
             // Saisies valides
             $erreur = false;
-                
-            $numMemb = ctrlSaisies(($_POST['numMemb']));
-            $numArt = ctrlSaisies(($_POST['numArt']));
+            
+            
+            $numMemb = ctrlSaisies(($_POST['TypNumMemb']));
+            $numArt = ctrlSaisies(($_POST['TypArt']));
             $dtCreCom = date("Y-m-d-H-i-s");
+            $numSeqCom = getNextNumCom($numArt);
             $libCom = ctrlSaisies(($_POST["libCom"]));
 
-            $numNextCom = getNextNumCom($numArt);
 
-            $monStatutCom->create($numNextCom, $numMemb, $numArt, $dtCreCom, $libCom);
+            $monStatutCom->create($numSeqCom, $numArt, $dtCreCom, $libCom, $numMemb);
             
 
             //header("Location: ./langue.php");
@@ -81,7 +81,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
     <h1>BLOGART21 Admin - Gestion du CRUD Commentaire</h1>
     <h2>Ajout d'un Commentaire</h2>
 
-    <form method="post" action="./createComment.php" enctype="multipart/form-data">
+    <form method="post" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" enctype="multipart/form-data">
       <fieldset>
 
 
@@ -94,7 +94,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
             <label class="control-label" for="LibNumArt"><b>Quel article :&nbsp;&nbsp;&nbsp;</b></label>
                 <input type="hidden" id="idNumArt" name="idNumArt" value="<?= isset($_GET['numArt']) ? $_GET['numArt'] : '' ?>" />
 
-                <select size="1" name="TypLikeArt" id="TypLikeArt" required class="form-control form-control-create" title="Sélectionnez le nom de l'article !" >
+                <select size="1" name="TypArt" id="TypsArt" required class="form-control form-control-create" title="Sélectionnez le nom de l'article !" >
                    <option value="-1">Choisissez un article </option>
 <?
             $numArt = "";
@@ -163,7 +163,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="submit" value="Initialiser" class="imputFields" name="Submit" />
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="submit" value="Valider" class="imputFields" name="Submit" value="on"/>
+                <input type="submit" value="Valider" class="imputFields" name="Submit" />
                 <br>       
             </div>
         </div>

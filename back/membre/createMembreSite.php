@@ -132,7 +132,7 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
         <div>
             <p>Prénom (*)</p>
         <div class="control-group">
-            <label class="control-label" for="prenomMemb"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+            <label class="control-label" for="prenomMemb"></label>
             <input type="text" placeholder="Prénom" name="prenomMemb" id="prenomMemb" size="80" maxlength="80" value="<?= $prenomMemb; ?>" autofocus="autofocus" />
         </div>
         <img src="../assets/icons/soulignagedroit.svg">
@@ -141,7 +141,7 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
         <div>
             <p>Nom (*)</p>
         <div class="control-group">
-            <label class="control-label" for="nomMemb"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+            <label class="control-label" for="nomMemb"></label>
             <input type="text" placeholder="Nom" name="nomMemb" id="nomMemb" size="80" maxlength="80" value="<?= $nomMemb; ?>" />
         </div>
         <img src="../assets/icons/soulignagedroit.svg">
@@ -150,7 +150,7 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
         <div>
             <p>Pseudo (*)</p>
         <div class="control-group">
-            <label class="control-label" for="pseudoMemb"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+            <label class="control-label" for="pseudoMemb"></label>
             <input type="text" placeholder="Pseudo" name="pseudoMemb" id="pseudoMemb" size="80" maxlength="80" value="<?= $pseudoMemb; ?>"  />
         </div>
         <img src="../assets/icons/soulignagedroit.svg">
@@ -159,7 +159,7 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
         <div>
             <p>Mot de passe (*)</p>
         <div class="control-group">
-            <label class="control-label" for="passMemb"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+            <label class="control-label" for="passMemb"></label>
             <input type="password" placeholder="Mot de passe" name="passMemb" id="passMemb" size="80" maxlength="80" value="<?= $passMemb; ?>"  />
         </div>
         <img src="../assets/icons/soulignagedroit.svg">
@@ -168,7 +168,7 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
         <div>
             <p>Confirmer le mot de passe (*)</p>
         <div class="control-group">
-            <label class="control-label" for="passMemb2"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+            <label class="control-label" for="passMemb2"></label>
             <input type="password" placeholder="Mot de passe" name="passMemb2" id="passMemb2" size="80" maxlength="80" value="<?= $passMemb2; ?>"  />
         </div>
         <img src="../assets/icons/soulignagedroit.svg">
@@ -177,7 +177,7 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
         <div>
             <p>E-mail (*)</p>
         <div class="control-group">
-            <label class="control-label" for="eMailMemb"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+            <label class="control-label" for="eMailMemb"></label>
             <input type="text" placeholder="E-mail" name="eMailMemb" id="eMailMemb" size="80" maxlength="80" value="<?= $eMailMemb; ?>" />
         </div>
         <img src="../assets/icons/soulignagedroit.svg">
@@ -186,7 +186,7 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
         <div>
             <p>Confirmer l'e-mail (*)</p>
         <div class="control-group">
-            <label class="control-label" for="eMailMemb2"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+            <label class="control-label" for="eMailMemb2"></label>
             <input type="text" placeholder="E-mail" name="eMailMemb2" id="eMailMemb2" size="80" maxlength="80" value="<?= $eMailMemb2; ?>" />
         </div>
         <img src="../assets/icons/soulignagedroit.svg">

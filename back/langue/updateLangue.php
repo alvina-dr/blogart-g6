@@ -101,54 +101,66 @@ include __DIR__ . '/initLangue.php';
 ?>
     <form method="POST" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" enctype="multipart/form-data" accept-charset="UTF-8">
 
-        <fieldset>
-            <legend class="legend1">Formulaire Langue...</legend>
-            <br>
+      <fieldset>
+      <legend class="legend1">Formulaire Langue...</legend>
+        <br>
+        <input type="hidden" id="id" name="id" value="<?= isset($_GET['id']) ? $_GET['id'] : '' ?>" />
+
+        <div class="control-group">
+            <label class="control-label" for="lib1Lang"><b>Langue (Exemple : Allemand) :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+            <input type="text" name="lib1Lang" id="lib1Lang" size="80" maxlength="30" value="<?= $lib1Lang; ?>" autofocus="autofocus" />
+        </div>
+        <br>
+        <div class="control-group">
+            <label class="control-label" for="lib2Lang"><b>Langue au féminin (Exemple : Langue Allemande) :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+            <input type="text" name="lib2Lang" id="lib2Lang" size="80" maxlength="30" value="<?= $lib2Lang; ?>" autofocus="autofocus" />
+        </div>
+        <br>
+        <!-- FK : Langue -->
+
+<!-- ListBox Cyril -->
+
+<br>
+        <div class="control-group">
+            <div class="controls">
+            <label class="control-label" for="LibTypPays">
+                <b>Quel pays :&nbsp;&nbsp;&nbsp;</b>
+            </label>
             <input type="hidden" id="id" name="id" value="<?= isset($_GET['id']) ? $_GET['id'] : '' ?>" />
-
-            <div class="control-group">
-                <label class="control-label" for="lib1Lang"><b>Langue (Exemple : Allemand) :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-                <input type="text" name="lib1Lang" id="lib1Lang" size="80" maxlength="30" value="<?= $lib1Lang; ?>" autofocus="autofocus" />
-            </div>
-            <br>
-            <div class="control-group">
-                <label class="control-label" for="lib2Lang"><b>Langue au féminin (Exemple : Langue Allemande) :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-                <input type="text" name="lib2Lang" id="lib2Lang" size="80" maxlength="30" value="<?= $lib2Lang; ?>" autofocus="autofocus" />
-            </div>
-            <br>
-            <!-- FK : Langue -->
-
-            <!-- ListBox Cyril -->
-
-            <div class="control-group">
-                <div class="controls">
-                    <label class="control-label" for="LibTypPays">
-                        <b>Quel Pays :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
-                    </label>
-                    <input type="hidden" id="id" name="id" value="<?= isset($_GET['id']) ? $_GET['id'] : '' ?>" />
-                    <select size="1" name="TypPays" id="TypPays" class="form-control form-control-create" title="Sélectionnez le pays !">
-                        <option value="-1"> Choisissez un pays </option>
-                        <?
-                $listNumPays = "";
-                $listLibPays = "";
+              <select size="1" name="TypPays" id="TypPays"  class="form-control form-control-create" tabindex="30" >
+                    <option value="-1">- - - Choisissez un pays - - -</option>
+<?
+                $numPays = "";
+                $frPays = "";
 
                 $queryText = 'SELECT * FROM PAYS ORDER BY frPays;';
                 $result = $db->query($queryText);
                 if ($result) {
                     while ($tuple = $result->fetch()) {
-                        $listNumPays = $tuple["numPays"];
-                        $listLibPays = $tuple["libPays"];
+                        $ListnumPays = $tuple["numPays"];
+                        $ListfrPays = $tuple["frPays"];
 ?>
+<<<<<<< HEAD
                         <option value="<?= ($listNumPays); ?>" <?= ((isset($idPays) && $idPays == $listNumPays) ? 'selected="selected"' : null); ?>>
                             <?= $listLibPays; ?>
                         </option>
                         <?
                     } // End of while
+=======
+                <option value="<?= ($ListnumPays); ?>" <?= ((isset($idPays) && $idPays == $ListnumPays) ?  : null); ?> >
+                    <?= $ListfrPays; ?>
+                </option>
+<?
+                    } // End of while ()
+>>>>>>> ac9ca85663c1a38f8f95fc090af7e9948e20f85e
                 }   // if ($result)
-                //$result->closeCursor();
 ?>
+<<<<<<< HEAD
                     </select>
                 </div>
+=======
+              </select>
+>>>>>>> ac9ca85663c1a38f8f95fc090af7e9948e20f85e
             </div>
             <!-- FIN Listbox Cyril -->
 

@@ -29,8 +29,11 @@
 
     <div class="espace_liketag">
 	</div> <!-- div qui permet de faire un espace entre les tags et le reste de l'article-->
+    <p><b><a href="https://www.egs.school/" class="interaction2" target="_blank">Pour en savoir plus sur l'EGS cliquez ici </a></p></b>
+        <p><b><a href="https://www.digital-gaming-school.fr/" class="interaction2" target="_blank">Pour en savoir plus sur la Digital Gaming School cliquez ici </a></p></b>
+        
         <div>
-            <div class="h22 right container">
+          <div class="h22 right container">
                 <img class="gamer" src="../assets/images/gamer.png" alt=""Photo de gamer>
                 <div class="text2">
                     <img class="insolite" src="../assets/images/insolite.png" alt=""Insolite !>
@@ -109,6 +112,7 @@
         </p> </br> </br> </br>
     <?php
     require_once __DIR__ . '../../../back/comment/createCommentSite.php';
+    require_once __DIR__ . '../../../back/comment/viewCommentSite3.php';
     require_once __DIR__ . '/footer.php';
     ?>
     <script src="../js/insolite.js"></script>

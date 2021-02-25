@@ -176,6 +176,7 @@
     </div>
     <?php
        require_once __DIR__ . '../../../back/comment/createCommentSite.php';
+       require_once __DIR__ . '../../../back/comment/viewCommentSite1.php';
        require_once __DIR__ . '/footer.php';
     ?>
 <script src="../js/hactu.js"></script>

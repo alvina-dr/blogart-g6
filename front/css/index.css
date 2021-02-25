@@ -18,6 +18,7 @@
     width: 3vw;
 }
 
+
 .actu{
     width: 30vw;
 }
@@ -124,3 +125,10 @@
     }
   }
 
+html {
+    scroll-behavior: smooth;
+}
+
+#section2 {
+
+}

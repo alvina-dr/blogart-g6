@@ -23,17 +23,17 @@
 		<balise id="hautdepage"></balise>
 		<div id="navbar">
 			<div class="column">
-			<a class="logo_link" href="./index.php"><img class="logo" src="/front/assets/icons/logo bg.svg"></a>
+			<a class="logo_link" href="../../index.php"><img class="logo" src="/front/assets/icons/logo bg.svg"></a>
 			</div>
 			<ul class="menu_list">
-				<li><a href="./hacktu.php">Actu</a></li>
-				<li><a href="./actors.php">Acteur clef</a></li>
-				<li><a href="./insolite.php">Insolite</a></li>
-				<li><a href="../../index1.php">Admin</a></li>
+				<li><a href="../../front/html/hacktu.php">Actu</a></li>
+				<li><a href="../../front/html/actors.php">Acteur clef</a></li>
+				<li><a href="../../front/html/insolite.php">Insolite</a></li>
+				<li><a href="../../back/index1.php">Admin</a></li>
 			</ul>
 			<ul class="log">
-				<li><a href="./inscription.php">Inscription</a></li>
-				<li ><a class="connexion" href="./connexion.php"></a></li>
+				<li><a href="../../front/html/inscription.php">Inscription</a></li>
+				<li ><a class="connexion" href="../../front/html/connexion.php"></a></li>
 			</ul>
 			</div>
 	</header>

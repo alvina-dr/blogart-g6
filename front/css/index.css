@@ -45,7 +45,7 @@
 }
 
 .btnplus {
-    background:url(../assets/icons/btnplus.png) no-repeat;
+    background:url(../assets/icons/btnplushover.png) no-repeat;
     width: 15vw;
     height: 90px;
     background-size: 100%;
@@ -53,7 +53,7 @@
     justify-self: flex-start;
 }
 .btnplus:hover{
-    background:url(../assets/icons/btnplushover.png) no-repeat;
+    background:url(../assets/icons/btnplus.png) no-repeat;
     background-size: 100%;
     width: 15vw;
     height: 90px;

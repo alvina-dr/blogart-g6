@@ -25,37 +25,37 @@
     <div class="espace_header">
 		</div>
         <footer class="h22">
-            <a href="#hautdepage"><img class="arrow" src="../assets/icons/arrow.svg"></a>
+            <a href="#hautdepage"><img class="arrow" src="../../front/assets/icons/arrow.svg"></a>
             <div class="flex h22">
                 <div class="center_t">
                     <p>Qui sommes nous ?</p>
-                    <img class="f_ligne" src="../assets/icons/soulignage_f.svg">
+                    <img class="f_ligne" src="../../front/assets/icons/soulignage_f.svg">
                     <br>
                     <br>
                     <br>
-                    <a href="https://jauneprod.netlify.app/index" target="_blank"><img class="jp_logo" src="../assets/icons/jp.svg"></a>
+                    <a href="https://jauneprod.netlify.app/index" target="_blank"><img class="jp_logo" src="../../front/assets/icons/jp.svg"></a>
                 </div>
                 <div class="center_t">
                     <p>Tu veux aller où ?</p>
-                    <img class="f_ligne2" src="../assets/icons/soulignage_f.svg">
+                    <img class="f_ligne2" src="../../front/assets/icons/soulignage_f.svg">
                     <br>
                     <br>
                     <br>
-                    <p><a class="footer_hover" href="./hacktu.php">Actu</a></p>
+                    <p><a class="footer_hover" href="../../front/html/hacktu.php">Actu</a></p>
                     <p></p><br>
-                    <p><a class="footer_hover" href="./actors.php">Acteur clef</a></p>
+                    <p><a class="footer_hover" href="../../front/html/actors.php">Acteur clef</a></p>
                     <p></p><br>
-                    <p><a class="footer_hover" href="./insolite.php">L'insolite !</a></p>
+                    <p><a class="footer_hover" href="../../front/html/insolite.php">L'insolite !</a></p>
                 </div>
                 <div class="center_t">
                     <p>On était obligé</p>
-                    <img class="f_ligne3" src="../assets/icons/soulignage_f.svg">
+                    <img class="f_ligne3" src="../../front/assets/icons/soulignage_f.svg">
                     <br>
                     <br>
                     <br>
-                    <p><a class="footer_hover" href="./mentionslégales.php">Mentions légales</a></p>
+                    <p><a class="footer_hover" href="../../front/html/mentionslégales.php">Mentions légales</a></p>
                     <p></p><br>
-                    <p><a class="footer_hover" href="./cgu.php">C.G.U</a></p>
+                    <p><a class="footer_hover" href="../../front/html/cgu.php">C.G.U</a></p>
                 </div>
             </div>
         </footer>

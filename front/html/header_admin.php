@@ -11,10 +11,11 @@
 
 	<!--linker stylesheet-->
 	<link rel="stylesheet" type="text/css" href="../css/base.css">
-	<link rel="stylesheet" href="../../front/css/font.css">
-	<link rel="stylesheet" href="../../front/css/header.css">
-	<link rel="stylesheet" href="../../front/css/footer.css">
-	<link rel="stylesheet" href="../../front/css/insolite.css">
+	<link rel="stylesheet" href="../css/font.css">
+	<link rel="stylesheet" href="../css/header.css">
+	<link rel="stylesheet" href="../css/footer.css">
+	<link rel="stylesheet" href="../css/insolite.css">
+
 </head>
 
 <body>
@@ -22,12 +23,7 @@
 		<balise id="hautdepage"></balise>
 		<div id="navbar">
 			<div class="column">
-			<a class="logo_link" href="../../index.php"><img class="logo" src="../../front/assets/icons/logo bg.svg"></a>
-				<div class="recherche">
-             	  	<img src="../../front/assets/icons/search.svg">
-              	  	<p>Rechercher...</p>
-				</div>
-				<img class="ligne_r" src="../../front/assets/icons/ligne_r.svg">
+			<a class="logo_link" href="../../index.php"><img class="logo" src="/front/assets/icons/logo bg.svg"></a>
 			</div>
 			<ul class="menu_list">
 				<li><a href="../../front/html/hacktu.php">Actu</a></li>
@@ -40,9 +36,6 @@
 				<li ><a class="connexion" href="../../front/html/connexion.php"></a></li>
 			</ul>
 			</div>
-		<div class="espace_header">
-		</div>
 	</header>
-	<script src="../../front/js/header.js"></script>
 </body>
 </html>

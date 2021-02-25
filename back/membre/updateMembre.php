@@ -239,10 +239,6 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
     
 <?php
 
-if (isset($_GET['id']) AND !empty($_GET['id'])) {
-    $errSaisies = ($_GET['id']);
-    echo $errSaisies;
-}
 if (isset($_GET['err1']) AND !empty($_GET['err1'])){
     $errPass = $_GET['err1'];
     echo $errPass.'</br>';

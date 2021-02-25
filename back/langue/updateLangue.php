@@ -69,6 +69,7 @@ include __DIR__ . '/initLangue.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="utf-8" />
     <title>Admin - Gestion du CRUD Langue</title>
@@ -78,10 +79,11 @@ include __DIR__ . '/initLangue.php';
 
     <link href="../../back/css/style.css" rel="stylesheet" type="text/css" />
 </head>
+
 <body>
     <h1>BLOGART21 Admin - Gestion du CRUD Langue</h1>
     <h2>Modification d'un Langue</h2>
-<?
+    <?
     // Modif : récup id à modifier
     if (isset($_GET['id']) and $_GET['id']) {
 
@@ -147,25 +149,25 @@ include __DIR__ . '/initLangue.php';
 ?>
               </select>
             </div>
-        </div>
-<!-- FIN Listbox Cyril -->
+            <!-- FIN Listbox Cyril -->
 
-        <div class="control-group">
-            <div class="controls">
-                <br><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="submit" value="Initialiser" class="imputFields" name="Submit" />
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="submit" value="Valider" class="imputFields" name="Submit" value="on"/>
-                <br>
+            <div class="control-group">
+                <div class="controls">
+                    <br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="submit" value="Initialiser" class="imputFields" name="Submit" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="submit" value="Valider" class="imputFields" name="Submit" value="on" />
+                    <br>
+                </div>
             </div>
-        </div>
-      </fieldset>
+        </fieldset>
     </form>
-<?
+    <?
 require_once __DIR__ . '/footerLangue.php';
 
 require_once __DIR__ . '/footer.php';
 ?>
 </body>
+
 </html>

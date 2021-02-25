@@ -35,7 +35,7 @@ class ARTICLE{
 		global $db;
 		try {
 			$db->beginTransaction();
-			$exec = "INSERT INTO ARTICLE ( libTitrArt, libChapoArt, libAccrochArt, parag1Art, libSsTitr1Art, parag2Art, libSsTitr2Art, parag3Art, numAngl, numThem) VALUES (:libTitrArt, :libChapoArt, :libAccrochArt, :parag1Art, :libSsTitr1Art, :parag2Art, :libSsTitr2Art, :parag3Art, :numAngl, :numThem)";
+			$exec = "INSERT INTO ARTICLE (libTitrArt, libChapoArt, libAccrochArt, parag1Art, libSsTitr1Art, parag2Art, libSsTitr2Art, parag3Art, numAngl, numThem) VALUES (:libTitrArt, :libChapoArt, :libAccrochArt, :parag1Art, :libSsTitr1Art, :parag2Art, :libSsTitr2Art, :parag3Art, :numAngl, :numThem)";
 			$result = $db->prepare($exec);
 			$result->bindParam(':libTitrArt', $libTitrArt);
 			$result->bindParam(':libChapoArt', $libChapoArt);
@@ -58,13 +58,14 @@ class ARTICLE{
 		}
 	}
 
-	function update($numArt, string $libTitrArt, string $libChapoArt, string $libAccrochArt, string $parag1Art, string $libSsTitr1Art, string $parag2Art, string $LibSsTitr2Art, string $parag3Art, string $libConclArt, string $numAngl, string $numThem)
+	function update($numArt, $libTitrArt, $libChapoArt, $libAccrochArt, $parag1Art, $libSsTitr1Art, $parag2Art, $LibSsTitr2Art, $parag3Art, $libConclArt, $numAngl, $numThem)
     {
         global $db;
         try {
             $db->beginTransaction();
             $exec = "UPDATE ARTICLE SET libTitrArt=:libTitrArt, libChapoArt=:libChapoArt, libAccrochArt=:libAccrochArt, parag1Art=:parag1Art, libSsTitr1Art=:libSsTitr1Art, parag2Art=:parag2Art, LibSsTitr2Art=:LibSsTitr2Art, parag3Art=:parag3Art, libConclArt=:libConclArt, numAngl=:numAngl, numThem=:numThem WHERE numArt= :numArt;";
             $result = $db->prepare($exec);
+			$result->bindParam(':numArt', $numArt);
             $result->bindParam(':libTitrArt', $libTitrArt);
             $result->bindParam(':libChapoArt', $libChapoArt);
             $result->bindParam(':libAccrochArt', $libAccrochArt);
@@ -76,7 +77,6 @@ class ARTICLE{
             $result->bindParam(':libConclArt', $libConclArt);
             $result->bindParam(':numAngl', $numAngl);
             $result->bindParam(':numThem', $numThem);
-			$result->bindParam(':numArt', $numArt);
             $result->execute();
             $db->commit();
             $result->closeCursor();

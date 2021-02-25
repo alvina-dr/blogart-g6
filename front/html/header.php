@@ -31,7 +31,7 @@
 			</div>
 			<ul class="menu_list">
 				<li><a href="../../front/html/hacktu.php">Actu</a></li>
-				<li><a href="../../front/html/actors.php">Acteur clef</a></li>
+				<a href="#">haut de page<li><a href="../../front/html/actors.php">Acteur clef</a></li></a>
 				<li><a href="../../front/html/insolite.php">Insolite</a></li>
 				<li><a href="../../back/index1.php">Admin</a></li>
 			</ul>

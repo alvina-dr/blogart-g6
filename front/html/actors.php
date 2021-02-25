@@ -14,6 +14,8 @@
 </head>
 
 <body>
+    
+<a id="haut"></a>
     <?php
         require_once __DIR__ . '/header.php';
     ?>

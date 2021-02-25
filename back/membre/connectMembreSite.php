@@ -104,6 +104,7 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -112,6 +113,7 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
 </head>
+
 <body>
     <?
     // Modif : récup id à modifier
@@ -137,47 +139,50 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 
     <form method="post" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" enctype="multipart/form-data">
 
-      <fieldset>
-        <legend class="legend1">| Connexion |</legend>
+        <fieldset>
+            <legend class="legend1">| Connexion |</legend>
 
-        <input type="hidden" id="id" name="id" value="<?= $_GET['id']; ?>" />
+            <input type="hidden" id="id" name="id" value="<?= $_GET['id']; ?>" />
 
-        <div>
-            <p>Pseudo (*)</p>
-        <div class="control-group">
-            <label class="control-label" for="pseudoMemb"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="text" placeholder="Pseudo" name="pseudoMemb" id="pseudoMemb" size="80" maxlength="80" value="<?= $pseudoMemb; ?>"  />
-        </div>
-        <img src="../assets/icons/soulignagedroit.svg">
-        </div>
-
-        <div>
-            <p>Mot de passe (*)</p>
-        <div class="control-group">
-            <label class="control-label" for="passMemb"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="password" placeholder="Mot de passe" name="passMemb" id="passMemb" size="80" maxlength="80" value="<?= $passMemb; ?>" readOnly />
-        </div>
-        <img src="../assets/icons/soulignagedroit.svg">
-        </div>
-               </fieldset>
+            <div>
+                <p>Pseudo (*)</p>
+                <div class="control-group">
+                    <label class="control-label" for="pseudoMemb"></label>
+                    <input type="text" placeholder="Pseudo" name="pseudoMemb" id="pseudoMemb" size="80" maxlength="80"
+                        value="<?= $pseudoMemb; ?>" />
+                </div>
+                <img src="../assets/icons/soulignagedroit.svg">
             </div>
+            <div>
+                <p>Mot de passe (*)</p>
+                <div class="control-group">
+                    <label class="control-label" for="passMemb"></label>
+                    <input type="password" placeholder="Mot de passe" name="passMemb" id="passMemb" size="80"
+                        maxlength="80" value="<?= $passMemb; ?>" readOnly />
+                </div>
+            </div>
+            <br>
+            <div class="control-group">             <!--BOUTONS INITIALISER ET VALIDER-->
+                <div class="controls">
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="submit" value="Initialiser"
+                        style="cursor:pointer; padding:5px 20px; background-color:lightsteelblue; border:dotted 1px grey; border-radius:5px;"
+                        name="Submit" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="submit" value="Valider"
+                        style="cursor:pointer; padding:5px 20px; background-color:lightsteelblue; border:dotted 1px grey; border-radius:5px;"
+                        name="Submit" />
+                    <br>
+                </div>
+            </div>
+        </fieldset>
+        </div>
         </div>
 
-        <br>
-        <div class="control-group">
-            <div class="controls">
-                <br><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="submit" value="Initialiser" style="cursor:pointer; padding:5px 20px; background-color:lightsteelblue; border:dotted 1px grey; border-radius:5px;" name="Submit" />
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="submit" value="Valider" style="cursor:pointer; padding:5px 20px; background-color:lightsteelblue; border:dotted 1px grey; border-radius:5px;" name="Submit" />
-                <br>
-            </div>
-        </div>
-      </fieldset>
+        </fieldset>
     </form>
-    
-<?php
+
+    <?php
 
 if (isset($_GET['id']) AND !empty($_GET['id'])) {
     $errSaisies = ($_GET['id']);
@@ -198,4 +203,5 @@ if (isset($_GET['err3']) AND !empty($_GET['err3'])){
 
 ?>
 </body>
+
 </html>

@@ -16,6 +16,7 @@
         <link rel="stylesheet" type="text/css" href="../css/index.css">
         <link rel="stylesheet" type="text/css" href="../css/footer.css">
         <link rel="stylesheet" type="text/css" href="../css/inscription.css">
+        <link rel="stylesheet" type="text/css" href="../../../back/css/style.css">
     </HEAD>
     <body>
     <?php
@@ -28,23 +29,10 @@
                 <br>
                 <br>
                 <br>
-                <br>
-                <br>
-                <br>
-                <br>
+                <?php
+                require_once __DIR__ . '../../../back/membre/connectMembreSite.php';
+                 ?>
 
-                <div class=h22>
-                    <p>Pseudo</p>
-                    <img src="../assets/icons/soulignagedroit.svg">
-                </div>
-                <div class=h22>
-                    <br>
-                    <br>
-                    <p>Mot de passe</p>
-                    <img src="../assets/icons/soulignagedroit.svg">
-                </div>
-                <br>
-                <br>
                 <a><img class="h22 hwg" src="../assets/icons/hwg.png"></a>
             </div>
         </div>

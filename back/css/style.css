@@ -192,3 +192,14 @@ tbody tr:nth-child(odd) { /*couleur fond lignes impaires des tableaux*/
 	margin-left: 20px;
 }
 
+/* ------------------------------------------------------------------------- */
+/* ---------------------------- COMMENT TABLE ------------------------------ */
+/* ------------------------------------------------------------------------- */
+
+.table_comment {
+	background-color: #171c2b00;
+	border-color: rgba(255, 255, 0, 0);
+	border-collapse:inherit;
+	box-shadow: 0;
+	width: 100%;
+}

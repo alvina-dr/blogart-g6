@@ -131,7 +131,11 @@ include __DIR__ . '/initLangue.php';
                 $numPays = "";
                 $frPays = "";
 
+<<<<<<< HEAD
+                $queryText = 'SELECT * FROM PAYS PA INNER JOIN LANGUE LA ON LA.numPays = PA.numPays ORDER BY frPays;';
+=======
                 $queryText = 'SELECT * FROM PAYS ORDER BY frPays;';
+>>>>>>> 6a3707da4b8630260814e70c3529787f37bdcd11
                 $result = $db->query($queryText);
                 if ($result) {
                     while ($tuple = $result->fetch()) {

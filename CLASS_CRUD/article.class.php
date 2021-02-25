@@ -21,6 +21,14 @@ class ARTICLE{
         $allStatuts = $result->fetchAll();
         return ($allStatuts);
     }
+	function get_SomeArt()
+    {
+        global $db;
+		$query = 'SELECT * FROM ARTICLE WHERE numArt = ?;';
+        $result = $db->query($query);
+        $allStatuts = $result->fetchAll();
+        return ($allStatuts);
+    }
 
 	function create($libTitrArt, $libChapoArt, $libAccrochArt, $parag1Art, $libSsTitr1Art, $parag2Art, $libSsTitr2Art, $parag3Art, $numAngl, $numThem)
 	{

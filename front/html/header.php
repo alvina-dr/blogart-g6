@@ -36,6 +36,7 @@
 				<li><a href="./hacktu.php">Actu</a></li>
 				<li><a href="./actors.php">Acteur clef</a></li>
 				<li><a href="./insolite.php">Insolite</a></li>
+				<li><a href="../../index1.php">Admin</a></li>
 			</ul>
 			<ul class="log">
 				<li><a href="./inscription.php">Inscription</a></li>

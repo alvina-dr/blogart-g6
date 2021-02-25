@@ -27,7 +27,7 @@
 }
 #navbar ul li a {
 	display:block;
-	color: #F5F5F5; /*#DCDCDC;*/
+	color: #CF6679; /*#DCDCDC;*/
  	text-decoration:none;
  	text-align:center;
  	font-family: "Gotham Rounded";
@@ -36,7 +36,7 @@
  	margin-right:30px;
 }
 #navbar ul li a:hover {
-    color: #CF6679; /*#DCDCDC;*/
+    color:  #F5F5F5; /*#DCDCDC;*/
 }
 
 .logo {

@@ -19,6 +19,9 @@
     </HEAD>
 
     <body>
+    <?php
+    //require_once __DIR__ . '../../../back/likeArt/createLikeArtSite.php';
+    ?>
         <img class="h22 like_t" src="../assets/icons/Like_article.png">
         <p class="tag">Tags</p>
         <img class="ligne_t" src="../assets/icons/ligne_t.svg">

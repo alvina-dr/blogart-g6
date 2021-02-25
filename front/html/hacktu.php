@@ -6,7 +6,7 @@
     <meta name="content" content="description">
     <title>B.Game | Hacktu</title>
 
-    <link rel="icon" type="image/ico" href="//" />
+    <link rel="icon" type="image/ico" href="../assets/icons/logo.ico"/>
 
     <!--linker stylesheet-->
     <link rel="stylesheet" href="../css/base.css">
@@ -175,7 +175,8 @@
         <!--Article 3-->
     </div>
     <?php
-        require_once __DIR__ . '/footer.php';
+       require_once __DIR__ . '../../../back/comment/createCommentSite.php';
+       require_once __DIR__ . '/footer.php';
     ?>
 <script src="../js/hactu.js"></script>
 </body>

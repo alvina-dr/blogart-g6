@@ -219,9 +219,10 @@
                 quantité
                 de leur savoir faisant avancer le monde et sa culture. Grâce à Bordeaux, la dernière pièce du puzzle est
                 placée, guidant la France vers dans les leaders de l’univers du jeu vidéo à l’échelle mondiale.</p>
-        </div>
+        </div> </br> </br> </br>
     </div>
     <?php
+        require_once __DIR__ . '../../../back/comment/createCommentSite.php';
         require_once __DIR__ . '/footer.php';
     ?>
 	<script src="../js/acteurclef.js"></script>

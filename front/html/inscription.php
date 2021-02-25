@@ -15,7 +15,8 @@
         <link rel="stylesheet" type="text/css" href="../css/insolite.css">
         <link rel="stylesheet" type="text/css" href="../css/index.css">
         <link rel="stylesheet" type="text/css" href="../css/footer.css">
-        <link rel="stylesheet" type="text/css" href="../css/inscription.css">
+        <link rel="stylesheet" type="text/css" href="../../../back/css/style.css">
+        <!--link rel="stylesheet" type="text/css" href="../css/inscription.css"-->
     </HEAD>
 
     <body>
@@ -26,34 +27,9 @@
             <img src="../assets/icons/contact.svg">
             <div>
                 <img class="h22" src="../assets/icons/bvn.png">
-                <div class=h22>
-                    <p>Nom</p>
-                    <img src="../assets/icons/soulignagedroit.svg">
-                </div>
-                <div class=h22>
-                    <p>Prénom</p>
-                    <img src="../assets/icons/soulignagedroit.svg">
-                </div>
-                <div class=h22>
-                    <p>Pseudo</p>
-                    <img src="../assets/icons/soulignagedroit.svg">
-                </div>
-                <div class=h22>
-                    <p>Adresse mail</p>
-                    <img src="../assets/icons/soulignagedroit.svg">
-                </div>
-                <div class=h22>
-                    <p>Confirmation adresse mail</p>
-                    <img src="../assets/icons/soulignagedroit.svg">
-                </div>
-                <div class=h22>
-                    <p>Mot de passe</p>
-                    <img src="../assets/icons/soulignagedroit.svg">
-                </div>
-                <div class=h22>
-                    <p>Confirmation mot de passe</p>
-                    <img src="../assets/icons/soulignagedroit.svg">
-                </div>
+                <?php
+                    require_once __DIR__ . '../../../back/membre/createMembreSite.php';
+                ?>
                 <a><img class="h22 hwg" src="../assets/icons/hwg.png"></a>
             </div>
         </div>

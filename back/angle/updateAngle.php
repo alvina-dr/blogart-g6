@@ -137,38 +137,7 @@ include __DIR__ . '/initAngle.php';
                 </select>
         </div>
     <!-- FIN Listbox langue -->
-    <div class="control-group">
-            <div class="controls">
-            <label class="control-label" for="LibTypLang">
-                <b>Quelle langue :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
-            </label>
-            <input type="hidden" id="idTypAngl" name="idTypAngl" value="<?= $idAngl; ?>" />
-            <select size="1" name="TypAngl" id="TypAngl"  class="form-control form-control-create" title="Sélectionnez l'angle !" disabled >
-                <option value="-1"> Choisissez un angle </option>
-<?
-                $listNumAngl = "";
-                $listLibAngl = "";
-
-                $queryText = 'SELECT * FROM ANGLE AN INNER JOIN LANGUE LA ON AN.numLang = LA.numLang ORDER BY lib1Lang, libAngl;';
-                $result = $db->query($queryText);
-                if ($result) {
-                    while ($tuple = $result->fetch()) {
-                        $listNumAngl = $tuple["numAngl"];
-                        $listLibAngl = $tuple["libAngl"] . " - (" .
-                        $tuple["lib2Lang"] . ")";
-?>
-                    <option value="<?= ($listNumAngl); ?>" <?= ((isset($idAngl) && $idAngl == $listNumAngl) ? 'selected="selected"' : null); ?> >
-                        <?= $listLibAngl; ?>
-                    </option>
-<?
-                    } // End of while
-                }   // if ($result)
-                //$result->closeCursor();
-?>
-                </select>
-            </div>
-        </div>
-    <!-- FIN Listbox Angle -->
+    
         <br>
 
         <div class="control-group">

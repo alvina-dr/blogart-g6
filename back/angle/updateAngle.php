@@ -78,7 +78,7 @@ include __DIR__ . '/initAngle.php';
 </head>
 <body>
     <h1>BLOGART21 Admin - Gestion du CRUD Angle</h1>
-    <h2>Ajout d'une Langue</h2>
+    <h2>Modification d'un Angle</h2>
 
     <?
     // Modif : récup id à modifier
@@ -112,10 +112,8 @@ include __DIR__ . '/initAngle.php';
     <br>
         <div class="control-group">
             <label class="control-label" for="LibTypLang"><b>Quelle langue :&nbsp;&nbsp;&nbsp;</b></label>
-                <input type="hidden" id="idTypLang" name="idTypLang" value="<?= isset($_GET['numLang']) ? $_GET['numLang'] : '' ?>" />
-
                 <select size="1" name="TypLang" id="TypLang" required class="form-control form-control-create" title="Sélectionnez la langue !" >
-                   <option value="-1">Choisissez une langue </option>
+                <option value="-1">Choisissez une langue</option>
 <?
             $numLang = "";
             $lib1Lang = "";
@@ -138,6 +136,8 @@ include __DIR__ . '/initAngle.php';
         </div>
     <!-- FIN Listbox langue -->
     
+
+    <!-- FIN Listbox Angle -->
         <br>
 
         <div class="control-group">

@@ -136,3 +136,14 @@
   right:30px;
   text-decoration:none;
 } */
+
+.interaction{
+	color: #cf6679;
+
+	
+}
+
+.interaction:hover {
+	color:#F5F5F5;
+	transition: 0.3s;
+}

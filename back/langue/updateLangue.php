@@ -118,34 +118,38 @@ include __DIR__ . '/initLangue.php';
 
 <!-- ListBox Cyril -->
 
-<div class="control-group">
+<br>
+        <div class="control-group">
             <div class="controls">
             <label class="control-label" for="LibTypPays">
-                <b>Quel Pays :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
+                <b>Quel pays :&nbsp;&nbsp;&nbsp;</b>
             </label>
             <input type="hidden" id="id" name="id" value="<?= isset($_GET['id']) ? $_GET['id'] : '' ?>" />
-            <select size="1" name="TypPays" id="TypPays"  class="form-control form-control-create" title="Sélectionnez le pays !">
-                <option value="-1"> Choisissez un pays </option>
+              <select size="1" name="TypPays" id="TypPays"  class="form-control form-control-create" tabindex="30" >
+                    <option value="-1">- - - Choisissez un pays - - -</option>
 <?
-                $listNumPays = "";
-                $listLibPays = "";
+                $numPays = "";
+                $frPays = "";
 
+<<<<<<< HEAD
                 $queryText = 'SELECT * FROM PAYS PA INNER JOIN LANGUE LA ON LA.numPays = PA.numPays ORDER BY frPays;';
+=======
+                $queryText = 'SELECT * FROM PAYS ORDER BY frPays;';
+>>>>>>> 6a3707da4b8630260814e70c3529787f37bdcd11
                 $result = $db->query($queryText);
                 if ($result) {
                     while ($tuple = $result->fetch()) {
-                        $listNumPays = $tuple["numPays"];
-                        $listLibPays = $tuple["libPays"];
+                        $ListnumPays = $tuple["numPays"];
+                        $ListfrPays = $tuple["frPays"];
 ?>
-                    <option value="<?= ($listNumPays); ?>" <?= ((isset($idPays) && $idPays == $listNumPays) ? 'selected="selected"' : null); ?> >
-                        <?= $listLibPays; ?>
-                    </option>
+                <option value="<?= ($ListnumPays); ?>" <?= ((isset($idPays) && $idPays == $ListnumPays) ?  : null); ?> >
+                    <?= $ListfrPays; ?>
+                </option>
 <?
-                    } // End of while
+                    } // End of while ()
                 }   // if ($result)
-                //$result->closeCursor();
 ?>
-                </select>
+              </select>
             </div>
         </div>
 <!-- FIN Listbox Cyril -->

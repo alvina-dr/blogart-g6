@@ -44,10 +44,8 @@
             $numArt = ctrlSaisies(($_POST['id2']));
             $valLikeA = ctrlSaisies($_POST['likeA']);
             $likeA = ($valLikeA == "on") ? 1 : 0;
-            var_dump($numMemb);
-            var_dump($numArt);
-            var_dump($likeA);
-            $monLikeArt->update($numMemb, $numArt, $likeA);
+            
+            $monLikeArt->update($numArt, $likeA, $numMemb);
 
             header("Location: ./likeArt.php");
 
@@ -109,9 +107,9 @@
 
             <div class="control-group">
                 <label class="control-label" for="numMemb"><b>Quel Membre :&nbsp;</b></label>
-                <input type="hidden" id="idTypMemb" name="idTypMemb" value="<?=$idMemb?>" />
-                <select size="1" name="idMemb" id="idMemb" class="form-control form-control-create" tabindex="30" disabled="disabled">
-                    <option value="-1">--- Selectionner un membre ---</option>
+                <input type="hidden" id="id1" name="id1" value="<?= isset($_GET['id1']) ? $_GET['id1'] : '' ?>" />
+                <select size="1" name="id1" id="id1" class="form-control form-control-create" tabindex="30" >
+                    <option value="-1"> Selectionner un membre </option>
 
                     <?
                 global $db;
@@ -136,9 +134,9 @@
 
                 <br><br>
                 <label class="control-label" for="numArt"><b>Quel Article :&nbsp;</b></label>
-                <input type="hidden" id="idTypArt" name="idTypArt" value="<?=$idArt;?>" >
-                <select size="1" name="idArt" id="idArt" class="form-control form-control-create" tabindex="30" disabled="disabled">
-                    <option value="-1">--- Selectionner un Article ---</option>
+                <input type="hidden" id="id2" name="id2" value="<?= isset($_GET['id2']) ? $_GET['id2'] : '' ?>" />
+                <select size="1" name="id2" id="id2" class="form-control form-control-create" tabindex="30" >
+                    <option value="-1"> Selectionner un Article </option>
 
                     <?
                 global $db;

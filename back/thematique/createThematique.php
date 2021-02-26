@@ -25,7 +25,7 @@ $error = null;
 
 // Controle des saisies du formulaire
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (!empty($_POST['libThem']) && !empty($_POST['TypLang'])) {
+    if (!empty($_POST['libThem']) && !empty($_POST['numLang'])) {
         $libThem = ctrlSaisies($_POST['libThem']);
         $numLang = $_POST['TypLang'];
 

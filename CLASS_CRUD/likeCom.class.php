@@ -91,4 +91,3 @@ class LIKECOM
  		}
  	}
 }	// End of class
-*/

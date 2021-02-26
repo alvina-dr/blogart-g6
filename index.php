@@ -124,8 +124,8 @@
     <img class="mouse_newsletter" src="/front/assets/icons/newsletter.png">
     <br>
     <br>
-    <a href="#pageinscription"><img class="h22" src="/front/assets/icons/inscription_nl.png"></a><br>
-    <a href="./connexion.php"><img class="h22" src="/front/assets/icons/connexion_nl.png"></a>
+    <a href="../../front/html/inscription.php"><img class="h22" src="/front/assets/icons/inscription_nl.png"></a><br>
+    <a href="../../front/html/connexion.php"><img class="h22" src="/front/assets/icons/connexion_nl.png"></a>
     <?php
         require_once __DIR__ . '/front/html/footer.php';
     ?>

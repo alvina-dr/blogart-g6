@@ -17,16 +17,29 @@ class MEMBRE
 	function get_1Pseudo($pseudoMemb)
 	{
 		global $db;
-		$pseudoMemb = 'root';
-		$query = 'SELECT pseudoMemb FROM MEMBRE WHERE pseudoMemb = :pseudoMemb;';
+		//$pseudoMemb = "root";
+		$query = 'SELECT pseudoMemb FROM MEMBRE WHERE pseudoMemb = $pseudoMemb;';
 		$result = $db->prepare($query);
 		$result->bindParam(':pseudoMemb', $pseudoMemb);
 		$result->execute();
 		//$pseudoMemb = $result->fetch();
 		//echo " pseudo : ".$pseudoMemb;
 		//return ($pseudoMemb);
-		return ($result->fetch());
+		//echo $pseudoMemb;
+		return (/*$result->fetch() AND */$pseudoMemb);
 	}
+
+
+function get_AllMembresByPseudo($pseudoMemb)
+{
+	global $db;
+	$query = $db->prepare("SELECT * FROM membre WHERE pseudoMemb=:pseudoMemb");
+	$query->execute([
+		'pseudoMemb' => $pseudoMemb
+	]);
+	$result = $query->fetchAll(PDO::FETCH_OBJ);
+	return $result;
+}
 
 	// function get_1MotCleByLangue($numMemb)
 	// {

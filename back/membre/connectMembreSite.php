@@ -46,12 +46,14 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
             $pseudoMemb = ctrlSaisies($_POST['pseudoMemb']);
             $pseudoMembInput = $pseudoMemb;
             //$monStatutMM->get_1Pseudo($pseudoMemb);
-            $pseudoMemb = $monStatutMM->get_1Pseudo($pseudoMemb);
-            //$monStatutMM->get_1Pseudo($pseudoMemb);
+            //$pseudoMemb = $monStatutMM->get_1Pseudo($pseudoMemb);
+            $monStatutMM->get_AllMembresByPseudo($pseudoMemb);
+            $pseudoMemb = $monStatutMM;
+            $pseudoTemp = $pseudoMemb;
             //$pseudoMembBase = 3;
             $passMemb = ctrlSaisies($_POST['passMemb']);
-            $passMembBase = 3;
-            $query = (array)$monStatutMM->get_1Membre($pseudoMemb);
+            $passMembBase = "root";
+           // $query = (array)$monStatutMM->get_1Membre($pseudoMemb);
 
             //$souvenirMemb = ctrlSaisies($_POST['souvenirMemb']);
             //$idStat = 1;
@@ -65,7 +67,7 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 
 // VÉRIFICATIONS MOT DE PASSE ET PSEUDO CORRECTS
 
-            if($pseudoMemb == $pseudoMembInput) { //Est-ce que le pseudo existe ?
+            if($pseudoTemp == $pseudoMembInput) { //Est-ce que le pseudo existe ?
                 $pseudoExist = 1; //Le pseudo existe
                 $errPseudo = "";
             }
@@ -101,7 +103,7 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
                 header("Location: ../../index.php");
             }
             else{
-                echo "Erreur : ".$errPass." ".$errPseudo." Retour : ".$pseudoMemb." Saisie : ".$pseudoMembInput;
+                echo "Erreur : ".$errPass." ".$errPseudo." Retour : "." Saisie : ".$pseudoMembInput;
                 
             }       
 

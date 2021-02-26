@@ -45,8 +45,7 @@ class LIKEART
 			$result->closeCursor();
 		}
 	}
-}
-    
+
 	function update(string $numAngl, string $libAngl, string $numLang)
 	{
 		global $db;
@@ -67,6 +66,9 @@ class LIKEART
 			$result->closeCursor();
 		}
 	}
+}
+    
+	
 
 // Ctrl FK sur THEMATIQUE, ANGLE, MOTCLE avec del
  	function delete($numAngl)

@@ -1,11 +1,11 @@
 <?php
 // CRUD ANGLE (ETUD)
 
-require_once __DIR__ . '../../CONNECT/database.php';
+require_once __DIR__ . '/../CONNECT/database.php';
 
 class LIKECOM
 {
-	function get_1LikeCom($numArt)
+	function get_1LikeCom($numMemb)
 	{
 		global $db;
 		$query = 'SELECT * FROM LIKECOM WHERE numMemb = :numMemb;';

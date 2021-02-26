@@ -46,18 +46,18 @@ class LIKECOM
 			$result->closeCursor();
 		}
 	}
-}
-/*
+	
 	function update(string $numAngl, string $libAngl, string $numLang)
 	{
 		global $db;
 		try {
 			$db->beginTransaction();
-			$exec = "UPDATE ANGLE SET libAngl=:libAngl, numLang=:numLang WHERE :numAngl= numAngl;";
+			$exec = "UPDATE ANGLE SET numSeqCom=:numSeqCom, numArt=:numArt, likeC=:likeC WHERE :numMemb= numMemb;";
             $result = $db->prepare($exec);
-            $result->bindParam(':numAngl', $numAngl);
-			$result->bindParam(':libAngl', $libAngl);
-			$result->bindParam(':numLang', $numLang);
+            $result->bindParam(':numMemb', $numMemb);
+			$result->bindParam(':numSeqCom', $numSeqCom);
+			$result->bindParam(':numArt', $numArt);
+			$result->bindParam(':likeC', $likeC);
 			$result->execute();
 			$db->commit();
 			$result->closeCursor();
@@ -68,7 +68,11 @@ class LIKECOM
 			$result->closeCursor();
 		}
 	}
+}
 
+	
+
+{
 // Ctrl FK sur THEMATIQUE, ANGLE, MOTCLE avec del
  	function delete($numAngl)
  	{
@@ -88,4 +92,3 @@ class LIKECOM
  		}
  	}
 }	// End of class
-*/

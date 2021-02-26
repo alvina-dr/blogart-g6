@@ -3,7 +3,7 @@
 //
 //  CRUD LIKEART (PDO) - Code Modifié - 30 Janvier 2021
 //
-//  Script  : createLangue.php  (ETUD)   -   BLOGART21
+//  Script  : createLikecom.php  (ETUD)   -   BLOGART21
 //
 ///////////////////////////////////////////////////////////////
 
@@ -12,7 +12,8 @@
     
     
     // controle des saisies du formulaire
-    require_once __DIR__ . '/../../util/ctrlSaisies.php';
+    require_once __DIR__ . '/../../util/ctrlSaisies.php'
+    ;
     require_once __DIR__ . '/../../util/delAccents.php';
     include __DIR__ . '/../../CLASS_CRUD/likecom.class.php';
 
@@ -199,7 +200,7 @@
     <?
 require_once __DIR__ . '/footerLikeCom.php';
 
-require_once __DIR__ . '/../../footer.php';
+require_once __DIR__ . '/../../back/footer.php';
 ?>
 </body>
 

@@ -36,19 +36,19 @@ $monStatutArt = new ARTICLE;
 <table border="3" bgcolor="aliceblue">
 <thead>
     <tr>
-    <th>&nbsp;numArt&nbsp;</th>
-        <th>&nbsp;libTitrArt&nbsp;</th>
-        <th>&nbsp;libChapoArt&nbsp;</th>
-        <th>&nbsp;libAccrochArt&nbsp;</th>
-        <th>&nbsp;parag1Art&nbsp;</th>
-        <th>&nbsp;libSsTitr1Art&nbsp;</th>
-        <th>&nbsp;parag2Art&nbsp;</th>
-        <th>&nbsp;libSsTitr2Art&nbsp;</th>
-        <th>&nbsp;parag3Art&nbsp;</th>
-        <th>&nbsp;libConclArt&nbsp;</th>
-        <th>&nbsp;urlPhotArt&nbsp;</th>
-        <th>&nbsp;numAngl&nbsp;</th>
-        <th>&nbsp;numThem&nbsp;</th>
+    <th>&nbsp;Numéro de l'article&nbsp;</th>
+        <th>&nbsp;Nom du titre de l'article&nbsp;</th>
+        <th>&nbsp;Nom du chapeau de l'article&nbsp;</th>
+        <th>&nbsp;Nom de l'accroche de l'article&nbsp;</th>
+        <th>&nbsp;Paragraphe du premier article&nbsp;</th>
+        <th>&nbsp;Nom des sous titres du premier article&nbsp;</th>
+        <th>&nbsp;Paragraphe du deuxième article&nbsp;</th>
+        <th>&nbsp;Nom des sous titres du deuxième article&nbsp;</th>
+        <th>&nbsp;Paragraphe du troisième article&nbsp;</th>
+        <th>&nbsp;Nom de la conclusion de l'article&nbsp;</th>
+        <th>&nbsp;URL de la photo de l'article&nbsp;</th>
+        <th>&nbsp;Numéro de l'angle&nbsp;</th>
+        <th>&nbsp;Numéro du thème&nbsp;</th>
         <th colspan="2">&nbsp;Action&nbsp;</th>
         
     </tr>

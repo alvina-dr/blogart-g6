@@ -36,7 +36,7 @@
 			</ul>
 			<ul class="log">
 				<li><a href="../../front/html/inscription.php">Inscription</a></li>
-				<li ><a class="connexion" href="../../front/html/connexion.php"></a></li>
+				<li ><a href="../../front/html/connexion.php">Connexion</a></li>
 			</ul>
 			</div>
 		<div class="espace_header">

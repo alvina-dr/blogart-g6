@@ -11,21 +11,21 @@
 
 .flex{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .jp_logo{
     height: 5vh;
 }
 .footer_hover {
-    color: #000000;
+    color: yellow;
     text-decoration: none;
     font-family: "Helvetica";
     font-size: 130%;
     line-height: 130%;
 }
 .footer_hover:hover {
-    color: #CF6679;
+    color: #000000;
 }
 
 a{

@@ -6,7 +6,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
-	background-color: #0D1019;
+	background-color: #;
 	position: fixed;
 	z-index: 5;
     top: 0;
@@ -17,7 +17,7 @@
 }
 .menu_list {
 	padding:0; /*décalage vers la droite*/
-	margin:0; /*décalage vers le bas*/
+	margin-top:0.5%; /*décalage vers le bas*/
 	list-style-type:none;
  }
 .menu_list li {
@@ -27,7 +27,7 @@
 }
 #navbar ul li a {
 	display:block;
-	color: #CF6679; /*#DCDCDC;*/
+	color: #F5F5F5; /*#DCDCDC;*/
  	text-decoration:none;
  	text-align:center;
  	font-family: "Gotham Rounded";
@@ -36,7 +36,7 @@
  	margin-right:30px;
 }
 #navbar ul li a:hover {
-    color:  #F5F5F5; /*#DCDCDC;*/
+    color:  #CF6679; /*#DCDCDC;*/
 }
 
 .logo {

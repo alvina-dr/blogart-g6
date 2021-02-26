@@ -25,9 +25,9 @@ $error = null;
 
 // Controle des saisies du formulaire
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (!empty($_POST['libThem']) && !empty($_POST['numLang'])) {
+    if (!empty($_POST['libThem']) && !empty($_POST['TypLang'])) {
         $libThem = ctrlSaisies($_POST['libThem']);
-        $numLang = $_POST['numLang'];
+        $numLang = $_POST['TypLang'];
 
         if (strlen($libThem) >= 3) {
             // Ajout effectif de la langue
@@ -72,15 +72,35 @@ $languages = $langue->get_AllLangues();
                             <input class="control-label" type="text" name="libThem" id="libThem" size="80" maxlength="80" value="<?= $libThem ?>" autofocus="autofocus" />
                         </div>
 
-                        <div class="form-group mb-3">
-                            <label for="numLang"><b>Langues :</b></label>
-                            <select name="numLang" class="control-label" id="numLang">
-                                <option value="">Choississez une langue</option>
-                                <?php foreach ($languages as $language) : ?>
-                                    <option value="<?= $language->numLang ?>"><?= $language->lib1Lang ?></option>
-                                <?php endforeach ?>
-                            </select>
-                        </div>
+                        <!-- Listbox langue -->
+    <br>
+        <div class="control-group">
+            <label class="control-label" for="LibTypLang"><b>Quelle langue :&nbsp;&nbsp;&nbsp;</b></label>
+                <input type="hidden" id="idTypLang" name="idTypLang" value="<?= isset($_GET['numLang']) ? $_GET['numLang'] : '' ?>" />
+
+                <select size="1" name="TypLang" id="TypLang" required class="form-control form-control-create" title="Sélectionnez la langue !" >
+                   <option value="-1">Choisissez une langue </option>
+<?
+            $numLang = "";
+            $lib1Lang = "";
+
+            $queryText = 'SELECT * FROM LANGUE ORDER BY lib1Lang;';
+            $result = $db->query($queryText);
+            if ($result) {
+                while ($tuple = $result->fetch()) {
+                    $ListNumLang = $tuple["numLang"];
+                    $ListLibLang = $tuple["lib1Lang"];
+?>
+                    <option value="<?= $ListNumLang; ?>" >
+                        <?= $ListLibLang; ?>
+                    </option>
+<?
+                } // End of while
+            }   // if ($result)
+?>
+                </select>
+        </div>
+    <!-- FIN Listbox langue -->
 
                         <div class="control-group">
             <div class="controls">

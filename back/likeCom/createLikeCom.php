@@ -42,10 +42,7 @@
             $numSeqCom = ctrlSaisies(($_POST['numSeqCom']));
             $valLikeC = ctrlSaisies($_POST['likeC']);
             $likeC = ($valLikeC == "on") ? 1 : 0;
-            var_dump($numMemb);
-            var_dump($numArt);
-            var_dump($numSeqCom);
-            var_dump($likeC);
+
             $monLikeCom->create($numMemb, $numSeqCom, $numArt, $likeC);
 
             header("Location: ./likeCom.php");

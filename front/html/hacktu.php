@@ -87,7 +87,7 @@
         <!--Article 1-->
 
         <!--Article 2-->
-        <div class="intertitre">
+            <div class="intertitre">
         <h2>Il y a tant à faire.</h2>
         <img class="ligne2" src="../assets/images/Ligne_2.svg" alt="Soulignage violet"/>
         </div>

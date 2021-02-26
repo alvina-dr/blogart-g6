@@ -44,9 +44,14 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
             
 
             $pseudoMemb = ctrlSaisies($_POST['pseudoMemb']);
-            $pseudoMembBase = 3;  
+            $pseudoMembInput = $pseudoMemb;
+            //$monStatutMM->get_1Pseudo($pseudoMemb);
+            $pseudoMemb = $monStatutMM->get_1Pseudo($pseudoMemb);
+            //$monStatutMM->get_1Pseudo($pseudoMemb);
+            //$pseudoMembBase = 3;
             $passMemb = ctrlSaisies($_POST['passMemb']);
             $passMembBase = 3;
+            $query = (array)$monStatutMM->get_1Membre($pseudoMemb);
 
             //$souvenirMemb = ctrlSaisies($_POST['souvenirMemb']);
             //$idStat = 1;
@@ -60,40 +65,52 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 
 // VÉRIFICATIONS MOT DE PASSE ET PSEUDO CORRECTS
 
-            if($pseudoMemb == $pseudoMembBase) { //Est-ce que le pseudo existe ?
+            if($pseudoMemb == $pseudoMembInput) { //Est-ce que le pseudo existe ?
                 $pseudoExist = 1; //Le pseudo existe
+                $errPseudo = "";
             }
             else {
                 $pseudoExist = 0; //Le pseudo n'existe pas
-                $errPass = "Ce pseudo n'existe pas.";
+                $errPseudo = "Ce pseudo n'existe pas.";
             }
 
 
             if($passMemb == $passMembBase){ //Est-ce que le mot de passe est le bon ?
                 $passwordCorrect = 1; //Mot de passe correct
                 $passMemb = password_hash($_POST['passMemb'], PASSWORD_DEFAULT);
+                $errPass = "";
             }
             else{
                 $passwordCorrect = 0; //Mot de passe incorrect
                 $errPass = "Le mot de passe est incorrect.";
             }
 
+            if(isset($_GET['id']))
+            {
+            // id dans l'url
+            $id = $_GET['id'];
+            }
+            else
+            {
+            // pas de id dans l'url
+            }
 
             if(($pseudoMemb!="") AND ($passMemb!="")/*AND ($souvenirMemb!="")*/ AND ($pseudoExist == 1) AND ($passwordCorrect == 1)){
                 
-                $monStatutMM->update($pseudoMemb,$passMemb);
-                header("Location: ./membre.php");
+                //$monStatutMM->get_1Pseudo($pseudoMemb);
+                header("Location: ../../index.php");
             }
             else{
-                echo "&err1=".$errMail1."&err2=".$errMail2."&err3=".$errPass;
+                echo "Erreur : ".$errPass." ".$errPseudo." Retour : ".$pseudoMemb." Saisie : ".$pseudoMembInput;
                 
             }       
 
         } 
         else {
-            $erreur = true;
-            $errSaisies =  "Erreur, la saisie est obligatoire et vous devez obligatoirement accepter la sauvegarde de vos données!";
-            header("Location: ./updateMembre.php?id=".$errSaisies);
+            //$erreur = true;
+            $errSaisies =  "Veuillez saisir votre identifiant et votre mot de passe.";
+                echo "Erreur : ".$errSaisies;
+            //header("Location: ./connectMembreSite.php?id=".$errSaisies);
         }   // End of else erreur saisies
         
     
@@ -136,7 +153,7 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
         <fieldset>
             <legend class="legend1">| Connexion |</legend>
 
-            <input type="hidden" id="id" name="id" value="<?= $_GET['id']; ?>" />
+            <!--input type="hidden" id="id" name="id" value="<//?= $_GET['id']; ?>" /-->
 
             <div>
                 <p>Pseudo (*)</p>
@@ -158,10 +175,6 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
             <br>
             <div class="control-group">             <!--BOUTONS INITIALISER ET VALIDER-->
                 <div class="controls">
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="submit" value="Initialiser"
-                        style="cursor:pointer; padding:5px 20px; background-color:lightsteelblue; border:dotted 1px grey; border-radius:5px;"
-                        name="Submit" />
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="submit" value="Valider"
                         style="cursor:pointer; padding:5px 20px; background-color:lightsteelblue; border:dotted 1px grey; border-radius:5px;"

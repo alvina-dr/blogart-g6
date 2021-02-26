@@ -88,4 +88,4 @@ class LIKEART
  			$request->closeCursor();
  		}
  	}
-}	//= End of class*/
+	//= End of class*/

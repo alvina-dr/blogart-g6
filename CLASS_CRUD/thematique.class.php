@@ -29,7 +29,7 @@
 
 		function get_AllThem(){
             global $db;
-            $query = 'SELECT * FROM THEMATIQUE ;';
+            $query = 'SELECT numThem,libThem,lib2Lang FROM THEMATIQUE,langue WHERE thematique.numLang=langue.numLang ORDER BY numThem ASC ;';
             $result = $db->prepare($query);
             $result->execute();
             return($result->fetchAll());

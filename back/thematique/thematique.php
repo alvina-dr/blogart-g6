@@ -54,7 +54,7 @@ $monTheme = new THEMATIQUE;
 		<td><h4>&nbsp; <?= $row["numThem"]; ?> &nbsp;</h4></td>
 
         <td>&nbsp; <?php echo $row["libThem"]; ?> &nbsp;</td>
-        <td>&nbsp; <?php echo $row["numLang"]; ?> &nbsp;</td>
+        <td>&nbsp; <?php echo $row["lib2Lang"]; ?> &nbsp;</td>
 
 		<td>&nbsp;<a href="./updateThematique.php?id=<?=$row["numThem"]; ?>"><i>Modifier</i></a>&nbsp;
 		<br /></td>

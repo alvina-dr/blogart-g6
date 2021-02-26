@@ -199,7 +199,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
                 <b>Quel angle :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
             </label>
             <input type="hidden" id="idTypAngl" name="idTypAngl" value="<?= isset($_GET['id']) ? $_GET['id'] : '' ?>" />
-            <select size="1" name="TypAngl" id="TypAngl"  class="form-control form-control-create" title="Sélectionnez l'angle !" >
+            <select size="1" name="TypAngl" id="TypAngl"  class="form-control form-control-create" title="Sélectionnez l'angle !" disabled>
                 <option value="-1"> Choisissez un angle </option>
 <?
                 $listNumAngl = "";
@@ -228,35 +228,38 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
         </div>
         <br>
 <!-- FK : Them -->
-    <!-- Listbox Them -->
-    <br>
-        <div class="control-group">
-            <label class="control-label" for="LibTypThem"><b>Quelle Thématique :&nbsp;&nbsp;&nbsp;</b></label>
-                <input type="hidden" id="idTypThem" name="idTypThem" value="<?= isset($_GET['numThem']) ? $_GET['numThem'] : '' ?>" />
 
-                <select readOnly size="1" name="TypThem" id="TypThem" required class="form-control form-control-create" title="Sélectionnez le Them !" >
-                   <option value="-1">Choisissez un Thème </option>
+    <div class="control-group">
+            <div class="controls">
+            <label class="control-label" for="LibTypThem">
+                <b>Quel thematique :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
+            </label>
+            <input type="hidden" id="idTypThem" name="idTypThem" value="<?= isset($_GET['id']) ? $_GET['id'] : '' ?>" />
+            <select size="1" name="TypThem" id="TypThem"  class="form-control form-control-create" title="Sélectionnez un thème !" >
+                <option value="-1"> Choisissez un Thème </option>
 <?
-            $numThem = "";
-            $libthem = "";
+                $numThem = "";
+                $libthem = "";
 
-            $queryText = 'SELECT * FROM THEMATIQUE ORDER BY numThem;';
-            $result = $db->query($queryText);
-            if ($result) {
-                while ($tuple = $result->fetch()) {
-                    $ListNumThem = $tuple["numThem"];
-                    $ListfrThem = $tuple["libThem"];
+                $queryText = 'SELECT * FROM ARTICLE AR INNER JOIN THEMATIQUE TH ON AR.numThem = TH.numThem ORDER BY libThem;';
+                $result = $db->query($queryText);
+                if ($result) {
+                    while ($tuple = $result->fetch()) {
+                        $listNumThem = $tuple["numThem"];
+                        $listLibThem = $tuple["libThem"];
 ?>
-                    <option value="<?= $ListNumThem; ?>" >
+                    <option value="<?= ($ListNumThem); ?>" <?= ((isset($idThem) && $idThem == $ListNumThem) ? 'selected="selected"' : null); ?> >
                         <?= $ListfrThem; ?>
                     </option>
 <?
-                } // End of while
-            }   // if ($result)
+                    } // End of while
+                }   // if ($result)
+                //$result->closeCursor();
 ?>
                 </select>
+            </div>
         </div>
-    <!-- FIN Listbox Pays -->
+    <!-- FIN Listbox Angle -->
         </div>
         <br>
         <div class="control-group">

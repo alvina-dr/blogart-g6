@@ -23,7 +23,7 @@ class LIKECOM
         $allStatuts = $result->fetchAll();
         return ($allStatuts);
     }
-}
+
 
 	function create($numMemb, $numSeqCom, $numArt, $likeC)
 	{
@@ -46,6 +46,7 @@ class LIKECOM
 			$result->closeCursor();
 		}
 	}
+}
 /*
 	function update(string $numAngl, string $libAngl, string $numLang)
 	{

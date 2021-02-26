@@ -23,7 +23,7 @@ class LIKEART
         $allStatuts = $result->fetchAll();
         return ($allStatuts);
     }
-}
+
 
 	function create($numMemb, $numArt, $likeA)
 	{
@@ -45,7 +45,7 @@ class LIKEART
 			$result->closeCursor();
 		}
 	}
-
+}
     /*
 	function update(string $numAngl, string $libAngl, string $numLang)
 	{
@@ -86,4 +86,4 @@ class LIKEART
  			$request->closeCursor();
  		}
  	}
-}	// End of class*/
+}	//= End of class*/

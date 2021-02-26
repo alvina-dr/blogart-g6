@@ -29,7 +29,7 @@ if (isset($_GET['id'])) {
     $libThem = ctrlSaisies($result->libThem);
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        if (!empty($_POST['submit']) && $_POST['submit'] === 'Modifier' && !empty($_POST['libThem'])) {
+        if (!empty($_POST['submit']) && $_POST['submit'] === 'Submit' && !empty($_POST['libThem'])) {
             $numThem = $_GET['id'];
             $libThem = $_POST['libThem'];
 
@@ -114,7 +114,7 @@ $languages = $langue->get_AllLangues();
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="submit" value="Initialiser" class="imputFields" name="Submit" />
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="submit" value="Valider" class="imputFields" name="Submit" value="on"/>
+                <input type="submit" value="Valider" class="imputFields" name="Submit"/>
                 <br>       
             </div>
         </div>

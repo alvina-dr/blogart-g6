@@ -45,7 +45,7 @@
                     <p></p><br>
                     <p><a class="footer_hover" href="../../front/html/actors.php">Acteur clef</a></p>
                     <p></p><br>
-                    <p><a class="footer_hover" href="../../front/html/insolite.php">L'insolite !</a></p>
+                    <p><a class="footer_hover" href="../../front/html/insolite.php">Insolite</a></p>
                 </div>
                 <div class="center_t">
                     <p>On était obligé</p>

@@ -14,9 +14,9 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
 // Insertion classe
 require_once __DIR__ . '/../../CLASS_CRUD/langue.class.php';
-$langue = new LANGUE();
+$maLangue = new LANGUE();
 require_once __DIR__ . '/../../CLASS_CRUD/thematique.class.php';
-$thematique = new THEMATIQUE();
+$theme = new THEMATIQUE();
 
 // Init variables form
 include __DIR__ . '/initThematique.php';
@@ -27,7 +27,7 @@ $error = null;
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!empty($_POST['libThem']) && !empty($_POST['numLang'])) {
         $libThem = ctrlSaisies($_POST['libThem']);
-        $numLang = $_POST['TypLang'];
+        $numLang = $_POST['TypLang']; 
 
         if (strlen($libThem) >= 3) {
             // Ajout effectif de la langue

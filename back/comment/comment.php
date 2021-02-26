@@ -35,13 +35,13 @@ $monStatutCom = new COMMENT;
 <table border="3" bgcolor="aliceblue">
 <thead>
     <tr>
-        <th>&nbsp;numSeqCom&nbsp;</th>
-        <th>&nbsp;numArt&nbsp;</th>
-        <th>&nbsp;dtCreCom&nbsp;</th>
-        <th>&nbsp;libCom&nbsp;</th>
-        <th>&nbsp;attModOK&nbsp;</th>
-        <th>&nbsp;affComOK&nbsp;</th>
-        <th>&nbsp;notifComKOAff&nbsp;</th>
+        <th>&nbsp;Numéro de la séquence du commentaire&nbsp;</th>
+        <th>&nbsp;Numéro de l'article&nbsp;</th>
+        <th>&nbsp;Date de la création du commentaire&nbsp;</th>
+        <th>&nbsp;Nom du commentaire&nbsp;</th>
+        <th>&nbsp;Validation du modérateur&nbsp;</th>
+        <th>&nbsp;Visibilité du commentaire&nbsp;</th>
+        <th>&nbsp;Motif du signalement&nbsp;</th>
         
         <th colspan="2">&nbsp;Action&nbsp;</th>
         

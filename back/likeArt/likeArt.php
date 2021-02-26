@@ -37,9 +37,9 @@ $monLikeArt = new LIKEART;
 	<table border="3" bgcolor="aliceblue">
     <thead>
         <tr>
-            <th>&nbsp;numMemb&nbsp;</th>
-            <th>&nbsp;numArt&nbsp;</th>
-            <th>&nbsp;likeA&nbsp;</th>
+            <th>&nbsp;Numéro du membre&nbsp;</th>
+            <th>&nbsp;Numéro de l'article&nbsp;</th>
+            <th>&nbsp;Like de l'article&nbsp;</th>
             <th colspan="2">&nbsp;Action&nbsp;</th>
             
         </tr>

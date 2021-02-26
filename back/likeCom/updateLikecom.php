@@ -112,8 +112,8 @@
             <div class="control-group">
             <div class="control-group">
                 <label class="control-label" for="numMemb"><b>Quel Membre :&nbsp;</b></label>
-                <input type="hidden" id="idTypMemb" name="idTypMemb" value="<?=$idMemb?>" />
-                <select size="1" name="idMemb" id="idMemb" class="form-control form-control-create" tabindex="30" disabled="disabled">
+                <input type="hidden" id="id1" name="id1" value="<?= isset($_GET['id1']) ? $_GET['id1'] : '' ?>" />
+                <select size="1" name="idMemb" id="idMemb" class="form-control form-control-create" tabindex="30" >
                     <option value="-1">--- Selectionner un membre ---</option>
 
                     <?
@@ -139,8 +139,8 @@
 
                 <br><br>
                 <label class="control-label" for="numArt"><b>Quel Article :&nbsp;</b></label>
-                <input type="hidden" id="idTypArt" name="idTypArt" value="<?=$idArt;?>" >
-                <select size="1" name="idArt" id="idArt" class="form-control form-control-create" tabindex="30" disabled="disabled">
+                <input type="hidden" id="id2" name="id2" value="<?= isset($_GET['id2']) ? $_GET['id2'] : '' ?>" />
+                <select size="1" name="idArt" id="idArt" class="form-control form-control-create" tabindex="30" >
                     <option value="-1">--- Selectionner un Article ---</option>
 
                     <?
@@ -167,8 +167,8 @@
                 <br><br>
                 <div class="control-group">
                 <label class="control-label" for="numSeqCom"><b>Quel Commentaire :&nbsp;</b></label>
-                <input type="hidden" id="idTypSeqCom" name="idTypSeqCom" value="<?= $idSeqCom; ?>" />
-                <select size="1" name="idSeqCom" id="idSeqCom" class="form-control form-control-create" tabindex="30" disabled="disabled">
+                <input type="hidden" id="id3" name="id3" value="<?= isset($_GET['id3']) ? $_GET['id3'] : '' ?>" />
+                <select size="1" name="idSeqCom" id="idSeqCom" class="form-control form-control-create" tabindex="30" >
                     <option value="-1">--- Selectionner un Commentaire ---</option>
 
                     <?
@@ -230,7 +230,7 @@
     <?
 require_once __DIR__ . '/footerLikeCom.php';
 
-require_once __DIR__ . '/../../footer.php';
+require_once __DIR__ . '/../../back/footer.php';
 ?>
 </body>
 

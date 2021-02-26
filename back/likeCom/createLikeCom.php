@@ -3,7 +3,7 @@
 //
 //  CRUD LIKEART (PDO) - Code Modifié - 30 Janvier 2021
 //
-//  Script  : createLangue.php  (ETUD)   -   BLOGART21
+//  Script  : createLikecom.php  (ETUD)   -   BLOGART21
 //
 ///////////////////////////////////////////////////////////////
 
@@ -12,7 +12,8 @@
     
     
     // controle des saisies du formulaire
-    require_once __DIR__ . '/../../util/ctrlSaisies.php';
+    require_once __DIR__ . '/../../util/ctrlSaisies.php'
+    ;
     require_once __DIR__ . '/../../util/delAccents.php';
     include __DIR__ . '/../../CLASS_CRUD/likecom.class.php';
 
@@ -31,15 +32,15 @@
             header("Location: ./createLikecom.php");
         }
         // Mode création
-        if (((isset($_POST['numArt'])) AND !empty($_POST['numArt']))
-        AND ((isset($_POST['numMemb'])) AND !empty($_POST['numMemb']))
+        if (((isset($_POST['numMemb'])) AND !empty($_POST['numMemb']))
         AND ((isset($_POST['numSeqCom'])) AND !empty($_POST['numSeqCom']))
+        AND ((isset($_POST['numArt'])) AND !empty($_POST['numArt']))
         AND (!empty($_POST['Submit']) AND ($Submit === "Valider"))) {
             // Saisies valides
             $erreur = false;
             $numMemb = ctrlSaisies(($_POST['numMemb']));
-            $numArt = ctrlSaisies(($_POST['numArt']));
             $numSeqCom = ctrlSaisies(($_POST['numSeqCom']));
+            $numArt = ctrlSaisies(($_POST['numArt']));
             $valLikeC = ctrlSaisies($_POST['likeC']);
             $likeC = ($valLikeC == "on") ? 1 : 0;
 
@@ -84,7 +85,7 @@
 
             <div class="control-group">
                 <label class="control-label" for="numMemb"><b>Quel Membre :&nbsp;</b></label>
-                <input type="hidden" id="idTypMemb" name="idTypMemb" value="<?= $numMemb; ?>" />
+                <input type="hidden" id="id" name="id" value="<?= isset($_GET['id']) ? $_GET['id'] : '' ?>" />
                 <select size="1" name="numMemb" id="numMemb" class="form-control form-control-create" tabindex="30">
                     <option value="-1">--- Selectionner un membre ---</option>
 
@@ -111,7 +112,7 @@
 
                 <br><br>
                 <label class="control-label" for="numArt"><b>Quel Article :&nbsp;&nbsp;</b></label>
-                <input type="hidden" id="idTypArt" name="idTypArt" value="<?= $numArt; ?>" />
+                <input type="hidden" id="id" name="id" value="<?= isset($_GET['id']) ? $_GET['id'] : '' ?>" />
                 <select size="1" name="numArt" id="numArt" class="form-control form-control-create" tabindex="30">
                     <option value="-1">--- Selectionner un Article ---</option>
                     <?
@@ -137,7 +138,7 @@
                 <br><br>
                 <div class="control-group">
                 <label class="control-label" for="numSeqCom"><b>Quel Commentaire :&nbsp;</b></label>
-                <input type="hidden" id="idTypSeqCom" name="idTypSeqCom" value="<?= $numSeqCom; ?>" />
+                <input type="hidden" id="id" name="id" value="<?= isset($_GET['id']) ? $_GET['id'] : '' ?>" />
                 <select size="1" name="numSeqCom" id="numSeqCom" class="form-control form-control-create" tabindex="30">
                     <option value="-1">--- Selectionner un Commentaire ---</option>
 
@@ -199,7 +200,7 @@
     <?
 require_once __DIR__ . '/footerLikeCom.php';
 
-require_once __DIR__ . '/../../footer.php';
+require_once __DIR__ . '/../../back/footer.php';
 ?>
 </body>
 

@@ -1,134 +1,97 @@
-<?php
-// CRUD THEMATIQUE (ETUD)
+<?
+	// CRUD USER (ETUD)
 
-require_once __DIR__ . '../../CONNECT/database.php';
+	require_once __DIR__ . '../../CONNECT/database.php';
 
-class THEMATIQUE
-{	
-	/**
-	 * get_1Thematique Permet de récupérer une thématique dans la base de donnée
-	 *
-	 * @param  string $numThem
-	 * @return object Renvoie un object avec les informations de la thématique
-	 */
-	function get_1Thematique(string $numThem): object
-	{
-		global $db;
-		$query = $db->prepare("SELECT * FROM thematique WHERE numThem=:numThem");
-		$query->execute([
-			'numThem' => $numThem
-		]);
-		$result = $query->fetch(PDO::FETCH_OBJ);
-		return $result;
-	}
+	class THEMATIQUE{
+		
+		function get_NbAllThematiqueByidLangue($id){
+            global $db;
+            $query = 'SELECT * FROM THEMATIQUE INNER JOIN LANGUE ON thematique.numLang = langue.numLang WHERE thematique.numLang = ?;';
+            $result = $db->prepare($query);
+            $result->execute([$id]);
+            $allNbThematiqueById = $result->fetchAll();
+			$allNbThematiqueByLangue = 0;
+			foreach ($allNbThematiqueById as $row){
+				$allNbThematiqueByLangue = $allNbThematiqueByLangue + 1;
+			}
+            return($allNbThematiqueByLangue);
+        }
+		
+		function get_1ThemByLangue($id){
+            global $db;
+            $query = 'SELECT * FROM THEMATIQUE INNER JOIN LANGUE ON thematique.numLang = langue.numLang WHERE numThem = ?;';
+            $result = $db->prepare($query);
+            $result->execute([$id]);
+            return($result->fetch());
+		
+        }
+
+		function get_AllThem(){
+            global $db;
+            $query = 'SELECT numThem,libThem,lib2Lang FROM THEMATIQUE,langue WHERE thematique.numLang=langue.numLang ORDER BY numThem ASC ;';
+            $result = $db->prepare($query);
+            $result->execute();
+            return($result->fetchAll());
+			
+        }
+		function create($numThem, $libThem, $numLang){ 
+            global $db;
+            try {
+				$db->beginTransaction();
+                $query = 'INSERT INTO THEMATIQUE (numThem, libThem, numLang) VALUES (?, ?, ?);';
+                $result = $db->prepare($query);
+                $result->execute([$numThem, $libThem, $numLang]);
+				$db->commit();
+				$result->closeCursor();
 	
-	/**
-	 * get_AllThematiques Permet de récupérer toutes les thématiques
-	 *
-	 * @return array Renvoie un tableau d'objet contenant les informations des thématiques
-	 */
-	function get_AllThematiques(): array
-	{
-		global $db;
-		$query = $db->query('SELECT * FROM thematique');
-		$result = $query->fetchAll(PDO::FETCH_OBJ);
-		return $result;
-	}
+				}
+				catch (PDOException $e) {
+						die('Erreur insert  THEMATIQUE : ' . $e->getMessage());
+						$db->rollBack();
+						$result->closeCursor();
+				}
+				
+        }
+		function update($numThem, $libThem, $numLang){ 
+            global $db;
+            try {
+				$db->beginTransaction();
+                $query = 'UPDATE THEMATIQUE SET libThem = ?, numLang = ? WHERE numThem = ?;';
+                $result = $db->prepare($query);
+                $result->execute([$libThem, $numLang, $numThem]);
+				$db->commit();
+				$result->closeCursor();
 	
-	/**
-	 * get_AllThematiquesByLang Permet de récupérer toutes les thématiques en fonction d'une langue
-	 *
-	 * @param  string $numLang
-	 * @return array Renvoie un tableau d'objet contenant les informations des thématiques récupérées
-	 */
-	function get_AllThematiquesByLang(string $numLang): array
-	{
-		global $db;
-		$query = $db->prepare('SELECT * FROM thematique WHERE numLang = :numLang');
-		$query->execute([
-			'numLang' => $numLang
-		]);
-		$result = $query->fetchAll(PDO::FETCH_OBJ);
-		return ($result);
-	}
+				}
+				catch (PDOException $e) {
+						die('Erreur insert Angle : ' . $e->getMessage());
+						$db->rollBack();
+						$result->closeCursor();
+				}
+				
+        }
+
+		function delete($numThem){ 
+            global $db;
+            try {
+				$db->beginTransaction();
+                $query = 'DELETE FROM THEMATIQUE WHERE numThem = ?;';
+                $result = $db->prepare($query);
+                $result->execute([$numThem]);
+				$db->commit();
+				$result->closeCursor();
 	
-	/**
-	 * create Permet d'ajouter une thématique à la base de donnée
-	 *
-	 * @param  string $libThem
-	 * @param  string $numLang
-	 * @return void
-	 */
-	function create(string $libThem, string $numLang)
-	{
-		global $db;
-		require_once __DIR__ . './getNextNumThem.php';
-		$numThem = getNextNumThem($numLang);
-		try {
-			$db->beginTransaction();
-			$query = $db->prepare('INSERT INTO thematique (numThem, libThem, numLang) VALUES (:numThem, :libThem, :numLang)');
-			$query->execute([
-				'numThem' => $numThem,
-				'libThem' => $libThem,
-				'numLang' => $numLang
-			]);
-			$db->commit();
-			$query->closeCursor();
-		} catch (PDOException $e) {
-			$db->rollBack();
-			$query->closeCursor();
-			die('Erreur insert THEMATIQUE : ' . $e->getMessage());
-		}
-	}
-	
-	/**
-	 * update Permet de modifier une thématique de la base de donnée
-	 *
-	 * @param  string $numThem
-	 * @param  string $libThem
-	 * @return void
-	 */
-	function update(string $numThem, string $libThem)
-	{
-		global $db;
-		try {
-			$db->beginTransaction();
-			$query = $db->prepare('UPDATE thematique SET libThem = :libThem WHERE numThem = :numThem');
-			$query->execute([
-				'numThem' => $numThem,
-				'libThem' => $libThem
-			]);
-			$db->commit();
-			$query->closeCursor();
-		} catch (PDOException $e) {
-			$db->rollBack();
-			$query->closeCursor();
-			die('Erreur update THEMATIQUE : ' . $e->getMessage());
-		}
-	}
-	
-	/**
-	 * delete Permet de supprimer une thématique de la base de donnée
-	 *
-	 * @param  string $numThem
-	 * @return void
-	 */
-	function delete(string $numThem)
-	{
-		global $db;
-		try {
-			$db->beginTransaction();
-			$query = $db->prepare('DELETE FROM thematique WHERE numThem=:numThem');
-			$query->execute([
-				'numThem' => $numThem
-			]);
-			$db->commit();
-			$query->closeCursor();
-			return $query->rowCount();
-		} catch (PDOException $e) {
-			$db->rollBack();
-			$query->closeCursor();
-			die('Erreur delete THEMATIQUE : ' . $e->getMessage());
-		}
-	}
-}	// End of class
+				}
+				catch (PDOException $e) {
+						die('Erreur delete Angle : ' . $e->getMessage());
+						$db->rollBack();
+						$result->closeCursor();
+				}
+				
+        }
+
+
+		
+
+	}	// End of class

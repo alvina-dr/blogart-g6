@@ -194,9 +194,9 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
             <div class="controls">
                 <br><br>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="submit" value="Initialiser" style="cursor:pointer; padding:5px 20px; background-color:lightsteelblue; border:dotted 1px grey; border-radius:5px;" name="Submit" />
+                <input type="submit" value="Initialiser" class="imputFields" name="Submit" />
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="submit" value="Valider" style="cursor:pointer; padding:5px 20px; background-color:lightsteelblue; border:dotted 1px grey; border-radius:5px;" name="Submit" />
+                <input type="submit" value="Valider" class="imputFields" name="Submit" />
                 <br>
             </div>
         </div>

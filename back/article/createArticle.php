@@ -21,6 +21,41 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
     // Gestion du $_SERVER["REQUEST_METHOD"] => En POST
     // ajout effectif du statut
 
+    $error = null;
+    $fileName = null;
+    $saved = null;
+    
+    //Récupérer et sauvegarde de l'image
+    if (isset($_FILES['urlPhotArt'])) {
+        $maxSize = 3 * 1000 * 1000; //3Mo
+        $validExt = array('.jpg', '.jpeg', '.gif', '.png');
+    
+        if ($_FILES['urlPhotArt']['error'] <= 0) {
+            $fileSize = $_FILES['urlPhotArt']['size'];
+    
+            if ($fileSize < $maxSize) {
+                $fileName = $_FILES['urlPhotArt']['name'];
+                $fileExt = '.' . strtolower(substr(strrchr($fileName, '.'), 1));
+    
+                if (in_array($fileExt, $validExt)) {
+                    $tmpName = $_FILES['urlPhotArt']['tmp_name'];
+                    $uniqueName = md5(uniqid(rand(), true));
+                    $fileName = '../../upload/' . $uniqueName . $fileExt;
+                    $result = move_uploaded_file($tmpName, $fileName);
+    
+                    $saved = $result ? ($uniqueName . $fileExt) : null;
+                } else {
+                    $error = 'Le fichier selectionné n\'est pas une image !';
+                }
+            } else {
+                $error = 'Le fichier est trop volumineux!';
+            }
+        } else {
+            $error = 'Erreur durant le transfert !';
+        }
+    }
+    
+
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
       // Opérateur ternaire
@@ -64,6 +99,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
             $parag2Art = ctrlSaisies(($_POST['parag2Art']));
             $libSsTitr2Art = ctrlSaisies(($_POST['libSsTitr2Art']));
             $parag3Art = ctrlSaisies(($_POST['parag3Art']));
+            $libConclArt = ctrlSaisies(($_POST['libConclArt']));
 
             //$urlPhotArt = ctrlSaisies(($_POST['urlPhotArt']));
             $urlPhotArt = -1;
@@ -76,7 +112,11 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 //
             // $monArticle->create($numArt, $libTitrArt, $libChapoArt, $libAccrochArt, $parag1Art, $libSsTitr1Art, $parag2Art, $libSsTitr2Art, $parag3Art, $urlPhotArt, $TypAngl, $numThem);
 
-            $monArticle->create($libTitrArt, $libChapoArt, $libAccrochArt, $parag1Art, $libSsTitr1Art, $parag2Art, $libSsTitr2Art, $parag3Art, $numAngl, $numThem);
+            $monArticle->create( 
+            $libTitrArt, $libChapoArt, $libAccrochArt, 
+            $parag1Art, $libSsTitr1Art, $parag2Art, 
+            $libSsTitr2Art, $parag3Art, $libConclArt, $urlPhotArt, 
+            $numAngl, $numThem);
 
 
         }   // Fin if ((isset($_POST['legendImg'])) ...
@@ -166,9 +206,10 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
         <br>
         <!-- Url Photo -->
         <div class="control-group">
-            <label class="control-label" for="urlPhotArt"><b>Photo :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="file" name="urlPhotArt"  accept="image/png, image/jpeg" id="urlPhotArt" size="2000" maxlength="2000" value="<?= $urlPhotArt; ?>" autofocus="autofocus" style="margin: 0px; width: 500px; height: 25px;" />
-        </div>
+                            <label for="urlPhotArt"><b>Image :</b></label>
+                            <input type="file" style="margin: 0px; width: 500px; height: 25px;" name="urlPhotArt">
+                        </div>
+                    </div>
         <br>
         <!-- FK : Angl -->
     <!-- Listbox Angl -->

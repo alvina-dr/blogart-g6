@@ -69,7 +69,7 @@ class LIKEART
 }
     
 	
-
+{
 // Ctrl FK sur THEMATIQUE, ANGLE, MOTCLE avec del
  	function delete($numAngl)
  	{
@@ -88,4 +88,4 @@ class LIKEART
  			$request->closeCursor();
  		}
  	}
-	//= End of class*/
+}

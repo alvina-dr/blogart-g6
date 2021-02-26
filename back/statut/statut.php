@@ -52,8 +52,8 @@ $monStatut = new STATUT;
 	<table border="3" bgcolor="aliceblue">
     <thead>
         <tr>
-            <th>&nbsp;Numéro&nbsp;</th>
-            <th>&nbsp;Nom&nbsp;</th>
+            <th>&nbsp;Numéro du statut&nbsp;</th>
+            <th>&nbsp;Nom du statut&nbsp;</th>
             <th colspan="2">&nbsp;Action&nbsp;</th>
         </tr>
     </thead>

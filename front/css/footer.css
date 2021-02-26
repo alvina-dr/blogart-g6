@@ -18,14 +18,14 @@
     height: 5vh;
 }
 .footer_hover {
-    color: yellow;
+    color: #F5F5F5;
     text-decoration: none;
     font-family: "Helvetica";
     font-size: 130%;
     line-height: 130%;
 }
 .footer_hover:hover {
-    color: #000000;
+    color: #CF6679;
 }
 
 a{

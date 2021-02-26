@@ -1,132 +1,145 @@
 <?php
 ///////////////////////////////////////////////////////////////
 //
-//  CRUD THEMATIQUE (PDO) - Code Modifié - 23 Janvier 2021
+//  CRUD STATUT (PDO) - Code Modifié - 23 Janvier 2021
 //
 //  Script  : updateThematique.php  (ETUD)   -   BLOGART21
 //
 ///////////////////////////////////////////////////////////////
-$pageTitle = 'Thématique';
 
 // Mode DEV
 require_once __DIR__ . '/../../util/utilErrOn.php';
-require_once __DIR__ . '/../../util/ctrlSaisies.php';
-
-// Insertion classe
-require_once __DIR__ . '/../../CLASS_CRUD/langue.class.php';
-$langue = new LANGUE();
-require_once __DIR__ . '/../../CLASS_CRUD/thematique.class.php';
-$thematique = new THEMATIQUE();
-
-// Init variables form
-include __DIR__ . '/initThematique.php';
-$error = null;
 
 
-// Controle des saisies du formulaire
-if (isset($_GET['id'])) {
-    $result = $thematique->get_1Thematique($_GET['id']);
-    $libThem = ctrlSaisies($result->libThem);
+    // controle des saisies du formulaire
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        if (!empty($_POST['submit']) && $_POST['submit'] === 'Submit' && !empty($_POST['libThem'])) {
-            $numThem = $_GET['id'];
-            $libThem = $_POST['libThem'];
 
-            if (strlen($libThem) >= 3) {
-                // Modification effective de la thématique
-                $thematique->update($numThem, $libThem);
+    // insertion classe STATUT
+    require_once __DIR__ . '/../../util/ctrlSaisies.php';
+    require_once __DIR__ . '/../../CLASS_CRUD/thematique.class.php';
+    global $db;
+    $maThematique = new THEMATIQUE;
 
-                header('Location: ./thematique.php');
-            } else {
-                $error = 'La longueur minimale d\'une thématique est de 3 caractères.';
-            }
-        } else if (!empty($_POST['submit']) && $_POST['submit'] === 'Initialiser') {
-            header('Location: ./updateThematique.php?id=' . $_GET['id']);
-        } else {
-            $error = 'Merci de renseigner tous les champs du formulaire.';
-        }
-    }
-}
 
-$languages = $langue->get_AllLangues();
+    // Gestion du $_SERVER["REQUEST_METHOD"] => En POST
+    // ajout effectif du statut
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
+        // Opérateur ternaire
+        $Submit = isset($_POST['Submit']) ? $_POST['Submit'] : '';
+
+        if ((isset($_POST["Submit"])) AND ($_POST["Submit"] === "Initialiser")) {
+
+            header("Location: ./updateThem.php");
+        }   // End of if ((isset($_POST["submit"])) ...
+
+        // Mode création
+        if (((isset($_POST['id'])) AND !empty($_POST['id']))
+            AND((isset($_POST['libThem'])) AND !empty($_POST['libThem']))
+            AND (!empty($_POST['Submit']) AND ($Submit === "Valider"))
+            AND ((isset($_POST['numLang'])) AND !empty($_POST['numLang']))) {
+            // Saisies valides 
+            $erreur = false;
+
+            $libThem = ctrlSaisies(($_POST['libThem']));
+            $numLang = ctrlSaisies($_POST['numLang']);
+            $numThem = ($_POST['id']);
+
+            $maThematique->update($numThem, $libThem, $numLang);
+
+            header("Location: ./thematique.php");
+        }   // Fin if ((isset($_POST['libStat'])) ...
+        else {
+        $erreur = true;
+        $errSaisies =  "Erreur, la saisie est obligatoire !";
+        }   // End of else erreur saisies
+        // End of else erreur saisies
+
+    }   // Fin if ($_SERVER["REQUEST_METHOD"] == "POST")
+
+    // Init variables form
+    include __DIR__ . '/initThematique.php';
 ?>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <title>Admin - Gestion du CRUD Thématique</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
 
-<main class="container">
- <link href="../../back/css/style.css" rel="stylesheet" type="text/css" />
-    <div class="d-flex flex-column">
-        <h1>BLOGART21 Admin - Gestion du CRUD Thématique</h1>
-        <hr>
+    <link rel="stylesheet" href="../../front/assets/css/normalize.css">
+    <link rel="stylesheet" href="../css/footer.css">
 
-        <div class="row d-flex justify-content-center">
-            <div class="col-8">
-                <h2>Modification d'une thématique</h2>
+</head>
+<body>
+    <h1>BLOGART21 Admin - Gestion du CRUD Thématique</h1>
+    <h2>Modification d'une thématique</h2>
+<?
+    // Modif : récup id à modifier
+    if (isset($_GET['id']) and !empty($_GET['id'])) {
 
-                <?php if ($error) : ?>
-                    <div class="alert alert-danger"><?= $error ?: '' ?></div>
-                <?php endif ?>
+        $id = ctrlSaisies(($_GET['id']));
 
-                <form class="form" method="post" action="" enctype="multipart/form-data">
+        $query = (array)$maThematique->get_1ThemByLangue($id);
 
-                    <fieldset>
-                        <legend class="legend1">Formulaire Thématique...</legend>
+        if ($query) {
+            $libThem = $query['libThem'];
+            $numLang = $query['numLang'];
+            $lib1Lang = $query['lib1Lang'];
+        }   // Fin if ($query)
+    }   // Fin if (isset($_GET['id'])...)
 
-                        <input type="hidden" id="id" name="id" value="<?= isset($_GET['id']) ?: '' ?>" />
 
-                        <div class="control-group">
-                            <label for="libThem"><b>Nom de la thématique :</b></label>
-                            <input class="form-control" type="text" name="libThem" id="libThem" size="80" maxlength="80" value="<?= $libThem ?>" autofocus="autofocus" />
-                        </div>
+?>
+    <form method="post" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" enctype="multipart/form-data">
 
-                        <!-- Listbox langue -->
-    <br>
+      <fieldset>
+        <legend class="legend1">Formulaire Thématique...</legend>
+
+        <input type="hidden" id="id" name="id" value="<?= $_GET['id']; ?>" />
+
         <div class="control-group">
-            <label class="control-label" for="LibTypLang"><b>Quelle langue :&nbsp;&nbsp;&nbsp;</b></label>
-                <input type="hidden" id="idTypLang" name="idTypLang" value="<?= isset($_GET['numLang']) ? $_GET['numLang'] : '' ?>" />
-
-                <select size="1" name="TypLang" id="TypLang" required class="form-control form-control-create" title="Sélectionnez la langue !" >
-                   <option value="-1">Choisissez une langue </option>
-<?
-            $numLang = "";
-            $lib1Lang = "";
-
-            $queryText = 'SELECT * FROM LANGUE ORDER BY lib1Lang;';
-            $result = $db->query($queryText);
-            if ($result) {
-                while ($tuple = $result->fetch()) {
-                    $ListNumLang = $tuple["numLang"];
-                    $ListLibLang = $tuple["lib1Lang"];
-?>
-                    <option value="<?= $ListNumLang; ?>" >
-                        <?= $ListLibLang; ?>
-                    </option>
-<?
-                } // End of while
-            }   // if ($result)
-?>
-                </select>
+            <label class="control-label" for="libThem"><b>Nouveau nom de la thématique :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+            <input type="text" name="libThem" id="libThem" size="80" maxlength="80" value="<?= $libThem; ?>" autofocus="autofocus" />
         </div>
-    <!-- FIN Listbox langue -->
+        <div class="control-group">
+            <label for="numLang">Langue :</label>  
+            <select id="numLang" name="numLang"  onchange="select()">
+            <?php 
+            global $db;
+            $requete = 'SELECT * FROM LANGUE ;';
+            $result = $db->query($requete);
+            $allLangue = $result->fetchAll();
+            foreach ($allLangue AS $langue)
+            {
+            ?>
+            <option value="<?= ($langue['numLang']); ?>" <?= (isset($numLang) && $numLang == $langue['numLang'] ) ? " selected=\"selected\"" : null; ?> >
+                <?= $langue['lib1Lang']; ?>
+            </option>
+            <?php
+            }
+            ?>
+            </select>
+        </div>
 
-    <div class="control-group">
+        <div class="control-group">
             <div class="controls">
                 <br><br>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="submit" value="Initialiser" class="imputFields" name="Submit" />
+                <input type="submit" value="Initialiser" style="cursor:pointer; padding:5px 20px; background-color:lightsteelblue; border:dotted 2px grey; border-radius:5px;" name="Submit" />
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="submit" value="Valider" class="imputFields" name="Submit"/>
-                <br>       
+                <input type="submit" value="Valider" style="cursor:pointer; padding:5px 20px; background-color:lightsteelblue; border:dotted 2px grey; border-radius:5px;" name="Submit" />
+                <br>
             </div>
         </div>
       </fieldset>
-                </form>
-            </div>
-        </div>
-
-        <?
+    </form>
+<?php
 require_once __DIR__ . '/footerThematique.php';
 
 require_once __DIR__ . '/footer.php';
 ?>
-    </div>
-</main>
+</body>
+</html>

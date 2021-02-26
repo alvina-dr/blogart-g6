@@ -230,7 +230,7 @@
     <?
 require_once __DIR__ . '/footerLikeCom.php';
 
-require_once __DIR__ . '/../../footer.php';
+require_once __DIR__ . '/../../back/footer.php';
 ?>
 </body>
 

@@ -72,6 +72,7 @@ class LIKECOM
 
 	
 
+{
 // Ctrl FK sur THEMATIQUE, ANGLE, MOTCLE avec del
  	function delete($numAngl)
  	{
@@ -91,4 +92,3 @@ class LIKECOM
  		}
  	}
 }	// End of class
-*/

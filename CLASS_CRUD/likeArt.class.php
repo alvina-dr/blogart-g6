@@ -69,7 +69,7 @@ class LIKEART
 }
     
 	
-
+{
 // Ctrl FK sur THEMATIQUE, ANGLE, MOTCLE avec del
  	function delete($numAngl)
  	{

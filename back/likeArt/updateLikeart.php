@@ -192,7 +192,7 @@
     <?
 require_once __DIR__ . '/footerLikeArt.php';
 
-require_once __DIR__ . '/../../footer.php';
+require_once __DIR__ . '/../../back/footer.php';
 ?>
 </body>
 

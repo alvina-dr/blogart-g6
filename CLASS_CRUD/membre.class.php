@@ -30,17 +30,17 @@ class MEMBRE
 	}
 
 
-function get_AllMembresByPseudo($pseudoMemb)
-{
-	global $db;
-	$query = $db->prepare("SELECT * FROM membre WHERE pseudoMemb=:pseudoMemb");
-	$query->execute([
-		'pseudoMemb' => $pseudoMemb
-	]);
-	$result = $query->fetchAll(PDO::FETCH_OBJ);
-	return $result;
-}
-
+	function get_AllMembresByPseudo($pseudoMemb)
+	{
+		global $db;
+		$query = $db->prepare("SELECT numMemb, passMemb FROM membre WHERE pseudoMemb=:pseudoMemb");
+		$query->execute([
+			'pseudoMemb' => $pseudoMemb
+		]);
+		$result = $query->fetchAll(PDO::FETCH_OBJ);
+		return $result;
+	}
+	
 	// function get_1MotCleByLangue($numMemb)
 	// {
 	// 	global $db;

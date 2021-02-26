@@ -36,6 +36,7 @@
 			</ul>
 			<ul class="log">
 				<li><a href="../../front/html/inscription.php">Inscription</a></li>
+				<li><a href="../../back/membre/logout.php">Déconnexion</a></li>
 				<li ><a class="connexion" href="../../front/html/connexion.php"></a></li>
 			</ul>
 			</div>

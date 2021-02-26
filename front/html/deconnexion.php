@@ -23,18 +23,13 @@
     require_once __DIR__ . '/header.php';
     ?>
         <div class="flex">
-            <img src="../assets/icons/hello.svg">
             <div class="">
-                <img class="h22" src="../assets/icons/terevoila.png">
                 <br>
                 <br>
+                <h2>À la prochaine !</h2>
                 <br>
                 <?php
-                //require_once __DIR__ . '../../../back/membre/connectMembreSite.php';
-                require_once __DIR__ . '../../../back/membre/login.php';
                  ?>
-
-                <a><img class="h22 hwg" src="../assets/icons/hwg.png"></a>
             </div>
         </div>
     <?php

@@ -14,13 +14,17 @@ class MEMBRE
 		$result->execute();
 		return ($result->fetch());
 	}
-	function get_1Pseudo($numMemb)
+	function get_1Pseudo($pseudoMemb)
 	{
 		global $db;
-		$query = 'SELECT * FROM MEMBRE WHERE pseudoMemb = :pseudoMemb;';
+		$pseudoMemb = 'root';
+		$query = 'SELECT pseudoMemb FROM MEMBRE WHERE pseudoMemb = :pseudoMemb;';
 		$result = $db->prepare($query);
 		$result->bindParam(':pseudoMemb', $pseudoMemb);
 		$result->execute();
+		//$pseudoMemb = $result->fetch();
+		//echo " pseudo : ".$pseudoMemb;
+		//return ($pseudoMemb);
 		return ($result->fetch());
 	}
 

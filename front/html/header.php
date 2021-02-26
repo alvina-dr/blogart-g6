@@ -12,7 +12,6 @@
 	<!--linker stylesheet-->
 	<link rel="stylesheet" type="text/css" href="../css/base.css">
 	<link rel="stylesheet" href="../../front/css/font.css">
-	<link rel="stylesheet" href="../../front/css/header.css">
 	<link rel="stylesheet" href="../../front/css/footer.css">
 	<link rel="stylesheet" href="../../front/css/insolite.css">
 </head>

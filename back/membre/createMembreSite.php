@@ -93,7 +93,7 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
             if(($prenomMemb !="") AND ($nomMemb!="") AND ($pseudoMemb!="") AND ($idStat!="") AND ($dtCreaMemb!="") AND ($souvenirMemb!="") AND ($accordMemb!="") AND ($eMailOk == 1) AND ($passwordOk == 1)){
                 
                 $monStatutMM->create($prenomMemb, $nomMemb,$pseudoMemb,$passMemb,$eMailMemb,$dtCreaMemb, $souvenirMemb,$accordMemb, $idStat);
-                header("Location: ../../front/html/index.php");
+                header("Location: ../../index.php");
             }
             else{
                 echo "&err1=".$errMail1."&err2=".$errMail2."&err3=".$errPass;

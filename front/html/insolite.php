@@ -106,13 +106,13 @@
                 <br>
                 Par ailleurs, le jeu seul ne fait pas toute la carrière.<br>
                 En effet, les streamers pro par exemple doivent aussi alimenter une communauté, et savoir gérer leur réputation. La partie communication et gestion des réseaux sociaux de la formation ne se fait qu’en mastère, dans une branhce de l'EGS se nommant la Digital Gaming School, soit à la fin du diplôme, et seulement si on choisit la spécialité communication. Comment peut-on manager sa présence en ligne et ainsi devenir gamer professionnel reconnu si l’on a pas de cours de communication, ou très peu? Dans cet exemple, community manager est un métier à part entière qui demande des compétences acquises dans des formations dédiées.
-            </p><br>
+            </p><br><br>
             <p><b><a href="https://www.digital-gaming-school.fr/" class="interaction2" target="_blank">Pour en savoir plus sur la Digital Gaming School cliquez ici ! </a></p></b>
             <br>
 
         </div>
     </div>
-    <p>
+    <p><br><br>
         Par ailleurs, le site de l’EGS ne fournit pas de chiffres sur le nombre de pro gamers qui réussissent après leur passage dans l’école, ce qui est essentiel pour des gens lambda qui voudraient se rassurer vis-à-vis de la formation.
         Les équipes esport de l’EGS, elles, sont répertoriées sur un site externe, avec leurs matchs et leurs résultats. Les résultats sont dans la moyenne de ce qu’on peut espérer de la part d’équipe non professionnelle. Ce qui confirme une grande règle de l’esport : pour réussir, il faut une bonne dose de talent!
     </p> </br>

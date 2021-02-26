@@ -99,6 +99,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
             $parag2Art = ctrlSaisies(($_POST['parag2Art']));
             $libSsTitr2Art = ctrlSaisies(($_POST['libSsTitr2Art']));
             $parag3Art = ctrlSaisies(($_POST['parag3Art']));
+            $libConclArt = ctrlSaisies(($_POST['libConclArt']));
 
             //$urlPhotArt = ctrlSaisies(($_POST['urlPhotArt']));
             $urlPhotArt = -1;
@@ -111,7 +112,11 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 //
             // $monArticle->create($numArt, $libTitrArt, $libChapoArt, $libAccrochArt, $parag1Art, $libSsTitr1Art, $parag2Art, $libSsTitr2Art, $parag3Art, $urlPhotArt, $TypAngl, $numThem);
 
-            $monArticle->create($libTitrArt, $libChapoArt, $libAccrochArt, $parag1Art, $libSsTitr1Art, $parag2Art, $libSsTitr2Art, $parag3Art, $numAngl, $numThem);
+            $monArticle->create( 
+            $libTitrArt, $libChapoArt, $libAccrochArt, 
+            $parag1Art, $libSsTitr1Art, $parag2Art, 
+            $libSsTitr2Art, $parag3Art, $libConclArt, $urlPhotArt, 
+            $numAngl, $numThem);
 
 
         }   // Fin if ((isset($_POST['legendImg'])) ...
@@ -200,9 +205,9 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
         </div>
         <br>
         <!-- Url Photo -->
-        <div class="form-group mb-3 col-6">
+        <div class="control-group">
                             <label for="urlPhotArt"><b>Image :</b></label>
-                            <input type="file" class="form-control" name="urlPhotArt">
+                            <input type="file" style="margin: 0px; width: 500px; height: 25px;" name="urlPhotArt">
                         </div>
                     </div>
         <br>

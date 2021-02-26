@@ -47,7 +47,7 @@
             var_dump($numMemb);
             var_dump($numArt);
             var_dump($likeA);
-            $monLikeArt->update($numArt, $numMemb, $likeA);
+            $monLikeArt->update($numMemb, $numArt, $likeA);
 
             header("Location: ./likeArt.php");
 
@@ -183,9 +183,9 @@
                 <div class="controls">
                     <br><br>
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="submit" value="Annuler"  name="Submit" />
+                    <input class="inputFields" type="submit" value="Annuler"  name="Submit" />
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="submit" value="Valider"  name="Submit" />
+                    <input class="inputFields" type="submit" value="Valider"  name="Submit" />
                     <br>
                 </div>
             </div>

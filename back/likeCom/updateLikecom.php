@@ -51,7 +51,7 @@
             var_dump($numArt);
             var_dump($numSeqCom);
             var_dump($likeC);
-            $monLikeCom->update($numMemb, $numArt, $numSeqCom, $likeC);
+            $monLikeCom->update($numMemb, $numSeqCom, $numArt, $likeC);
 
             header("Location: ./likeCom.php");
 
@@ -222,9 +222,9 @@
                 <div class="controls">
                     <br><br>
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="submit" value="Annuler" name="Submit" />
+                    <input class="inputFields" type="submit" value="Annuler" name="Submit" />
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="submit" value="Valider" name="Submit" />
+                    <input class="inputFields" type="submit" value="Valider" name="Submit" />
                     <br>
                 </div>
             </div>

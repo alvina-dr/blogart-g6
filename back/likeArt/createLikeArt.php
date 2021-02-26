@@ -43,7 +43,7 @@
             var_dump($numMemb);
             var_dump($numArt);
             var_dump($likeA);
-            $monLikeArt->create($numArt, $numMemb, $likeA);
+            $monLikeArt->create($numMemb, $numArt, $likeA);
 
             header("Location: ./likeArt.php");
 
@@ -158,9 +158,9 @@
                 <div class="controls">
                     <br><br>
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="submit" value="Initialiser" name="Submit" />
+                    <input class="inputFields" type="submit" value="Initialiser" name="Submit" />
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="submit" value="Valider" name="Submit" />
+                    <input class="inputFields" type="submit" value="Valider" name="Submit" />
                     <br>
                 </div>
             </div>

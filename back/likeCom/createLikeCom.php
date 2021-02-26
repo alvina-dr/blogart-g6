@@ -46,7 +46,7 @@
             var_dump($numArt);
             var_dump($numSeqCom);
             var_dump($likeC);
-            $monLikeCom->create($numMemb, $numArt, $numSeqCom, $likeC);
+            $monLikeCom->create($numMemb, $numSeqCom, $numArt, $likeC);
 
             header("Location: ./likeCom.php");
 
@@ -191,9 +191,9 @@
                 <div class="controls">
                     <br><br>
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="submit" value="Initialiser" name="Submit" />
+                    <input class="inputFields" type="submit" value="Initialiser" name="Submit" />
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="submit" value="Valider" name="Submit" />
+                    <input class="inputFields" type="submit" value="Valider" name="Submit" />
                     <br>
                 </div>
             </div>

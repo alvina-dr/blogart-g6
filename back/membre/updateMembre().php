@@ -47,9 +47,9 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 
             if (((isset($_POST['prenomMemb'])) AND !empty($_POST['prenomMemb']))
                 AND ((isset($_POST['nomMemb'])) AND !empty($_POST['nomMemb']))
-                AND ((isset($_POST['pass1Memb'])) AND !empty($_POST['pass1Memb']))
-                // AND ((isset($_POST['pass2Memb'])) AND !empty($_POST['pass2Memb']))
-                AND ((isset($_POST['eMail1Memb'])) AND !empty($_POST['eMail1Memb']))
+                AND ((isset($_POST['passMemb'])) AND !empty($_POST['passMemb']))
+                // AND ((isset($_POST['passMemb2'])) AND !empty($_POST['passMemb2']))
+                AND ((isset($_POST['eMailMemb'])) AND !empty($_POST['eMailMemb']))
                 // AND ((isset($_POST['eMail2Memb'])) AND !empty($_POST['eMail2Memb']))
                 AND ((isset($_POST['souvenirMemb'])) AND !empty($_POST['souvenirMemb']))
                 AND ((isset($_POST['TypStat'])) AND !empty($_POST['TypStat']))) {
@@ -62,11 +62,11 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
                 $prenomMemb = ctrlSaisies($_POST['prenomMemb']);
                 $nomMemb = ctrlSaisies($_POST['nomMemb']);
 
-                $pass1Memb = ctrlSaisies($_POST['pass1Memb']);
-                $pass2Memb = (isset($_POST['pass2Memb']) AND !empty($_POST['pass2Memb'])) ? ctrlSaisies($_POST['pass2Memb']) : '';
+                $passMemb = ctrlSaisies($_POST['passMemb']);
+                $passMemb2 = (isset($_POST['passMemb2']) AND !empty($_POST['passMemb2'])) ? ctrlSaisies($_POST['passMemb2']) : '';
 
-                $eMail1Memb = ctrlSaisies($_POST['eMail1Memb']);
-                $eMail2Memb = (isset($_POST['eMail2Memb']) AND !empty($_POST['eMail2Memb'])) ? ctrlSaisies($_POST['eMail2Memb']) : '';
+                $eMailMemb = ctrlSaisies($_POST['eMailMemb']);
+                $eMailMemb2 = (isset($_POST['eMailMemb2']) AND !empty($_POST['eMailMemb2'])) ? ctrlSaisies($_POST['eMailMemb2']) : '';
 
                 $valSouvenirMemb = ctrlSaisies($_POST['souvenirMemb']);
                 $souvenirMemb = ($valSouvenirMemb == "on") ? 1 : 0;
@@ -74,16 +74,16 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 
                 // CTRL saisies
                 // VALIDITÉ MAIL
-                if ($eMail2Memb != '') {
+                if ($eMailMemb2 != '') {
                     # Modification MAIL
-                    if (filter_var($eMail1Memb, FILTER_VALIDATE_EMAIL)) {
+                    if (filter_var($eMailMemb, FILTER_VALIDATE_EMAIL)) {
                         $mail1F1 = 1;    // TRUE
                         $msgErrMail1 = "";
                     } else {
                         $mail1F1 = 0;    // FALSE
                         $msgErrMail1 = "&nbsp;&nbsp;- Premier mail invalide<br>";
                     }
-                    if (filter_var($eMail2Memb, FILTER_VALIDATE_EMAIL)) {
+                    if (filter_var($eMailMemb2, FILTER_VALIDATE_EMAIL)) {
                         $mail2F1 = 1;    // TRUE
                         $msgErrMail2 = "";
                     } else {
@@ -92,7 +92,7 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
                     }
                     // MAIL IDENTIQUE
                     if ($mail1F1 == 1 AND $mail2F1 == 1) {
-                        if ($eMail1Memb == $eMail2Memb) {
+                        if ($eMailMemb == $eMailMemb2) {
                             $mailIdentiqF1 = 1;
                             $msgErrMailIdentiq = "";
                         } else {
@@ -109,11 +109,11 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
                     $msgErrMailIdentiq = "";
                 }
                 // TEST MODIF PASS
-                if ($pass2Memb != '') {
+                if ($passMemb2 != '') {
                     # Modification PASS & CTRL PASS VALIDE
-                    if ($pass1Memb == $pass2Memb) {
+                    if ($passMemb == $passMemb2) {
                         $passIdentiqF1 = 1;
-                        $pass1Memb = password_hash($_POST['pass1Memb'], PASSWORD_DEFAULT, ['cost' => 15]);
+                        $passMemb = password_hash($_POST['passMemb'], PASSWORD_DEFAULT, ['cost' => 15]);
                         $msgErrPassIdentiq = "";
                     } else {
                         $passIdentiqF1 = 0;
@@ -123,12 +123,12 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
                     // PAss non modifié
                     $passIdentiqF1 = 1;
                     $msgErrPassIdentiq = "";
-                    $pass1Memb = -1;  // On garde ancien pass
+                    $passMemb = -1;  // On garde ancien pass
                 }
 
                 if ($prenomMemb != "" AND $nomMemb != "" AND $mailIdentiqF1 == 1 AND $passIdentiqF1 == 1) {
 
-                    $monMembre->update($numMemb, $prenomMemb, $nomMemb, $pass1Memb, $eMail1Memb, $souvenirMemb, $idStat);
+                    $monMembre->update($numMemb, $prenomMemb, $nomMemb, $passMemb, $eMailMemb, $souvenirMemb, $idStat);
 
                     header("Location: ./membre.php");
                 } else {
@@ -198,8 +198,8 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
             $prenomMemb = $query['prenomMemb'];
             $nomMemb = $query['nomMemb'];
             $pseudoMemb = $query['pseudoMemb'];
-            $pass1Memb = $query['passMemb'];
-            $eMail1Memb = $query['eMailMemb'];
+            $passMemb = $query['passMemb'];
+            $eMailMemb = $query['eMailMemb'];
             $souvenirMemb = $query['souvenirMemb'];
             $accordMemb = $query['accordMemb'];
             $dtCreaMemb = $query['dtCreaMemb'];
@@ -238,8 +238,8 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 
         <br>
         <div class="control-group">
-            <label class="control-label" for="pass1Memb"><b>Mot passe<span class="error">(*)</span> :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="password" name="pass1Memb" id="myInput1" size="80" maxlength="80" value="<?= $pass1Memb; ?>" autocomplete="on" />
+            <label class="control-label" for="passMemb"><b>Mot passe<span class="error">(*)</span> :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+            <input type="password" name="passMemb" id="myInput1" size="80" maxlength="80" value="<?= $passMemb; ?>" autocomplete="on" />
             <br>
             <input type="checkbox" onclick="myFunction('myInput1')">
             &nbsp;&nbsp;
@@ -248,8 +248,8 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 
         <br>
         <div class="control-group">
-            <label class="control-label" for="pass2Memb"><b>Confirmez le mot passe<span class="error">(*)</span> :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="password" name="pass2Memb" id="myInput2" size="80" maxlength="80" value="<?= $pass2Memb; ?>" autocomplete="on" />
+            <label class="control-label" for="passMemb2"><b>Confirmez le mot passe<span class="error">(*)</span> :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+            <input type="password" name="passMemb2" id="myInput2" size="80" maxlength="80" value="<?= $passMemb2; ?>" autocomplete="on" />
             <br>
             <input type="checkbox" onclick="myFunction('myInput2')">
             &nbsp;&nbsp;
@@ -258,14 +258,14 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
         <small class="error">*Champ obligatoire si nouveau passe</small><br>
         <br>
         <div class="control-group">
-            <label class="control-label" for="eMail1Memb"><b>eMail<span class="error">(*)</span> :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="email" name="eMail1Memb" id="eMail1Memb" size="80" maxlength="80" value="<?= $eMail1Memb; ?>" autocomplete="on" />
+            <label class="control-label" for="eMailMemb"><b>eMail<span class="error">(*)</span> :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+            <input type="email" name="eMailMemb" id="eMailMemb" size="80" maxlength="80" value="<?= $eMailMemb; ?>" autocomplete="on" />
         </div>
 
         <br>
         <div class="control-group">
-            <label class="control-label" for="eMail2Memb"><b>Confirmez l'eMail<span class="error">(*)</span> :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="email" name="eMail2Memb" id="eMail2Memb" size="80" maxlength="80" value="<?= $eMail2Memb; ?>" autocomplete="on" />
+            <label class="control-label" for="eMailMemb2"><b>Confirmez l'eMail<span class="error">(*)</span> :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+            <input type="email" name="eMailMemb2" id="eMailMemb2" size="80" maxlength="80" value="<?= $eMailMemb2; ?>" autocomplete="on" />
         </div>
         <small class="error">*Champ obligatoire si nouveau eMail</small><br>
 
@@ -359,9 +359,9 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
             <div class="controls">
                 <br><br>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="submit" value="Initialiser" style="cursor:pointer; padding:5px 20px; background-color:lightsteelblue; border:dotted 2px grey; border-radius:5px;" name="Submit" />
+                <input type="submit" value="Initialiser" class="imputFields" name="Submit" />
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="submit" value="Valider" style="cursor:pointer; padding:5px 20px; background-color:lightsteelblue; border:dotted 2px grey; border-radius:5px;" name="Submit" />
+                <input type="submit" value="Valider" class="imputFields" name="Submit" />
                 <br>
             </div>
         </div>

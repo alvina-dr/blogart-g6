@@ -69,6 +69,7 @@ $monStatutMM = new MEMBRE;
         <td>&nbsp; <?php echo $row["dtCreaMemb"]; ?> &nbsp;</td>
         <td>&nbsp; <?= ($row["souvenirMemb"] == 1) ? "Oui" : "Non" ?> &nbsp;</td>
         <td>&nbsp; <?= ($row["accordMemb"] == 1) ? "Oui" : "Non" ?> &nbsp;</td>
+        <td>&nbsp; <?php echo $row["idStat"]; ?> &nbsp;</td>
     
 		<td>&nbsp;<a href="./updateMembre.php?id=<?=$row["numMemb"]; ?>"><i>Modifier</i></a>&nbsp;
 		<br /></td>

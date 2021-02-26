@@ -265,9 +265,6 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="submit" value="Initialiser" class="imputFields" name="Submit" />
                 &nbsp;&nbsp;&nbsp;&nbsp;
-<!-- ------------------------------------- -->
-<!--  Erreur 2 VALUE dans input "VALIDER"  -->
-<!-- ------------------------------------- -->
                 <input type="submit" value="Valider" class="imputFields" name="Submit" />
                 <br>
             </div>

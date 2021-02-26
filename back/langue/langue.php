@@ -36,10 +36,10 @@ $monStatutL = new LANGUE;
 	<table border="3" bgcolor="aliceblue">
     <thead>
         <tr>
-        <th>&nbsp;numLang&nbsp;</th>
-            <th>&nbsp;langue&nbsp;</th>
-            <th>&nbsp;Nom complet&nbsp;</th>
-            <th>&nbsp;numPays&nbsp;</th>
+        <th>&nbsp;Numéro de la langue&nbsp;</th>
+            <th>&nbsp;Nom de la langue&nbsp;</th>
+            <th>&nbsp;Nom complet de la langue&nbsp;</th>
+            <th>&nbsp;Numéro du pays&nbsp;</th>
             <th colspan="2">&nbsp;Action&nbsp;</th>
             
         </tr>

@@ -36,9 +36,9 @@ $monStatutA = new ANGLE;
 	<table border="3" bgcolor="aliceblue">
     <thead>
         <tr>
-        <th>&nbsp;numAngl&nbsp;</th>
-            <th>&nbsp;libAngl&nbsp;</th>
-            <th>&nbsp;numLang&nbsp;</th>
+        <th>&nbsp;Numéro de l'angle&nbsp;</th>
+            <th>&nbsp;lNom de l'angle&nbsp;</th>
+            <th>&nbsp;Numéro de la langue&nbsp;</th>
             <th colspan="2">&nbsp;Action&nbsp;</th>
             
         </tr>

@@ -35,9 +35,9 @@ $monStatutMC = new MOTCLE;
 <table border="3" bgcolor="aliceblue">
 <thead>
     <tr>
-    <th>&nbsp;numMotCle&nbsp;</th>
-        <th>&nbsp;libMotCle&nbsp;</th>
-        <th>&nbsp;numLang&nbsp;</th>
+    <th>&nbsp;Numéro du mot clé&nbsp;</th>
+        <th>&nbsp;Nom du mot clé&nbsp;</th>
+        <th>&nbsp;nNuméro de la langue&nbsp;</th>
         <th colspan="2">&nbsp;Action&nbsp;</th>
         
     </tr>

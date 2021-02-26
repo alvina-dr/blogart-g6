@@ -35,10 +35,10 @@ $monComPlus = new COMMENTPLUS;
 <table border="3" bgcolor="aliceblue">
 <thead>
     <tr>
-        <th>&nbsp;numSeqCom&nbsp;</th>
-        <th>&nbsp;numArt&nbsp;</th>
-        <th>&nbsp;numSeqComR&nbsp;</th>
-        <th>&nbsp;numArtR&nbsp;</th>
+        <th>&nbsp;Numéro de la séquence du commentaire&nbsp;</th>
+        <th>&nbsp;Numéro de l'article&nbsp;</th>
+        <th>&nbsp;Numéro de la séquence du commentaire&nbsp;</th>
+        <th>&nbsp;Numéro de l'article&nbsp;</th>
 
         <th colspan="2">&nbsp;Action&nbsp;</th>
         

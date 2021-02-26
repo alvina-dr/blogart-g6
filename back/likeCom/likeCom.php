@@ -35,10 +35,10 @@ $monLikeCom = new LIKECOM;
 	<table border="3" bgcolor="aliceblue">
     <thead>
         <tr>
-        <th>&nbsp;numMemb&nbsp;</th>
-            <th>&nbsp;numSeqCom&nbsp;</th>
-            <th>&nbsp;numArt&nbsp;</th>
-            <th>&nbsp;likeC&nbsp;</th>
+        <th>&nbsp;Numéro du membre&nbsp;</th>
+            <th>&nbsp;Numéro de la séquence du commentaire&nbsp;</th>
+            <th>&nbsp;Numéro de l'article&nbsp;</th>
+            <th>&nbsp;Like du commentaire&nbsp;</th>
             <th colspan="2">&nbsp;Action&nbsp;</th>
             
         </tr>

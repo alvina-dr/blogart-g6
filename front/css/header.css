@@ -6,7 +6,6 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
-	background-color: #;
 	position: fixed;
 	z-index: 5;
     top: 0;
@@ -20,14 +19,16 @@
 	margin-top:0.5%; /*décalage vers le bas*/
 	list-style-type:none;
  }
+
 .menu_list li {
 	margin-left:2.5px;
 	margin-right: 2.5px;
     float:left; /*pour IE*/
 }
+
 #navbar ul li a {
 	display:block;
-	color: #F5F5F5; /*#DCDCDC;*/
+	color: #CF6679; /*#DCDCDC;*/
  	text-decoration:none;
  	text-align:center;
  	font-family: "Gotham Rounded";
@@ -35,8 +36,9 @@
  	margin-left:30px;
  	margin-right:30px;
 }
+
 #navbar ul li a:hover {
-    color:  #CF6679; /*#DCDCDC;*/
+    color:  #F5F5F5; /*#DCDCDC;*/
 }
 
 .logo {

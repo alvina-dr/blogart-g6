@@ -46,12 +46,12 @@ class LIKEART
 		}
 	}
 
-	function update(string $numAngl, string $libAngl, string $numLang)
+	function update(string $numArt, string $likeA, string $numMemb)
 	{
 		global $db;
 		try {
 			$db->beginTransaction();
-			$exec = "UPDATE ANGLE SET numArt=:numArt, likeA=:likeA WHERE :numMemb= numMemb;";
+			$exec = "UPDATE LIKEART SET numArt = :numArt, likeA = :likeA WHERE numMemb = :numMemb;";
             $result = $db->prepare($exec);
 			$result->bindParam(':numArt', $numArt);
 			$result->bindParam(':likeA', $likeA);

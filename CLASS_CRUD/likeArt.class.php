@@ -46,23 +46,23 @@ class LIKEART
 		}
 	}
 }
-    /*
+    
 	function update(string $numAngl, string $libAngl, string $numLang)
 	{
 		global $db;
 		try {
 			$db->beginTransaction();
-			$exec = "UPDATE ANGLE SET libAngl=:libAngl, numLang=:numLang WHERE :numAngl= numAngl;";
+			$exec = "UPDATE ANGLE SET numArt=:numArt, likeA=:likeA WHERE :numMemb= numMemb;";
             $result = $db->prepare($exec);
-            $result->bindParam(':numAngl', $numAngl);
-			$result->bindParam(':libAngl', $libAngl);
-			$result->bindParam(':numLang', $numLang);
+			$result->bindParam(':numArt', $numArt);
+			$result->bindParam(':likeA', $likeA);
+			$result->bindParam(':numMemb', $numMemb);
 			$result->execute();
 			$db->commit();
 			$result->closeCursor();
 		} catch (PDOException $erreur) {
 			die($erreur);
-			die('Erreur update ANGLE : ' . $erreur->getMessage());
+			die('Erreur update LIKEART : ' . $erreur->getMessage());
 			$db->rollBack();
 			$result->closeCursor();
 		}

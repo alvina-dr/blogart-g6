@@ -14,12 +14,13 @@
     // controle des saisies du formulaire
     require_once __DIR__ . '/../../util/ctrlSaisies.php';
     require_once __DIR__ . '/../../util/delAccents.php';
-    include __DIR__ . '/../../CLASS_CRUD/likecom.class.php';
+    include __DIR__ . '/../../CLASS_CRUD/likeart.class.php';
+    include __DIR__ . '/initLikeArt.php';
 
     
     global $db;
-    $monLikeCom= new LIKECOM;
-    // insertion classe STATUT
+    $monLikeArt= new LIKEART;
+    // insertion classe LIKEART
 
     $erreur = false;
 
@@ -27,28 +28,28 @@
         // Opérateur ternaire
         $Submit = isset($_POST['Submit']) ? $_POST['Submit'] : '';
         //Submit = "";
-        if ((isset($_POST['Submit'])) AND ($_POST["Submit"] === "Initialiser")) {
-            header("Location: ./createLikecom.php");
+        if ((isset($_POST["Submit"])) AND ($Submit === "Initialiser")) {
+
+            $sameId1 = $_POST['id1'];
+            $sameId2 = $_POST['id2'];
+            header("Location: ./updateLikeart.php?id1=".$sameId1."&id2=".$sameId2);
         }
         // Mode création
-        if (((isset($_POST['numArt'])) AND !empty($_POST['numArt']))
-        AND ((isset($_POST['numMemb'])) AND !empty($_POST['numMemb']))
-        AND ((isset($_POST['numSeqCom'])) AND !empty($_POST['numSeqCom']))
+        if (((isset($_POST['id1'])) AND !empty($_POST['id1']))
+        AND ((isset($_POST['id2'])) AND !empty($_POST['id2']))
         AND (!empty($_POST['Submit']) AND ($Submit === "Valider"))) {
             // Saisies valides
             $erreur = false;
-            $numMemb = ctrlSaisies(($_POST['numMemb']));
-            $numArt = ctrlSaisies(($_POST['numArt']));
-            $numSeqCom = ctrlSaisies(($_POST['numSeqCom']));
-            $valLikeC = ctrlSaisies($_POST['likeC']);
-            $likeC = ($valLikeC == "on") ? 1 : 0;
+            $numMemb = ctrlSaisies(($_POST['id1']));
+            $numArt = ctrlSaisies(($_POST['id2']));
+            $valLikeA = ctrlSaisies($_POST['likeA']);
+            $likeA = ($valLikeA == "on") ? 1 : 0;
             var_dump($numMemb);
             var_dump($numArt);
-            var_dump($numSeqCom);
-            var_dump($likeC);
-            $monLikeCom->create($numMemb, $numSeqCom, $numArt, $likeC);
+            var_dump($likeA);
+            $monLikeArt->update($numMemb, $numArt, $likeA);
 
-            header("Location: ./likeCom.php");
+            header("Location: ./likeArt.php");
 
         }   // Fin if
         else {
@@ -58,7 +59,7 @@
             
     }
 
-    include __DIR__ . '/initLikeCom.php';
+    
 ?>
 
 <!DOCTYPE html>
@@ -66,7 +67,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Admin - Gestion du CRUD Like Commentaire</title>
+    <title>Admin - Gestion du CRUD Like Article</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
     <meta name="author" content="" />
@@ -75,20 +76,41 @@
 </head>
 
 <body>
-    <h1>BLOGART21 Admin - Gestion du CRUD Like Commentaire</h1>
-    <h2>Ajout d'une langue</h2>
+    <h1>BLOGART21 Admin - Gestion du CRUD Like Article</h1>
+    <h2>Modification d'un like</h2>
+    <?
+    global $db;
+     if (isset($_GET['id1']) and $_GET['id1'] AND isset($_GET['id2']) and $_GET['id2']) {
+
+        
+        $numMemb = ctrlSaisies(($_GET['id1']));
+        $numArt = ctrlSaisies(($_GET['id2']));
+
+
+        
+        $query = (array)$monLikeArt->get_1LikeArt($numMemb, $numArt);
+
+        if ($query) {
+            $likeA = $query['likeA'];
+            $idMemb =  ctrlSaisies(($_GET['id1']));
+            $idArt =  ctrlSaisies(($_GET['id2']));
+            
+        }   // Fin if ($query)
+    }   // Fin if (isset($_GET['id'])...)
+?>
 
     <form method="POST" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" enctype="multipart/form-data" accept-charset="UTF-8">
 
         <fieldset>
-            <legend class="legend1">Formulaire Like Commentaire...</legend>
+            <legend class="legend1">Formulaire Like Article...</legend>
 
-            <input type="hidden" id="id" name="id" value="<?= isset($_GET['id']) ? $_GET['id'] : '' ?>" />
+            <input type="hidden" id="id1" name="id1" value="<?= isset($_GET['id1']) ? $_GET['id1'] : '' ?>" />
+            <input type="hidden" id="id2" name="id2" value="<?= isset($_GET['id2']) ? $_GET['id2'] : '' ?>" />
 
             <div class="control-group">
                 <label class="control-label" for="numMemb"><b>Quel Membre :&nbsp;</b></label>
-                <input type="hidden" id="idTypMemb" name="idTypMemb" value="<?= $numMemb; ?>" />
-                <select size="1" name="numMemb" id="numMemb" class="form-control form-control-create" tabindex="30">
+                <input type="hidden" id="idTypMemb" name="idTypMemb" value="<?=$idMemb?>" />
+                <select size="1" name="idMemb" id="idMemb" class="form-control form-control-create" tabindex="30" disabled="disabled">
                     <option value="-1">--- Selectionner un membre ---</option>
 
                     <?
@@ -103,7 +125,7 @@
                         $ListNumMemb = $tuple["numMemb"];
                         $ListPseudoMemb = $tuple["pseudoMemb"];
 ?>
-                    <option value="<?= ($ListNumMemb); ?>">
+                    <option value="<?= ($ListNumMemb); ?>" <?= ((isset($idMemb) && $idMemb == $ListNumMemb) ?  "selected=\"selected\"" : null); ?>>
                         <?= $ListPseudoMemb; ?>
                     </option>
                     <?
@@ -113,10 +135,11 @@
                 </select>
 
                 <br><br>
-                <label class="control-label" for="numArt"><b>Quel Article :&nbsp;&nbsp;</b></label>
-                <input type="hidden" id="idTypArt" name="idTypArt" value="<?= $numArt; ?>" />
-                <select size="1" name="numArt" id="numArt" class="form-control form-control-create" tabindex="30">
+                <label class="control-label" for="numArt"><b>Quel Article :&nbsp;</b></label>
+                <input type="hidden" id="idTypArt" name="idTypArt" value="<?=$idArt;?>" >
+                <select size="1" name="idArt" id="idArt" class="form-control form-control-create" tabindex="30" disabled="disabled">
                     <option value="-1">--- Selectionner un Article ---</option>
+
                     <?
                 global $db;
                 $numArt = "";
@@ -129,7 +152,7 @@
                         $ListNumArt = $tuple["numArt"];
                         $ListLibTitrArt = $tuple["libTitrArt"];
 ?>
-                    <option value="<?= ($ListNumArt); ?>">
+                    <option value="<?= ($ListNumArt); ?>" <?= ((isset($idArt) && $idArt == $ListNumArt) ?  "selected=\"selected\"" : null); ?>>
                         <?= $ListLibTitrArt; ?>
                     </option>
                     <?
@@ -138,40 +161,9 @@
 ?>
                 </select>
                 <br><br>
-                <div class="control-group">
-                <label class="control-label" for="numSeqCom"><b>Quel Commentaire :&nbsp;</b></label>
-                <input type="hidden" id="idTypSeqCom" name="idTypSeqCom" value="<?= $numSeqCom; ?>" />
-                <select size="1" name="numSeqCom" id="numSeqCom" class="form-control form-control-create" tabindex="30">
-                    <option value="-1">--- Selectionner un Commentaire ---</option>
-
-                    <?
-                global $db;
-                $numSeqCom = "";
-                $numArt = "";
-                $libCom = "";
-
-                $queryText = 'SELECT * FROM COMMENT ORDER BY libCom;';
-                $result = $db->query($queryText);
-                if ($result) {
-                    while ($tuple = $result->fetch()) {
-                        $ListNumSeqCom = $tuple["numSeqCom"]["numArt"];
-                        $ListlibCom = $tuple["libCom"];
-?>
-                    <option value="<?= ($ListNumSeqCom); ?>">
-                        <?= $ListlibCom; ?>
-                    </option>
-                    <?
-                    }
-                }   
-?>
-                </select>
-
-                
-                <br><br>
                 <label class="control-label" for=""><b> Voulez vous liker cet article? :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label><br>
-
-                <input type="checkbox" name="likeC" id="likeC" value="on"  />
-
+                
+                <input type="checkbox" name="likeA" id="likeA" <?=  ($likeA == 1)  ? 'checked="checked" "value="on" ' : 'value="on"' ?> />
 
             </div>
 
@@ -191,16 +183,16 @@
                 <div class="controls">
                     <br><br>
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <input class="inputFields" type="submit" value="Initialiser" name="Submit" />
+                    <input class="inputFields" type="submit" value="Annuler"  name="Submit" />
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <input class="inputFields" type="submit" value="Valider" name="Submit" />
+                    <input class="inputFields" type="submit" value="Valider"  name="Submit" />
                     <br>
                 </div>
             </div>
         </fieldset>
     </form>
     <?
-require_once __DIR__ . '/footerLikeCom.php';
+require_once __DIR__ . '/footerLikeArt.php';
 
 require_once __DIR__ . '/../../footer.php';
 ?>

@@ -1,136 +1,176 @@
 <?
 ///////////////////////////////////////////////////////////////
 //
-//  CRUD STATUT (PDO) - Code Modifié - 23 Janvier 2021
+//  CRUD LIKEART (PDO) - Code Modifié - 30 Janvier 2021
 //
-//  Script  : createStatut.php  (ETUD)   -   BLOGART21
+//  Script  : createLangue.php  (ETUD)   -   BLOGART21
 //
 ///////////////////////////////////////////////////////////////
 
 // Mode DEV
-require_once __DIR__ . '/../../util/utilErrOn.php';
+    require_once __DIR__ . '/../../util/utilErrOn.php';
+    
+    
+    // controle des saisies du formulaire
+    require_once __DIR__ . '/../../util/ctrlSaisies.php';
+    require_once __DIR__ . '/../../util/delAccents.php';
+    include __DIR__ . '/../../CLASS_CRUD/likeart.class.php';
 
+    
+    global $db;
+    $monLikeArt= new LIKEART;
     // insertion classe STATUT
-require_once __DIR__ . '/../../CLASS_CRUD/likeArt.class.php';
-global $db;
-$monLikeArt = new LIKEART;
-// controle des saisies du formulaire
-require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
-  // Gestion du $_SERVER["REQUEST_METHOD"] => En POST
-    // ajout effectif du statut 
+    $erreur = false;
 
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
-
-      // Opérateur ternaire
-      $Submit = isset($_POST['Submit']) ? $_POST['Submit'] : '';
-
-      if ((isset($_POST["Submit"])) AND ($_POST["Submit"] === "Initialiser")) {
-
-          header("Location: ./createLikeArt.php");
-      }   // End of if ((isset($_POST["submit"])) ...
-
-      
-      if (((isset($_POST['numArt'])) AND !empty($_POST['numArt']))
-            AND ((isset($_POST['likeA'])) AND !empty($_POST['likeA']))
-            AND (!empty($_POST['Submit']) AND ($Submit === "Valider"))) { //PAS TOUCHER CETTE LIGNE
-
+        // Opérateur ternaire
+        $Submit = isset($_POST['Submit']) ? $_POST['Submit'] : '';
+        //Submit = "";
+        if ((isset($_POST['Submit'])) AND ($_POST["Submit"] === "Initialiser")) {
+            header("Location: ./createLikeart.php");
+        }
+        // Mode création
+        if (((isset($_POST['numArt'])) AND !empty($_POST['numArt']))
+        AND ((isset($_POST['numMemb'])) AND !empty($_POST['numMemb']))
+        AND (!empty($_POST['Submit']) AND ($Submit === "Valider"))) {
             // Saisies valides
             $erreur = false;
-                
-            //$numLikeArt = 0;
+            $numMemb = ctrlSaisies(($_POST['numMemb']));
             $numArt = ctrlSaisies(($_POST['numArt']));
-            $likeA = ctrlSaisies(($_POST['likeA']));
-
+            $valLikeA = ctrlSaisies($_POST['likeA']);
+            $likeA = ($valLikeA == "on") ? 1 : 0;
+            var_dump($numMemb);
+            var_dump($numArt);
+            var_dump($likeA);
             $monLikeArt->create($numMemb, $numArt, $likeA);
 
-            //header("Location: ./langue.php");
+            header("Location: ./likeArt.php");
 
-        }   // Fin if ((isset($_POST['legendImg'])) ...
+        }   // Fin if
         else {
             $erreur = true;
-            $errSaisies =  "Erreur, la saisie est obligatoire !";
-        }   // Fin else erreur saisies
+            $errSaisies = "Erreur, la saisie est obligatoire !";
+        }
+            
+    }
 
-  }   // Fin if ($_SERVER["REQUEST_METHOD"] == "POST")
-
-    // Init variables form
     include __DIR__ . '/initLikeArt.php';
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="utf-8" />
-    <title>Admin - Gestion du CRUD Like</title>
+    <title>Admin - Gestion du CRUD Like Article</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <link href="../../back/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="../css/style.css" rel="stylesheet" type="text/css" />
 </head>
+
 <body>
-    <h1>BLOGART21 Admin - Gestion du CRUD Like</h1>
-    <h2>Ajout d'un Like</h2>
+    <h1>BLOGART21 Admin - Gestion du CRUD Like Article</h1>
+    <h2>Ajout d'une langue</h2>
 
-    <form method="post" action="./createLikeArt.php" enctype="multipart/form-data">
+    <form method="POST" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" enctype="multipart/form-data" accept-charset="UTF-8">
 
-      <fieldset>
-        <legend class="legend1">Formulaire Like...</legend>
-        <br>
-    <!-- Listbox Articles -->
-    <br>
-        <div class="control-group">
-            <label class="control-label" for="LibNumArt"><b>Quel article :&nbsp;&nbsp;&nbsp;</b></label>
-                <input type="hidden" id="idNumArt" name="idNumArt" value="<?= isset($_GET['numArt']) ? $_GET['numArt'] : '' ?>" />
+        <fieldset>
+            <legend class="legend1">Formulaire Like Article...</legend>
 
-                <select size="1" name="TypLikeArt" id="TypLikeArt" required class="form-control form-control-create" title="Sélectionnez le nom de l'article !" >
-                   <option value="-1">Choisissez un article </option>
-<?
-            $numArt = "";
-            $libTitrArt = "";
+            <input type="hidden" id="id" name="id" value="<?= isset($_GET['id']) ? $_GET['id'] : '' ?>" />
 
-            $queryText = 'SELECT * FROM ARTICLE ORDER BY numArt;';
-            $result = $db->query($queryText);
-            if ($result) {
-                while ($tuple = $result->fetch()) {
-                    $LibNumArt = $tuple["numArt"];
-                    $LibTitrArt = $tuple["libTitrArt"];
+            <div class="control-group">
+                <label class="control-label" for="numMemb"><b>Quel Membre :&nbsp;</b></label>
+                <input type="hidden" id="idTypMemb" name="idTypMemb" value="<?= $numMemb; ?>" />
+                <select size="1" name="numMemb" id="numMemb" class="form-control form-control-create" tabindex="30">
+                    <option value="-1">--- Selectionner un membre ---</option>
+
+                    <?
+                global $db;
+                $numMemb = "";
+                $pseudoMemb = "";
+
+                $queryText = 'SELECT * FROM MEMBRE ORDER BY pseudoMemb;';
+                $result = $db->query($queryText);
+                if ($result) {
+                    while ($tuple = $result->fetch()) {
+                        $ListNumMemb = $tuple["numMemb"];
+                        $ListPseudoMemb = $tuple["pseudoMemb"];
 ?>
-                    <option value="<?= $LibNumArt; ?>" >
-                        <?= $LibTitrArt; ?>
+                    <option value="<?= ($ListNumMemb); ?>">
+                        <?= $ListPseudoMemb; ?>
                     </option>
-<?
-                } // End of while
-            }   // if ($result)
+                    <?
+                    }
+                }   
 ?>
                 </select>
-        </div>
-    <!-- FIN Listbox article -->
-        <br>
-        <div class="control-group">
-            <label class="control-label" for="likeA"><b>Like de l'article ou non (Exemple : 1 ou 0) :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="checkbox" name="likeA" id="likeA" size="80" maxlength="30" value="<?= $likeA; ?>" autofocus="autofocus" />
-        </div>
- 
-        <br>
-        </div>
 
-        <div class="control-group">
-            <div class="controls">
                 <br><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="submit" value="Initialiser" class="imputFields" name="Submit" />
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="submit" value="Valider" class="imputFields" name="Submit" value="on"/>
-                <br>       
+                <label class="control-label" for="numArt"><b>Quel Article :&nbsp;&nbsp;</b></label>
+                <input type="hidden" id="idTypArt" name="idTypArt" value="<?= $numArt; ?>" />
+                <select size="1" name="numArt" id="numArt" class="form-control form-control-create" tabindex="30">
+                    <option value="-1">--- Selectionner un Article ---</option>
+                    <?
+                global $db;
+                $numArt = "";
+                $libTitrArt = "";
+
+                $queryText = 'SELECT * FROM ARTICLE ORDER BY libTitrArt;';
+                $result = $db->query($queryText);
+                if ($result) {
+                    while ($tuple = $result->fetch()) {
+                        $ListNumArt = $tuple["numArt"];
+                        $ListLibTitrArt = $tuple["libTitrArt"];
+?>
+                    <option value="<?= ($ListNumArt); ?>">
+                        <?= $ListLibTitrArt; ?>
+                    </option>
+                    <?
+                    } 
+                }
+?>
+                </select>
+                <br><br>
+                <label class="control-label" for=""><b> Voulez vous liker cet article? :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label><br>
+
+                <input type="checkbox" name="likeA" id="likeA" value="on"  />
+
+
             </div>
-        </div>
-      </fieldset>
+
+            <?
+            if ($erreur)
+            {
+                echo ($errSaisies);
+            }
+            else {
+                $errSaisies= "";
+                echo ($errSaisies);
+    
+            }
+?>
+            <div class="control-group">
+
+                <div class="controls">
+                    <br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input class="inputFields" type="submit" value="Initialiser" name="Submit" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input class="inputFields" type="submit" value="Valider" name="Submit" />
+                    <br>
+                </div>
+            </div>
+        </fieldset>
     </form>
-<?
+    <?
 require_once __DIR__ . '/footerLikeArt.php';
 
-require_once __DIR__ . '/footer.php';
+require_once __DIR__ . '/../../footer.php';
 ?>
 </body>
+
 </html>

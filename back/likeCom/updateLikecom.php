@@ -113,7 +113,7 @@
             <div class="control-group">
                 <label class="control-label" for="numMemb"><b>Quel Membre :&nbsp;</b></label>
                 <input type="hidden" id="idTypMemb" name="idTypMemb" value="<?=$idMemb?>" />
-                <select size="1" name="idMemb" id="idMemb" class="form-control form-control-create" tabindex="30" disabled="disabled">
+                <select size="1" name="idMemb" id="idMemb" class="form-control form-control-create" tabindex="30" >
                     <option value="-1">--- Selectionner un membre ---</option>
 
                     <?
@@ -140,7 +140,7 @@
                 <br><br>
                 <label class="control-label" for="numArt"><b>Quel Article :&nbsp;</b></label>
                 <input type="hidden" id="idTypArt" name="idTypArt" value="<?=$idArt;?>" >
-                <select size="1" name="idArt" id="idArt" class="form-control form-control-create" tabindex="30" disabled="disabled">
+                <select size="1" name="idArt" id="idArt" class="form-control form-control-create" tabindex="30" >
                     <option value="-1">--- Selectionner un Article ---</option>
 
                     <?
@@ -168,7 +168,7 @@
                 <div class="control-group">
                 <label class="control-label" for="numSeqCom"><b>Quel Commentaire :&nbsp;</b></label>
                 <input type="hidden" id="idTypSeqCom" name="idTypSeqCom" value="<?= $idSeqCom; ?>" />
-                <select size="1" name="idSeqCom" id="idSeqCom" class="form-control form-control-create" tabindex="30" disabled="disabled">
+                <select size="1" name="idSeqCom" id="idSeqCom" class="form-control form-control-create" tabindex="30" >
                     <option value="-1">--- Selectionner un Commentaire ---</option>
 
                     <?

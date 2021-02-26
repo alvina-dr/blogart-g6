@@ -94,34 +94,36 @@ function get_AllMembresByPseudo($pseudoMemb)
 		}
 	}
 
-	function update($numMemb, $prenomMemb, $nomMemb, $pseudoMemb, $passMemb, $eMailMemb, $dtCreaMemb, $souvenirMemb, $accordMemb, $idStat)
-	{
+	function update($numMemb, $prenomMemb, $nomMemb, $passMemb, $eMailMemb, $souvenirMemb, $idStat){
 		global $db;
 		try {
-			$db->beginTransaction();
-			$exec = "UPDATE MEMBRE SET prenomMemb=:prenomMemb, nomMemb=:nomMemb, pseudoMemb=:pseudoMemb, passMemb=:passMemb, eMailMemb=:eMailMemb, dtCreaMemb=:dtCreaMemb, souvenirMemb=:souvenirMemb, accordMemb=:accordMemb, idStat=:idStat WHERE numMemb= :numMemb;";
-            $result = $db->prepare($exec);
-			$result->bindParam(':numMemb', $numMemb);
-            $result->bindParam(':prenomMemb', $prenomMemb);
-			$result->bindParam(':nomMemb', $nomMemb);
-			$result->bindParam(':pseudoMemb', $pseudoMemb);
-			$result->bindParam(':passMemb', $passMemb);
-			$result->bindParam(':eMailMemb', $eMailMemb);
-			$result->bindParam(':dtCreaMemb', $dtCreaMemb);
-			$result->bindParam(':souvenirMemb', $souvenirMemb);
-			$result->bindParam(':accordMemb', $accordMemb);
-			$result->bindParam(':idStat', $idStat);
-			
-			$result->execute();
-			$db->commit();
-			$result->closeCursor();
-		} catch (PDOException $erreur) {
-			die($erreur);
-			die('Erreur update MOTCLE : ' . $erreur->getMessage());
-			$db->rollBack();
-			$result->closeCursor();
-		}
+   $db->beginTransaction();
+   if ($passMemb == -1) {
+	  # PASS non modifié
+		$query = 'UPDATE MEMBRE SET prenomMemb=?, nomMemb=?, eMailMemb=?, souvenirMemb=?, idStat=? WHERE numMemb=?';
+					$request1 = $db->prepare($query);
+					$request1->execute([$prenomMemb, $nomMemb, $eMailMemb, $souvenirMemb, $idStat, $numMemb]);
+					$db->commit();
+					$request1->closeCursor();
+	} else {
+	  # PASS modifié
+	  $query = 'UPDATE MEMBRE SET prenomMemb=?, nomMemb=?, passMemb=?, eMailMemb=?, souvenirMemb=?, idStat=? WHERE numMemb=?';
+					$request2 = $db->prepare($query);
+					$request2->execute([$prenomMemb, $nomMemb, $passMemb, $eMailMemb, $souvenirMemb, $idStat, $numMemb]);
+					$db->commit();
+					$request2->closeCursor();
 	}
+		}
+		catch (PDOException $e) {
+				$db->rollBack();
+				if ($passMemb == -1) {
+					$request1->closeCursor();
+				} else {
+				  $request2->closeCursor();
+				}
+				die('Erreur update MEMBRE : ' . $e->getMessage());
+		}
+}
 
 // Ctrl FK sur THEMATIQUE, ANGLE, MOTCLE avec del
  	function delete($numMotCle)

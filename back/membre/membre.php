@@ -40,11 +40,11 @@ $monStatutMM = new MEMBRE;
             <th>&nbsp;prenomMemb&nbsp;</th>
             <th>&nbsp;nomMemb&nbsp;</th>
             <th>&nbsp;pseudoMemb&nbsp;</th>
-            <th>&nbsp;passMemb&nbsp;</th>
             <th>&nbsp;eMailMemb&nbsp;</th>
             <th>&nbsp;dtCreaMemb&nbsp;</th>
             <th>&nbsp;souvenirMemb&nbsp;</th>
             <th>&nbsp;accordMemb&nbsp;</th>
+            <th>&nbsp;Statut&nbsp;</th>
             <th colspan="2">&nbsp;Action&nbsp;</th>
             
         </tr>
@@ -69,6 +69,7 @@ $monStatutMM = new MEMBRE;
         <td>&nbsp; <?php echo $row["dtCreaMemb"]; ?> &nbsp;</td>
         <td>&nbsp; <?= ($row["souvenirMemb"] == 1) ? "Oui" : "Non" ?> &nbsp;</td>
         <td>&nbsp; <?= ($row["accordMemb"] == 1) ? "Oui" : "Non" ?> &nbsp;</td>
+        <td>&nbsp; <?php echo $row["idStat"]; ?> &nbsp;</td>
     
 		<td>&nbsp;<a href="./updateMembre.php?id=<?=$row["numMemb"]; ?>"><i>Modifier</i></a>&nbsp;
 		<br /></td>

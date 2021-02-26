@@ -20,3 +20,7 @@
     $errMail1 = "";
     $errMail2 = "";
     $errPass = "";
+    $eMail1Memb = "";
+    $eMail2Memb = "";
+    $pass1Memb = "";
+    $pass2Memb = "";

@@ -13,7 +13,6 @@
     
     // controle des saisies du formulaire
     require_once __DIR__ . '/../../util/ctrlSaisies.php';
-    require_once __DIR__ . '/../../util/delAccents.php';
     require_once __DIR__ . '/../../CLASS_CRUD/likeArt.class.php';
 
     

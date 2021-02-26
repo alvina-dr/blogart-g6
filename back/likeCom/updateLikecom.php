@@ -14,7 +14,7 @@
     // controle des saisies du formulaire
     require_once __DIR__ . '/../../util/ctrlSaisies.php';
     require_once __DIR__ . '/../../util/delAccents.php';
-    include __DIR__ . '/../../CLASS_CRUD/likecom.class.php';
+    require_once __DIR__ . '/../../CLASS_CRUD/likeCom.class.php';
     include __DIR__ . '/initLikeCom.php';
 
     
@@ -47,10 +47,7 @@
             $numSeqCom = ctrlSaisies(($_POST['id3']));
             $valLikeC = ctrlSaisies($_POST['likeC']);
             $likeC = ($valLikeC == "on") ? 1 : 0;
-            var_dump($numMemb);
-            var_dump($numArt);
-            var_dump($numSeqCom);
-            var_dump($likeC);
+;
             $monLikeCom->update($numMemb, $numSeqCom, $numArt, $likeC);
 
             header("Location: ./likeCom.php");

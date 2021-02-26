@@ -1,117 +1,88 @@
-<?
+<?php
 ///////////////////////////////////////////////////////////////
 //
-//  CRUD ANGLE (PDO) - Code Modifié - 23 Janvier 2021
+//  CRUD THEMATIQUE (PDO) - Code Modifié - 23 Janvier 2021
 //
-//  Script  : createStatut.php  (ETUD)   -   BLOGART21
+//  Script  : createThematique.php  (ETUD)   -   BLOGART21
 //
 ///////////////////////////////////////////////////////////////
+$pageTitle = 'Thématique';
 
 // Mode DEV
 require_once __DIR__ . '/../../util/utilErrOn.php';
-
-    // insertion classe STATUT
-require_once __DIR__ . '/../../CLASS_CRUD/thematique.class.php';
-global $db;
-$maThematique = new THEMATIQUE;
-// controle des saisies du formulaire
 require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
+// Insertion classe
+require_once __DIR__ . '/../../CLASS_CRUD/langue.class.php';
+$langue = new LANGUE();
+require_once __DIR__ . '/../../CLASS_CRUD/thematique.class.php';
+$thematique = new THEMATIQUE();
 
-    // Gestion du $_SERVER["REQUEST_METHOD"] => En POST
-    // ajout effectif du statut 
+// Init variables form
+include __DIR__ . '/initThematique.php';
+$error = null;
 
-    if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-      // Opérateur ternaire
-      $Submit = isset($_POST['Submit']) ? $_POST['Submit'] : '';
+// Controle des saisies du formulaire
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (!empty($_POST['libThem']) && !empty($_POST['numLang'])) {
+        $libThem = ctrlSaisies($_POST['libThem']);
+        $numLang = $_POST['numLang'];
 
-      if ((isset($_POST["Submit"])) AND ($_POST["Submit"] === "Initialiser")) {
+        if (strlen($libThem) >= 3) {
+            // Ajout effectif de la langue
+            $thematique->create($libThem, $numLang);
 
-          header("Location: ./createThematique.php");
-      }   // End of if ((isset($_POST["submit"])) ...
+            header('Location: ./thematique.php');
+        } else {
+            $error = 'La longueur minimale d\'une thématique est de 3 caractères.';
+        }
+    } else {
+        $error = 'Merci de renseigner tous les champs du formulaire.';
+    }
+}
 
-      
-      if (((isset($_POST['libThem'])) AND !empty($_POST['libThem']))
-            AND ((isset($_POST['TypLang'])) AND !empty($_POST['TypLang']))
-            AND (!empty($_POST['Submit']) AND ($Submit === "Valider"))) {
+$languages = $langue->get_AllLangues();
 
-            // Saisies valides
-            $erreur = false;
-                
-            $numThem = 0;
-            $libThem = ctrlSaisies(($_POST['libThem']));
-            $numLang = ctrlSaisies(($_POST['TypLang']));
-
-        }   // Fin if ((isset($_POST['legendImg'])) ...
-        else {
-            $erreur = true;
-            $errSaisies =  "Erreur, la saisie est obligatoire !";
-        }   // Fin else erreur saisies
-
-  }   // Fin if ($_SERVER["REQUEST_METHOD"] == "POST")
-
-    // Init variables form
-    include __DIR__ . '/initThematique.php';
 ?>
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="utf-8" />
-    <title>Admin - Gestion du CRUD thematique</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
 
-    <link href="../../back/css/style.css" rel="stylesheet" type="text/css" />
-</head>
-<body>
-    <h1>BLOGART21 Admin - Gestion du CRUD thematique</h1>
-    <h2>Ajout d'une Thematique</h2>
+<main class="container">
+<link href="../../back/css/style.css" rel="stylesheet" type="text/css" />
+    <div class="d-flex flex-column">
+        <h1>BLOGART21 Admin - Gestion du CRUD Thématique</h1>
+        <hr>
 
-    <form method="post" action="./createThematique.php" enctype="multipart/form-data">
+        <div class="row d-flex justify-content-center">
+            <div class="col-8">
+                <h2>Ajout d'une thématique</h2>
 
-      <fieldset>
-        <legend class="legend1">Formulaire Thematique...</legend>
-        <br>
-        <div class="control-group">
-            <label class="control-label" for="libThem"><b>Thématique (Exemple : Enquète) :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="text" name="libThem" id="libThem" size="80" maxlength="30" value="<?= $libThem; ?>" autofocus="autofocus" />
-        </div>
-        <br>
-        <!-- FK : Langue -->
-    <!-- Listbox langue -->
-    <br>
-        <div class="control-group">
-            <label class="control-label" for="LibTypLang"><b>Quelle langue :&nbsp;&nbsp;&nbsp;</b></label>
-                <input type="hidden" id="idTypLang" name="idTypLang" value="<?= isset($_GET['numLang']) ? $_GET['numLang'] : '' ?>" />
+                <?php if ($error) : ?>
+                    <div class="alert alert-danger"><?= $error ?: '' ?></div>
+                <?php endif ?>
 
-                <select size="1" name="TypLang" id="TypLang" required class="form-control form-control-create" title="Sélectionnez la langue !" >
-                   <option value="-1">Choisissez une langue </option>
-<?
-            $numLang = "";
-            $lib1Lang = "";
+                <form class="form" method="post" action="" enctype="multipart/form-data">
 
-            $queryText = 'SELECT * FROM LANGUE ORDER BY lib1Lang;';
-            $result = $db->query($queryText);
-            if ($result) {
-                while ($tuple = $result->fetch()) {
-                    $ListNumLang = $tuple["numLang"];
-                    $ListLibLang = $tuple["lib1Lang"];
-?>
-                    <option value="<?= $ListNumLang; ?>" >
-                        <?= $ListLibLang; ?>
-                    </option>
-<?
-                } // End of while
-            }   // if ($result)
-?>
-                </select>
-        </div>
-    <!-- FIN Listbox langue -->
-        </div>
-        <br>
-        <div class="control-group">
+                    <fieldset>
+                        <legend class="legend1">Formulaire Thématique...</legend>
+
+                        <input type="hidden" id="id" name="id" value="<?= isset($_GET['id']) ?: '' ?>" />
+
+                        <div class="control-group mb-3">
+                            <label for="libThem"><b>Nom de la thématique :</b></label>
+                            <input class="control-label" type="text" name="libThem" id="libThem" size="80" maxlength="80" value="<?= $libThem ?>" autofocus="autofocus" />
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="numLang"><b>Langues :</b></label>
+                            <select name="numLang" class="control-label" id="numLang">
+                                <option value="">Choississez une langue</option>
+                                <?php foreach ($languages as $language) : ?>
+                                    <option value="<?= $language->numLang ?>"><?= $language->lib1Lang ?></option>
+                                <?php endforeach ?>
+                            </select>
+                        </div>
+
+                        <div class="control-group">
             <div class="controls">
                 <br><br>
                 &nbsp;&nbsp;&nbsp;&nbsp;
@@ -122,11 +93,12 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
             </div>
         </div>
       </fieldset>
-    </form>
-<?
-require_once __DIR__ . '/footerThematique.php';
+                </form>
+            </div>
+        </div>
 
-require_once __DIR__ . '/footer.php';
-?>
-</body>
-</html>
+        <?php require_once __DIR__ . '/footerThematique.php';
+
+require_once __DIR__ . '/footer.php'; ?>
+    </div>
+</main>

@@ -222,9 +222,9 @@
                 <div class="controls">
                     <br><br>
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <input class="inputFields" type="submit" value="Annuler" name="Submit" />
+                    <input class="imputFields" type="submit" value="Annuler" name="Submit" />
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <input class="inputFields" type="submit" value="Valider" name="Submit" />
+                    <input class="imputFields" type="submit" value="Valider" name="Submit" />
                     <br>
                 </div>
             </div>

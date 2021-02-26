@@ -1,76 +1,79 @@
-<?
+<?php
 /////////////////////////////////////////////////////
 //
-//  CRUD THEME (PDO) - Modifié - 6 Décembre 2020
+//  CRUD THEMATIQUE (PDO) - Modifié - 6 Décembre 2020
 //
-//  Script  : angle.php  (ETUD)   -   BLOGART21
+//  Script  : thematique.php  (ETUD)   -   BLOGART21
 //
 /////////////////////////////////////////////////////
+$pageTitle = 'Thématique';
 
 // Mode DEV
 require_once __DIR__ . '/../../util/utilErrOn.php';
+
+// Insertion classe ANGLE
 require_once __DIR__ . '/../../CLASS_CRUD/thematique.class.php';
-global $db; 
-$monStatutT = new THEMATIQUE;
+$thematiques = new THEMATIQUE();
+
+// Appel méthode : tous les angles en BDD
+$all = $thematiques->get_AllThematiques();
+
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="utf-8" />
-    <title>Admin - Gestion du CRUD THEMATIQUE</title>
+	<title>Gestion des thématiques</title>
+	<meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-
     <link href="../../back/css/style.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        .error {
+            padding: 2px;
+            border: solid 0px black;
+            color: red;
+            font-style: italic;
+            border-radius: 5px;
+        }
+    </style>
 </head>
-<body>
-<body>
-    <h1>BLOGART21 Admin - Gestion du CRUD THEMATIQUE</h1>
+<main class="container">
+    <div class="d-flex flex-column">
+        <h1>BLOGART21 Admin - Gestion du CRUD Thématique</h1>
+        <img class="soulignage2" src="../../front/assets/icons/soulignage.svg"> <!--BARRE--><br />
+        <h2>Nouvelle Thématique : <a href="./createThematique.php"><i>Créer une Thématique</i></a></h2>
+        <img class="soulignage2" src="../../front/assets/icons/soulignage.svg"> <!--BARRE--><br />
+        <h2>Toutes les Thématiques</h2>
 
-    <hr /><br />
-	<h2>Nouvelle THEMATIQUE :&nbsp;<a href="./createThematique.php"><i>Créer une Thématique</i></a></h2>
-	<br /><hr />
-	<h2>Tout les THEMATIQUE</h2>
-
-	<table border="3" bgcolor="aliceblue">
-    <thead>
-        <tr>
-        <th>&nbsp;numThem&nbsp;</th>
-            <th>&nbsp;libThem&nbsp;</th>
-            <th>&nbsp;numLang&nbsp;</th>
-            <th colspan="2">&nbsp;Action&nbsp;</th>
-            
-        </tr>
-    </thead>
-    <tbody>
-
-<?
- $allStatuts = $monStatutT->get_AllTheme();
- foreach($allStatuts as $row) {
-	// Appel méthode : tous les statuts en BDD
-?>
-        <tr>
-		<td><h4>&nbsp; <?= $row["numThem"]; ?> &nbsp;</h4></td>
-
-        <td>&nbsp; <?php echo $row["libThem"]; ?> &nbsp;</td>
-        <td>&nbsp; <?php echo $row["numLang"]; ?> &nbsp;</td>
-
-		<td>&nbsp;<a href="./updateThematique.php?id=<?=$row["numThem"]; ?>"><i>Modifier</i></a>&nbsp;
-		<br /></td>
-		<td>&nbsp;<a href="./deleteThematique.php?id=<?=$row["numThem"]; ?>"><i>Supprimer</i></a>&nbsp;
-		<br /></td>
-        </tr>
-<?
-	}	// End of foreach
-?>
-    </tbody>
-    </table>
-    <br><br>
-
-<?
-require_once __DIR__ . '/footer.php';
-?>
-</body>
-</html>
-
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Numéro</th>
+                    <th>Langue</th>
+                    <th>Libellé</th>
+                    <th colspan="2">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($all as $row) : ?>
+                    <tr>
+                        <td>
+                            <h4> <?= $row->numThem ?> </h4>
+                        </td>
+                        <td> <?= $row->numLang ?> </td>
+                        <td> <?= $row->libThem ?> </td>
+                        <td><a href="./updateThematique.php?id=<?= $row->numThem ?>"><i>Modifier</i></a>
+                            <br>
+                        </td>
+                        <td><a href="./deleteThematique.php?id=<?= $row->numThem ?>"><i>Supprimer</i></a>
+                            <br>
+                        </td>
+                    </tr>
+                <?php endforeach  ?>
+            </tbody>
+        </table>
+    </div>
+</main>
+<?php require_once __DIR__ . '/../footer.php' ?>

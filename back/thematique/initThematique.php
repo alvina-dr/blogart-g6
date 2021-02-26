@@ -1,4 +1,4 @@
-<?
+<?php
 /*
 * Table THEMATIQUE
 * initThematique.php

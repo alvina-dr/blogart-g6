@@ -13,7 +13,8 @@
     
     // controle des saisies du formulaire
     require_once __DIR__ . '/../../util/ctrlSaisies.php';
-    include __DIR__ . '/../../CLASS_CRUD/likeart.class.php';
+    require_once __DIR__ . '/../../util/delAccents.php';
+    require_once __DIR__ . '/../../CLASS_CRUD/likeArt.class.php';
 
     
     global $db;
@@ -39,9 +40,7 @@
             $numArt = ctrlSaisies(($_POST['numArt']));
             $valLikeA = ctrlSaisies($_POST['likeA']);
             $likeA = ($valLikeA == "on") ? 1 : 0;
-            var_dump($numMemb);
-            var_dump($numArt);
-            var_dump($likeA);
+
             $monLikeArt->create($numMemb, $numArt, $likeA);
 
             header("Location: ./likeArt.php");
@@ -157,9 +156,9 @@
                 <div class="controls">
                     <br><br>
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <input class="inputFields" type="submit" value="Initialiser" name="Submit" />
+                    <input class="imputFields" type="submit" value="Initialiser" name="Submit" />
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <input class="inputFields" type="submit" value="Valider" name="Submit" />
+                    <input class="imputFields" type="submit" value="Valider" name="Submit" />
                     <br>
                 </div>
             </div>

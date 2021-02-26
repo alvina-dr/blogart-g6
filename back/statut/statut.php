@@ -44,9 +44,9 @@ $monStatut = new STATUT;
 <body>
 	<h1>BLOGART21 Admin - Gestion du CRUD Statut</h1>
 
-	<hr /><br />
+	<img class="soulignage2" src="../../front/assets/icons/soulignage.svg"> <!--BARRE--><br /><br />
 	<h2>Nouveau statut :&nbsp;<a href="./createStatut.php"><i>Créer un statut</i></a></h2>
-	<br /><hr />
+	<br /><img class="soulignage2" src="../../front/assets/icons/soulignage.svg"> <!--BARRE--><br />
 	<h2>Tous les statuts</h2>
 
 	<table border="3" bgcolor="aliceblue">

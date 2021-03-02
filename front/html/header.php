@@ -17,6 +17,7 @@
 </head>
 
 <body>
+
 	<header>
 		<balise id="hautdepage"></balise>
 		<div id="navbar">
@@ -35,9 +36,11 @@
 				<li><a href="../../back/index1.php">Admin</a></li>
 			</ul>
 			<ul class="log">
-				<li><a href="../../front/html/inscription.php">Inscription</a></li>
-				<li><a href="../../back/membre/logout.php">Déconnexion</a></li>
-				<li ><a class="connexion" href="../../front/html/connexion.php"></a></li>
+			<li><a href="../../back/membre/logout.php">Déconnexion</a></li>
+			<li><a href="../../front/html/inscription.php">Inscription</a></li>
+			<li ><a class="connexion" href="../../front/html/connexion.php"></a></li>
+
+
 			</ul>
 			</div>
 		<div class="espace_header">
@@ -46,3 +49,7 @@
 	<script src="../../front/js/header.js"></script>
 </body>
 </html>
+
+<!--?php
+			//require_once __DIR__ . '../../back/membre/headerMembre.php';
+			?-->

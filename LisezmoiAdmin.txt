@@ -1,0 +1,37 @@
+GROUPE 6 _ Cyril Bas, Vincent Boucher, Adrien Dumont, Alvina Damasio--Razafiarizaka, Pauline Grellier, Maurine Cros
+
+url installation du projet en local
+
+http://blog-artg6/
+
+url du projet serveur iut
+
+///
+
+pseudo et pass du super admin
+
+jaqueslesuperadmin
+
+mdp : mmiBordeaux
+
+pseudo et pass du admin 
+
+jaquesladmin
+
+mdp : mmiBordeaux
+
+pseudo et pass du modérateur
+
+jaqueslemodo
+
+mdp : mmiBordeaux
+
+les clés Captcha
+
+Il n’y en a pas 
+
+ce qui est fonctionnel (ce qui ne l'est pas) en back, en front
+
+cf Google Sheet “Tests utilisateurs”
+
+https://docs.google.com/spreadsheets/d/1bnKGuELqRNQS4V-y8x3UnV1LJLz_K6GA9D37UewyTy0/edit?usp=sharing

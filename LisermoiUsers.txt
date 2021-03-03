@@ -1,0 +1,13 @@
+GROUPE 6 _ Cyril Bas, Vincent Boucher, Adrien Dumont, Alvina Damasio--Razafiarizaka, Pauline Grellier, Maurine Cros
+
+ login/pass en tant que super-admin
+
+jaqueslesuperadmin
+
+mdp : mmiBordeaux
+
+login/pass en tant que membre 
+
+jaqueslemembre
+
+mdp : mmiBordeaux

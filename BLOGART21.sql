@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Mar 03, 2021 at 09:18 AM
+-- Generation Time: Mar 03, 2021 at 01:24 PM
 -- Server version: 5.7.32
 -- PHP Version: 7.4.12
 
@@ -306,7 +306,10 @@ INSERT INTO `MEMBRE` (`numMemb`, `prenomMemb`, `nomMemb`, `pseudoMemb`, `passMem
 (2, 'Julie', 'La Rousse', 'juju1989', 'G54;Q22mi5', 'julie@gmail.com', '2020-03-15 14:33:23', 0, 1, 3),
 (3, 'David', 'Bowie', 'dav33B', 'kp09,1K4!', 'david.bowie@gmail.com', '2020-07-19 13:13:13', 1, 1, 4),
 (4, 'Phil', 'Collins', 'cols2P', 'mq3j4;6GH', 'phil.collins@me.com', '2020-11-04 17:39:09', 1, 1, 2),
-(5, 'Prince', 'Rogers Nelson dit PRINCE', 'Rogers222', 'frI3!Px;21', 'prince@gmail.com', '2020-12-14 13:24:23', 0, 1, 9);
+(5, 'Martine', 'onvousaime', 'jaqueslesuperadmin', 'mmiBordeaux', 'salle255@mmibordeaux.com', '2020-12-14 13:24:23', 1, 1, 9),
+(6, 'Martin', 'dumatin', 'jaquesladmin', 'mmiBordeaux', 'salle255@mmibordeaux.com', '2020-12-14 13:24:23', 1, 1, 5),
+(7, 'Jaques', 'dusoir', 'jaqueslemodo', 'mmiBordeaux', 'salle255@mmibordeaux.com', '2020-12-14 13:24:23', 1, 1, 2),
+(8, 'membre', 'dujour', 'jaqueslemembre', 'mmiBordeaux', 'salle255@mmibordeaux.com', '2020-12-14 13:24:23', 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -897,7 +900,7 @@ ALTER TABLE `ARTICLE`
 -- AUTO_INCREMENT for table `MEMBRE`
 --
 ALTER TABLE `MEMBRE`
-  MODIFY `numMemb` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `numMemb` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `MOTCLE`
